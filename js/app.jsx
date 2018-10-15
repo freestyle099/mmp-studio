@@ -1,14 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { HashRouter, Route, Switch, Redirect } from "react-router-dom";
+import { HashRouter, Route, Switch, Redirect, NavLink } from "react-router-dom";
 
 document.addEventListener("DOMContentLoaded", function() {
-
-  
-
   class MMPStudio extends React.Component {
     render() {
-      return <div>Hejka</div>;
+      return (
+        <div>
+          <NavLink to="/galeria">Galeria</NavLink>
+        </div>
+      );
     }
   }
 
@@ -41,6 +42,12 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
+  class Gallery extends React.Component {
+    render() {
+      return <div>Galeria zdjęć MMP</div>;
+    }
+  }
+
   const App = () => {
     return (
       <HashRouter>
@@ -48,6 +55,7 @@ document.addEventListener("DOMContentLoaded", function() {
           <Switch>
             <Route exact path="/" component={MMPStudio} />
             <Route path="/fotobudka" component={MMPStudioFotoBudka} />
+            <Route path="/galeria" component={Gallery} />
           </Switch>
         </div>
       </HashRouter>

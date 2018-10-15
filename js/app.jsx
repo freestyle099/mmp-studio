@@ -3,59 +3,71 @@ import ReactDOM from "react-dom";
 import { HashRouter, Route, Switch, Redirect, NavLink } from "react-router-dom";
 
 document.addEventListener("DOMContentLoaded", function() {
+  class MMPStudioNavigation extends React.Component {
+    render() {
+      return (
+        <div>
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/galeria">Galeria</NavLink>
+          <NavLink to="/kontakt">Kontakt</NavLink>
+        </div>
+      );
+    }
+  }
   class MMPStudio extends React.Component {
     render() {
       return (
-        <HashRouter>
-          <div>
-            <NavLink to="/galeria">Galeria</NavLink>
-
-            <Switch>
-              <Route exact path="/home" component={MMPStudioMain} />
-              <Route path="/galeria" component={Gallery} />
-            </Switch>
-          </div>
-        </HashRouter>
+        <div>
+          <MMPStudioNavigation />
+          Home
+          <NavLink to='/fotobudka'>Fotobudka</NavLink>
+        </div>
       );
     }
   }
 
-  class MMPStudioMain extends React.Component {
-    render() {
-      return <div>Main FB</div>;
-    }
-  }
-
-  class FBMain extends React.Component {
-    render() {
-      return <div>Siema fb Main</div>;
-    }
-  }
-
-  class MMPStudioFotoBudka extends React.Component {
+  class Gallery extends React.Component {
     render() {
       return (
-        <HashRouter>
-          <div>
-            <FotobudkaNavigation />
-            <Switch>
-              <Route exact path="/fotobudka/home" component={FBMain} />
-            </Switch>
-          </div>
-        </HashRouter>
+        <div>
+          <MMPStudioNavigation />
+          Galeria
+        </div>
+      );
+    }
+  }
+  class Contact extends React.Component {
+    render() {
+      return (
+        <div>
+          <MMPStudioNavigation />
+          Kontakt
+        </div>
       );
     }
   }
 
   class FotobudkaNavigation extends React.Component {
     render() {
-      return <div>Siema</div>;
+      return (
+        <div>
+          <NavLink to="/fotobudka">Home</NavLink>
+          <NavLink to="/fotobudka/galeria">Galeria</NavLink>
+          <NavLink to="/fotobudka/kontakt">Kontakt</NavLink>
+        </div>
+      );
     }
   }
 
-  class Gallery extends React.Component {
+  class Fotobudka extends React.Component {
     render() {
-      return <div>Galeria zdjęć MMP</div>;
+      return (
+        <div>
+          <FotobudkaNavigation />
+          Fotobudka
+          <NavLink to='/'>MMPStudio</NavLink>
+        </div>
+      );
     }
   }
 
@@ -65,8 +77,9 @@ document.addEventListener("DOMContentLoaded", function() {
         <div>
           <Switch>
             <Route exact path="/" component={MMPStudio} />
-            <Route path="/fotobudka" component={MMPStudioFotoBudka} />
             <Route path="/galeria" component={Gallery} />
+            <Route path="/kontakt" component={Contact} />
+            <Route path="/fotobudka" component={Fotobudka} />
           </Switch>
         </div>
       </HashRouter>

@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
         <div>
           <MMPStudioNavigation />
           Home
-          <NavLink to='/fotobudka'>Fotobudka</NavLink>
+          <NavLink to="/fotobudka">Fotobudka</NavLink>
         </div>
       );
     }
@@ -59,13 +59,35 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
+  class FotobudkaGallery extends React.Component {
+    render() {
+      return (
+        <div>
+          <FotobudkaNavigation />
+          Fotobudka Galeria
+        </div>
+      );
+    }
+  }
+
+  class FotobudkaContact extends React.Component {
+    render() {
+      return (
+        <div>
+          <FotobudkaNavigation />
+          Fotobudka Kontakt
+        </div>
+      );
+    }
+  }
+
   class Fotobudka extends React.Component {
     render() {
       return (
         <div>
           <FotobudkaNavigation />
           Fotobudka
-          <NavLink to='/'>MMPStudio</NavLink>
+          <NavLink to="/">MMPStudio</NavLink>
         </div>
       );
     }
@@ -79,6 +101,8 @@ document.addEventListener("DOMContentLoaded", function() {
             <Route exact path="/" component={MMPStudio} />
             <Route path="/galeria" component={Gallery} />
             <Route path="/kontakt" component={Contact} />
+            <Route path="/fotobudka/galeria" component={FotobudkaGallery} />
+            <Route path="/fotobudka/kontakt" component={FotobudkaContact} />
             <Route path="/fotobudka" component={Fotobudka} />
           </Switch>
         </div>

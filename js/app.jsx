@@ -2,18 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { HashRouter, Route, Switch, Redirect, NavLink } from "react-router-dom";
 
+import MMPStudioNavigation from './components/main/Navigation';
+
+
+import "bootstrap/scss/bootstrap.scss";
+import "../scss/style.scss";
+
 document.addEventListener("DOMContentLoaded", function() {
-  class MMPStudioNavigation extends React.Component {
-    render() {
-      return (
-        <div>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/galeria">Galeria</NavLink>
-          <NavLink to="/kontakt">Kontakt</NavLink>
-        </div>
-      );
-    }
-  }
+
+
   class MMPStudio extends React.Component {
     render() {
       return (
@@ -36,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
       );
     }
   }
+
   class Contact extends React.Component {
     render() {
       return (

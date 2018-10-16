@@ -1,5 +1,7 @@
+@import "./variables";
+
 .header {
-  background-color: #fff000;
+  background-color: $header-bg;
   height: 50px;
 }
 nav.container {
@@ -16,5 +18,8 @@ nav.container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    a {
+      color: $font-color;
+    }
   }
 }

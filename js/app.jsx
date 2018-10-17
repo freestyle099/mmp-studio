@@ -2,83 +2,17 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { HashRouter, Route, Switch, Redirect, NavLink } from "react-router-dom";
 
-import MMPStudioHeader from "./components/main/Navigation";
-import FotobudkaNavigation from "./components/fotobudka/FBNavigation";
+import FotobudkaGallery from "./components/fotobudka/FBGallery";
+import FotobudkaContact from "./components/fotobudka/FBContact";
+import Contact from "./components/main/Contact";
+import Gallery from "./components/main/Gallery";
+import MMPStudio from "./components/main/Main";
+import Fotobudka from "./components/fotobudka/FBMain";
 
 import "bootstrap/scss/bootstrap.scss";
 import "../scss/style.scss";
 
 document.addEventListener("DOMContentLoaded", function() {
-  class MMPStudio extends React.Component {
-    render() {
-      return (
-        <div>
-          <MMPStudioHeader />
-          <div className="container">
-            Home
-            <NavLink to="/fotobudka">Fotobudka</NavLink>
-          </div>
-        </div>
-      );
-    }
-  }
-
-  class Gallery extends React.Component {
-    render() {
-      return (
-        <div>
-          <MMPStudioHeader />
-          Galeria
-        </div>
-      );
-    }
-  }
-
-  class Contact extends React.Component {
-    render() {
-      return (
-        <div>
-          <MMPStudioHeader />
-          Kontakt
-        </div>
-      );
-    }
-  }
-
-  class FotobudkaGallery extends React.Component {
-    render() {
-      return (
-        <div>
-          <FotobudkaNavigation />
-          Fotobudka Galeria
-        </div>
-      );
-    }
-  }
-
-  class FotobudkaContact extends React.Component {
-    render() {
-      return (
-        <div>
-          <FotobudkaNavigation />
-          Fotobudka Kontakt
-        </div>
-      );
-    }
-  }
-
-  class Fotobudka extends React.Component {
-    render() {
-      return (
-        <div>
-          <FotobudkaNavigation />
-          Fotobudka
-          <NavLink to="/">MMPStudio</NavLink>
-        </div>
-      );
-    }
-  }
-
   const App = () => {
     return (
       <HashRouter>

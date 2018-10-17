@@ -1,12 +1,42 @@
-@import './variables';
-
+@import "./variables";
+h2 {
+  font: {
+    family: $font-charmon;
+  }
+  text: {
+    align: center;
+  }
+}
 .additional {
-  h2 {
-    font: {
-      family: $font-charmon;
-    }
-    text: {
-      align: center;
+  .images-work {
+    display: flex;
+    justify-content: space-between;
+    a {
+      width: 30%;
+      text-align: center;
+      &.image-main {
+        transition: 0.5s;
+        &:hover {
+          box-shadow: 0px 0px 20px 0px $main-color;
+        }
+      }
+      &.image-fb {
+        transition: 0.5s;
+        &:hover {
+          box-shadow: 0px 0px 20px 0px $second-color;
+        }
+      }
+      &.image-jubiler {
+        transition: 0.5s;
+        &:hover {
+          box-shadow: 0px 0px 20px 0px $third-color;
+        }
+      }
+      img {
+        width: 80%;
+        padding: 5px;
+        object-fit: cover;
+      }
     }
   }
 }

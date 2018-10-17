@@ -2,6 +2,7 @@ import React from "react";
 import MMPStudioHeader from "../main/Navigation";
 import AdditionalWork from "../main/AdditionalWork";
 import Slider from "../main/Slider";
+import Accordion from "../main/Accordion";
 
 export default class MMPStudio extends React.Component {
   images = [
@@ -16,6 +17,7 @@ export default class MMPStudio extends React.Component {
         <MMPStudioHeader />
         <Slider class="bg-color-slider main" images={this.images} />
         <AdditionalWork/>
+        <Accordion/>
       </div>
     );
   }

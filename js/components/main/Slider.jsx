@@ -10,14 +10,14 @@ export default class Slider extends React.Component {
             <ol className="carousel-indicators">
               {this.props.images.map((el, index) => {
                 return (
-                  <li data-target="#carouselExampleFade" data-slide-to={index} className={index === 0 && "active"}/>
+                  <li key={index} data-target="#carouselExampleFade" data-slide-to={index} className={index === 0 && "active"}/>
                 );
               })}
             </ol>
             <div className="carousel-inner">
               {this.props.images.map((el, index) => {
                 return (
-                  <div className={index === 0 ? "carousel-item active" : "carousel-item"}>
+                  <div key={index} className={index === 0 ? "carousel-item active" : "carousel-item"}>
                     <img className="d-block w-100" src={el} alt="First slide"/>
                   </div>
                 );

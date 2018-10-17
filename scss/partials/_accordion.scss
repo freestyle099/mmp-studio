@@ -1,0 +1,21 @@
+@import './variables';
+
+.accordion {
+  background-color: $bg-color;
+  padding-bottom: 50px;
+  .card, .card-header {
+    background-color: transparent;
+    border: none
+  }
+
+  .btn-link {
+    text-decoration: none;
+    font: {
+      size: 26px
+    }
+  }
+
+  .card-body {
+    background-color: $white;
+  }
+}

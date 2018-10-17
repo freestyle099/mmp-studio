@@ -4,9 +4,13 @@ import { NavLink } from "react-router-dom";
 export default class MMPStudioHeader extends React.Component {
   render() {
     return (
-      <div className='header main'>
+      <div className="header main">
         <nav className="container">
-          <div className="logo">MMP STUDIO</div>
+          <div className="logo">
+            <NavLink to='/'>
+              <img src="../../../images/logo_studio.png" alt="" />
+            </NavLink>
+          </div>
           <ul className="navigation">
             <li>
               <NavLink to="/">Strona Główna</NavLink>
@@ -23,4 +27,3 @@ export default class MMPStudioHeader extends React.Component {
     );
   }
 }
-

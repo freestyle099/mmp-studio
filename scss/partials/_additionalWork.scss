@@ -1,0 +1,12 @@
+@import './variables';
+
+.additional {
+  h2 {
+    font: {
+      family: $font-charmon;
+    }
+    text: {
+      align: center;
+    }
+  }
+}

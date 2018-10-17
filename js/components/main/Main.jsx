@@ -1,6 +1,6 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import MMPStudioHeader from "../main/Navigation";
+import AdditionalWork from "../main/AdditionalWork";
 import Slider from "../main/Slider";
 
 export default class MMPStudio extends React.Component {
@@ -14,11 +14,8 @@ export default class MMPStudio extends React.Component {
     return (
       <div>
         <MMPStudioHeader />
-        <Slider images={this.images} />
-        <div className="container">
-          Home
-          <NavLink to="/fotobudka">Fotobudka</NavLink>
-        </div>
+        <Slider class="bg-color-slider main" images={this.images} />
+        <AdditionalWork/>
       </div>
     );
   }

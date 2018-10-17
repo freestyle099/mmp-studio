@@ -4,7 +4,7 @@ export default class Slider extends React.Component {
 
   render() {
     return (
-      <div className='bg-color-slider'>
+      <div className={this.props.class}>
         <div className="container pb-5 pt-5">
           <div id="carouselExampleFade" className="carousel slide carousel-fade" data-ride="carousel">
             <ol className="carousel-indicators">

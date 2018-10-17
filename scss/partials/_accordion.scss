@@ -7,9 +7,13 @@
     background-color: transparent;
     border: none
   }
+  .card-header {
+    padding: 0;
+  }
 
   .btn-link {
     text-decoration: none;
+    color: $font-color;
     font: {
       size: 26px
     }
@@ -17,5 +21,6 @@
 
   .card-body {
     background-color: $white;
+    color: $font-color;
   }
 }

@@ -21,6 +21,7 @@
   "homepage": "https://github.com/freestyle09/mmp-studio#readme",
   "dependencies": {
     "@types/react": "^16.4.14",
+    "express": "^4.16.4",
     "react": "^15.4.0",
     "react-dom": "^15.4.0",
     "react-router-dom": "^4.3.1",

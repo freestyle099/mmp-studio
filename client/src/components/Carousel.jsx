@@ -4,7 +4,6 @@ export default class Carousel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      images: [],
       slider: 0,
       time: 3000
     };
@@ -14,7 +13,7 @@ export default class Carousel extends React.Component {
     this.id = setInterval(() => {
       this.setState({
         slider:
-          this.state.slider >= this.state.images.length - 1
+          this.state.slider >= this.props.images.length - 1
             ? (this.state.slider = 0)
             : this.state.slider + 1
       });
@@ -26,7 +25,7 @@ export default class Carousel extends React.Component {
     this.play();
     this.setState({
       slider:
-        this.state.slider >= this.state.images.length - 1
+        this.state.slider >= this.props.images.length - 1
           ? (this.state.slider = 0)
           : this.state.slider + 1,
       timer: 3000
@@ -38,21 +37,21 @@ export default class Carousel extends React.Component {
     this.setState({
       slider:
         this.state.slider <= 0
-          ? (this.state.slider = this.state.images.length - 1)
+          ? (this.state.slider = this.props.images.length - 1)
           : this.state.slider - 1
     });
   };
 
   render() {
     return (
-      <div className="container my-slider z-depth-5">
+      <div className="container my-slider z-depth-3">
         <button onClick={this.prevSlide} className="arrows left">
           left
         </button>
         <button onClick={this.nextSlide} className="arrows right">
           right
         </button>
-        {this.state.images.map((el, index) => {
+        {this.props.images.map((el, index) => {
           return (
             <img
               className={
@@ -67,13 +66,6 @@ export default class Carousel extends React.Component {
     );
   }
   componentDidMount() {
-    fetch("/api/images")
-      .then(resp => resp.json())
-      .then(data => {
-        this.setState({
-          images: data
-        });
-      });
     this.play();
   }
   componentWillUnmount() {

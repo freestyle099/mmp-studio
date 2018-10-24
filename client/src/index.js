@@ -106,15 +106,32 @@ class Navigation extends React.Component {
 
 // Main MMPStudio
 class MMPStudio extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      images: []
+    }
+  }
+
+
   render() {
     return (
       <div>
         <Navigation />
         <div className="container">MMPStudio</div>
-        <Carousel/>
+        <Carousel images={this.state.images}/>
         <NavigationImages />
       </div>
     );
+  }
+  componentDidMount() {
+    fetch("/api/images")
+      .then(resp => resp.json())
+      .then(data => {
+        this.setState({
+          images: data
+        });
+      });
   }
 }
 

@@ -1,5 +1,5 @@
 @import "~materialize-css/sass/materialize.scss";
-@import './_variables.scss';
+@import "./_variables.scss";
 
 body {
   @extend .grey, .lighten-4;
@@ -17,7 +17,6 @@ nav {
 }
 .navigation {
   text-transform: uppercase;
-
 }
 
 .main-nav {
@@ -48,4 +47,36 @@ nav {
     width: 100%;
     object-fit: cover;
   }
+}
+
+.my-slider {
+  height: 400px;
+  position: relative;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.arrows {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 999;
+  &.right {
+    right: 0;
+  }
+}
+
+.slider {
+  position: absolute;
+  transition: opacity 0.5s ease-out;
+  opacity: 0;
+
+  overflow: hidden;
+}
+.active-slider {
+  opacity: 1;
 }

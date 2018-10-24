@@ -4,22 +4,48 @@ export default class Carousel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      images: []
+      images: [],
+      slider: 0
     };
   }
 
+  nextSlide = () => {
+    console.log(this.state.images.length);
+    this.setState({
+      slider:
+        this.state.slider >= this.state.images.length - 1
+          ? (this.state.slider = 0)
+          : this.state.slider + 1
+    });
+  };
+
+  prevSlide = () => {
+    this.setState({
+      slider:
+        this.state.slider <= 0
+          ? (this.state.slider = this.state.images.length - 1)
+          : this.state.slider - 1
+    });
+  };
+
   render() {
     return (
-      <div>
-        <div className="carousel carousel-slider">
-          {this.state.images.map(el => {
-            return (
-              <a className="carousel-item">
-                <img src={el.url}/>
-              </a>
-            );
-          })}
-        </div>
+      <div className="container my-slider">
+        <button onClick={this.prevSlide} className="arrows left">left</button>
+        <button onClick={this.nextSlide} className="arrows right">
+          right
+        </button>
+        {this.state.images.map((el,index) => {
+          return (
+            <img
+              className={
+                this.state.slider === index ? "active-slider slider" : "slider"
+              }
+              key={index}
+              src={el.url}
+            />
+          );
+        })}
       </div>
     );
   }

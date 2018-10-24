@@ -8,7 +8,7 @@ import {
   Link
 } from "react-router-dom";
 
-// import Carousel from "./components/Carousel";
+import Carousel from "./components/Carousel";
 
 import "./style/style.scss";
 
@@ -64,7 +64,7 @@ class JubilerNavigation extends React.Component {
           </Link>
           <ul className="container navigation right">
             <li>
-              <Link to="/jubiler">Jubiler</Link>
+              <Link to="/jubiler">Strona Główna</Link>
             </li>
             <li>
               <Link to="/jubiler/galeria">Galeria</Link>
@@ -111,6 +111,7 @@ class MMPStudio extends React.Component {
       <div>
         <Navigation />
         <div className="container">MMPStudio</div>
+        <Carousel/>
         <NavigationImages />
       </div>
     );

@@ -2,12 +2,34 @@
 body {
   @extend .blue, .lighten-2;
 }
-//nav {
-//  @extend .orange, .accent-4;
-//  .navigation {
-//    text-transform: uppercase;
-//  }
-//}
+nav {
+  box-sizing: content-box;
+}
+.nav {
+  @extend .orange, .accent-4;
+  .navigation {
+    text-transform: uppercase;
+  }
+}
 .fb-nav {
-  @extend .blue, .accent-4;
+  @extend .orange;
+  border-bottom: 5px solid red
+}
+
+.right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.image-logo {
+  width: 100px;
+  height: 50px;
+}
+
+.brand-logo {
+  max-width: 200px;
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
 }

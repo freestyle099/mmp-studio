@@ -1,0 +1,10 @@
+@import '~materialize-css/sass/materialize.scss';
+body {
+  @extend .blue, .lighten-2;
+}
+nav {
+  @extend .green;
+  .navigation {
+    text-transform: uppercase;
+  }
+}

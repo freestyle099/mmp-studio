@@ -46,10 +46,10 @@ export default class Carousel extends React.Component {
     return (
       <div className="container my-slider z-depth-3">
         <button onClick={this.prevSlide} className="arrows left">
-          left
+          <i className="fas fa-angle-left"></i>
         </button>
         <button onClick={this.nextSlide} className="arrows right">
-          right
+          <i className="fas fa-angle-right"></i>
         </button>
         {this.props.images.map((el, index) => {
           return (
@@ -62,6 +62,9 @@ export default class Carousel extends React.Component {
             />
           );
         })}
+        <button className='circle-empty'>
+          <i className="far fa-circle"></i>
+        </button>
       </div>
     );
   }

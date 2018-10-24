@@ -65,6 +65,18 @@ nav {
   top: 50%;
   transform: translateY(-50%);
   z-index: 999;
+  border: none;
+  background-color: transparent;
+  font-size: 46px;
+  color: white;
+  cursor: pointer;
+  transition: .2s;
+  &:focus {
+    background-color: transparent;
+  }
+  &:hover {
+    font-size: 56px;
+  }
   &.right {
     right: 0;
   }
@@ -77,4 +89,12 @@ nav {
 }
 .active-slider {
   opacity: 1;
+}
+
+.circle-empty {
+  position: absolute;
+  z-index: 999;
+  bottom: 0;
+  left: 50%;
+  transform: rotateX(-50%);
 }

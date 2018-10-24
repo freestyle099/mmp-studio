@@ -1,6 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch,
+  Link
+} from "react-router-dom";
+
+// import Carousel from "./components/Carousel";
 
 import "./style/style.scss";
 
@@ -40,20 +48,12 @@ class FotobudkaContact extends React.Component {
 // Jubiler
 
 class Jubiler extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return <div>Jubiler Main</div>;
   }
 }
 
 class JubilerGallery extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return <div>Jubiler Gallery</div>;
   }
@@ -65,10 +65,10 @@ class Navigation extends React.Component {
     return (
       <div>
         {this.props.navigation === "main" && (
-          <nav>
+          <nav className="main-nav">
             <div className="nav-wrapper container">
               <Link className="brand-logo" to="/">
-                <img src="logo_studio.png" alt="" />
+                <img src="./logo_studio.png" alt="" />
               </Link>
               <ul className="container navigation right">
                 <li>
@@ -92,7 +92,7 @@ class Navigation extends React.Component {
               </Link>
               <ul className="container navigation right">
                 <li>
-                  <Link to="/fotobudka">Fotobudka</Link>
+                  <Link to="/fotobudka">Strona główna</Link>
                 </li>
                 <li>
                   <Link to="/fotobudka/kontakt">Kontakt</Link>
@@ -103,10 +103,10 @@ class Navigation extends React.Component {
         )}
         {/* Jubiler Navigation */}
         {this.props.navigation === "jubiler" && (
-          <nav>
+          <nav className="jubiler-nav">
             <div className="nav-wrapper container">
               <Link className="brand-logo" to="/jubiler">
-                <img src="logo_jubiler.png" alt="" />
+                <img src={"logo_jubiler.png" || "logo_studio.png"} alt="" />
               </Link>
               <ul className="container navigation right">
                 <li>
@@ -119,6 +119,22 @@ class Navigation extends React.Component {
             </div>
           </nav>
         )}
+      </div>
+    );
+  }
+}
+
+class NotFound extends React.Component {
+  render() {
+    return <div>Not Found</div>;
+  }
+}
+
+class Home extends React.Component {
+  render() {
+    return (
+      <div>
+
       </div>
     );
   }
@@ -143,6 +159,7 @@ class App extends React.Component {
       <Router>
         <div>
           <Navigation navigation={this.state.navigation} />
+          {/*<Carousel />*/}
           <div className="container">
             <ul>
               <li>
@@ -170,17 +187,41 @@ class App extends React.Component {
               </li>
             </ul>
           </div>
-          <Route exact path="/" component={MMPStudio} />
-          <Route exact path="/galeria" component={Gallery} />
-          <Route exact path="/kontakt" component={Contact} />
-          <Route exact path="/fotobudka" component={Fotobudka} />
-          <Route exact path="/jubiler" component={Jubiler} />{" "}
-          <Route exact path="/fotobudka" component={Fotobudka} />
-          <Route exact path="/jubiler/galeria" component={JubilerGallery} />
+          <Switch>
+            <Route exact path="/" component={MMPStudio} />
+            <Route path="/galeria" component={Gallery} />
+            <Route path="/kontakt" component={Contact} />
+            <Route
+              exact
+              path="/fotobudka/kontakt"
+              component={FotobudkaContact}
+            />
+            <Route exact path="/jubiler/galeria" component={JubilerGallery} />
+            <Route path="/fotobudka" component={Fotobudka} />
+            <Route path="/jubiler" component={Jubiler} />
+            <Route exact path="/not-found" component={NotFound} />
+            <Redirect from="*" to="/not-found" />
+          </Switch>
         </div>
       </Router>
     );
   }
+  componentDidMount() {
+    console.log(this.state.navigation);
+    this.setState({
+      navigation: "main"
+    });
+  }
+  componentWillUnmount() {
+    this.setState({
+      navigation: "main"
+    });
+  }
+  // componentDidUpdate() {
+  //   if(window.location.href.indexOf('fotobudka') > 0) {
+  //     console.log('hi');
+  //   }
+  // }
 }
 
 ReactDOM.render(<App />, document.getElementById("root"));

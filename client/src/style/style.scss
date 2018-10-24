@@ -1,18 +1,35 @@
 @import "~materialize-css/sass/materialize.scss";
+@import './_variables.scss';
 
 body {
-  @extend .blue, .lighten-4;
+  @extend .grey, .lighten-4;
+  color: $font-color;
 }
+
 nav {
   box-sizing: content-box;
   @extend .white;
+  ul {
+    a {
+      color: $font-color;
+    }
+  }
 }
 .navigation {
   text-transform: uppercase;
+
+}
+
+.main-nav {
+  border-bottom: 3px solid $main-color;
 }
 
 .fb-nav {
-  border-bottom: 5px solid red;
+  border-bottom: 3px solid $fb-color;
+}
+
+.jubiler-nav {
+  border-bottom: 3px solid $jub-color;
 }
 
 .right {

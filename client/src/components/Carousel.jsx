@@ -5,21 +5,36 @@ export default class Carousel extends React.Component {
     super(props);
     this.state = {
       images: [],
-      slider: 0
+      slider: 0,
+      time: 3000
     };
   }
 
+  play = () => {
+    this.id = setInterval(() => {
+      this.setState({
+        slider:
+          this.state.slider >= this.state.images.length - 1
+            ? (this.state.slider = 0)
+            : this.state.slider + 1
+      });
+    }, this.state.time);
+  };
+
   nextSlide = () => {
-    console.log(this.state.images.length);
+    clearInterval(this.id);
+    this.play();
     this.setState({
       slider:
         this.state.slider >= this.state.images.length - 1
           ? (this.state.slider = 0)
-          : this.state.slider + 1
+          : this.state.slider + 1,
+      timer: 3000
     });
   };
-
   prevSlide = () => {
+    clearInterval(this.id);
+    this.play();
     this.setState({
       slider:
         this.state.slider <= 0
@@ -30,12 +45,14 @@ export default class Carousel extends React.Component {
 
   render() {
     return (
-      <div className="container my-slider">
-        <button onClick={this.prevSlide} className="arrows left">left</button>
+      <div className="container my-slider z-depth-5">
+        <button onClick={this.prevSlide} className="arrows left">
+          left
+        </button>
         <button onClick={this.nextSlide} className="arrows right">
           right
         </button>
-        {this.state.images.map((el,index) => {
+        {this.state.images.map((el, index) => {
           return (
             <img
               className={
@@ -57,5 +74,9 @@ export default class Carousel extends React.Component {
           images: data
         });
       });
+    this.play();
+  }
+  componentWillUnmount() {
+    clearInterval(this.id);
   }
 }

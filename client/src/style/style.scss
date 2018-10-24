@@ -1,19 +1,18 @@
-@import '~materialize-css/sass/materialize.scss';
+@import "~materialize-css/sass/materialize.scss";
+
 body {
-  @extend .blue, .lighten-2;
+  @extend .blue, .lighten-4;
 }
 nav {
   box-sizing: content-box;
+  @extend .white;
 }
-.nav {
-  @extend .orange, .accent-4;
-  .navigation {
-    text-transform: uppercase;
-  }
+.navigation {
+  text-transform: uppercase;
 }
+
 .fb-nav {
-  @extend .orange;
-  border-bottom: 5px solid red
+  border-bottom: 5px solid red;
 }
 
 .right {

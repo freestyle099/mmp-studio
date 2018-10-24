@@ -1,8 +1,8 @@
-import "materialize-css/dist/css/materialize.min.css";
-import "./style/style.scss";
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+import "./style/style.scss";
 
 // Main MMPStudio
 class MMPStudio extends React.Component {
@@ -67,11 +67,8 @@ class Navigation extends React.Component {
         {this.props.navigation === "main" && (
           <nav>
             <div className="nav-wrapper container">
-              <Link className='brand-logo' to="/">
-                <img
-                  src='logo_studio.png'
-                  alt=""
-                />
+              <Link className="brand-logo" to="/">
+                <img src="logo_studio.png" alt="" />
               </Link>
               <ul className="container navigation right">
                 <li>
@@ -90,11 +87,8 @@ class Navigation extends React.Component {
         {this.props.navigation === "fb" && (
           <nav className="fb-nav">
             <div className="nav-wrapper container">
-              <Link className='brand-logo' to="/fotobudka">
-                <img
-                  src='logo_fotobudka.png'
-                  alt=""
-                />
+              <Link className="brand-logo" to="/fotobudka">
+                <img src="logo_fotobudka.png" alt="" />
               </Link>
               <ul className="container navigation right">
                 <li>
@@ -111,7 +105,9 @@ class Navigation extends React.Component {
         {this.props.navigation === "jubiler" && (
           <nav>
             <div className="nav-wrapper container">
-              <Link to="/">MMPStudio</Link>
+              <Link className="brand-logo" to="/jubiler">
+                <img src="logo_jubiler.png" alt="" />
+              </Link>
               <ul className="container navigation right">
                 <li>
                   <Link to="/jubiler">Jubiler</Link>

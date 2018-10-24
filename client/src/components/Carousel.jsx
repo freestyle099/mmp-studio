@@ -32,6 +32,7 @@ export default class Carousel extends React.Component {
     });
   };
   prevSlide = () => {
+    console.log(this.state.slider);
     clearInterval(this.id);
     this.play();
     this.setState({
@@ -42,14 +43,22 @@ export default class Carousel extends React.Component {
     });
   };
 
+  setActiveSlide = e => {
+    console.log(e.target.dataset.slider);
+    let slider = e.target.dataset.slider;
+    this.setState({
+      slider: slider
+    });
+  };
+
   render() {
     return (
       <div className="container my-slider z-depth-3">
         <button onClick={this.prevSlide} className="arrows left">
-          <i className="fas fa-angle-left"></i>
+          <i className="fas fa-angle-left" />
         </button>
         <button onClick={this.nextSlide} className="arrows right">
-          <i className="fas fa-angle-right"></i>
+          <i className="fas fa-angle-right" />
         </button>
         {this.props.images.map((el, index) => {
           return (
@@ -62,9 +71,20 @@ export default class Carousel extends React.Component {
             />
           );
         })}
-        <button className='circle-empty'>
-          <i className="far fa-circle"></i>
-        </button>
+        <div className="circle-container">
+          {this.props.images.map((el, index) => {
+            return (
+              <button
+                key={index}
+                onClick={this.setActiveSlide}
+                className="circle-empty"
+                data-slider={index}
+              >
+                <i className="far fa-circle" />
+              </button>
+            );
+          })}
+        </div>
       </div>
     );
   }

@@ -67,15 +67,15 @@ nav {
   z-index: 999;
   border: none;
   background-color: transparent;
-  font-size: 46px;
+  font-size: 40px;
   color: white;
   cursor: pointer;
-  transition: .2s;
+  transition: .5s ease-in-out;
   &:focus {
     background-color: transparent;
   }
   &:hover {
-    font-size: 56px;
+    font-size: 50px;
   }
   &.right {
     right: 0;
@@ -91,10 +91,10 @@ nav {
   opacity: 1;
 }
 
-.circle-empty {
+.circle-container {
   position: absolute;
   z-index: 999;
   bottom: 0;
   left: 50%;
-  transform: rotateX(-50%);
+  transform: translateX(-50%);
 }

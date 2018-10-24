@@ -2,9 +2,12 @@
 body {
   @extend .blue, .lighten-2;
 }
-nav {
-  @extend .green;
-  .navigation {
-    text-transform: uppercase;
-  }
+//nav {
+//  @extend .orange, .accent-4;
+//  .navigation {
+//    text-transform: uppercase;
+//  }
+//}
+.fb-nav {
+  @extend .blue, .accent-4;
 }

@@ -60,7 +60,7 @@ class JubilerNavigation extends React.Component {
       <nav className="jubiler-nav">
         <div className="nav-wrapper container">
           <Link className="brand-logo" to="/jubiler">
-            <img src={"logo_jubiler.png" || "logo_studio.png"} alt="" />
+            <img src="logo_jubiler.png" alt="" />
           </Link>
           <ul className="container navigation right">
             <li>
@@ -148,6 +148,7 @@ class Fotobudka extends React.Component {
       <div>
         <FBNavigation />
         Hello Fotobudka
+        <NavigationImages />
       </div>
     );
   }
@@ -155,7 +156,13 @@ class Fotobudka extends React.Component {
 
 class FotobudkaContact extends React.Component {
   render() {
-    return <div>Hello Fotobudka Kontakt</div>;
+    return (
+      <div>
+        <FBNavigation />
+        Hello Fotobudka Kontakt
+        <NavigationImages />
+      </div>
+    );
   }
 }
 
@@ -163,13 +170,25 @@ class FotobudkaContact extends React.Component {
 
 class Jubiler extends React.Component {
   render() {
-    return <div>Jubiler Main</div>;
+    return (
+      <div>
+        <JubilerNavigation />
+        <div className="container">Jubiler Main</div>
+        <NavigationImages />
+      </div>
+    );
   }
 }
 
 class JubilerGallery extends React.Component {
   render() {
-    return <div>Jubiler Gallery</div>;
+    return (
+      <div>
+        <JubilerNavigation />
+        <div className="container">Jubiler Gallery</div>
+        <NavigationImages />
+      </div>
+    );
   }
 }
 

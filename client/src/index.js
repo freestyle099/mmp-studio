@@ -10,15 +10,14 @@ import {
 } from "react-router-dom";
 
 import Carousel from "./components/Carousel";
-
 import "./style/style.scss";
 
 class NavigationImages extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      class: 'nav-img-container'
-    }
+      class: "nav-img-container"
+    };
   }
 
   goToTop = () => {
@@ -26,7 +25,7 @@ class NavigationImages extends React.Component {
   };
   render() {
     return (
-      <div className={'nav-img-container ' + this.state.class}>
+      <div className={"nav-img-container " + this.state.class}>
         <div className="container">
           <h2>Zajmujemy się jeszcze...</h2>
           <div className="navigation-images">
@@ -53,13 +52,13 @@ class NavigationImages extends React.Component {
   componentDidMount() {
     if (window.location.href.indexOf("fotobudka") > 1) {
       this.setState({
-        class: 'nav-img-container-fb'
-      })
+        class: "nav-img-container-fb"
+      });
     }
     if (window.location.href.indexOf("jubiler") > 1) {
       this.setState({
-        class: 'nav-img-container-jubiler'
-      })
+        class: "nav-img-container-jubiler"
+      });
     }
   }
 }
@@ -150,6 +149,72 @@ class Navigation extends React.Component {
   }
 }
 
+class AboutUs extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      active: 1
+    };
+  }
+
+  showTab = e => {
+    const body = e.currentTarget.parentElement.querySelector(".body");
+    const allBody = document.querySelectorAll(".body");
+    for (let el of allBody) {
+      el.classList.remove("active-accordion");
+    }
+
+    body.classList.toggle("active-accordion");
+  };
+  render() {
+    return (
+      <div>
+        <div className="container">
+          <h2>O nas</h2>
+          <div className="center-align">
+            <img className="img-aboutus" src="mya2.png" alt="" />
+          </div>
+
+          <h2>Dlaczego MMPStudio?</h2>
+          {/* Accordion */}
+          <ul className="accordion">
+            <li>
+              <div onClick={this.showTab} className="header">
+                Header
+              </div>
+              <div className="body z-depth-1-half">
+                <div className="acc-padding">Body</div>
+              </div>
+            </li>
+            <li>
+              <div onClick={this.showTab} className="header">
+                Header2
+              </div>
+              <div className="body z-depth-1-half">
+                <div className="acc-padding">Body</div>
+              </div>
+            </li>
+            <li>
+              <div onClick={this.showTab} className="header">
+                Header2
+              </div>
+              <div className="body z-depth-1-half">
+                <div className="acc-padding">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Dignissimos eaque error labore, nam quod tempora. Aut culpa
+                  cumque deleniti, dicta dignissimos dolorem facere ipsum magnam
+                  molestias odit, praesentium provident vitae.
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    );
+  }
+  componentDidMount() {}
+}
+
 // Main MMPStudio
 class MMPStudio extends React.Component {
   constructor(props) {
@@ -165,6 +230,7 @@ class MMPStudio extends React.Component {
         <Navigation />
         <Carousel images={this.state.images} />
         <NavigationImages />
+        <AboutUs />
       </div>
     );
   }
@@ -237,7 +303,6 @@ class FotobudkaContact extends React.Component {
       <div>
         <FBNavigation />
         Hello Fotobudka Kontakt
-        <NavigationImages />
       </div>
     );
   }
@@ -246,14 +311,30 @@ class FotobudkaContact extends React.Component {
 // Jubiler
 
 class Jubiler extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      images: []
+    };
+  }
+
   render() {
     return (
       <div>
         <JubilerNavigation />
-        <div className="container">Jubiler Main</div>
+        <Carousel images={this.state.images} />
         <NavigationImages />
       </div>
     );
+  }
+  componentDidMount() {
+    fetch("/api/jubilers")
+      .then(resp => resp.json())
+      .then(data =>
+        this.setState({
+          images: data
+        })
+      );
   }
 }
 
@@ -263,15 +344,8 @@ class JubilerGallery extends React.Component {
       <div>
         <JubilerNavigation />
         <div className="container">Jubiler Gallery</div>
-        <NavigationImages />
       </div>
     );
-  }
-}
-
-class NotFound extends React.Component {
-  render() {
-    return <div>Not Found</div>;
   }
 }
 

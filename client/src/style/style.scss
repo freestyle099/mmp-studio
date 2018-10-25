@@ -57,30 +57,44 @@ nav {
     object-fit: cover;
   }
 }
+h2 {
+  font: {
+    family: $Pacifico-font;
+    size: 30px;
+  }
+  text-align: center;
+}
 .nav-img-container {
-  border: 2px solid $main-color;
+  background-color: $white;
+  border-top: 4px solid $main-color;
+  border-bottom: 4px solid $main-color;
   &-fb {
-    border: 2px solid $fb-color;
+    border-top: 4px solid $fb-color;
+    border-bottom: 4px solid $fb-color;
   }
   &-jubiler {
-    border: 2px solid $jub-color;
+    border-top: 4px solid $jub-color;
+    border-bottom: 4px solid $jub-color;
   }
-  h2 {
-    font: {
-      family: $Pacifico-font;
-      size: 30px;
-    }
-    text-align: center;
-  }
+
   .navigation-images {
     display: flex;
     justify-content: space-between;
     padding: 40px 0;
     > div {
       width: 30%;
-      height: 150px;
+      height: 120px;
       text-align: center;
-      border: 2px solid red;
+      transition: 0.5s;
+      &:first-child:hover {
+        box-shadow: 0 0 50px -5px $main-color;
+      }
+      &:nth-child(2):hover {
+        box-shadow: 0 0 50px -5px $fb-color;
+      }
+      &:last-child:hover {
+        box-shadow: 0 0 50px -5px $jub-color;
+      }
       > a {
         img {
           width: 80%;
@@ -88,4 +102,32 @@ nav {
       }
     }
   }
+}
+
+.img-aboutus {
+  margin: 20px 0;
+  width: 60%;
+}
+
+.accordion {
+  .header {
+    font-size: 26px;
+    cursor: pointer;
+    padding: 10px 0;
+  }
+  .body {
+    max-height: 0;
+    background-color: $white;
+    overflow: hidden;
+    transition: max-height .5s ease-in-out;
+
+  }
+  .acc-padding {
+    padding: 20px;
+  }
+  .active-accordion {
+    max-height: 100px;
+    transition: max-height .5s ease-in-out;
+  }
+
 }

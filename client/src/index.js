@@ -43,10 +43,10 @@ class FBNavigation extends React.Component {
           </Link>
           <ul className="container navigation right">
             <li>
-              <Link to="/fotobudka/">Strona główna</Link>
+              <NavLink exact activeClassName='active-fb' to="/fotobudka/">Strona główna</NavLink>
             </li>
             <li>
-              <Link to="/fotobudka/kontakt">Kontakt</Link>
+              <NavLink exact activeClassName='active-fb' to="/fotobudka/kontakt">Kontakt</NavLink>
             </li>
           </ul>
         </div>
@@ -89,13 +89,13 @@ class Navigation extends React.Component {
             </Link>
             <ul className="container navigation right">
               <li>
-                <NavLink activeClassName='active' to="/">Strona Domowa</NavLink>
+                <NavLink exact activeClassName='active-main' to="/">Strona Domowa</NavLink>
               </li>
               <li>
-                <NavLink  to="/galeria">Galeria</NavLink>
+                <NavLink exact activeClassName='active-main' to="/galeria">Galeria</NavLink>
               </li>
               <li>
-                <NavLink to="/kontakt">Kontakt</NavLink>
+                <NavLink exact activeClassName='active-main' to="/kontakt">Kontakt</NavLink>
               </li>
             </ul>
           </div>
@@ -119,7 +119,6 @@ class MMPStudio extends React.Component {
     return (
       <div>
         <Navigation />
-        <div className="container">MMPStudio</div>
         <Carousel images={this.state.images}/>
         <NavigationImages />
       </div>

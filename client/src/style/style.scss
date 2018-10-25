@@ -32,8 +32,13 @@ nav {
   border-bottom: 3px solid $jub-color;
 }
 
-.active {
-  color: red;
+.active-main {
+  color: $main-color;
+  font-weight: bold;
+}
+.active-fb {
+  color: $fb-color;
+  font-weight: bold;
 }
 .right {
   display: flex;

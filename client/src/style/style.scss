@@ -1,6 +1,6 @@
 @import "~materialize-css/sass/materialize.scss";
 @import "./_variables.scss";
-@import '_carousel.scss';
+@import "_carousel.scss";
 
 body {
   @extend .grey, .lighten-4;
@@ -57,4 +57,29 @@ nav {
     object-fit: cover;
   }
 }
-
+.nav-img-container {
+  border: 2px solid $main-color;
+  h2 {
+    font: {
+      family: $Pacifico-font;
+      size: 30px;
+    }
+    text-align: center;
+  }
+  .navigation-images {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 0;
+    > div {
+      width: 30%;
+      height: 150px;
+      text-align: center;
+      border: 2px solid red;
+      > a {
+        img {
+          width: 80%;
+        }
+      }
+    }
+  }
+}

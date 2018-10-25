@@ -14,22 +14,38 @@ import Carousel from "./components/Carousel";
 import "./style/style.scss";
 
 class NavigationImages extends React.Component {
+  goToTop = () => {
+
+    return window.scrollTo(0, 0);
+  };
   render() {
     return (
-      <div className="container">
-        <ul>
-          <li>
-            <Link to="/">MMPStudio</Link>
-          </li>
-          <li>
-            <Link to="/fotobudka">Fotobudka</Link>
-          </li>
-          <li>
-            <Link to="/jubiler">Jubiler</Link>
-          </li>
-        </ul>
+      <div className="nav-img-container">
+        <div className="container">
+          <h2>Zajmujemy się jeszcze...</h2>
+          <div className="navigation-images">
+            <div className="valign-wrapper">
+              <Link onClick={this.goToTop} to="/">
+                <img src="logo_studio.png" alt="" />
+              </Link>
+            </div>
+            <div className="valign-wrapper">
+              <Link onClick={this.goToTop} to="/fotobudka">
+                <img src="logo_fotobudka.png" />
+              </Link>
+            </div>
+            <div className="valign-wrapper">
+              <Link onClick={this.goToTop} to="/jubiler">
+                <img src="logo_jubiler.png" alt="" />
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
     );
+  }
+  componentDidMount() {
+    console.log(window.location.href);
   }
 }
 
@@ -43,10 +59,18 @@ class FBNavigation extends React.Component {
           </Link>
           <ul className="container navigation right">
             <li>
-              <NavLink exact activeClassName='active-fb' to="/fotobudka/">Strona główna</NavLink>
+              <NavLink exact activeClassName="active-fb" to="/fotobudka/">
+                Strona główna
+              </NavLink>
             </li>
             <li>
-              <NavLink exact activeClassName='active-fb' to="/fotobudka/kontakt">Kontakt</NavLink>
+              <NavLink
+                exact
+                activeClassName="active-fb"
+                to="/fotobudka/kontakt"
+              >
+                Kontakt
+              </NavLink>
             </li>
           </ul>
         </div>
@@ -89,13 +113,19 @@ class Navigation extends React.Component {
             </Link>
             <ul className="container navigation right">
               <li>
-                <NavLink exact activeClassName='active-main' to="/">Strona Domowa</NavLink>
+                <NavLink exact activeClassName="active-main" to="/">
+                  Strona Domowa
+                </NavLink>
               </li>
               <li>
-                <NavLink exact activeClassName='active-main' to="/galeria">Galeria</NavLink>
+                <NavLink exact activeClassName="active-main" to="/galeria">
+                  Galeria
+                </NavLink>
               </li>
               <li>
-                <NavLink exact activeClassName='active-main' to="/kontakt">Kontakt</NavLink>
+                <NavLink exact activeClassName="active-main" to="/kontakt">
+                  Kontakt
+                </NavLink>
               </li>
             </ul>
           </div>
@@ -111,15 +141,14 @@ class MMPStudio extends React.Component {
     super(props);
     this.state = {
       images: []
-    }
+    };
   }
-
 
   render() {
     return (
       <div>
         <Navigation />
-        <Carousel images={this.state.images}/>
+        <Carousel images={this.state.images} />
         <NavigationImages />
       </div>
     );
@@ -141,7 +170,6 @@ class Contact extends React.Component {
       <div>
         <Navigation />
         <div className="container">Kontakt</div>
-        <NavigationImages />
       </div>
     );
   }
@@ -153,7 +181,6 @@ class Gallery extends React.Component {
       <div>
         <Navigation />
         <div className="container">Galeria</div>
-        <NavigationImages />
       </div>
     );
   }
@@ -165,7 +192,7 @@ class Fotobudka extends React.Component {
     super(props);
     this.state = {
       images: []
-    }
+    };
   }
 
   render() {
@@ -173,7 +200,7 @@ class Fotobudka extends React.Component {
       <div>
         <FBNavigation />
         Hello Fotobudka
-        <Carousel images={this.state.images}/>
+        <Carousel images={this.state.images} />
         <NavigationImages />
       </div>
     );

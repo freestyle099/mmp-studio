@@ -14,13 +14,19 @@ import Carousel from "./components/Carousel";
 import "./style/style.scss";
 
 class NavigationImages extends React.Component {
-  goToTop = () => {
+  constructor(props) {
+    super(props);
+    this.state = {
+      class: 'nav-img-container'
+    }
+  }
 
+  goToTop = () => {
     return window.scrollTo(0, 0);
   };
   render() {
     return (
-      <div className="nav-img-container">
+      <div className={'nav-img-container ' + this.state.class}>
         <div className="container">
           <h2>Zajmujemy się jeszcze...</h2>
           <div className="navigation-images">
@@ -45,7 +51,16 @@ class NavigationImages extends React.Component {
     );
   }
   componentDidMount() {
-    console.log(window.location.href);
+    if (window.location.href.indexOf("fotobudka") > 1) {
+      this.setState({
+        class: 'nav-img-container-fb'
+      })
+    }
+    if (window.location.href.indexOf("jubiler") > 1) {
+      this.setState({
+        class: 'nav-img-container-jubiler'
+      })
+    }
   }
 }
 

@@ -59,6 +59,12 @@ nav {
 }
 .nav-img-container {
   border: 2px solid $main-color;
+  &-fb {
+    border: 2px solid $fb-color;
+  }
+  &-jubiler {
+    border: 2px solid $jub-color;
+  }
   h2 {
     font: {
       family: $Pacifico-font;

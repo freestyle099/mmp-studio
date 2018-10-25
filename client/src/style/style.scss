@@ -64,6 +64,12 @@ h2 {
   }
   text-align: center;
 }
+.acc-info {
+  font: {
+    family: $Pacifico-font;
+    size: 26px;
+  }
+}
 .nav-img-container {
   background-color: $white;
   border-top: 4px solid $main-color;
@@ -114,6 +120,10 @@ h2 {
     font-size: 26px;
     cursor: pointer;
     padding: 10px 0;
+    &:hover {
+      color: $main-color;
+      transition: .4s;
+    }
   }
   .body {
     max-height: 0;
@@ -130,4 +140,8 @@ h2 {
     transition: max-height .5s ease-in-out;
   }
 
+}
+
+.contact {
+  background-color: $white;
 }

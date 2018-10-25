@@ -246,8 +246,24 @@ class AboutUs extends React.Component {
 class Contact extends React.Component {
   render() {
     return (
-      <div className='contact'>
-        <div className="container">Kontakt</div>
+      <div className="contact">
+        <div className="container">
+          <h2>Kontakt</h2>
+          <div>
+            <form className="col s12">
+              <div className="row">
+                <div className="input-field col s6">
+                  <input id="first_name" type="text" className="validate" />
+                    <label htmlFor="first_name">First Name</label>
+                </div>
+                <div className="input-field col s6">
+                  <input id="last_name" type="text" className="validate" />
+                    <label htmlFor="last_name">Last Name</label>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     );
   }
@@ -283,8 +299,6 @@ class MMPStudio extends React.Component {
       });
   }
 }
-
-
 
 class Gallery extends React.Component {
   render() {

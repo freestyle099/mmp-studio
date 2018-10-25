@@ -124,26 +124,56 @@ h2 {
     padding: 10px 0;
     &:hover {
       color: $main-color;
-      transition: .4s;
+      transition: 0.4s;
     }
   }
   .body {
     max-height: 0;
     background-color: $white;
     overflow: hidden;
-    transition: max-height .5s ease-in-out;
-
+    transition: max-height 0.5s ease-in-out;
   }
   .acc-padding {
     padding: 20px;
   }
   .active-accordion {
     max-height: 100px;
-    transition: max-height .5s ease-in-out;
+    transition: max-height 0.5s ease-in-out;
   }
-
 }
 
 .contact {
   background-color: $white;
+}
+input[type="submit"] {
+  color: $white;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+}
+
+input:not([type]):focus:not([readonly]),
+input[type="text"]:not(.browser-default):focus:not([readonly]),
+input[type="password"]:not(.browser-default):focus:not([readonly]),
+input[type="email"]:not(.browser-default):focus:not([readonly]),
+input[type="url"]:not(.browser-default):focus:not([readonly]),
+input[type="time"]:not(.browser-default):focus:not([readonly]),
+input[type="date"]:not(.browser-default):focus:not([readonly]),
+input[type="datetime"]:not(.browser-default):focus:not([readonly]),
+input[type="datetime-local"]:not(.browser-default):focus:not([readonly]),
+input[type="tel"]:not(.browser-default):focus:not([readonly]),
+input[type="number"]:not(.browser-default):focus:not([readonly]),
+input[type="search"]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid $main-color;
+  box-shadow: 0 1px 0 0 $main-color;
+}
+label.active {
+  color: $main-color !important;
+}
+
+.validate.valid {
+  border-bottom: 1px solid $main-color;
+  box-shadow: 0 1px 0 0 $main-color;
 }

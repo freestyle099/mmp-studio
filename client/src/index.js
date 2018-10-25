@@ -244,24 +244,68 @@ class AboutUs extends React.Component {
 }
 
 class Contact extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      firstName: "",
+      surname: ""
+    };
+  }
+
+  handleFirstName = e => {
+    const firstName = e.target.value;
+    this.setState({
+      firstName
+    });
+  };
+  handleSurname = e => {
+    const surname = e.target.value;
+    this.setState({
+      surname
+    });
+  };
+
+  sendForm = e => {
+    e.preventDefault();
+    console.log("Your name is: ", this.state.firstName, this.state.surname);
+  };
+
   render() {
     return (
       <div className="contact">
         <div className="container">
           <h2>Kontakt</h2>
           <div>
-            <form className="col s12">
+            <form onSubmit={this.sendForm} className="col s12">
               <div className="row">
-                <div className="input-field col s6">
-                  <input id="first_name" type="text" className="validate" />
-                    <label htmlFor="first_name">First Name</label>
+                <div className="input-field blue-text text-lighten-1 col s6">
+                  <input
+                    onChange={this.handleFirstName}
+                    id="first_name"
+                    type="text"
+                    className="validate"
+                  />
+                  <label htmlFor="first_name">First Name</label>
                 </div>
                 <div className="input-field col s6">
-                  <input id="last_name" type="text" className="validate" />
-                    <label htmlFor="last_name">Last Name</label>
+                  <input
+                    onChange={this.handleSurname}
+                    id="last_name"
+                    type="text"
+                    className="validate"
+                  />
+                  <label htmlFor="last_name">Last Name</label>
                 </div>
               </div>
+              <button
+                className="btn waves-effect waves-light light-blue"
+                type="submit"
+                name="action"
+              >
+                Wyślij
+              </button>
             </form>
+
           </div>
         </div>
       </div>

@@ -12,18 +12,27 @@ const imageSchema = new mongoose.Schema({
 });
 
 const Image = mongoose.model("Images", imageSchema);
-
+const Slider = mongoose.model("Sliders", imageSchema);
+const Fotobudka = mongoose.model("Fotobudkas", imageSchema);
 
 app.get("/", (req, res) => {
   res.send("Hi There!");
 });
 
-app.get("/api/images",async (req, res) => {
+app.get("/api/images", async (req, res) => {
   const images = await Image.find();
   res.send(images);
 });
-app.get("/api/images/:id",async (req, res) => {
-  const images = await Image.find({ id: req.params.id});
+app.get("/api/sliders", async (req, res) => {
+  const sliders = await Slider.find();
+  res.send(sliders);
+});
+app.get("/api/fotobudkas", async (req, res) => {
+  const fotobudkas = await Fotobudka.find();
+  res.send(fotobudkas);
+});
+app.get("/api/images/:id", async (req, res) => {
+  const images = await Image.find({ id: req.params.id });
   res.send(images);
 });
 

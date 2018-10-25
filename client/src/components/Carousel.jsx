@@ -44,8 +44,9 @@ export default class Carousel extends React.Component {
   };
 
   setActiveSlide = e => {
-    console.log(e.target.dataset.slider);
-    let slider = e.target.dataset.slider;
+    clearInterval(this.id);
+    this.play();
+    let slider = +e.currentTarget.dataset.slider;
     this.setState({
       slider: slider
     });
@@ -80,7 +81,11 @@ export default class Carousel extends React.Component {
                 className="circle-empty"
                 data-slider={index}
               >
-                <i className="far fa-circle" />
+                {this.state.slider === index ? (
+                  <i className="fas fa-circle" />
+                ) : (
+                  <i className="far fa-circle" />
+                )}
               </button>
             );
           })}

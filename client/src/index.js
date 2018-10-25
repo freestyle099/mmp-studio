@@ -5,7 +5,8 @@ import {
   Route,
   Redirect,
   Switch,
-  Link
+  Link,
+  NavLink
 } from "react-router-dom";
 
 import Carousel from "./components/Carousel";
@@ -88,13 +89,13 @@ class Navigation extends React.Component {
             </Link>
             <ul className="container navigation right">
               <li>
-                <Link to="/">Strona Domowa</Link>
+                <NavLink activeClassName='active' to="/">Strona Domowa</NavLink>
               </li>
               <li>
-                <Link to="/galeria">Galeria</Link>
+                <NavLink  to="/galeria">Galeria</NavLink>
               </li>
               <li>
-                <Link to="/kontakt">Kontakt</Link>
+                <NavLink to="/kontakt">Kontakt</NavLink>
               </li>
             </ul>
           </div>
@@ -161,14 +162,31 @@ class Gallery extends React.Component {
 
 // Fotobudka
 class Fotobudka extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      images: []
+    }
+  }
+
   render() {
     return (
       <div>
         <FBNavigation />
         Hello Fotobudka
+        <Carousel images={this.state.images}/>
         <NavigationImages />
       </div>
     );
+  }
+  componentDidMount() {
+    fetch("/api/fotobudkas")
+      .then(resp => resp.json())
+      .then(data => {
+        this.setState({
+          images: data
+        });
+      });
   }
 }
 

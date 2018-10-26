@@ -470,13 +470,13 @@ class Footer extends React.Component {
 
   render() {
     return (
-      <footer>
+      <footer className='blue-grey darken-4'>
         <div className="container ">
           <div>
-            Znajdź nas na facebooku
+            Znajdź nas na facebooku | Regulamin | Polecamy
           </div>
           <div>
-            Copyright &copy; {this.date.getFullYear()}
+            Copyright &copy; {this.date.getFullYear()} by MMPStudio.pl | All rights reserved.
           </div>
         </div>
       </footer>

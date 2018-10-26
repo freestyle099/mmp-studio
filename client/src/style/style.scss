@@ -1,4 +1,3 @@
-@import "./_superFormReset.scss";
 @import "~materialize-css/sass/materialize.scss";
 @import "./_variables.scss";
 @import "_carousel.scss";
@@ -146,6 +145,7 @@ h2 {
 
 .contact {
   background-color: $white;
+  padding-bottom: 50px;
 }
 input[type="submit"] {
   color: $white;
@@ -186,6 +186,7 @@ label.active {
 
 footer {
   height: 70px;
+  color: #9e9e9e;
   .container {
     display: flex;
     height: 100%;

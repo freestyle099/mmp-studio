@@ -3,7 +3,8 @@ const mongoose = require("mongoose");
 const app = express();
 const bodyParser = require("body-parser");
 const keys = require("./config/keys");
-const nodemailer = require('nodemailer');
+const sendgrid = require("sendgrid")(keys.sendGridKey);
+const email = new sendgrid.Email();
 
 mongoose
   .connect("mongodb://localhost/playground")
@@ -45,32 +46,6 @@ app.get("/api/images/:id", async (req, res) => {
 app.post("/contact", (req, res) => {
   console.log(req.body);
 
-  let transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 465,
-    secure: true, // true for 465, false for other ports
-    auth: {
-      user: keys.username, // generated ethereal user
-      pass: keys.password // generated ethereal password
-    }
-  });
-
-  // setup email data with unicode symbols
-  let mailOptions = {
-    from: '<foo@example.com>', // sender address
-    to: "giuseppe.rzadkosz@gmail.com", // list of receivers
-    subject: "Hello ✔", // Subject line
-    text: "Hello world?", // plain text body
-    html: "<b>Hello world?</b>" // html body
-  };
-
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      return console.log(error);
-    }
-    console.log("Message sent: %s", info.messageId);
-    console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-  });
 });
 
 const PORT = process.env.PORT || 5000;

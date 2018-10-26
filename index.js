@@ -2,7 +2,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const bodyParser = require("body-parser");
-const mail = require("nodemailer").mail;
 
 mongoose
   .connect("mongodb://localhost/playground")
@@ -17,6 +16,7 @@ const Image = mongoose.model("Images", imageSchema);
 const Jubiler = mongoose.model("Jubilers", imageSchema);
 const Fotobudka = mongoose.model("Fotobudkas", imageSchema);
 
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
@@ -41,16 +41,7 @@ app.get("/api/images/:id", async (req, res) => {
 });
 
 app.post("/contact", (req, res) => {
-  console.log('Body is: ',req.body);
-
-
-  mail({
-    from: "Fred Foo ✔ <foo@blurdybloop.com>", // sender address
-    to: "bar@blurdybloop.com, baz@blurdybloop.com", // list of receivers
-    subject: "Hello ✔", // Subject line
-    text: "Hello world ✔", // plaintext body
-    html: "<b>Hello world ✔</b>" // html body
-  });
+  console.log("Body is: ", req.body);
 });
 
 const PORT = process.env.PORT || 5000;

@@ -24,7 +24,8 @@
     "body-parser": "^1.18.3",
     "concurrently": "^4.0.1",
     "express": "^4.16.4",
-    "nodemailer": "^4.6.8"
+    "nodemailer": "^4.6.8",
+    "sendgrid": "^5.2.3"
   },
   "devDependencies": {
     "mongoose": "^5.3.6",

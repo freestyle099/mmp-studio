@@ -248,7 +248,8 @@ class Contact extends React.Component {
     super(props);
     this.state = {
       firstName: "",
-      surname: ""
+      surname: "",
+      email: ''
     };
   }
 
@@ -264,12 +265,19 @@ class Contact extends React.Component {
       surname
     });
   };
+  handleEmail = e => {
+    const email = e.target.value;
+    this.setState({
+      email
+    });
+  };
 
   sendForm = e => {
     e.preventDefault();
     const obj = {
       firstName: this.state.firstName,
-      surname: this.state.surname
+      surname: this.state.surname,
+      email: this.state.email
     };
     fetch("/contact", {
       method: "POST",
@@ -308,6 +316,15 @@ class Contact extends React.Component {
                     className="validate"
                   />
                   <label htmlFor="last_name">Last Name</label>
+                </div>
+                <div className="input-field col s6">
+                  <input
+                    onChange={this.handleEmail}
+                    id="last_name"
+                    type="email"
+                    className="validate"
+                  />
+                  <label htmlFor="last_name">E-mail</label>
                 </div>
               </div>
               <button

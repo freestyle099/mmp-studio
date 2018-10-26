@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 const app = express();
 const bodyParser = require("body-parser");
 const keys = require("./config/keys");
-const sendgrid = require("sendgrid")(keys.sendGridKey);
-const email = new sendgrid.Email();
+const Mailer = require("./services/Mailer");
+const emailTemplate = require("./services/emailTemplates/emailTemplate");
 
 mongoose
   .connect("mongodb://localhost/playground")
@@ -46,6 +46,8 @@ app.get("/api/images/:id", async (req, res) => {
 app.post("/contact", (req, res) => {
   console.log(req.body);
 
+  // Great place to send an email
+  const mailer = new Mailer(req.body, emailTemplate(req));
 });
 
 const PORT = process.env.PORT || 5000;

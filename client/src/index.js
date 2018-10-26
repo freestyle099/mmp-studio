@@ -297,32 +297,30 @@ class Contact extends React.Component {
         <div className="container">
           <h2>Kontakt</h2>
           <div>
-            <form onSubmit={this.sendForm} className="col s12">
-              <div className="row">
-                <div className="input-field blue-text text-lighten-1 col s6">
+            <form onSubmit={this.sendForm}>
+              <div className='row'>
+                <div>
                   <input
                     onChange={this.handleFirstName}
                     id="first_name"
                     type="text"
-                    className="validate"
                   />
                   <label htmlFor="first_name">First Name</label>
                 </div>
-                <div className="input-field col s6">
+                <div>
                   <input
                     onChange={this.handleSurname}
                     id="last_name"
                     type="text"
-                    className="validate"
                   />
                   <label htmlFor="last_name">Last Name</label>
                 </div>
-                <div className="input-field col s6">
+                <div className='col s6'>
                   <input
                     onChange={this.handleEmail}
                     id="last_name"
                     type="email"
-                    className="validate"
+                    className='my-input'
                   />
                   <label htmlFor="last_name">E-mail</label>
                 </div>
@@ -466,6 +464,28 @@ class JubilerGallery extends React.Component {
   }
 }
 
+class Footer extends React.Component {
+
+  date = new Date();
+
+  render() {
+    return (
+      <footer>
+        <div className="container ">
+          <div>
+            Znajdź nas na facebooku
+          </div>
+          <div>
+            Copyright &copy; {this.date.getFullYear()}
+          </div>
+        </div>
+      </footer>
+    );
+  }
+
+}
+
+
 // Main APP
 class App extends React.Component {
   render() {
@@ -486,6 +506,7 @@ class App extends React.Component {
             <Route exact path="/jubiler/galeria" component={JubilerGallery} />
             <Redirect from="*" to="/" />
           </Switch>
+          <Footer/>
         </div>
       </Router>
     );

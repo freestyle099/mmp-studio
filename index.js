@@ -1,6 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
+const bodyParser = require("body-parser");
+const mail = require("nodemailer").mail;
 
 mongoose
   .connect("mongodb://localhost/playground")
@@ -12,8 +14,10 @@ const imageSchema = new mongoose.Schema({
 });
 
 const Image = mongoose.model("Images", imageSchema);
-const Slider = mongoose.model("Sliders", imageSchema);
+const Jubiler = mongoose.model("Jubilers", imageSchema);
 const Fotobudka = mongoose.model("Fotobudkas", imageSchema);
+
+app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
   res.send("Hi There!");
@@ -23,9 +27,9 @@ app.get("/api/images", async (req, res) => {
   const images = await Image.find();
   res.send(images);
 });
-app.get("/api/sliders", async (req, res) => {
-  const sliders = await Slider.find();
-  res.send(sliders);
+app.get("/api/jubilers", async (req, res) => {
+  const jubilers = await Jubiler.find();
+  res.send(jubilers);
 });
 app.get("/api/fotobudkas", async (req, res) => {
   const fotobudkas = await Fotobudka.find();
@@ -34,6 +38,19 @@ app.get("/api/fotobudkas", async (req, res) => {
 app.get("/api/images/:id", async (req, res) => {
   const images = await Image.find({ id: req.params.id });
   res.send(images);
+});
+
+app.post("/contact", (req, res) => {
+  console.log('Body is: ',req.body);
+
+
+  mail({
+    from: "Fred Foo ✔ <foo@blurdybloop.com>", // sender address
+    to: "bar@blurdybloop.com, baz@blurdybloop.com", // list of receivers
+    subject: "Hello ✔", // Subject line
+    text: "Hello world ✔", // plaintext body
+    html: "<b>Hello world ✔</b>" // html body
+  });
 });
 
 const PORT = process.env.PORT || 5000;

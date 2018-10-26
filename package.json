@@ -21,8 +21,10 @@
   },
   "homepage": "https://github.com/freestyle09/mmp-studio#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "concurrently": "^4.0.1",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "nodemailer": "^4.6.8"
   },
   "devDependencies": {
     "mongoose": "^5.3.6",

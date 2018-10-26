@@ -267,7 +267,20 @@ class Contact extends React.Component {
 
   sendForm = e => {
     e.preventDefault();
-    console.log("Your name is: ", this.state.firstName, this.state.surname);
+    const obj = {
+      firstName: this.state.firstName,
+      surname: this.state.surname
+    };
+    fetch("/contact", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(obj)
+    })
+      .then(resp => resp.json())
+      .then(data => console.log(data));
   };
 
   render() {
@@ -305,7 +318,6 @@ class Contact extends React.Component {
                 Wyślij
               </button>
             </form>
-
           </div>
         </div>
       </div>

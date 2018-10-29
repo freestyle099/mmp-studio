@@ -10,6 +10,8 @@ import {
 } from "react-router-dom";
 
 import Carousel from "./components/Carousel";
+import Regulations from "./components/Regulations";
+import Navigation from './components/Navigation';
 import "./style/style.scss";
 
 class NavigationImages extends React.Component {
@@ -115,39 +117,7 @@ class JubilerNavigation extends React.Component {
   }
 }
 
-// Navigation
-class Navigation extends React.Component {
-  render() {
-    return (
-      <div>
-        <nav className="main-nav">
-          <div className="nav-wrapper container">
-            <Link className="brand-logo" to="/">
-              <img src="./logo_studio.png" alt="" />
-            </Link>
-            <ul className="container navigation right">
-              <li>
-                <NavLink exact activeClassName="active-main" to="/">
-                  Strona Domowa
-                </NavLink>
-              </li>
-              <li>
-                <NavLink exact activeClassName="active-main" to="/galeria">
-                  Galeria
-                </NavLink>
-              </li>
-              <li>
-                <NavLink exact activeClassName="active-main" to="/kontakt">
-                  Kontakt
-                </NavLink>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </div>
-    );
-  }
-}
+
 
 class Accordion extends React.Component {
   showTab = e => {
@@ -249,7 +219,7 @@ class Contact extends React.Component {
     this.state = {
       firstName: "",
       surname: "",
-      email: ''
+      email: ""
     };
   }
 
@@ -298,7 +268,7 @@ class Contact extends React.Component {
           <h2>Kontakt</h2>
           <div>
             <form onSubmit={this.sendForm}>
-              <div className='row'>
+              <div className="row">
                 <div>
                   <input
                     onChange={this.handleFirstName}
@@ -315,12 +285,12 @@ class Contact extends React.Component {
                   />
                   <label htmlFor="last_name">Last Name</label>
                 </div>
-                <div className='col s6'>
+                <div className="col s6">
                   <input
                     onChange={this.handleEmail}
                     id="last_name"
                     type="email"
-                    className='my-input'
+                    className="my-input"
                   />
                   <label htmlFor="last_name">E-mail</label>
                 </div>
@@ -464,27 +434,41 @@ class JubilerGallery extends React.Component {
   }
 }
 
-class Footer extends React.Component {
+class Recommend extends React.Component {
+  render() {
+    return (
+      <div>
+        <Navigation />
+        Polecamy
+      </div>
+    );
+  }
+}
 
+class Footer extends React.Component {
   date = new Date();
 
   render() {
     return (
-      <footer className='blue-grey darken-4'>
+      <footer className="blue-grey darken-4">
         <div className="container ">
           <div>
-            Znajdź nas na facebooku | Regulamin | Polecamy
+            Znajdź nas na facebooku:{" "}
+            <a href="https://www.facebook.com/mmpzakopane" target="_blank">
+              MMPZakopane
+            </a>{" "}
+            | <Link to="/regulamin">Regulamin</Link> |{" "}
+            <Link to="/polecamy">Polecamy</Link>
           </div>
           <div>
-            Copyright &copy; {this.date.getFullYear()} by MMPStudio.pl | All rights reserved.
+            Copyright &copy; {this.date.getFullYear()} by MMPStudio.pl | All
+            rights reserved.
           </div>
         </div>
       </footer>
     );
   }
-
 }
-
 
 // Main APP
 class App extends React.Component {
@@ -498,6 +482,8 @@ class App extends React.Component {
             <Route exact path="/kontakt" component={Contact} />
             <Route exact path="/fotobudka" component={Fotobudka} />
             <Route exact path="/jubiler" component={Jubiler} />
+            <Route exact path="/regulamin" component={Regulations} />
+            <Route exact path="/polecamy" component={Recommend} />
             <Route
               exact
               path="/fotobudka/kontakt"
@@ -506,7 +492,7 @@ class App extends React.Component {
             <Route exact path="/jubiler/galeria" component={JubilerGallery} />
             <Redirect from="*" to="/" />
           </Switch>
-          <Footer/>
+          <Footer />
         </div>
       </Router>
     );

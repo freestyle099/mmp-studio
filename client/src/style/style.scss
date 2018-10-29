@@ -2,7 +2,6 @@
 @import "./_variables.scss";
 @import "_carousel.scss";
 
-
 body {
   @extend .grey, .lighten-4;
   color: $font-color;
@@ -192,5 +191,28 @@ footer {
     height: 100%;
     justify-content: space-between;
     align-items: center;
+  }
+}
+
+.regulation {
+  margin: 30px auto;
+  p {
+    padding: 10px 0;
+  }
+}
+
+.recommend {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  img {
+    width: 40%;
+  }
+  h3 {
+    margin-bottom: 80px;
+    font: {
+      weight: bold;
+      size: 26px;
+    }
   }
 }

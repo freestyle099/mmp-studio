@@ -23,6 +23,8 @@ export default class Gallery extends React.Component {
   startLightbox = (e) => {
     e.preventDefault();
     console.log('hi');
+    let lightbox = document.querySelector('.lightbox-container');
+    lightbox.style.display = 'block';
   }
 
   render() {

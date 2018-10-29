@@ -3,8 +3,7 @@ const mongoose = require("mongoose");
 const app = express();
 const bodyParser = require("body-parser");
 const keys = require("./config/keys");
-const Mailer = require("./services/Mailer");
-const emailTemplate = require("./services/emailTemplates/emailTemplate");
+const nodemailer = require("nodemailer");
 
 mongoose
   .connect("mongodb://localhost/playground")
@@ -46,8 +45,31 @@ app.get("/api/images/:id", async (req, res) => {
 app.post("/contact", (req, res) => {
   console.log(req.body);
 
-  // Great place to send an email
-  const mailer = new Mailer(req.body, emailTemplate(req));
+  let transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
+    auth: {
+      user: keys.username,
+      pass: keys.password
+    }
+  });
+
+  let mailOptions = {
+    from: `${req.body.firstName} ${req.body.surname} <${req.body.email}>`, // sender address
+    to: "giuseppe.rzadkosz@gmail.com", // list of receivers
+    subject: "hi", // Subject line
+    text: "Hello world", // plain text body
+    html: "Imię: " + req.body.firstName + '\n'
+    + 'Nazwisko: ' + req.body.surname
+  };
+
+  transporter.sendMail(mailOptions, function(err, info) {
+    if (err) {
+      throw err;
+    }
+    console.log(info);
+  });
 });
 
 const PORT = process.env.PORT || 5000;

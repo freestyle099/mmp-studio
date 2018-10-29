@@ -6,12 +6,24 @@ class Mailer extends helper.Mail {
   constructor({ firstName, surname, email }, content) {
     super();
 
-    this.from_email = new helper.Email(email);
-    console.log("Email", this.from_email);
+    this.sgApi = sendgrid(keys.sendGridKey);
+    this.from_email = new helper.Email('email@no.com');
     this.subject = "Wiadomość ze strony";
+    this.recipients = new helper.Email(email);
     this.body = new helper.Content("text/html", content);
-    console.log('Subject', this.subject);
-    console.log('Body', this.body);
+
+    this.addContent(this.body);
+  }
+
+  async send() {
+    const request = this.sgApi.emptyRequest({
+      method: "POST",
+      path: "/v3/mail/send",
+      body: this.toJSON()
+    });
+
+    const response = this.sgApi.API(request);
+    return response;
   }
 }
 

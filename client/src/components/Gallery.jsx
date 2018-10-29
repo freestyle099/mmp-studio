@@ -6,7 +6,7 @@ export default class Gallery extends React.Component {
     {
       id: 0,
       url:
-        "https://images.unsplash.com/photo-1529348915581-73628f0cf212?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8d262d07b765c845ff93801a07e15352&auto=format&fit=crop&w=634&q=80"
+        "https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&h=350"
     },
     {
       id: 1,

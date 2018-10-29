@@ -16,7 +16,6 @@ export default class Fotobudka extends React.Component {
     return (
       <div>
         <FBNavigation />
-        Hello Fotobudka
         <Carousel images={this.state.images} />
         <NavigationImages />
       </div>

@@ -6,7 +6,14 @@ export default class Gallery extends React.Component {
     return (
       <div>
         <Navigation />
-        <div className="container">Galeria</div>
+        <div className="container">
+          <h1 className="h1">Portfolio</h1>
+          <div className="row">
+            <div className="imageGallery1">
+              Hejo
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

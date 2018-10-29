@@ -20,6 +20,11 @@ export default class Gallery extends React.Component {
     }
   ];
 
+  startLightbox = (e) => {
+    e.preventDefault();
+    console.log('hi');
+  }
+
   render() {
     return (
       <div>
@@ -31,6 +36,7 @@ export default class Gallery extends React.Component {
               {this.images.map(el => {
                 return (
                   <a
+                    onClick={this.startLightbox}
                     key={el.id}
                     href={el.url}
                     title="Caption for gallery item 1"
@@ -39,6 +45,9 @@ export default class Gallery extends React.Component {
                   </a>
                 );
               })}
+            </div>
+            <div className='lightbox-container'>
+              <img src={this.images[0].url} alt=""/>
             </div>
           </div>
         </div>

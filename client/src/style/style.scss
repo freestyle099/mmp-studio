@@ -254,3 +254,15 @@ footer {
   }
 }
 
+.lightbox-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  height: 100vh;
+  img {
+    height: 80%;
+    object-fit: cover;
+  }
+}
+

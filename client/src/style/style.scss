@@ -236,5 +236,21 @@ footer {
 }
 
 .form {
-
+  // formularz
 }
+
+
+.imageGallery1 {
+  position: relative;
+  a {
+    display: inline-block;
+    width: 200px;
+    height: 300px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+

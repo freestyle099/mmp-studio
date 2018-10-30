@@ -56,13 +56,15 @@ export default class Contact extends React.Component {
 
           <div>
             <h3>MMPStudio</h3>
-            <div className='contact-info'>
+            <div className="contact-info">
               <p>jest zarejestrowaną legalną firmą działającą na terenie UE</p>
               <p>z siedzibą Pod Blachówką 2, 34-511 Kościelisko</p>
 
               <p>NIP: PL736-170-53-69, REGON: 123106370</p>
 
-              <p><b>Kontakt bezpośredni:</b></p>
+              <p>
+                <b>Kontakt bezpośredni:</b>
+              </p>
 
               <p>Michał Fornalski Jr.</p>
               <p>+48 696 388 885</p>
@@ -71,7 +73,7 @@ export default class Contact extends React.Component {
           </div>
 
           <div>
-            <form className='form' onSubmit={this.sendForm}>
+            <form className="form" onSubmit={this.sendForm}>
               <div className="row">
                 <div>
                   <input

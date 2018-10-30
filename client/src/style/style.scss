@@ -261,7 +261,7 @@ footer {
   width: 100vw;
   height: 100vh;
   transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
   .lightbox {
     position: relative;
     height: 100%;
@@ -269,19 +269,36 @@ footer {
     .lg-arrows {
       position: absolute;
       top: 50%;
-      height: 100px;
+      width: 100px;
+      height: 200px;
       transform: translateY(-50%);
+      background-color: transparent;
+      border: none;
+      color: $white;
+      font-size: 50px;
+      &:focus {
+        box-shadow: 0 0 15px -5px $main-color;
+      }
     }
     .lg-left {
-      left: 10%;
+      left: 5%;
     }
     .lg-right {
-      right: 10%;
+      right: 5%;
     }
     .lg-close {
       position: absolute;
-      right: 10%;
-      top: 5%;
+      right: 5%;
+      top: 0;
+      width: 100px;
+      height: 100px;
+      background-color: transparent;
+      border: none;
+      color: $white;
+      font-size: 30px;
+      &:focus {
+        box-shadow: 0 0 15px -5px $main-color;
+      }
     }
     img {
       position: fixed;

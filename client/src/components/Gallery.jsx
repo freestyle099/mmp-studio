@@ -72,10 +72,6 @@ export default class Gallery extends React.Component {
     });
   };
 
-  nextButtonImage = e => {
-    console.log(e.key);
-  };
-
   render() {
     return (
       <div>
@@ -101,11 +97,7 @@ export default class Gallery extends React.Component {
                 );
               })}
             </div>
-            <div
-              onKeyDown={this.nextButtonImage}
-              onClick={this.closeLightbox}
-              className="lightbox-container"
-            >
+            <div onClick={this.closeLightbox} className="lightbox-container">
               <div className="lightbox">
                 <button onClick={this.closeLightbox} className="lg-close">
                   <i className="fas fa-times" />
@@ -125,10 +117,18 @@ export default class Gallery extends React.Component {
     );
   }
   componentDidMount() {
-    if (document.querySelector(".lightbox-container").style.display === 'block') {
-      document.addEventListener("keydown", e => {
-        console.log(e.key);
-      });
-    }
+    document.addEventListener("keydown", e => {
+      if (e.key === "a" || e.key === "ArrowLeft") {
+        this.prevImage();
+      }
+      else if (e.key === "d" || e.key === "ArrowRight") {
+        this.nextImage();
+      }
+      else if (e.key === "Escape") {
+        document.querySelector(".lightbox-container").style.display = "none";
+      } else if(e.key === 'Enter'){
+        e.preventDefault();
+      }
+    });
   }
 }

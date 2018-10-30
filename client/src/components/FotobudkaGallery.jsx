@@ -1,7 +1,7 @@
 import React from "react";
 import FBNavigation from "./FotobudkaNavigation";
 
-export default class FotobudkaContact extends React.Component {
+export default class FotobudkaGallery extends React.Component {
   render() {
     return (
       <div>

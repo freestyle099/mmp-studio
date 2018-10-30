@@ -352,13 +352,13 @@ footer {
   .fotobudka-container {
     display: flex;
     justify-content: space-between;
+
     > div {
       width: 24%;
       text-align: center;
-
     }
     .fotobudka-header {
-      border: 3px solid $fb-color;
+      border: 2px solid $fb-color;
       color: $fb-color;
       text-transform: uppercase;
       padding: 20px;
@@ -372,13 +372,41 @@ footer {
       border-top: none;
       > div {
         text-transform: uppercase;
-        font-weight: 600;
-        padding: 15px 1px;
+        font: {
+          size: 14px;
+          weight: 600;
+        }
+        padding: 15px 2px;
         border-bottom: 1px solid $border-color;
-        &:nth-child(2n+2) {
+        &:nth-child(2n + 2) {
           background-color: $bg-color;
         }
+        &.fotobudka-hour {
+          border: 2px solid $fb-color;
+          color: $fb-color;
+          font-weight: bold;
+        }
+        &.fotobudka-price {
+          background-color: $white;
+          font: {
+            weight: bold;
+            size: 18px;
+          }
+        }
+        &.fotobudka-empty {
+          color: $fb-color;
+          font-weight: bold;
+        }
       }
+    }
+  }
+  .fotobudka-additional {
+    padding-bottom: 50px;
+    p {
+      text-align: center;
+      margin: 0;
+      padding: 10px 0;
+      text-transform: uppercase;
     }
   }
 }

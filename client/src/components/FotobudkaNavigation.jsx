@@ -19,9 +19,9 @@ export default class FBNavigation extends React.Component {
               <NavLink
                 exact
                 activeClassName="active-fb"
-                to="/fotobudka/kontakt"
+                to="/fotobudka/galeria"
               >
-                Kontakt
+                Galeria
               </NavLink>
             </li>
           </ul>

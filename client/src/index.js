@@ -12,7 +12,7 @@ import Contact from "./components/Contact";
 import MMPStudio from "./components/Main";
 import Gallery from "./components/Gallery";
 import Fotobudka from "./components/Fotobudka";
-import FotobudkaContact from "./components/FotobudkaContact";
+import FotobudkaGallery from "./components/FotobudkaGallery";
 import Jubiler from "./components/Jubiler";
 import JubilerGallery from "./components/JubilerGallery";
 import Recommend from "./components/Recommend";
@@ -36,8 +36,8 @@ class App extends React.Component {
             <Route exact path="/polecamy" component={Recommend} />
             <Route
               exact
-              path="/fotobudka/kontakt"
-              component={FotobudkaContact}
+              path="/fotobudka/galeria"
+              component={FotobudkaGallery}
             />
             <Route exact path="/jubiler/galeria" component={JubilerGallery} />
             <Redirect from="*" to="/" />

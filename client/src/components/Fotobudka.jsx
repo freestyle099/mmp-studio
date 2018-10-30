@@ -4,6 +4,7 @@ import FBNavigation from "./FotobudkaNavigation";
 import Carousel from "./Carousel";
 import NavigationImages from "./NavigationImages";
 import FotobudkaInfo from "./FotobudkaInfo";
+import FotobudkaPrices from "./FotobudkaPrices";
 
 export default class Fotobudka extends React.Component {
   constructor(props) {
@@ -20,6 +21,7 @@ export default class Fotobudka extends React.Component {
         <Carousel images={this.state.images} />
         <NavigationImages />
         <FotobudkaInfo/>
+        <FotobudkaPrices/>
       </div>
     );
   }

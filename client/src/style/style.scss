@@ -239,7 +239,6 @@ footer {
   // formularz
 }
 
-
 // Gallery lightbox
 .gallery {
   margin-bottom: 80px;
@@ -330,7 +329,6 @@ footer {
   }
 }
 
-
 .fotobudka-info {
   display: flex;
   justify-content: space-between;
@@ -345,5 +343,42 @@ footer {
   img {
     width: 100%;
     object-fit: contain;
+  }
+}
+
+.fotobudka-prices {
+  border-top: 4px solid $fb-color;
+  background-color: $white;
+  .fotobudka-container {
+    display: flex;
+    justify-content: space-between;
+    > div {
+      width: 24%;
+      text-align: center;
+
+    }
+    .fotobudka-header {
+      border: 3px solid $fb-color;
+      color: $fb-color;
+      text-transform: uppercase;
+      padding: 20px;
+      font: {
+        size: 26px;
+        weight: bold;
+      }
+    }
+    .fotobudka-body {
+      border: 1px solid $border-color;
+      border-top: none;
+      > div {
+        text-transform: uppercase;
+        font-weight: 600;
+        padding: 15px 1px;
+        border-bottom: 1px solid $border-color;
+        &:nth-child(2n+2) {
+          background-color: $bg-color;
+        }
+      }
+    }
   }
 }

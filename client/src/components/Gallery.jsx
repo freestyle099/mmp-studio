@@ -24,6 +24,11 @@ export default class Gallery extends React.Component {
       id: 2,
       url:
         "https://images.unsplash.com/photo-1524346223600-2b1367f85643?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=143f6c266f744998c4a6d871cf3359f2&auto=format&fit=crop&w=631&q=80"
+    },
+    {
+      id: 3,
+      url:
+        "https://images.pexels.com/photos/814499/pexels-photo-814499.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
     }
   ];
 
@@ -67,6 +72,10 @@ export default class Gallery extends React.Component {
     });
   };
 
+  nextButtonImage = e => {
+    console.log(e.key);
+  };
+
   render() {
     return (
       <div>
@@ -92,7 +101,11 @@ export default class Gallery extends React.Component {
                 );
               })}
             </div>
-            <div onClick={this.closeLightbox} className="lightbox-container">
+            <div
+              onKeyDown={this.nextButtonImage}
+              onClick={this.closeLightbox}
+              className="lightbox-container"
+            >
               <div className="lightbox">
                 <button onClick={this.closeLightbox} className="lg-close">
                   <i className="fas fa-times" />
@@ -110,5 +123,12 @@ export default class Gallery extends React.Component {
         </div>
       </div>
     );
+  }
+  componentDidMount() {
+    if (document.querySelector(".lightbox-container").style.display === 'block') {
+      document.addEventListener("keydown", e => {
+        console.log(e.key);
+      });
+    }
   }
 }

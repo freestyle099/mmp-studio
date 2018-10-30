@@ -29,6 +29,21 @@ export default class Gallery extends React.Component {
       id: 3,
       url:
         "https://images.pexels.com/photos/814499/pexels-photo-814499.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+    },
+    {
+      id: 4,
+      url:
+        "https://images.pexels.com/photos/814499/pexels-photo-814499.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+    },
+    {
+      id: 5,
+      url:
+        "https://images.pexels.com/photos/814499/pexels-photo-814499.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+    },
+    {
+      id: 6,
+      url:
+        "https://images.pexels.com/photos/814499/pexels-photo-814499.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
     }
   ];
 
@@ -78,13 +93,12 @@ export default class Gallery extends React.Component {
         <Navigation />
         <div className="container">
           <h1 className="h1">Portfolio</h1>
-          <div className="row">
-            <div className="imageGallery1">
-              {this.images.map(el => {
-                return (
+          <div className="row grid-gallery">
+            {this.images.map(el => {
+              return (
+                <div key={el.id} className="imageGallery1">
                   <a
                     onClick={this.startLightbox}
-                    key={el.id}
                     href={el.url}
                     title="Caption for gallery item 1"
                   >
@@ -94,9 +108,10 @@ export default class Gallery extends React.Component {
                       alt="Gallery image 1"
                     />
                   </a>
-                );
-              })}
-            </div>
+                </div>
+              );
+            })}
+
             <div onClick={this.closeLightbox} className="lightbox-container">
               <div className="lightbox">
                 <button onClick={this.closeLightbox} className="lg-close">
@@ -120,13 +135,11 @@ export default class Gallery extends React.Component {
     document.addEventListener("keydown", e => {
       if (e.key === "a" || e.key === "ArrowLeft") {
         this.prevImage();
-      }
-      else if (e.key === "d" || e.key === "ArrowRight") {
+      } else if (e.key === "d" || e.key === "ArrowRight") {
         this.nextImage();
-      }
-      else if (e.key === "Escape") {
+      } else if (e.key === "Escape") {
         document.querySelector(".lightbox-container").style.display = "none";
-      } else if(e.key === 'Enter'){
+      } else if (e.key === "Enter") {
         e.preventDefault();
       }
     });

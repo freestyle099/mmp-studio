@@ -239,18 +239,32 @@ footer {
   // formularz
 }
 
+
+// Gallery lightbox
+
+.grid-gallery {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-rows: 250px;
+  grid-auto-flow: dense;
+}
+
 .imageGallery1 {
-  position: relative;
-  a {
-    display: inline-block;
-    width: 200px;
-    height: 300px;
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+  height: 100%;
+  width: 100%;
+  & a {
+    height: 100%;
   }
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.vertical {
+  grid-row: span 2;
 }
 
 .lightbox-container {
@@ -276,6 +290,7 @@ footer {
       border: none;
       color: $white;
       font-size: 50px;
+      cursor: pointer;
       &:focus {
         box-shadow: 0 0 15px -5px $main-color;
       }
@@ -290,6 +305,7 @@ footer {
       position: absolute;
       right: 5%;
       top: 0;
+      cursor: pointer;
       width: 100px;
       height: 100px;
       background-color: transparent;

@@ -1,147 +1,70 @@
 import React from "react";
 import Navigation from "./Navigation";
+import Lightbox from "./Lightbox";
 
 export default class Gallery extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      openImage: 1
-    };
-  }
+
 
   images = [
     {
       id: 0,
       url:
-        "https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        "https://imagizer.imageshack.com/v2/1000x667q90/924/NusQTA.jpg"
     },
     {
       id: 1,
       url:
-        "https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        "https://imagizer.imageshack.com/v2/1000x667q90/923/UIOVFY.jpg"
     },
     {
       id: 2,
       url:
-        "https://images.unsplash.com/photo-1524346223600-2b1367f85643?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=143f6c266f744998c4a6d871cf3359f2&auto=format&fit=crop&w=631&q=80"
+        "https://imagizer.imageshack.com/v2/1000x667q90/922/9gGXq6.jpg"
     },
     {
       id: 3,
       url:
-        "https://images.pexels.com/photos/814499/pexels-photo-814499.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        "https://imagizer.imageshack.com/v2/1000x667q90/923/CQ95Vi.jpg"
     },
     {
       id: 4,
       url:
-        "https://images.pexels.com/photos/814499/pexels-photo-814499.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        "https://imagizer.imageshack.com/v2/1000x667q90/923/PowW7D.jpg"
     },
     {
       id: 5,
       url:
-        "https://images.pexels.com/photos/814499/pexels-photo-814499.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        "https://imagizer.imageshack.com/v2/1000x667q90/922/agjQTG.jpg"
     },
     {
       id: 6,
       url:
-        "https://images.pexels.com/photos/814499/pexels-photo-814499.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        "https://imagizer.imageshack.com/v2/526x790q90/924/SX6cU0.jpg",
+      class: 'vertical'
+    },
+    {
+      id: 7,
+      url:
+        "https://imagizer.imageshack.com/v2/1000x667q90/921/LlSUBM.jpg"
+    },
+    {
+      id: 8,
+      url:
+        "https://imagizer.imageshack.com/v2/1000x667q90/924/qTIDf0.jpg"
+    },
+    {
+      id: 9,
+      url:
+        "https://imagizer.imageshack.com/v2/1000x667q90/922/AIso8x.jpg"
     }
   ];
 
-  startLightbox = e => {
-    e.preventDefault();
-    let index = e.target.dataset.image;
-    this.setState({
-      openImage: index
-    });
-    let lightbox = document.querySelector(".lightbox-container");
-    lightbox.style.display = "block";
-  };
-
-  closeLightbox = e => {
-    if (e.target.classList.contains("lightbox")) {
-      e.target.parentElement.style.display = "none";
-    }
-    if (
-      e.target.classList.contains("lg-close") ||
-      e.target.classList.contains("fa-times")
-    ) {
-      document.querySelector(".lightbox-container").style.display = "none";
-    }
-  };
-
-  prevImage = () => {
-    this.setState({
-      openImage:
-        +this.state.openImage <= 0
-          ? (this.state.openImage = this.images.length - 1)
-          : +this.state.openImage - 1
-    });
-  };
-
-  nextImage = () => {
-    this.setState({
-      openImage:
-        +this.state.openImage >= +this.images.length - 1
-          ? (this.state.openImage = 0)
-          : +this.state.openImage + 1
-    });
-  };
-
   render() {
     return (
-      <div>
+      <div className='gallery'>
         <Navigation />
-        <div className="container">
-          <h1 className="h1">Portfolio</h1>
-          <div className="row grid-gallery">
-            {this.images.map(el => {
-              return (
-                <div key={el.id} className="imageGallery1">
-                  <a
-                    onClick={this.startLightbox}
-                    href={el.url}
-                    title="Caption for gallery item 1"
-                  >
-                    <img
-                      src={el.url}
-                      data-image={el.id}
-                      alt="Gallery image 1"
-                    />
-                  </a>
-                </div>
-              );
-            })}
-
-            <div onClick={this.closeLightbox} className="lightbox-container">
-              <div className="lightbox">
-                <button onClick={this.closeLightbox} className="lg-close">
-                  <i className="fas fa-times" />
-                </button>
-                <button onClick={this.prevImage} className="lg-arrows lg-left">
-                  <i className="fas fa-caret-left" />
-                </button>
-                <button onClick={this.nextImage} className="lg-arrows lg-right">
-                  <i className="fas fa-caret-right" />
-                </button>
-                <img src={this.images[this.state.openImage].url} alt="" />
-              </div>
-            </div>
-          </div>
-        </div>
+        <Lightbox images={this.images}/>
       </div>
     );
-  }
-  componentDidMount() {
-    document.addEventListener("keydown", e => {
-      if (e.key === "a" || e.key === "ArrowLeft") {
-        this.prevImage();
-      } else if (e.key === "d" || e.key === "ArrowRight") {
-        this.nextImage();
-      } else if (e.key === "Escape") {
-        document.querySelector(".lightbox-container").style.display = "none";
-      } else if (e.key === "Enter") {
-        e.preventDefault();
-      }
-    });
   }
 }

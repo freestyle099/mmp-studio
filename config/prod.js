@@ -1,3 +1,4 @@
 module.exports = {
-  sendGridKey: process.env.SEND_GRID_KEY
+  username: process.env.USER_NAME,
+  password: process.env.PASSWORD
 }

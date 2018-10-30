@@ -2,16 +2,23 @@ import React from "react";
 import Navigation from "./Navigation";
 
 export default class Gallery extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      openImage: 1
+    };
+  }
+
   images = [
     {
       id: 0,
       url:
-        "https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&h=350"
+        "https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
     },
     {
       id: 1,
       url:
-        "https://images.unsplash.com/photo-1522230411790-91c3a622f42e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=01ef2868a1981f224c292874bd91c82e&auto=format&fit=crop&w=590&q=80"
+        "https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
     },
     {
       id: 2,
@@ -20,12 +27,45 @@ export default class Gallery extends React.Component {
     }
   ];
 
-  startLightbox = (e) => {
+  startLightbox = e => {
     e.preventDefault();
-    console.log('hi');
-    let lightbox = document.querySelector('.lightbox-container');
-    lightbox.style.display = 'block';
-  }
+    let index = e.target.dataset.image;
+    this.setState({
+      openImage: index
+    });
+    let lightbox = document.querySelector(".lightbox-container");
+    lightbox.style.display = "block";
+  };
+
+  closeLightbox = e => {
+    if (e.target.classList.contains("lightbox")) {
+      e.target.parentElement.style.display = "none";
+    }
+    if (
+      e.target.classList.contains("lg-close") ||
+      e.target.classList.contains("fa-times")
+    ) {
+      document.querySelector(".lightbox-container").style.display = "none";
+    }
+  };
+
+  prevImage = () => {
+    this.setState({
+      openImage:
+        +this.state.openImage <= 0
+          ? (this.state.openImage = this.images.length - 1)
+          : +this.state.openImage - 1
+    });
+  };
+
+  nextImage = () => {
+    this.setState({
+      openImage:
+        +this.state.openImage >= +this.images.length - 1
+          ? (this.state.openImage = 0)
+          : +this.state.openImage + 1
+    });
+  };
 
   render() {
     return (
@@ -43,13 +83,28 @@ export default class Gallery extends React.Component {
                     href={el.url}
                     title="Caption for gallery item 1"
                   >
-                    <img src={el.url} alt="Gallery image 1" />
+                    <img
+                      src={el.url}
+                      data-image={el.id}
+                      alt="Gallery image 1"
+                    />
                   </a>
                 );
               })}
             </div>
-            <div className='lightbox-container'>
-              <img src={this.images[0].url} alt=""/>
+            <div onClick={this.closeLightbox} className="lightbox-container">
+              <div className="lightbox">
+                <button onClick={this.closeLightbox} className="lg-close">
+                  <i className="fas fa-times" />
+                </button>
+                <button onClick={this.prevImage} className="lg-arrows lg-left">
+                  <i className="fas fa-caret-left" />
+                </button>
+                <button onClick={this.nextImage} className="lg-arrows lg-right">
+                  <i className="fas fa-caret-right" />
+                </button>
+                <img src={this.images[this.state.openImage].url} alt="" />
+              </div>
             </div>
           </div>
         </div>

@@ -239,7 +239,6 @@ footer {
   // formularz
 }
 
-
 .imageGallery1 {
   position: relative;
   a {
@@ -262,15 +261,36 @@ footer {
   width: 100vw;
   height: 100vh;
   transform: translate(-50%, -50%);
-  background-color: rgba(0,0,0,.7);
-  img {
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    height: 90vh;
-    width: 80vw;
-    transform: translate(-50%, -50%);
-    object-fit: contain;
+  background-color: rgba(0, 0, 0, 0.7);
+  .lightbox {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    .lg-arrows {
+      position: absolute;
+      top: 50%;
+      height: 100px;
+      transform: translateY(-50%);
+    }
+    .lg-left {
+      left: 10%;
+    }
+    .lg-right {
+      right: 10%;
+    }
+    .lg-close {
+      position: absolute;
+      right: 10%;
+      top: 5%;
+    }
+    img {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      max-height: 90%;
+      max-width: 70%;
+      transform: translate(-50%, -50%);
+      object-fit: contain;
+    }
   }
 }
-

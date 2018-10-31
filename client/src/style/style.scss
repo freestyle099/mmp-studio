@@ -411,9 +411,14 @@ footer {
   }
 }
 .jub-info {
+  margin-bottom: 50px;
   display: flex;
+  justify-content: space-between;
   > div {
-    width: 50%;
+    width: 48%;
+    img {
+      width: 100%;
+    }
   }
 }
 .services {

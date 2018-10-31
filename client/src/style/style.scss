@@ -423,5 +423,24 @@ footer {
 }
 .services {
   background-color: $white;
-  border-top: 3px solid $jub-color
+  border-top: 3px solid $jub-color;
+  text-align: center;
+  padding-bottom: 50px;
+  h3 {
+    margin: 0;
+    padding-bottom: 30px;
+    font: {
+      family: $Pacifico-font;
+      size: 20px;
+    }
+  }
+  ul {
+    li {
+      padding: 5px;
+    }
+  }
+}
+
+.contact-jub {
+  border-top: 3px solid $jub-color;
 }

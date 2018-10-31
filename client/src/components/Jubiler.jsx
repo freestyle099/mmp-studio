@@ -16,9 +16,9 @@ export default class Jubiler extends React.Component {
   render() {
     return (
       <div>
-        <JubilerNavigation />
-        <Carousel images={this.state.images} />
-        <NavigationImages />
+        <JubilerNavigation/>
+        <Carousel images={this.state.images}/>
+        <NavigationImages/>
         <div>
           <h2>Strona Główna</h2>
           <div className="container jub-info">
@@ -43,19 +43,25 @@ export default class Jubiler extends React.Component {
               </p>
             </div>
             <div>
-              <img src="jubiler.jpg" alt="" />
+              <img src="jubiler.jpg" alt=""/>
             </div>
           </div>
           <div className="services">
             <div className="container">
               <h2>Usługi</h2>
-              Pracownia Złotnicza poleca swoje usługi w zakresie: Wykonywanie
-              biżuterii złotej z materiałów własnych i powierzonych.
-              Zmniejszanie i powiększanie pierścionków, obrączek. Naprawa starej
-              i współczesnej biżuterii złotej, srebrnej. Naprawa kopert
-              zegarkowych i bransolet. Przewlekanie korali i pereł itp. Sprzedaż
-              biżuterii. Skup złomu złota, srebra i kamieni szlachetnych. Porady
-              fachowe.
+              <ul>
+                Pracownia Złotnicza poleca swoje usługi w zakresie:
+                <li>Wykonywanie biżuterii złotej z materiałów własnych i powierzonych.</li>
+                <li>Zmniejszanie i powiększanie pierścionków, obrączek.</li>
+                <li>Naprawa starej i współczesnej biżuterii złotej, srebrnej.</li>
+                <li>Naprawa kopert zegarkowych i bransolet.</li>
+                <li>Przewlekanie korali i pereł itp.</li>
+                <li>Sprzedaż biżuterii.</li>
+                <li>Skup złomu złota, srebra i kamieni szlachetnych.</li>
+                <li>Porady fachowe.</li>
+              </ul>
+
+
             </div>
           </div>
         </div>

@@ -70,6 +70,8 @@ export default class Jubiler extends React.Component {
           <div className='contact-jub'>
             <div className="container">
               <h2>Kontakt</h2>
+              <input type="text"/>
+              <input type="text"/>
             </div>
           </div>
         </div>

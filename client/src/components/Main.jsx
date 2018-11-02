@@ -23,7 +23,7 @@ export default class MMPStudio extends React.Component {
         <NavigationImages />
         <AboutUs />
         <Contact />
-        <ContactForm btn='btn-main' class="main" />
+        <ContactForm active="input-bottom-main" btn="btn-main" class="main" />
       </div>
     );
   }

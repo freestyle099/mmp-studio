@@ -21,9 +21,9 @@ export default class Fotobudka extends React.Component {
         <FBNavigation />
         <Carousel images={this.state.images} />
         <NavigationImages />
-        <FotobudkaInfo/>
-        <FotobudkaPrices/>
-        <ContactForm btn='btn-fb' class='fotobudka'/>
+        <FotobudkaInfo />
+        <FotobudkaPrices />
+        <ContactForm active="input-bottom-fb" btn="btn-fb" class="fotobudka" />
       </div>
     );
   }

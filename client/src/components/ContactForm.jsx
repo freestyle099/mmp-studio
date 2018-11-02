@@ -50,35 +50,48 @@ export default class ContactForm extends React.Component {
 
   render() {
     return (
-      <div className={ this.props.class + " contact-form"}>
+      <div className={this.props.class + " contact-form"}>
         <div className="container">
           <h2>Formularz kontaktowy</h2>
           <form className="form" onSubmit={this.sendForm}>
             <div className="row">
-              <div>
+              <div className="col s6">
+                <label htmlFor="first_name">Imię</label>
                 <input
                   onChange={this.handleFirstName}
                   id="first_name"
                   type="text"
                 />
-                <label htmlFor="first_name">First Name</label>
               </div>
-              <div>
+              <div className="col s6">
+                <label htmlFor="last_name">Nazwisko</label>
                 <input
                   onChange={this.handleSurname}
                   id="last_name"
                   type="text"
                 />
-                <label htmlFor="last_name">Last Name</label>
               </div>
               <div className="col s6">
+                <label htmlFor="last_name">E-mail</label>
                 <input
                   onChange={this.handleEmail}
                   id="last_name"
                   type="email"
                   className="my-input"
                 />
-                <label htmlFor="last_name">E-mail</label>
+              </div>
+              <div className="col s6">
+                <label htmlFor="last_name">Telefon</label>
+                <input
+                  onChange={this.handleEmail}
+                  id="last_name"
+                  type="email"
+                  className="my-input"
+                />
+              </div>
+              <div className="col s12">
+                <label htmlFor="last_name">Treść wiadomości</label>
+                <textarea onChange={this.handleEmail} className="my-input" />
               </div>
             </div>
             <button

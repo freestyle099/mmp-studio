@@ -54,58 +54,62 @@ export default class ContactForm extends React.Component {
         <div className="container">
           <h2>Formularz kontaktowy</h2>
           <form className="form" onSubmit={this.sendForm}>
-            <div className="row">
-              <div className="col s6">
+            <div>
+              <div className="">
                 <label htmlFor="first_name">Imię</label>
                 <input
                   onChange={this.handleFirstName}
                   id="first_name"
                   type="text"
+                  className={this.props.active}
                 />
               </div>
-              <div className="col s6">
+              <div className="">
                 <label htmlFor="last_name">Nazwisko</label>
                 <input
                   onChange={this.handleSurname}
                   id="last_name"
                   type="text"
+                  className={this.props.active}
                 />
               </div>
-              <div className="col s6">
+              <div className="">
                 <label htmlFor="last_name">E-mail</label>
                 <input
                   onChange={this.handleEmail}
                   id="last_name"
                   type="email"
-                  className="my-input"
+                  className={this.props.active}
                 />
               </div>
-              <div className="col s6">
+              <div className="">
                 <label htmlFor="last_name">Telefon</label>
                 <input
                   onChange={this.handleEmail}
                   id="last_name"
                   type="email"
-                  className="my-input"
+                  className={this.props.active}
                 />
               </div>
-              <div className="col s12">
+              <div className="">
                 <label htmlFor="last_name">Treść wiadomości</label>
-                <textarea onChange={this.handleEmail} className="my-input" />
+                <textarea
+                  onChange={this.handleEmail}
+                  className={this.props.active}
+                />
               </div>
-              <div className="col">
+              <div className="">
                 <button
-                  className={ this.props.btn + " btn waves-effect waves-light light-blue"}
+                  className={
+                    this.props.btn + " btn waves-effect waves-light light-blue"
+                  }
                   type="submit"
                   name="action"
                 >
                   Wyślij
                 </button>
-
               </div>
             </div>
-
-
           </form>
         </div>
       </div>

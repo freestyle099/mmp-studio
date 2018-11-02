@@ -68,7 +68,7 @@ export default class Jubiler extends React.Component {
               </ul>
             </div>
           </div>
-          <ContactForm btn='btn-jub' class="jubiler" />
+          <ContactForm active='input-bottom-jubiler' btn='btn-jub' class="jubiler" />
         </div>
       </div>
     );

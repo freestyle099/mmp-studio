@@ -46,11 +46,7 @@ export default class ContactForm extends React.Component {
 
   sendForm = e => {
     e.preventDefault();
-    const from = document.getElementById("type").value;
-    console.log(from);
-    this.setState({
-      from
-    });
+
     const obj = {
       from: this.state.from,
       firstName: this.state.firstName,
@@ -138,5 +134,12 @@ export default class ContactForm extends React.Component {
         </div>
       </div>
     );
+  }
+  componentDidMount() {
+    const from = document.getElementById("type").value;
+    console.log(from);
+    this.setState({
+      from
+    });
   }
 }

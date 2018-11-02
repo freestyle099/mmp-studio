@@ -4,6 +4,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const keys = require("./config/keys");
 const nodemailer = require("nodemailer");
+const path = require("path");
 
 mongoose
   .connect("mongodb://localhost/playground")
@@ -20,10 +21,6 @@ const Fotobudka = mongoose.model("Fotobudkas", imageSchema);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-app.get("/", (req, res) => {
-  res.send("Hi There!");
-});
 
 app.get("/api/images", async (req, res) => {
   const images = await Image.find();
@@ -61,8 +58,7 @@ app.post("/contact", (req, res) => {
 
     subject: "hi", // Subject line
     text: "Hello world", // plain text body
-    html: "Imię: " + req.body.firstName + '\n'
-    + 'Nazwisko: ' + req.body.surname
+    html: "Imię: " + req.body.firstName + "\n" + "Nazwisko: " + req.body.surname
   };
 
   transporter.sendMail(mailOptions, function(err, info) {
@@ -72,6 +68,13 @@ app.post("/contact", (req, res) => {
     console.log(info);
   });
 });
+
+// Production
+// app.use(express.static("client/build"));
+//
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+// });
 
 const PORT = process.env.PORT || 5000;
 

@@ -5,6 +5,7 @@ import Carousel from "./Carousel";
 import NavigationImages from "./NavigationImages";
 import FotobudkaInfo from "./FotobudkaInfo";
 import FotobudkaPrices from "./FotobudkaPrices";
+import ContactForm from "./ContactForm";
 
 export default class Fotobudka extends React.Component {
   constructor(props) {
@@ -22,6 +23,7 @@ export default class Fotobudka extends React.Component {
         <NavigationImages />
         <FotobudkaInfo/>
         <FotobudkaPrices/>
+        <ContactForm class='fotobudka'/>
       </div>
     );
   }

@@ -4,6 +4,7 @@ import React from "react";
 import JubilerNavigation from "./JubilerNavigation";
 import Carousel from "./Carousel";
 import NavigationImages from "./NavigationImages";
+import ContactForm from "./ContactForm";
 
 export default class Jubiler extends React.Component {
   constructor(props) {
@@ -67,13 +68,7 @@ export default class Jubiler extends React.Component {
               </ul>
             </div>
           </div>
-          <div className='contact-jub'>
-            <div className="container">
-              <h2>Kontakt</h2>
-              <input type="text"/>
-              <input type="text"/>
-            </div>
-          </div>
+          <ContactForm class="jubiler" />
         </div>
       </div>
     );

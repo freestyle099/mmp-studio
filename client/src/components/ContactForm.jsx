@@ -93,14 +93,19 @@ export default class ContactForm extends React.Component {
                 <label htmlFor="last_name">Treść wiadomości</label>
                 <textarea onChange={this.handleEmail} className="my-input" />
               </div>
+              <div className="col">
+                <button
+                  className={ this.props.btn + " btn waves-effect waves-light light-blue"}
+                  type="submit"
+                  name="action"
+                >
+                  Wyślij
+                </button>
+
+              </div>
             </div>
-            <button
-              className="btn waves-effect waves-light light-blue"
-              type="submit"
-              name="action"
-            >
-              Wyślij
-            </button>
+
+
           </form>
         </div>
       </div>

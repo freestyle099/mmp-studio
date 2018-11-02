@@ -5,6 +5,7 @@ import Carousel from "./Carousel";
 import NavigationImages from "./NavigationImages";
 import AboutUs from "./AboutUs";
 import Contact from "./Contact";
+import ContactForm from "./ContactForm";
 
 export default class MMPStudio extends React.Component {
   constructor(props) {
@@ -22,6 +23,7 @@ export default class MMPStudio extends React.Component {
         <NavigationImages />
         <AboutUs />
         <Contact />
+        <ContactForm btn='btn-main' class="main" />
       </div>
     );
   }

@@ -1,5 +1,5 @@
 import React from "react";
-import ContactForm from "./ContactForm";
+
 
 export default class Contact extends React.Component {
 
@@ -27,7 +27,7 @@ export default class Contact extends React.Component {
           </div>
 
         </div>
-        <ContactForm class='main'/>
+
       </div>
     );
   }

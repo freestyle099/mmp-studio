@@ -261,6 +261,16 @@ textarea {
   min-height: 200px;
 }
 
+.btn-main {
+  background-color: $main-color !important;
+}
+.btn-fb {
+  background-color: $fb-color !important;
+}
+.btn-jub {
+  background-color: $jub-color !important;
+  color: $font-color !important;
+}
 // Gallery lightbox
 .gallery {
   margin-bottom: 80px;

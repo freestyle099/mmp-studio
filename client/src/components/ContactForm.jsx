@@ -6,7 +6,10 @@ export default class ContactForm extends React.Component {
     this.state = {
       firstName: "",
       surname: "",
-      email: ""
+      email: "",
+      phone: "",
+      message: "",
+      from: ""
     };
   }
 
@@ -28,13 +31,33 @@ export default class ContactForm extends React.Component {
       email
     });
   };
+  handlePhone = e => {
+    const phone = e.target.value;
+    this.setState({
+      phone
+    });
+  };
+  handleMessage = e => {
+    const message = e.target.value;
+    this.setState({
+      message
+    });
+  };
 
   sendForm = e => {
     e.preventDefault();
+    const from = document.getElementById("type").value;
+    console.log(from);
+    this.setState({
+      from
+    });
     const obj = {
+      from: this.state.from,
       firstName: this.state.firstName,
       surname: this.state.surname,
-      email: this.state.email
+      email: this.state.email,
+      phone: this.state.phone,
+      message: this.state.message
     };
     fetch("/contact", {
       method: "POST",
@@ -54,6 +77,7 @@ export default class ContactForm extends React.Component {
         <div className="container">
           <h2>Formularz kontaktowy</h2>
           <form className="form" onSubmit={this.sendForm}>
+            <input id="type" type="hidden" value={this.props.from} />
             <div>
               <div className="">
                 <label htmlFor="first_name">Imię</label>
@@ -85,20 +109,20 @@ export default class ContactForm extends React.Component {
               <div className="">
                 <label htmlFor="last_name">Telefon</label>
                 <input
-                  onChange={this.handleEmail}
+                  onChange={this.handlePhone}
                   id="last_name"
-                  type="email"
+                  type="number"
                   className={this.props.active}
                 />
               </div>
               <div className="">
                 <label htmlFor="last_name">Treść wiadomości</label>
                 <textarea
-                  onChange={this.handleEmail}
+                  onChange={this.handleMessage}
                   className={this.props.active}
                 />
               </div>
-              <div className="">
+              <div>
                 <button
                   className={
                     this.props.btn + " btn waves-effect waves-light light-blue"

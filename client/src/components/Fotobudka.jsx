@@ -23,7 +23,12 @@ export default class Fotobudka extends React.Component {
         <NavigationImages />
         <FotobudkaInfo />
         <FotobudkaPrices />
-        <ContactForm active="input-bottom-fb" btn="btn-fb" class="fotobudka" />
+        <ContactForm
+          from="fotobudka"
+          active="input-bottom-fb"
+          btn="btn-fb"
+          class="fotobudka"
+        />
       </div>
     );
   }

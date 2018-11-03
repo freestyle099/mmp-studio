@@ -16,23 +16,13 @@ export default class ContactForm extends React.Component {
 
   handleFirstName = e => {
     const firstName = e.target.value;
-    this.setState({
-      firstName
-    });
-  };
-  validateFirstName = e => {
-    if (e.target.value.length < 3) {
-
-      this.setState({
-        error: this.state.error = true
-      });
-      console.log(this.state.error);
-      e.target.classList.add("input-bottom-validate");
+    if (firstName.length < 3) {
+      e.target.nextElementSibling.style.display = "block";
     } else {
+      e.target.nextElementSibling.style.display = "none";
       this.setState({
-        error: this.state.error = false
+        firstName
       });
-      e.target.classList.remove("input-bottom-validate");
     }
   };
   handleSurname = e => {
@@ -61,9 +51,21 @@ export default class ContactForm extends React.Component {
   };
 
   sendForm = e => {
+    e.preventDefault();
     console.log(this.state.error);
     if (this.state.error) {
-      e.preventDefault();
+    } else if (
+      this.state.firstName.length < 1 ||
+      this.state.surname.length < 1
+    ) {
+      this.setState({
+        error: (this.state.error = true)
+      });
+      const form = document.querySelector(".form");
+      const error = form.querySelectorAll(".error");
+      for (let el of error) {
+        el.style.display = "block";
+      }
     } else {
       const obj = {
         from: this.state.from,
@@ -97,12 +99,12 @@ export default class ContactForm extends React.Component {
               <div className="">
                 <label htmlFor="first_name">Imię</label>
                 <input
-                  onBlur={this.validateFirstName}
                   onChange={this.handleFirstName}
                   id="first_name"
                   type="text"
                   className={this.props.active}
                 />
+                <span className="error">Imię musi być dłuższe niż 3 znaki</span>
               </div>
               <div className="">
                 <label htmlFor="last_name">Nazwisko</label>
@@ -112,6 +114,9 @@ export default class ContactForm extends React.Component {
                   type="text"
                   className={this.props.active}
                 />
+                <span className="error">
+                  Nazwisko musi być dłuższe niż 3 znaki
+                </span>
               </div>
               <div className="">
                 <label htmlFor="last_name">E-mail</label>

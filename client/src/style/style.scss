@@ -293,14 +293,9 @@ footer {
     box-shadow: none !important;
   }
 }
-.errors {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+.error {
+  display: none;
   color: red;
-  > div {
-    width: 50%;
-  }
 }
 
 textarea {

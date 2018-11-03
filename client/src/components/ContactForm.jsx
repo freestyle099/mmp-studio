@@ -10,23 +10,52 @@ export default class ContactForm extends React.Component {
       phone: "",
       message: "",
       from: "",
-      error: false
+      errors: []
     };
   }
+
+  errors = [];
 
   handleFirstName = e => {
     const firstName = e.target.value;
     if (firstName.length < 3) {
-      e.target.nextElementSibling.style.display = "block";
-    } else {
-      e.target.nextElementSibling.style.display = "none";
+      if (this.errors.indexOf("Siema") < 0) {
+        this.errors.push("Siema");
+      }
       this.setState({
-        firstName
+        errors: this.errors
       });
+    } else {
+      let index = this.errors.indexOf("Siema");
+      if (index > -1) {
+        this.errors.splice(index, 1);
+        this.setState({
+          errors: this.errors
+        });
+      }
     }
+    this.setState({
+      firstName
+    });
   };
   handleSurname = e => {
     const surname = e.target.value;
+    if (surname.length < 3) {
+      if (this.errors.indexOf("Joł") < 0) {
+        this.errors.push("Joł");
+      }
+      this.setState({
+        errors: this.errors
+      });
+    } else {
+      let index = this.errors.indexOf("Joł");
+      if (index > -1) {
+        this.errors.splice(index, 1);
+        this.setState({
+          errors: this.errors
+        });
+      }
+    }
     this.setState({
       surname
     });
@@ -50,22 +79,12 @@ export default class ContactForm extends React.Component {
     });
   };
 
+  resetArray = e => {};
+
   sendForm = e => {
     e.preventDefault();
-    console.log(this.state.error);
-    if (this.state.error) {
-    } else if (
-      this.state.firstName.length < 1 ||
-      this.state.surname.length < 1
-    ) {
-      this.setState({
-        error: (this.state.error = true)
-      });
-      const form = document.querySelector(".form");
-      const error = form.querySelectorAll(".error");
-      for (let el of error) {
-        el.style.display = "block";
-      }
+
+    if (this.state.errors.length > 0) {
     } else {
       const obj = {
         from: this.state.from,
@@ -93,7 +112,14 @@ export default class ContactForm extends React.Component {
       <div className={this.props.class + " contact-form"}>
         <div className="container">
           <h2>Formularz kontaktowy</h2>
-          <form className="form" onSubmit={this.sendForm}>
+          {this.state.errors.map((el, index) => (
+            <div key={index}>{el}</div>
+          ))}
+          <form
+            onChange={this.resetArray}
+            className="form"
+            onSubmit={this.sendForm}
+          >
             <input id="type" type="hidden" value={this.props.from} />
             <div>
               <div className="">
@@ -104,8 +130,8 @@ export default class ContactForm extends React.Component {
                   type="text"
                   className={this.props.active}
                 />
-                <span className="error">Imię musi być dłuższe niż 3 znaki</span>
               </div>
+
               <div className="">
                 <label htmlFor="last_name">Nazwisko</label>
                 <input
@@ -114,9 +140,6 @@ export default class ContactForm extends React.Component {
                   type="text"
                   className={this.props.active}
                 />
-                <span className="error">
-                  Nazwisko musi być dłuższe niż 3 znaki
-                </span>
               </div>
               <div className="">
                 <label htmlFor="last_name">E-mail</label>

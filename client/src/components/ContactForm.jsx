@@ -20,6 +20,9 @@ export default class ContactForm extends React.Component {
     "Pole Nazwisko nie może być puste i musi być dłuższe niż 3 znaki";
   errEmail = "Pole E-mail nie może być puste";
   errEmailCorrect = "Adres e-mail musi być poprawny";
+  errPhone = "Numer telefonu musi zawierać 9 cyfr";
+  errMessage =
+    "Pole Treść wiadomości nie może być puste i musi być dłuższe niż 10 znaków";
 
   handleFirstName = e => {
     const firstName = e.target.value;
@@ -108,12 +111,47 @@ export default class ContactForm extends React.Component {
   };
   handlePhone = e => {
     const phone = e.target.value;
+    // Validation
+    if (phone.length !== 9) {
+      if (this.errors.indexOf(this.errPhone) < 0) {
+        this.errors.push(this.errPhone);
+      }
+      this.setState({
+        errors: this.errors
+      });
+    } else {
+      let index = this.errors.indexOf(this.errPhone);
+      if (index > -1) {
+        this.errors.splice(index, 1);
+        this.setState({
+          errors: this.errors
+        });
+      }
+    }
+
     this.setState({
       phone
     });
   };
   handleMessage = e => {
     const message = e.target.value;
+    // Validation
+    if (message.length <= 10) {
+      if (this.errors.indexOf(this.errMessage) < 0) {
+        this.errors.push(this.errMessage);
+      }
+      this.setState({
+        errors: this.errors
+      });
+    } else {
+      let index = this.errors.indexOf(this.errMessage);
+      if (index > -1) {
+        this.errors.splice(index, 1);
+        this.setState({
+          errors: this.errors
+        });
+      }
+    }
     this.setState({
       message
     });
@@ -131,12 +169,21 @@ export default class ContactForm extends React.Component {
         this.errors.push(this.errSurname);
       }
     }
-    if(this.state.email.length === 0) {
+    if (this.state.email.length === 0) {
       if (this.errors.indexOf(this.errEmail) < 0) {
         this.errors.push(this.errEmail);
       }
     }
-    else if (this.state.errors.length > 0) {
+    if (this.state.phone.length === 0) {
+      if (this.errors.indexOf(this.errPhone) < 0) {
+        this.errors.push(this.errPhone);
+      }
+    }
+    if (this.state.message.length === 0) {
+      if (this.errors.indexOf(this.errMessage) < 0) {
+        this.errors.push(this.errMessage);
+      }
+    } else if (this.state.errors.length > 0) {
     } else {
       alert("Wysłano");
       const obj = {
@@ -157,6 +204,18 @@ export default class ContactForm extends React.Component {
       })
         .then(resp => resp.json())
         .then(data => console.log(data));
+      const form = document.querySelector(".form");
+      const input = form.querySelectorAll("input:not([type=hidden]), textarea");
+      for (let el of input) {
+        el.value = "";
+      }
+      this.setState({
+        firstName: (this.state.firstName = ""),
+        surname: (this.state.surname = ""),
+        email: (this.state.email = ""),
+        phone: (this.state.phone = ""),
+        message: (this.state.message = "")
+      });
     }
 
     this.setState({

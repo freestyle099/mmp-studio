@@ -16,7 +16,10 @@ export default class ContactForm extends React.Component {
 
   errors = [];
   errFirst = "Pole Imię nie może być puste i musi być dłuższe niż 3 znaki";
-  errSurname = "Pole Nazwisko nie może być puste i musi być dłuższe niż 3 znaki";
+  errSurname =
+    "Pole Nazwisko nie może być puste i musi być dłuższe niż 3 znaki";
+  errEmail = "Pole E-mail nie może być puste";
+  errEmailCorrect = "Adres e-mail musi być poprawny";
 
   handleFirstName = e => {
     const firstName = e.target.value;
@@ -64,6 +67,41 @@ export default class ContactForm extends React.Component {
   };
   handleEmail = e => {
     const email = e.target.value;
+    // Validate
+    if (email.length < 3) {
+      if (this.errors.indexOf(this.errEmail) < 0) {
+        this.errors.push(this.errEmail);
+      }
+      this.setState({
+        errors: this.errors
+      });
+    } else {
+      let index = this.errors.indexOf(this.errEmail);
+      if (index > -1) {
+        this.errors.splice(index, 1);
+        this.setState({
+          errors: this.errors
+        });
+      }
+    }
+
+    if (email.indexOf("@") < 0) {
+      if (this.errors.indexOf(this.errEmailCorrect) < 0) {
+        this.errors.push(this.errEmailCorrect);
+      }
+      this.setState({
+        errors: this.errors
+      });
+    } else {
+      let index = this.errors.indexOf(this.errEmailCorrect);
+      if (index > -1) {
+        this.errors.splice(index, 1);
+        this.setState({
+          errors: this.errors
+        });
+      }
+    }
+
     this.setState({
       email
     });
@@ -81,13 +119,26 @@ export default class ContactForm extends React.Component {
     });
   };
 
-  resetArray = e => {};
-
   sendForm = e => {
     e.preventDefault();
-
-    if (this.state.errors.length > 0) {
+    if (this.state.firstName.length === 0) {
+      if (this.errors.indexOf(this.errFirst) < 0) {
+        this.errors.push(this.errFirst);
+      }
+    }
+    if (this.state.surname.length === 0) {
+      if (this.errors.indexOf(this.errSurname) < 0) {
+        this.errors.push(this.errSurname);
+      }
+    }
+    if(this.state.email.length === 0) {
+      if (this.errors.indexOf(this.errEmail) < 0) {
+        this.errors.push(this.errEmail);
+      }
+    }
+    else if (this.state.errors.length > 0) {
     } else {
+      alert("Wysłano");
       const obj = {
         from: this.state.from,
         firstName: this.state.firstName,
@@ -107,6 +158,10 @@ export default class ContactForm extends React.Component {
         .then(resp => resp.json())
         .then(data => console.log(data));
     }
+
+    this.setState({
+      errors: this.errors
+    });
   };
 
   render() {
@@ -119,11 +174,7 @@ export default class ContactForm extends React.Component {
               <div key={index}>{el}</div>
             ))}
           </div>
-          <form
-            onChange={this.resetArray}
-            className="form"
-            onSubmit={this.sendForm}
-          >
+          <form className="form" onSubmit={this.sendForm}>
             <input id="type" type="hidden" value={this.props.from} />
             <div>
               <div className="">
@@ -187,6 +238,7 @@ export default class ContactForm extends React.Component {
       </div>
     );
   }
+
   componentDidMount() {
     const from = document.getElementById("type").value;
     console.log(from);

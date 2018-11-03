@@ -15,18 +15,20 @@ export default class ContactForm extends React.Component {
   }
 
   errors = [];
+  errFirst = "Pole Imię nie może być puste i musi być dłuższe niż 3 znaki";
+  errSurname = "Pole Nazwisko nie może być puste i musi być dłuższe niż 3 znaki";
 
   handleFirstName = e => {
     const firstName = e.target.value;
     if (firstName.length < 3) {
-      if (this.errors.indexOf("Siema") < 0) {
-        this.errors.push("Siema");
+      if (this.errors.indexOf(this.errFirst) < 0) {
+        this.errors.push(this.errFirst);
       }
       this.setState({
         errors: this.errors
       });
     } else {
-      let index = this.errors.indexOf("Siema");
+      let index = this.errors.indexOf(this.errFirst);
       if (index > -1) {
         this.errors.splice(index, 1);
         this.setState({
@@ -41,14 +43,14 @@ export default class ContactForm extends React.Component {
   handleSurname = e => {
     const surname = e.target.value;
     if (surname.length < 3) {
-      if (this.errors.indexOf("Joł") < 0) {
-        this.errors.push("Joł");
+      if (this.errors.indexOf(this.errSurname) < 0) {
+        this.errors.push(this.errSurname);
       }
       this.setState({
         errors: this.errors
       });
     } else {
-      let index = this.errors.indexOf("Joł");
+      let index = this.errors.indexOf(this.errSurname);
       if (index > -1) {
         this.errors.splice(index, 1);
         this.setState({
@@ -112,9 +114,11 @@ export default class ContactForm extends React.Component {
       <div className={this.props.class + " contact-form"}>
         <div className="container">
           <h2>Formularz kontaktowy</h2>
-          {this.state.errors.map((el, index) => (
-            <div key={index}>{el}</div>
-          ))}
+          <div className="error">
+            {this.state.errors.map((el, index) => (
+              <div key={index}>{el}</div>
+            ))}
+          </div>
           <form
             onChange={this.resetArray}
             className="form"

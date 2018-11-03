@@ -294,8 +294,13 @@ footer {
   }
 }
 .error {
-  display: none;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   color: red;
+  > div {
+    width: 50%;
+  }
 }
 
 textarea {

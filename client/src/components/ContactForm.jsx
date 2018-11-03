@@ -10,17 +10,30 @@ export default class ContactForm extends React.Component {
       phone: "",
       message: "",
       from: "",
-      errors: []
+      error: false
     };
   }
-
-  errors = [];
 
   handleFirstName = e => {
     const firstName = e.target.value;
     this.setState({
       firstName
     });
+  };
+  validateFirstName = e => {
+    if (e.target.value.length < 3) {
+
+      this.setState({
+        error: this.state.error = true
+      });
+      console.log(this.state.error);
+      e.target.classList.add("input-bottom-validate");
+    } else {
+      this.setState({
+        error: this.state.error = false
+      });
+      e.target.classList.remove("input-bottom-validate");
+    }
   };
   handleSurname = e => {
     const surname = e.target.value;
@@ -48,8 +61,8 @@ export default class ContactForm extends React.Component {
   };
 
   sendForm = e => {
-    console.log(this.state.errors);
-    if (this.errors.length > 0) {
+    console.log(this.state.error);
+    if (this.state.error) {
       e.preventDefault();
     } else {
       const obj = {
@@ -78,17 +91,13 @@ export default class ContactForm extends React.Component {
       <div className={this.props.class + " contact-form"}>
         <div className="container">
           <h2>Formularz kontaktowy</h2>
-          <div className="errors">
-            {this.state.errors.map((el, index) => {
-              return <div key={index}>{el}</div>;
-            })}
-          </div>
           <form className="form" onSubmit={this.sendForm}>
             <input id="type" type="hidden" value={this.props.from} />
             <div>
               <div className="">
                 <label htmlFor="first_name">Imię</label>
                 <input
+                  onBlur={this.validateFirstName}
                   onChange={this.handleFirstName}
                   id="first_name"
                   type="text"

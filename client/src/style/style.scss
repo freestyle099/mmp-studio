@@ -288,6 +288,10 @@ footer {
     border-bottom: 2px solid $main-color !important;
     box-shadow: none !important;
   }
+  .input-bottom-validate {
+    border-bottom: 2px solid red !important;
+    box-shadow: none !important;
+  }
 }
 .errors {
   display: flex;

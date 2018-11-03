@@ -18,18 +18,9 @@ export default class ContactForm extends React.Component {
 
   handleFirstName = e => {
     const firstName = e.target.value;
-    if (firstName.length < 3) {
-      this.errors[0] = "Siema";
-      this.setState({
-        errors: this.errors
-      });
-    } else {
-      this.errors[0] = "";
-      this.setState({
-        firstName,
-        errors: this.errors
-      });
-    }
+    this.setState({
+      firstName
+    });
   };
   handleSurname = e => {
     const surname = e.target.value;

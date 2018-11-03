@@ -9,15 +9,27 @@ export default class ContactForm extends React.Component {
       email: "",
       phone: "",
       message: "",
-      from: ""
+      from: "",
+      errors: []
     };
   }
 
+  errors = [];
+
   handleFirstName = e => {
     const firstName = e.target.value;
-    this.setState({
-      firstName
-    });
+    if (firstName.length < 3) {
+      this.errors[0] = "Siema";
+      this.setState({
+        errors: this.errors
+      });
+    } else {
+      this.errors[0] = "";
+      this.setState({
+        firstName,
+        errors: this.errors
+      });
+    }
   };
   handleSurname = e => {
     const surname = e.target.value;
@@ -45,26 +57,29 @@ export default class ContactForm extends React.Component {
   };
 
   sendForm = e => {
-    e.preventDefault();
-
-    const obj = {
-      from: this.state.from,
-      firstName: this.state.firstName,
-      surname: this.state.surname,
-      email: this.state.email,
-      phone: this.state.phone,
-      message: this.state.message
-    };
-    fetch("/contact", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(obj)
-    })
-      .then(resp => resp.json())
-      .then(data => console.log(data));
+    console.log(this.state.errors);
+    if (this.errors.length > 0) {
+      e.preventDefault();
+    } else {
+      const obj = {
+        from: this.state.from,
+        firstName: this.state.firstName,
+        surname: this.state.surname,
+        email: this.state.email,
+        phone: this.state.phone,
+        message: this.state.message
+      };
+      fetch("/contact", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(obj)
+      })
+        .then(resp => resp.json())
+        .then(data => console.log(data));
+    }
   };
 
   render() {
@@ -72,6 +87,11 @@ export default class ContactForm extends React.Component {
       <div className={this.props.class + " contact-form"}>
         <div className="container">
           <h2>Formularz kontaktowy</h2>
+          <div className="errors">
+            {this.state.errors.map((el, index) => {
+              return <div key={index}>{el}</div>;
+            })}
+          </div>
           <form className="form" onSubmit={this.sendForm}>
             <input id="type" type="hidden" value={this.props.from} />
             <div>

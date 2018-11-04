@@ -44,16 +44,6 @@ export default class JubilerGallery extends React.Component {
       id: 7,
       url:
         "https://imagizer.imageshack.com/v2/1000x667q90/921/LlSUBM.jpg"
-    },
-    {
-      id: 8,
-      url:
-        "https://imagizer.imageshack.com/v2/1000x667q90/924/qTIDf0.jpg"
-    },
-    {
-      id: 9,
-      url:
-        "https://imagizer.imageshack.com/v2/1000x667q90/922/AIso8x.jpg"
     }
   ];
 

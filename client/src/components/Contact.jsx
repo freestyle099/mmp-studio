@@ -15,7 +15,7 @@ export default class Contact extends React.Component {
               <p>jest zarejestrowaną legalną firmą działającą na terenie UE</p>
               <p>z siedzibą Pod Blachówką 2, 34-511 Kościelisko</p>
 
-              <p>NIP: PL736-170-53-69, REGON: 123106370</p>
+              <p>NIP: PL736-170-53-69</p>
 
               <p>
                 <b>Kontakt bezpośredni:</b>

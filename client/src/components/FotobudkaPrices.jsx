@@ -8,7 +8,7 @@ export default class FotobudkaPrices extends React.Component {
           <h2>Oferta</h2>
           <div className="fotobudka-container">
             <div className="z-depth-1">
-              <div className="fotobudka-header">Mini</div>
+              <div className="fotobudka-header">Mały</div>
               <div className="fotobudka-body">
                 <div>Duży wybór gadżetów!</div>
                 <div>Zdjęcia bez limitu</div>
@@ -23,7 +23,7 @@ export default class FotobudkaPrices extends React.Component {
               </div>
             </div>
             <div className="z-depth-1">
-              <div className="fotobudka-header">Basic</div>
+              <div className="fotobudka-header">Podstawowy</div>
               <div className="fotobudka-body">
                 <div>Duży wybór gadżetów!</div>
                 <div>Zdjęcia bez limitu</div>
@@ -38,7 +38,7 @@ export default class FotobudkaPrices extends React.Component {
               </div>
             </div>
             <div className="z-depth-1">
-              <div className="fotobudka-header">Standard</div>
+              <div className="fotobudka-header">Standardowy</div>
               <div className="fotobudka-body">
                 <div>Duży wybór gadżetów!</div>
                 <div>Zdjęcia bez limitu</div>
@@ -53,7 +53,7 @@ export default class FotobudkaPrices extends React.Component {
               </div>
             </div>
             <div className="z-depth-1">
-              <div className="fotobudka-header">Extra</div>
+              <div className="fotobudka-header">Na bogato</div>
               <div className="fotobudka-body">
                 <div>Duży wybór gadżetów!</div>
                 <div>Zdjęcia bez limitu</div>

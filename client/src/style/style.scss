@@ -7,10 +7,15 @@ body {
   color: $font-color;
   font-family: $Meri-font;
 }
-
+.nav-container {
+  position: absolute;
+  top: 0;
+  z-index: 1070;
+  width: 100vw;
+}
 nav {
   box-sizing: content-box;
-  @extend .white;
+  background-color: transparent;
   ul {
     a {
       color: $font-color;

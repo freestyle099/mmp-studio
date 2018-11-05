@@ -1,9 +1,14 @@
 @import "./variables";
-
+.navigation-container {
+  height: 100vh;
+  border: 2px solid red;
+}
 .my-slider {
-  height: 500px;
-  position: relative;
-  margin: 40px auto;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+
   img {
     width: 100%;
     height: 100%;

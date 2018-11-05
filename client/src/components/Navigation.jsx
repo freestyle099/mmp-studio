@@ -4,7 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 export default class Navigation extends React.Component {
   render() {
     return (
-      <div>
+      <div className='nav-container'>
         <nav className="main-nav">
           <div className="nav-wrapper container">
             <Link className="brand-logo" to="/">

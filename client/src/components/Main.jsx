@@ -18,12 +18,19 @@ export default class MMPStudio extends React.Component {
   render() {
     return (
       <div>
-        <Navigation />
-        <Carousel images={this.state.images} />
+        <div className='navigation-container'>
+          <Navigation />
+          <Carousel images={this.state.images} />
+        </div>
         <NavigationImages />
         <AboutUs />
         <Contact />
-        <ContactForm from='MMPStudio' active="input-bottom-main" btn="btn-main" class="main" />
+        <ContactForm
+          from="MMPStudio"
+          active="input-bottom-main"
+          btn="btn-main"
+          class="main"
+        />
       </div>
     );
   }

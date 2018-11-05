@@ -55,7 +55,7 @@ export default class Carousel extends React.Component {
   render() {
     return (
 
-      <div className="container my-slider z-depth-3">
+      <div className="my-slider z-depth-3">
         <button onClick={this.prevSlide} className="arrows left">
           <i className="fas fa-angle-left" />
         </button>

@@ -54,8 +54,8 @@ app.post("/contact", (req, res) => {
 
   let mailOptions = {
     from: `${req.body.firstName} ${req.body.surname} <${req.body.email}>`,
-    to: "freestyle09@freestyle09.usermd.net", // list of receivers
-    cc: `${req.body.firstName} ${req.body.surname} <${req.body.email}>`,
+    cc: "jozefrzadkosz09@gmail.com", // list of receivers
+    to: `${req.body.firstName} ${req.body.surname} <${req.body.email}>`,
     subject: `Wiadomość - ${req.body.from}`, // Subject line
     text: "Hello world", // plain text body
     html: "Imię: " + req.body.firstName + "\n" + "Nazwisko: " + req.body.surname

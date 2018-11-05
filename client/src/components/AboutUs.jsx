@@ -4,7 +4,7 @@ import Accordion from "./Accordion";
 export default class AboutUs extends React.Component {
   render() {
     return (
-      <div>
+      <div className='about-us'>
         <div className="container">
           <h2>O nas</h2>
           <div className="center-align">

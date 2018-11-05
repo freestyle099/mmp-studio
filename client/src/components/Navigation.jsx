@@ -14,6 +14,11 @@ export default class Navigation extends React.Component {
                 </NavLink>
               </li>
               <li>
+                <NavLink exact activeClassName="active-main" to="/">
+                  O Nas
+                </NavLink>
+              </li>
+              <li className='logo-container'>
                 <Link className="brand-logo" to="/">
                   <img src="./logo_studio.png" alt="" />
                 </Link>
@@ -21,6 +26,11 @@ export default class Navigation extends React.Component {
               <li>
                 <NavLink exact activeClassName="active-main" to="/galeria">
                   Galeria
+                </NavLink>
+              </li>
+              <li>
+                <NavLink exact activeClassName="active-main" to="/galeria">
+                  Wideo
                 </NavLink>
               </li>
             </ul>

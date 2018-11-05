@@ -5,7 +5,7 @@ export default class Carousel extends React.Component {
     super(props);
     this.state = {
       slider: 0,
-      time: 3000
+      time: 6000
     };
   }
 

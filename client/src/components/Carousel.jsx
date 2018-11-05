@@ -18,6 +18,7 @@ export default class Carousel extends React.Component {
             : this.state.slider + 1
       });
     }, this.state.time);
+
   };
 
   nextSlide = () => {

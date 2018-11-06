@@ -6,6 +6,8 @@ Here begins a very nice looking page of photographs by Michał Fornalski Jr.
 
 https://freestyle09.usermd.net/
 
+The website is in the construction phase
+
 ## Technologies which will be used: 
 
 * JavaScript ES6 

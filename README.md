@@ -2,6 +2,10 @@
 
 Here begins a very nice looking page of photographs by Michał Fornalski Jr. 
 
+## Temporary domain name:
+
+https://freestyle09.usermd.net/
+
 ## Technologies which will be used: 
 
 * JavaScript ES6 

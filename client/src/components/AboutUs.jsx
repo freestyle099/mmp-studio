@@ -4,7 +4,7 @@ import Accordion from "./Accordion";
 export default class AboutUs extends React.Component {
   render() {
     return (
-      <div className='about-us'>
+      <section id='aboutUs' className='about-us'>
         <div className="container">
           <h2>O nas</h2>
           <div className="center-align">
@@ -31,7 +31,7 @@ export default class AboutUs extends React.Component {
           {/*<div className="acc-info">Między innymi:</div>*/}
           <Accordion />
         </div>
-      </div>
+      </section>
     );
   }
 }

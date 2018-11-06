@@ -49,13 +49,14 @@ nav {
     }
     a {
       font: {
-        family: $Lato-font;
+        family: $Roboto-font;
         weight: bold;
-        size: 22px;
+        size: 18px;
       }
+      transition: .5s ;
       text-align: center;
       color: $white;
-      text-shadow: 0px 0px 5px #000;
+      text-shadow: 0 0 5px #000;
       &:hover {
         background-color: transparent;
         color: red;

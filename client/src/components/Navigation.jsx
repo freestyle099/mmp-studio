@@ -2,6 +2,10 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
 export default class Navigation extends React.Component {
+  goToAbout = e => {
+    let scroll = document.getElementById("aboutUs").offsetTop;
+    window.scrollTo(0,scroll)
+  }
   render() {
     return (
       <div className="nav-container">
@@ -14,7 +18,7 @@ export default class Navigation extends React.Component {
                 </NavLink>
               </li>
               <li>
-                <NavLink className='link-left' exact activeClassName="active-main" to="/">
+                <NavLink onClick={this.goToAbout} to='/' exact activeClassName="active-main" className='link-left'>
                   O Nas
                 </NavLink>
               </li>
@@ -38,5 +42,8 @@ export default class Navigation extends React.Component {
         </nav>
       </div>
     );
+  }
+  componentDidMount() {
+
   }
 }

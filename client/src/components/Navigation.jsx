@@ -6,7 +6,7 @@ export default class Navigation extends React.Component {
     super(props);
     this.state = {
       isTrue: false
-    }
+    };
   }
 
   scroll;
@@ -14,6 +14,9 @@ export default class Navigation extends React.Component {
   goToAbout = e => {
     window.scrollTo(0, this.scroll);
   };
+  goToTop = () => {
+    window.scrollTo(0,0);
+  }
   render() {
     return (
       <div className="nav-container">
@@ -26,6 +29,7 @@ export default class Navigation extends React.Component {
                   exact
                   activeClassName="active-main"
                   to="/"
+                  onClick={this.goToTop}
                 >
                   Strona Główna
                 </NavLink>
@@ -64,23 +68,29 @@ export default class Navigation extends React.Component {
     );
   }
   componentDidMount() {
-    let aboutUs = document.getElementById('aboutUs');
-    let navImg = document.getElementById('navImg');
+    let aboutUs = document.getElementById("aboutUs");
+    let navImg = document.getElementById("navImg");
 
-    if(aboutUs) {
-      this.scroll = aboutUs.offsetTop
+    if (aboutUs) {
+      this.scroll = aboutUs.offsetTop - 100;
     }
-    if(navImg) {
-      this.navImg = navImg.offsetTop
+    if (navImg) {
+      this.navImg = navImg.offsetTop;
     }
 
-    window.addEventListener('resize', () => {
-      this.scroll = document.getElementById('aboutUs').offsetTop
+    window.addEventListener("resize", () => {
+      this.scroll = aboutUs.offsetTop - 100;
+      this.navImg = navImg.offsetTop;
     });
-    document.addEventListener('scroll', () => {
-      if(window.pageYOffset > this.navImg - 100) {
-        console.log('hi');
+    document.addEventListener("scroll", () => {
+      let nav = document.querySelector(".nav-container");
+      if (window.pageYOffset > this.navImg) {
+        nav.classList.add("navigation-container-scroll");
+      } else {
+        if (nav.classList.contains("navigation-container-scroll")) {
+          nav.classList.remove("navigation-container-scroll");
+        }
       }
-    })
+    });
   }
 }

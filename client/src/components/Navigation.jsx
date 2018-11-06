@@ -9,12 +9,12 @@ export default class Navigation extends React.Component {
           <div className="nav-wrapper container">
             <ul className="container navigation">
               <li>
-                <NavLink exact activeClassName="active-main" to="/">
+                <NavLink className='link-left' exact activeClassName="active-main" to="/">
                   Strona Główna
                 </NavLink>
               </li>
               <li>
-                <NavLink exact activeClassName="active-main" to="/">
+                <NavLink className='link-left' exact activeClassName="active-main" to="/">
                   O Nas
                 </NavLink>
               </li>

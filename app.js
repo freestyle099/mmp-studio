@@ -65,6 +65,7 @@ app.post("/contact", (req, res) => {
     if (err) {
       throw err;
     }
+
     console.log(info);
   });
 });

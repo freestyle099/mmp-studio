@@ -8,19 +8,36 @@ import Contact from "./Contact";
 import ContactForm from "./ContactForm";
 
 export default class MMPStudio extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      images: []
-    };
-  }
+
+  images = [
+    {
+      id: 1,
+      url: 'photos/(1389).jpg'
+    },
+    {
+      id: 2,
+      url: 'photos/Marysia_Tomasz_2871.jpg'
+    },
+    {
+      id: 3,
+      url: 'photos/Wesele_Ewa_Krzysztof_1244.jpg'
+    },
+    {
+      id: 4,
+      url: 'photos/Wesele_Ewa_Krzysztof_2016.jpg'
+    },
+    {
+      id: 5,
+      url: 'photos/Marysia_Tomasz_2893.jpg'
+    }
+  ]
 
   render() {
     return (
       <div>
         <div className='navigation-container'>
           <Navigation />
-          <Carousel images={this.state.images} />
+          <Carousel images={this.images} />
         </div>
         <NavigationImages />
         <AboutUs />
@@ -34,13 +51,5 @@ export default class MMPStudio extends React.Component {
       </div>
     );
   }
-  componentDidMount() {
-    fetch("/api/images")
-      .then(resp => resp.json())
-      .then(data => {
-        this.setState({
-          images: data
-        });
-      });
-  }
+
 }

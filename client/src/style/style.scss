@@ -12,14 +12,17 @@ body {
   top: 0;
   z-index: 1070;
   width: 100vw;
-  height: 100px;
-  transition: .5s;
+  height: 0;
+  overflow: hidden;
+  transition: 0.25s height linear;
 }
-
+.nav-container-helper {
+  height: 100px;
+  //transition: .5s height;
+}
 
 .navigation-container {
   height: 100vh;
-
 }
 .navigation-container-scroll {
   height: 100px;
@@ -27,9 +30,8 @@ body {
   top: 0;
   background-color: $white;
   border-bottom: 4px solid $main-color;
-  transition: .5s height;
+  transition: 0.25s height linear;
 }
-
 
 nav {
   box-shadow: none;
@@ -70,7 +72,7 @@ nav {
         weight: bold;
         size: 20px;
       }
-      transition: .5s ;
+      transition: 0.5s;
       text-align: center;
       color: $white;
       text-shadow: 0 0 5px #000;

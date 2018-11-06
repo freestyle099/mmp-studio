@@ -15,8 +15,8 @@ export default class Navigation extends React.Component {
     window.scrollTo(0, this.scroll);
   };
   goToTop = () => {
-    window.scrollTo(0,0);
-  }
+    window.scrollTo(0, 0);
+  };
   render() {
     return (
       <div className="nav-container">
@@ -70,7 +70,8 @@ export default class Navigation extends React.Component {
   componentDidMount() {
     let aboutUs = document.getElementById("aboutUs");
     let navImg = document.getElementById("navImg");
-
+    let nav = document.querySelector(".nav-container");
+    nav.classList.add("nav-container-helper");
     if (aboutUs) {
       this.scroll = aboutUs.offsetTop - 100;
     }
@@ -83,7 +84,11 @@ export default class Navigation extends React.Component {
       this.navImg = navImg.offsetTop;
     });
     document.addEventListener("scroll", () => {
-      let nav = document.querySelector(".nav-container");
+      if (window.pageYOffset > 200) {
+        nav.classList.remove("nav-container-helper");
+      } else {
+        nav.classList.add("nav-container-helper");
+      }
       if (window.pageYOffset > this.navImg) {
         nav.classList.add("navigation-container-scroll");
       } else {

@@ -2,10 +2,18 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
 export default class Navigation extends React.Component {
-  goToAbout = e => {
-    let scroll = document.getElementById("aboutUs").offsetTop;
-    window.scrollTo(0,scroll)
+  constructor(props) {
+    super(props);
+    this.state = {
+      isTrue: false
+    }
   }
+
+  scroll;
+  navImg;
+  goToAbout = e => {
+    window.scrollTo(0, this.scroll);
+  };
   render() {
     return (
       <div className="nav-container">
@@ -13,19 +21,31 @@ export default class Navigation extends React.Component {
           <div className="nav-wrapper container">
             <ul className="container navigation">
               <li>
-                <NavLink className='link-left' exact activeClassName="active-main" to="/">
+                <NavLink
+                  className="link-left"
+                  exact
+                  activeClassName="active-main"
+                  to="/"
+                >
                   Strona Główna
                 </NavLink>
               </li>
               <li>
-                <NavLink onClick={this.goToAbout} to='/' exact activeClassName="active-main" className='link-left'>
+                <NavLink
+                  onClick={this.goToAbout}
+                  to="/"
+                  activeClassName={
+                    window.pageYOffset > this.scroll ? "active-main" : ""
+                  }
+                  className="link-left"
+                >
                   O Nas
                 </NavLink>
               </li>
-              <li className='logo-container'>
-                <Link className="brand-logo" to="/">
+              <li className="logo-container">
+                <NavLink className="brand-logo" to="/">
                   <img src="./logo_studio.png" alt="" />
-                </Link>
+                </NavLink>
               </li>
               <li>
                 <NavLink exact activeClassName="active-main" to="/galeria">
@@ -33,7 +53,7 @@ export default class Navigation extends React.Component {
                 </NavLink>
               </li>
               <li>
-                <NavLink exact activeClassName="active-main" to="/galeria">
+                <NavLink exact activeClassName="active-main" to="/wideo">
                   Wideo
                 </NavLink>
               </li>
@@ -44,6 +64,23 @@ export default class Navigation extends React.Component {
     );
   }
   componentDidMount() {
+    let aboutUs = document.getElementById('aboutUs');
+    let navImg = document.getElementById('navImg');
 
+    if(aboutUs) {
+      this.scroll = aboutUs.offsetTop
+    }
+    if(navImg) {
+      this.navImg = navImg.offsetTop
+    }
+
+    window.addEventListener('resize', () => {
+      this.scroll = document.getElementById('aboutUs').offsetTop
+    });
+    document.addEventListener('scroll', () => {
+      if(window.pageYOffset > this.navImg - 100) {
+        console.log('hi');
+      }
+    })
   }
 }

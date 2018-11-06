@@ -29,15 +29,19 @@
   font-size: 40px;
   color: $white;
   cursor: pointer;
-  transition: .2s ease-in-out;
+  transition: 0.2s ease-in-out;
+  padding: 50px;
   &:focus {
     background-color: transparent;
   }
   &:hover {
     font-size: 50px;
   }
+  &.left {
+    left: 1%;
+  }
   &.right {
-    right: 0;
+    right: 1%;
   }
 }
 
@@ -53,7 +57,7 @@
 .circle-container {
   position: absolute;
   z-index: 999;
-  bottom: 1%;
+  bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
   .circle-empty {
@@ -64,6 +68,7 @@
   }
 }
 
-.fas, .far {
-  text-shadow: 0 0 5px rgba(0,0,0,.5);
+.fas,
+.far {
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }

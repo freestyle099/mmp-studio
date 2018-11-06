@@ -51,7 +51,7 @@ nav {
       font: {
         family: $Roboto-font;
         weight: bold;
-        size: 18px;
+        size: 20px;
       }
       transition: .5s ;
       text-align: center;
@@ -85,11 +85,11 @@ nav {
 }
 
 .active-main {
-  color: $main-color;
+  color: $main-color !important;
   font-weight: bold;
 }
 .active-fb {
-  color: $fb-color;
+  color: $fb-color !important;
   font-weight: bold;
 }
 .right {

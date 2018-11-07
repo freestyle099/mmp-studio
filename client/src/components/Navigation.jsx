@@ -5,56 +5,43 @@ export default class Navigation extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isTrue: false
+      isMain: false
     };
   }
 
   scroll;
   navImg;
-  goToAbout = e => {
+  aboutUs;
+  navImgElement;
+  nav;
+
+  goToAbout = (e) => {
+    if(!this.state.isMain) {
+      e.preventDefault();
+    }
     window.scrollTo(0, this.scroll);
   };
   goToTop = () => {
     window.scrollTo(0, 0);
   };
   render() {
-    return (
-      <div className="nav-container">
+    return <div className="nav-container nav-container-helper">
         <nav className="main-nav">
           <div className="nav-wrapper container">
             <ul className="container navigation">
               <li>
-                <NavLink
-                  className="link-left"
-                  exact
-                  activeClassName="active-main"
-                  to="/"
-                  onClick={this.goToTop}
-                >
+                <NavLink className="link-left" exact activeClassName="active-main" to="/" onClick={this.goToTop}>
                   Strona Główna
                 </NavLink>
               </li>
               <li>
-                <NavLink
-                  onClick={this.goToAbout}
-                  to="/"
-                  activeClassName={
-                    window.pageYOffset > this.scroll ? "active-main" : ""
-                  }
-                  className="link-left"
-                >
+                {/*<a href="/#aboutUs">Siema</a>*/}
+                <NavLink to='' activeClassName={window.pageYOffset > this.scroll ? "active-main" : ''} className={ !this.state.isMain ? "disabled link-left" : 'link-left'} onClick={this.goToAbout}>
                   O Nas
                 </NavLink>
               </li>
               <li>
-                <NavLink
-                  onClick={this.goToAbout}
-                  to="/"
-                  activeClassName={
-                    window.pageYOffset > this.scroll ? "active-main" : ""
-                  }
-                  className="link-left"
-                >
+                <NavLink onClick={this.goToAbout} to="/" activeClassName={window.pageYOffset > this.scroll ? "active-main" : ""} className="link-left">
                   Kontakt
                 </NavLink>
               </li>
@@ -83,38 +70,55 @@ export default class Navigation extends React.Component {
             </ul>
           </div>
         </nav>
-      </div>
-    );
+      </div>;
   }
-  componentDidMount() {
-    let aboutUs = document.getElementById("aboutUs");
-    let navImg = document.getElementById("navImg");
-    let nav = document.querySelector(".nav-container");
-    nav.classList.add("nav-container-helper");
-    if (aboutUs) {
-      this.scroll = aboutUs.offsetTop - 100;
+  resize = () => {
+    if (this.aboutUs) {
+      this.scroll = this.aboutUs.offsetTop - 100;
     }
-    if (navImg) {
-      this.navImg = navImg.offsetTop;
+    if (this.navImgElement) {
+      this.navImg = this.navImgElement.offsetTop;
+    }
+  };
+  scrollFunction = () => {
+    if (window.pageYOffset > 200) {
+      this.nav.classList.remove("nav-container-helper");
+    } else {
+      this.nav.classList.add("nav-container-helper");
+    }
+    if (window.pageYOffset > this.navImg) {
+      this.nav.classList.add("navigation-container-scroll");
+    } else {
+      if (this.nav.classList.contains("navigation-container-scroll")) {
+        this.nav.classList.remove("navigation-container-scroll");
+      }
+    }
+  };
+
+  componentDidMount() {
+    if(window.location.pathname === '/') {
+      this.setState({
+        isMain: true
+      })
+    }
+    this.aboutUs = document.getElementById("aboutUs");
+    this.navImgElement = document.getElementById("navImg");
+    this.nav = document.querySelector(".nav-container");
+    console.log(this.nav);
+    // this.nav.classList.add("nav-container-helper");
+    if (this.aboutUs) {
+      this.scroll = this.aboutUs.offsetTop - 100;
+    }
+    if (this.navImgElement) {
+      this.navImg = this.navImgElement.offsetTop;
     }
 
-    window.addEventListener("resize", () => {
-      this.scroll = aboutUs.offsetTop;
-      this.navImg = navImg.offsetTop;
-    });
-    document.addEventListener("scroll", () => {
-      if (window.pageYOffset > 200) {
-        nav.classList.remove("nav-container-helper");
-      } else {
-        nav.classList.add("nav-container-helper");
-      }
-      if (window.pageYOffset > this.navImg) {
-        nav.classList.add("navigation-container-scroll");
-      } else {
-        if (nav.classList.contains("navigation-container-scroll")) {
-          nav.classList.remove("navigation-container-scroll");
-        }
-      }
-    });
+    window.addEventListener("resize", this.resize);
+    document.addEventListener("scroll", this.scrollFunction);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("resize", this.resize);
+    window.removeEventListener("scroll", this.scrollFunction);
   }
 }

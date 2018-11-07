@@ -34,6 +34,11 @@ body {
   transition: 0.25s height linear;
 }
 
+.disabled {
+  color: $bg-color !important;
+  cursor: not-allowed;
+}
+
 nav {
   box-shadow: none;
   box-sizing: content-box;

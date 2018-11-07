@@ -46,11 +46,25 @@ export default class Navigation extends React.Component {
                   O Nas
                 </NavLink>
               </li>
+              <li>
+                <NavLink
+                  onClick={this.goToAbout}
+                  to="/"
+                  activeClassName={
+                    window.pageYOffset > this.scroll ? "active-main" : ""
+                  }
+                  className="link-left"
+                >
+                  Kontakt
+                </NavLink>
+              </li>
+
               <li className="logo-container">
                 <NavLink className="brand-logo" to="/">
                   <img src="./logo_studio.png" alt="" />
                 </NavLink>
               </li>
+
               <li>
                 <NavLink exact activeClassName="active-main" to="/galeria">
                   Galeria
@@ -59,6 +73,11 @@ export default class Navigation extends React.Component {
               <li>
                 <NavLink exact activeClassName="active-main" to="/wideo">
                   Wideo
+                </NavLink>
+              </li>
+              <li>
+                <NavLink exact activeClassName="active-main" to="/wideo">
+                  Strefa klienta
                 </NavLink>
               </li>
             </ul>
@@ -80,7 +99,7 @@ export default class Navigation extends React.Component {
     }
 
     window.addEventListener("resize", () => {
-      this.scroll = aboutUs.offsetTop - 100;
+      this.scroll = aboutUs.offsetTop;
       this.navImg = navImg.offsetTop;
     });
     document.addEventListener("scroll", () => {

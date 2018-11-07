@@ -6,6 +6,7 @@ body {
   @extend .grey, .lighten-4;
   color: $font-color;
   font-family: $Meri-font;
+
 }
 .nav-container {
   position: absolute;
@@ -47,10 +48,12 @@ nav {
     > li {
       display: flex;
       align-items: center;
+      justify-content: center;
       height: 100%;
+      width: auto;
       position: relative;
       &.logo-container {
-        width: 30%;
+        width: 25%;
         height: 100%;
       }
       .brand-logo {
@@ -72,10 +75,11 @@ nav {
         weight: bold;
         size: 20px;
       }
+      padding: 0;
       transition: 0.5s;
       text-align: center;
       color: $white;
-      text-shadow: 0 0 5px #000;
+      text-shadow: 1px 2px 1px #000;
       &:hover {
         background-color: transparent;
         color: red;

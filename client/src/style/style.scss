@@ -32,6 +32,10 @@ body {
   color: $main-color !important;
   font-weight: bold;
 }
+.active-main-right {
+  color: red !important;
+  font-weight: bold;
+}
 
 .disabled {
   color: $bg-color !important;

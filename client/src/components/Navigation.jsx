@@ -84,19 +84,27 @@ export default class Navigation extends React.Component {
               </li>
 
               <li>
-                <NavLink onClick={this.goToTop} exact activeClassName="active-main" to="/galeria">
+                <NavLink
+                  onClick={this.goToTop}
+                  exact
+                  activeClassName="active-main-right"
+                  to="/galeria"
+                >
                   Galeria
                 </NavLink>
               </li>
               <li>
-                <NavLink exact activeClassName="active-main" to="/wideo">
+                <NavLink
+                  onClick={this.goToTop}
+                  exact
+                  activeClassName="active-main-right"
+                  to="/wideo"
+                >
                   Wideo
                 </NavLink>
               </li>
               <li>
-                <NavLink exact activeClassName="active-main" to="/wideo">
-                  Strefa klienta
-                </NavLink>
+                <a href="http://google.pl">Strefa klienta</a>
               </li>
             </ul>
           </div>
@@ -118,17 +126,23 @@ export default class Navigation extends React.Component {
   };
   scrollFunction = () => {
     // Navigation active class
-    if (window.pageYOffset > this.scroll && window.pageYOffset < this.contact) {
-      this.main.classList.remove("active-main");
-      this.linkAboutUs.classList.add("active-main");
-      this.linkContact.classList.remove("active-main");
-    } else if (window.pageYOffset > this.contact) {
-      this.linkAboutUs.classList.remove("active-main");
-      this.linkContact.classList.add("active-main");
-    } else {
-      this.main.classList.add("active-main");
-      this.linkAboutUs.classList.remove("active-main");
-      this.linkContact.classList.remove("active-main");
+    if (window.location.pathname === "/") {
+      if (
+        window.pageYOffset > this.scroll - 100 &&
+        window.pageYOffset < this.contact - 100
+      ) {
+        this.main.classList.remove("active-main");
+        this.linkAboutUs.classList.add("active-main");
+        this.linkContact.classList.remove("active-main");
+      } else if (window.pageYOffset > this.contact - 100) {
+        this.main.classList.remove("active-main");
+        this.linkAboutUs.classList.remove("active-main");
+        this.linkContact.classList.add("active-main");
+      } else {
+        this.main.classList.add("active-main");
+        this.linkAboutUs.classList.remove("active-main");
+        this.linkContact.classList.remove("active-main");
+      }
     }
 
     // Detect scroll direction
@@ -155,11 +169,6 @@ export default class Navigation extends React.Component {
   };
 
   componentDidMount() {
-    if (window.location.pathname === "/") {
-      this.setState({
-        isMain: true
-      });
-    }
     this.aboutUs = document.getElementById("aboutUs");
     this.navImgElement = document.getElementById("navImg");
     this.main = document.getElementById("main");
@@ -167,7 +176,13 @@ export default class Navigation extends React.Component {
     this.linkContact = document.getElementById("link-contact");
     this.nav = document.querySelector(".nav-container");
     this.contactElement = document.getElementById("contact");
-    this.main.classList.add("active-main");
+
+    if (window.location.pathname === "/") {
+      this.main.classList.add("active-main");
+      this.setState({
+        isMain: true
+      });
+    }
 
     if (this.aboutUs) {
       this.scroll = this.aboutUs.offsetTop;

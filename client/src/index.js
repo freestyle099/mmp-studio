@@ -19,6 +19,7 @@ import Recommend from "./components/Recommend";
 import Footer from "./components/Footer";
 
 import "./style/style.scss";
+import Video from "./components/Video";
 
 // Main APP
 class App extends React.Component {
@@ -34,6 +35,7 @@ class App extends React.Component {
             <Route exact path="/jubiler" component={Jubiler} />
             <Route exact path="/regulamin" component={Regulations} />
             <Route exact path="/polecamy" component={Recommend} />
+            <Route exact path="/wideo" component={Video} />
             <Route
               exact
               path="/fotobudka/galeria"

@@ -42,13 +42,13 @@ body {
     height: 0;
   }
   to {
-    height: 50px;
+    height: 75px;
   }
 }
 
 @keyframes leaving {
   0% {
-    height: 50px;
+    height: 75px;
     border-bottom: 4px solid $main-color;
   }
   90% {

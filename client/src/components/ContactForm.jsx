@@ -30,12 +30,12 @@ export default class ContactForm extends React.Component {
       if (this.errors.indexOf(this.errFirst) < 0) {
         this.errors.push(this.errFirst);
       }
-      e.target.classList.add('input-bottom-validate');
+      e.target.classList.add("input-bottom-validate");
       this.setState({
         errors: this.errors
       });
     } else {
-      e.target.classList.remove('input-bottom-validate');
+      e.target.classList.remove("input-bottom-validate");
       let index = this.errors.indexOf(this.errFirst);
       if (index > -1) {
         this.errors.splice(index, 1);
@@ -54,12 +54,12 @@ export default class ContactForm extends React.Component {
       if (this.errors.indexOf(this.errSurname) < 0) {
         this.errors.push(this.errSurname);
       }
-      e.target.classList.add('input-bottom-validate');
+      e.target.classList.add("input-bottom-validate");
       this.setState({
         errors: this.errors
       });
     } else {
-      e.target.classList.remove('input-bottom-validate');
+      e.target.classList.remove("input-bottom-validate");
       let index = this.errors.indexOf(this.errSurname);
       if (index > -1) {
         this.errors.splice(index, 1);
@@ -79,12 +79,12 @@ export default class ContactForm extends React.Component {
       if (this.errors.indexOf(this.errEmail) < 0) {
         this.errors.push(this.errEmail);
       }
-      e.target.classList.add('input-bottom-validate');
+      e.target.classList.add("input-bottom-validate");
       this.setState({
         errors: this.errors
       });
     } else {
-      e.target.classList.remove('input-bottom-validate');
+      e.target.classList.remove("input-bottom-validate");
       let index = this.errors.indexOf(this.errEmail);
       if (index > -1) {
         this.errors.splice(index, 1);
@@ -98,12 +98,12 @@ export default class ContactForm extends React.Component {
       if (this.errors.indexOf(this.errEmailCorrect) < 0) {
         this.errors.push(this.errEmailCorrect);
       }
-      e.target.classList.add('input-bottom-validate');
+      e.target.classList.add("input-bottom-validate");
       this.setState({
         errors: this.errors
       });
     } else {
-      e.target.classList.remove('input-bottom-validate');
+      e.target.classList.remove("input-bottom-validate");
       let index = this.errors.indexOf(this.errEmailCorrect);
       if (index > -1) {
         this.errors.splice(index, 1);
@@ -124,12 +124,12 @@ export default class ContactForm extends React.Component {
       if (this.errors.indexOf(this.errPhone) < 0) {
         this.errors.push(this.errPhone);
       }
-      e.target.classList.add('input-bottom-validate');
+      e.target.classList.add("input-bottom-validate");
       this.setState({
         errors: this.errors
       });
     } else {
-      e.target.classList.remove('input-bottom-validate');
+      e.target.classList.remove("input-bottom-validate");
       let index = this.errors.indexOf(this.errPhone);
       if (index > -1) {
         this.errors.splice(index, 1);
@@ -150,12 +150,12 @@ export default class ContactForm extends React.Component {
       if (this.errors.indexOf(this.errMessage) < 0) {
         this.errors.push(this.errMessage);
       }
-      e.target.classList.add('input-bottom-validate');
+      e.target.classList.add("input-bottom-validate");
       this.setState({
         errors: this.errors
       });
     } else {
-      e.target.classList.remove('input-bottom-validate');
+      e.target.classList.remove("input-bottom-validate");
       let index = this.errors.indexOf(this.errMessage);
       if (index > -1) {
         this.errors.splice(index, 1);
@@ -175,34 +175,34 @@ export default class ContactForm extends React.Component {
       if (this.errors.indexOf(this.errFirst) < 0) {
         this.errors.push(this.errFirst);
       }
-      document.getElementById('firstName').classList.add('input-bottom-validate')
+      document
+        .getElementById("firstName")
+        .classList.add("input-bottom-validate");
     }
     if (this.state.surname.length === 0) {
       if (this.errors.indexOf(this.errSurname) < 0) {
         this.errors.push(this.errSurname);
-
       }
-      document.getElementById('surname').classList.add('input-bottom-validate')
+      document.getElementById("surname").classList.add("input-bottom-validate");
     }
     if (this.state.email.length === 0) {
       if (this.errors.indexOf(this.errEmail) < 0) {
         this.errors.push(this.errEmail);
       }
-      document.getElementById('email').classList.add('input-bottom-validate')
+      document.getElementById("email").classList.add("input-bottom-validate");
     }
     if (this.state.phone.length === 0) {
       if (this.errors.indexOf(this.errPhone) < 0) {
         this.errors.push(this.errPhone);
       }
-      document.getElementById('phone').classList.add('input-bottom-validate')
+      document.getElementById("phone").classList.add("input-bottom-validate");
     }
     if (this.state.message.length === 0) {
       if (this.errors.indexOf(this.errMessage) < 0) {
         this.errors.push(this.errMessage);
       }
-      document.getElementById('message').classList.add('input-bottom-validate')
+      document.getElementById("message").classList.add("input-bottom-validate");
     } else if (this.state.errors.length > 0) {
-
     } else {
       alert("Wysłano");
       const obj = {
@@ -255,7 +255,7 @@ export default class ContactForm extends React.Component {
           <form className="form" onSubmit={this.sendForm}>
             <input id="type" type="hidden" value={this.props.from} />
             <div>
-              <div className="">
+              <div>
                 <label htmlFor="first_name">Imię</label>
                 <input
                   onChange={this.handleFirstName}
@@ -264,8 +264,7 @@ export default class ContactForm extends React.Component {
                   className={this.props.active}
                 />
               </div>
-
-              <div className="">
+              <div>
                 <label htmlFor="last_name">Nazwisko</label>
                 <input
                   onChange={this.handleSurname}
@@ -274,7 +273,7 @@ export default class ContactForm extends React.Component {
                   className={this.props.active}
                 />
               </div>
-              <div className="">
+              <div>
                 <label htmlFor="last_name">E-mail</label>
                 <input
                   onChange={this.handleEmail}
@@ -283,7 +282,7 @@ export default class ContactForm extends React.Component {
                   className={this.props.active}
                 />
               </div>
-              <div className="">
+              <div>
                 <label htmlFor="last_name">Telefon</label>
                 <input
                   onChange={this.handlePhone}
@@ -292,14 +291,16 @@ export default class ContactForm extends React.Component {
                   className={this.props.active}
                 />
               </div>
-              <div className="">
+
+              <div>
                 <label htmlFor="last_name">Treść wiadomości</label>
                 <textarea
-                  id='message'
+                  id="message"
                   onChange={this.handleMessage}
                   className={this.props.active}
                 />
               </div>
+
               <div>
                 <button
                   className={

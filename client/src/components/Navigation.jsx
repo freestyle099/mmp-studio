@@ -107,7 +107,7 @@ export default class Navigation extends React.Component {
   };
   scrollFunction = () => {
     let st = window.pageYOffset;
-    if (window.pageYOffset > this.scroll - 100) {
+    if (window.pageYOffset > this.scroll) {
       this.main.classList.remove("active-main");
       this.linkAboutUs.classList.add("active-main");
     } else {
@@ -121,7 +121,7 @@ export default class Navigation extends React.Component {
       }
     } else {
       this.nav.classList.remove("leaving");
-      if (window.pageYOffset > this.navImg || window.pageYOffset > 500) {
+      if (window.pageYOffset > this.navImg || window.pageYOffset > 800) {
         this.nav.classList.add("navigation-container-scroll");
         this.nav.classList.add("entering");
       } else {

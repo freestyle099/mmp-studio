@@ -51,7 +51,7 @@ export default class Lightbox extends React.Component {
   render() {
     return (
       <div className="container">
-        <h2>Portfolio</h2>
+        <h2>Galeria</h2>
         <div className="row grid-gallery">
           {this.props.images.map(el => {
             return (

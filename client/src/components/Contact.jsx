@@ -5,7 +5,7 @@ export default class Contact extends React.Component {
 
   render() {
     return (
-      <div className="contact">
+      <div id='contact' className="contact">
         <div className="container">
           <h2>Kontakt</h2>
 

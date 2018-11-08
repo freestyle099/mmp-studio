@@ -31,31 +31,27 @@ export default class Navigation extends React.Component {
           <div className="nav-wrapper container">
             <ul className="container navigation">
               <li>
-                <NavLink
+                <Link
                   className="link-left"
-                  exact
-                  activeClassName="active-main"
                   to="/"
                   onClick={this.goToTop}
+                  id="main"
                 >
                   Strona Główna
-                </NavLink>
+                </Link>
               </li>
               <li>
                 {/*<a href="/#aboutUs">Siema</a>*/}
-                <NavLink
-                  to=""
-                  exact
-                  activeClassName={
-                    window.pageYOffset > this.scroll ? "active-main" : ""
-                  }
+                <Link
+                  to="/"
                   className={
                     !this.state.isMain ? "disabled link-left" : "link-left"
                   }
                   onClick={this.goToAbout}
+                  id="link-aboutUs"
                 >
                   O Nas
-                </NavLink>
+                </Link>
               </li>
               <li>
                 <NavLink
@@ -98,9 +94,12 @@ export default class Navigation extends React.Component {
     );
   }
   lastScrollTop = 0;
+  main;
+  linkAboutUs;
+
   resize = () => {
     if (this.aboutUs) {
-      this.scroll = this.aboutUs.offsetTop - 100;
+      this.scroll = this.aboutUs.offsetTop;
     }
     if (this.navImgElement) {
       this.navImg = this.navImgElement.offsetTop;
@@ -108,6 +107,13 @@ export default class Navigation extends React.Component {
   };
   scrollFunction = () => {
     let st = window.pageYOffset;
+    if (window.pageYOffset > this.scroll - 100) {
+      this.main.classList.remove("active-main");
+      this.linkAboutUs.classList.add("active-main");
+    } else {
+      this.main.classList.add("active-main");
+      this.linkAboutUs.classList.remove("active-main");
+    }
     if (st > this.lastScrollTop) {
       if (this.nav.classList.contains("navigation-container-scroll")) {
         this.nav.classList.remove("entering");
@@ -136,11 +142,12 @@ export default class Navigation extends React.Component {
     }
     this.aboutUs = document.getElementById("aboutUs");
     this.navImgElement = document.getElementById("navImg");
+    this.main = document.getElementById("main");
+    this.linkAboutUs = document.getElementById("link-aboutUs");
     this.nav = document.querySelector(".nav-container");
-    console.log(this.nav);
-    // this.nav.classList.add("nav-container-helper");
+
     if (this.aboutUs) {
-      this.scroll = this.aboutUs.offsetTop - 100;
+      this.scroll = this.aboutUs.offsetTop;
     }
     if (this.navImgElement) {
       this.navImg = this.navImgElement.offsetTop;

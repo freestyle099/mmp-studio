@@ -6,6 +6,9 @@ body {
   @extend .grey, .lighten-4;
   color: $font-color;
   font-family: $Meri-font;
+  .container {
+    width: 1100px;
+  }
 }
 .nav-container {
   position: absolute;
@@ -24,6 +27,10 @@ body {
   top: 0;
   background-color: $white;
   border-bottom: 4px solid $main-color;
+}
+.active-main {
+  color: $main-color !important;
+  font-weight: bold;
 }
 
 .disabled {
@@ -105,16 +112,16 @@ nav {
         size: 20px;
       }
       padding: 0;
-      transition: 0.5s;
+      transition: 0.2s;
       text-align: center;
       color: $white;
-      text-shadow: 1px 2px 1px #000;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, .5);
       &:hover {
         background-color: transparent;
         color: red;
       }
       &.link-left:hover {
-        color: $main-color;
+        color: $main-color !important;
       }
     }
   }
@@ -136,10 +143,6 @@ nav {
   border-bottom: 3px solid $jub-color;
 }
 
-.active-main {
-  color: $main-color !important;
-  font-weight: bold;
-}
 .active-fb {
   color: $fb-color !important;
   font-weight: bold;

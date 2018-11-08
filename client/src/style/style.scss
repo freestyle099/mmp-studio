@@ -28,6 +28,13 @@ body {
   background-color: $white;
   border-bottom: 4px solid $main-color;
 }
+.navigation-other {
+  height: 100px;
+  position: absolute;
+  top: 0;
+  background-color: $white;
+  border-bottom: 4px solid $main-color;
+}
 .active-main {
   color: $main-color !important;
   font-weight: bold;
@@ -37,10 +44,6 @@ body {
   font-weight: bold;
 }
 
-.disabled {
-  color: $bg-color !important;
-  cursor: not-allowed;
-}
 @keyframes entering {
   from {
     height: 0;
@@ -119,17 +122,26 @@ nav {
       transition: 0.2s;
       text-align: center;
       color: $white;
-      text-shadow: 1px 2px 3px rgba(0, 0, 0, .5);
+      text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
       &:hover {
         background-color: transparent;
         color: red;
       }
       &.link-left:hover {
-        color: $main-color !important;
+        color: $main-color;
       }
     }
   }
 }
+
+.disabled {
+  color: $bg-color !important;
+  cursor: not-allowed;
+  &:hover {
+    color: $bg-color !important;
+  }
+}
+
 .navigation {
   text-transform: uppercase;
 }

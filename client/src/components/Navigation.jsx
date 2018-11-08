@@ -182,6 +182,8 @@ export default class Navigation extends React.Component {
       this.setState({
         isMain: true
       });
+    } else {
+      this.nav.classList.add("navigation-other");
     }
 
     if (this.aboutUs) {

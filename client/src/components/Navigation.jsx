@@ -19,6 +19,7 @@ export default class Navigation extends React.Component {
   lastScrollTop = 0;
   main;
   linkAboutUs;
+  linkContact;
 
   goToAbout = e => {
     if (!this.state.isMain) {
@@ -52,7 +53,6 @@ export default class Navigation extends React.Component {
                 </Link>
               </li>
               <li>
-                {/*<a href="/#aboutUs">Siema</a>*/}
                 <Link
                   to="/"
                   className={
@@ -65,7 +65,7 @@ export default class Navigation extends React.Component {
                 </Link>
               </li>
               <li>
-                <NavLink
+                <Link
                   id="link-contact"
                   onClick={this.goToContact}
                   to="/"
@@ -74,7 +74,7 @@ export default class Navigation extends React.Component {
                   }
                 >
                   Kontakt
-                </NavLink>
+                </Link>
               </li>
 
               <li className="logo-container">
@@ -84,7 +84,7 @@ export default class Navigation extends React.Component {
               </li>
 
               <li>
-                <NavLink exact activeClassName="active-main" to="/galeria">
+                <NavLink onClick={this.goToTop} exact activeClassName="active-main" to="/galeria">
                   Galeria
                 </NavLink>
               </li>
@@ -118,15 +118,17 @@ export default class Navigation extends React.Component {
   };
   scrollFunction = () => {
     // Navigation active class
-    if (window.pageYOffset > this.scroll) {
+    if (window.pageYOffset > this.scroll && window.pageYOffset < this.contact) {
       this.main.classList.remove("active-main");
       this.linkAboutUs.classList.add("active-main");
+      this.linkContact.classList.remove("active-main");
     } else if (window.pageYOffset > this.contact) {
       this.linkAboutUs.classList.remove("active-main");
-      this;
+      this.linkContact.classList.add("active-main");
     } else {
       this.main.classList.add("active-main");
       this.linkAboutUs.classList.remove("active-main");
+      this.linkContact.classList.remove("active-main");
     }
 
     // Detect scroll direction

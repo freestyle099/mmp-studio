@@ -6,37 +6,61 @@ body {
   @extend .grey, .lighten-4;
   color: $font-color;
   font-family: $Meri-font;
-
 }
 .nav-container {
   position: absolute;
   top: 0;
   z-index: 1070;
   width: 100vw;
-  height: 0;
-  overflow: hidden;
-  transition: 0.25s height linear;
-}
-.nav-container-helper {
   height: 100px;
-  //transition: .5s height;
+  overflow: hidden;
 }
-
 .navigation-container {
   height: 100vh;
 }
 .navigation-container-scroll {
-  height: 100px;
+  height: 50px;
   position: fixed;
   top: 0;
   background-color: $white;
   border-bottom: 4px solid $main-color;
-  transition: 0.25s height linear;
 }
 
 .disabled {
   color: $bg-color !important;
   cursor: not-allowed;
+}
+@keyframes entering {
+  from {
+    height: 0;
+  }
+  to {
+    height: 50px;
+  }
+}
+
+@keyframes leaving {
+  0% {
+    height: 50px;
+    border-bottom: 4px solid $main-color;
+  }
+  90% {
+    border-bottom: 1px solid $main-color;
+  }
+  100% {
+    height: 0;
+    border: none;
+  }
+}
+
+.entering {
+  -webkit-animation: entering 200ms forwards;
+  animation: entering 200ms forwards;
+}
+
+.leaving {
+  -webkit-animation: leaving 500ms forwards;
+  animation: leaving 500ms forwards;
 }
 
 nav {
@@ -447,6 +471,7 @@ textarea {
   height: 100vh;
   transform: translate(-50%, -50%);
   background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1090;
   .lightbox {
     position: relative;
     height: 100%;

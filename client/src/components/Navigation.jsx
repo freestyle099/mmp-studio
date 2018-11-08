@@ -15,8 +15,8 @@ export default class Navigation extends React.Component {
   navImgElement;
   nav;
 
-  goToAbout = (e) => {
-    if(!this.state.isMain) {
+  goToAbout = e => {
+    if (!this.state.isMain) {
       e.preventDefault();
     }
     window.scrollTo(0, this.scroll);
@@ -25,23 +25,47 @@ export default class Navigation extends React.Component {
     window.scrollTo(0, 0);
   };
   render() {
-    return <div className="nav-container nav-container-helper">
+    return (
+      <div className="nav-container">
         <nav className="main-nav">
           <div className="nav-wrapper container">
             <ul className="container navigation">
               <li>
-                <NavLink className="link-left" exact activeClassName="active-main" to="/" onClick={this.goToTop}>
+                <NavLink
+                  className="link-left"
+                  exact
+                  activeClassName="active-main"
+                  to="/"
+                  onClick={this.goToTop}
+                >
                   Strona Główna
                 </NavLink>
               </li>
               <li>
                 {/*<a href="/#aboutUs">Siema</a>*/}
-                <NavLink to='' activeClassName={window.pageYOffset > this.scroll ? "active-main" : ''} className={ !this.state.isMain ? "disabled link-left" : 'link-left'} onClick={this.goToAbout}>
+                <NavLink
+                  to=""
+                  exact
+                  activeClassName={
+                    window.pageYOffset > this.scroll ? "active-main" : ""
+                  }
+                  className={
+                    !this.state.isMain ? "disabled link-left" : "link-left"
+                  }
+                  onClick={this.goToAbout}
+                >
                   O Nas
                 </NavLink>
               </li>
               <li>
-                <NavLink onClick={this.goToAbout} to="/" activeClassName={window.pageYOffset > this.scroll ? "active-main" : ""} className="link-left">
+                <NavLink
+                  onClick={this.goToAbout}
+                  to="/"
+                  activeClassName={
+                    window.pageYOffset > this.scroll ? "active-main" : ""
+                  }
+                  className="link-left"
+                >
                   Kontakt
                 </NavLink>
               </li>
@@ -70,8 +94,10 @@ export default class Navigation extends React.Component {
             </ul>
           </div>
         </nav>
-      </div>;
+      </div>
+    );
   }
+  lastScrollTop = 0;
   resize = () => {
     if (this.aboutUs) {
       this.scroll = this.aboutUs.offsetTop - 100;
@@ -81,25 +107,32 @@ export default class Navigation extends React.Component {
     }
   };
   scrollFunction = () => {
-    if (window.pageYOffset > 200) {
-      this.nav.classList.remove("nav-container-helper");
-    } else {
-      this.nav.classList.add("nav-container-helper");
-    }
-    if (window.pageYOffset > this.navImg) {
-      this.nav.classList.add("navigation-container-scroll");
-    } else {
+    let st = window.pageYOffset;
+    if (st > this.lastScrollTop) {
       if (this.nav.classList.contains("navigation-container-scroll")) {
-        this.nav.classList.remove("navigation-container-scroll");
+        this.nav.classList.remove("entering");
+        this.nav.classList.add("leaving");
+      }
+    } else {
+      this.nav.classList.remove("leaving");
+      if (window.pageYOffset > this.navImg || window.pageYOffset > 500) {
+        this.nav.classList.add("navigation-container-scroll");
+        this.nav.classList.add("entering");
+      } else {
+        if (this.nav.classList.contains("navigation-container-scroll")) {
+          this.nav.classList.remove("navigation-container-scroll");
+          this.nav.classList.remove("entering");
+        }
       }
     }
+    this.lastScrollTop = st <= 0 ? 0 : st;
   };
 
   componentDidMount() {
-    if(window.location.pathname === '/') {
+    if (window.location.pathname === "/") {
       this.setState({
         isMain: true
-      })
+      });
     }
     this.aboutUs = document.getElementById("aboutUs");
     this.navImgElement = document.getElementById("navImg");

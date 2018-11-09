@@ -1,7 +1,7 @@
 // Fotobudka
 import React from "react";
 import FBNavigation from "./FotobudkaNavigation";
-import Carousel from "./Carousel";
+import SmallCarousel from "./SmallCarousel";
 import NavigationImages from "./NavigationImages";
 import FotobudkaInfo from "./FotobudkaInfo";
 import FotobudkaPrices from "./FotobudkaPrices";
@@ -19,7 +19,9 @@ export default class Fotobudka extends React.Component {
     return (
       <div>
         <FBNavigation />
-        <Carousel images={this.state.images} />
+        <div className='container'>
+        <SmallCarousel images={this.state.images} />
+        </div>
         <NavigationImages />
         <FotobudkaInfo />
         <FotobudkaPrices />

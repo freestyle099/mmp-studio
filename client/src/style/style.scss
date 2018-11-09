@@ -158,7 +158,12 @@ nav {
   ul.fb {
     display: flex;
     justify-content: space-between;
+     a {
 
+       &:hover {
+         color: $fb-color
+       }
+    }
   }
 }
 
@@ -230,7 +235,7 @@ h2 {
         box-shadow: 0 0 50px -5px $jub-color;
       }
       > a {
-        color: $font-color;
+        color: $nav-color;
         font: {
           family: $Lato-font;
         }

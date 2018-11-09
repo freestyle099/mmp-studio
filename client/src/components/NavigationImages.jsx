@@ -26,7 +26,7 @@ export default class NavigationImages extends React.Component {
               </Link>
             </div>
             <div className="valign-wrapper">
-              <Link onClick={this.goToTop} to="/fotobudka">
+              <Link onClick={this.goToTop} to="/fotobudka/">
                 <img src="logo_fotobudka.png" />
                 <p>Klasyczna fotobudka w nowoczesnym stylu</p>
               </Link>

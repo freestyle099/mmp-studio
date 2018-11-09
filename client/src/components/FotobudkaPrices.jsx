@@ -3,7 +3,7 @@ import React from "react";
 export default class FotobudkaPrices extends React.Component {
   render() {
     return (
-      <div className="fotobudka-prices">
+      <div id='fb-offer' className="fotobudka-prices">
         <div className="container">
           <h2>Oferta</h2>
           <div className="fotobudka-container">

@@ -244,7 +244,7 @@ export default class ContactForm extends React.Component {
 
   render() {
     return (
-      <div className={this.props.class + " contact-form"}>
+      <div id='contact-form' className={this.props.class + " contact-form"}>
         <div className="container">
           <h2>Formularz kontaktowy</h2>
           <div className="error">
@@ -321,7 +321,6 @@ export default class ContactForm extends React.Component {
 
   componentDidMount() {
     const from = document.getElementById("type").value;
-    console.log(from);
     this.setState({
       from
     });

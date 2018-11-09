@@ -37,7 +37,7 @@ class App extends React.Component {
             <Route exact path="/polecamy" component={Recommend} />
             <Route exact path="/wideo" component={Video} />
             <Route
-              exact
+
               path="/fotobudka/galeria"
               component={FotobudkaGallery}
             />

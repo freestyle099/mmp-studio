@@ -3,7 +3,7 @@ import React from "react";
 export default class FotobudkaInfo extends React.Component {
   render() {
     return (
-      <div className="container">
+      <div id='fotobudka-info' className="container">
         <h2>Czym jest Fotobudka?</h2>
         <div className="fotobudka-info">
           <div>

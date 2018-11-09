@@ -155,7 +155,6 @@ export default class Navigation extends React.Component {
       }
     } else {
       this.nav.classList.remove("leaving");
-      console.log(window.pageYOffset);
       if (window.pageYOffset > this.navImg || window.pageYOffset > 800) {
         this.nav.classList.add("navigation-container-scroll");
         this.nav.classList.add("entering");
@@ -204,7 +203,7 @@ export default class Navigation extends React.Component {
   }
 
   componentWillUnmount() {
-    document.removeEventListener("resize", this.resize);
-    window.removeEventListener("scroll", this.scrollFunction);
+    window.removeEventListener("resize", this.resize);
+    document.removeEventListener("scroll", this.scrollFunction);
   }
 }

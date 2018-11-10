@@ -25,16 +25,25 @@ export default class Navigation extends React.Component {
     if (!this.state.isMain) {
       e.preventDefault();
     }
-    window.scrollTo(0, this.scroll);
+    this.aboutUs.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
   };
   goToContact = e => {
     if (!this.state.isMain) {
       e.preventDefault();
     }
-    window.scrollTo(0, this.contact);
+    this.contactElement.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
   };
   goToTop = () => {
-    window.scrollTo(0, 0);
+    document.body.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
   };
   render() {
     return (

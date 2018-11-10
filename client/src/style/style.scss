@@ -135,7 +135,6 @@ nav {
   }
 }
 
-
 .disabled {
   color: $bg-color !important;
   cursor: not-allowed;
@@ -158,11 +157,10 @@ nav {
   ul.fb {
     display: flex;
     justify-content: space-between;
-     a {
-
-       &:hover {
-         color: $fb-color
-       }
+    a {
+      &:hover {
+        color: $fb-color;
+      }
     }
   }
 }
@@ -699,13 +697,41 @@ textarea {
   }
 }
 
-.go-to-top {
+.no-display {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  color: black;
+  bottom: -100px;
+  opacity: 0;
+  visibility: hidden;
+  //transition: 2s;
+}
+
+.go-to-top {
+  opacity: 1;
+  visibility: visible;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  height: 40px;
+  width: 40px;
+  font-size: 45px;
+  border-radius: 50%;
+  transition: 0.5s opacity;
+  i {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-5%, -5%);
+  }
   &:hover {
     cursor: pointer;
-    background-color: red;
+    transition: 0.25s;
+  }
+}
+.go-to-top-main {
+  background-color: #fff;
+  color: #01579b;
+  &:hover {
+    background-color: #01579b;
+    color: $white;
   }
 }

@@ -20,6 +20,7 @@ import Footer from "./components/Footer";
 
 import "./style/style.scss";
 import Video from "./components/Video";
+import GoToTop from "./components/GoToTop";
 
 // Main APP
 class App extends React.Component {
@@ -27,6 +28,7 @@ class App extends React.Component {
     return (
       <Router>
         <div>
+          <GoToTop/>
           <Switch>
             <Route exact path="/" component={MMPStudio} />
             <Route exact path="/galeria" component={Gallery} />

@@ -467,7 +467,7 @@ textarea {
 }
 // Gallery lightbox
 .gallery {
-  margin: 90px 0;
+  padding: 90px 0;
 }
 .grid-gallery {
   display: grid;
@@ -686,7 +686,7 @@ textarea {
 
 // Wideo
 .video {
-  margin: 90px 0;
+  padding: 90px 0;
   .frames {
     width: 100%;
 
@@ -696,5 +696,16 @@ textarea {
       height: 621px;
       object-fit: contain;
     }
+  }
+}
+
+.go-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: black;
+  &:hover {
+    cursor: pointer;
+    background-color: red;
   }
 }

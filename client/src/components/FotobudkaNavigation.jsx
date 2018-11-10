@@ -4,18 +4,30 @@ import { Link, NavLink } from "react-router-dom";
 export default class FBNavigation extends React.Component {
   goToInfo = e => {
     e.preventDefault();
-    window.scrollTo(0, this.fbInfoPosition);
+    this.fbInfoElement.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
   };
   goToOffer = e => {
     e.preventDefault();
-    window.scrollTo(0, this.fbOfferPosition);
+    this.fbOfferElement.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
   };
   goToContact = e => {
     e.preventDefault();
-    window.scrollTo(0, this.fbContactPosition);
+    this.fbContactElement.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+    // window.scrollTo(0, this.fbContactPosition);
   };
   goToTop = () => {
-    window.scrollTo(0, 0);
+    document.querySelector(".fb-nav").scrollIntoView({
+      behavior: "smooth"
+    });
   };
   render() {
     return (
@@ -74,14 +86,13 @@ export default class FBNavigation extends React.Component {
   fbContactElement;
   fbContactPosition;
 
-  componentDidMount() {
+  componentDidMount() {}
+  componentDidUpdate() {
     this.fbInfoElement = document.getElementById("fotobudka-info");
     this.fbOfferElement = document.getElementById("fb-offer");
     this.fbContactElement = document.getElementById("contact-form");
     this.fbInfoPosition = this.fbInfoElement.offsetTop;
-    setTimeout(() => {
-      this.fbOfferPosition = this.fbOfferElement.offsetTop;
-      this.fbContactPosition = this.fbContactElement.offsetTop;
-    }, 1000);
+    this.fbOfferPosition = this.fbOfferElement.offsetTop;
+    this.fbContactPosition = this.fbContactElement.offsetTop;
   }
 }

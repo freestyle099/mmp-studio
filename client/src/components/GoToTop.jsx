@@ -1,13 +1,6 @@
 import React from "react";
 
 export default class GoToTop extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      class: "no-display"
-    };
-  }
-
   goToTop = e => {
     document.body.scrollIntoView({
       block: "start",
@@ -17,7 +10,7 @@ export default class GoToTop extends React.Component {
   };
   render() {
     return (
-      <div onClick={this.goToTop} className={this.state.class} id="goToTop">
+      <div onClick={this.goToTop} className="no-display z-depth-3" id="goToTop">
         <i className="fas fa-arrow-circle-up" />
       </div>
     );
@@ -36,6 +29,21 @@ export default class GoToTop extends React.Component {
   componentDidMount() {
     this.button = document.getElementById("goToTop");
     window.addEventListener("scroll", this.detectScrollPosition);
+    if (window.location.pathname.indexOf("fotobudka") > -1) {
+      this.button.classList.remove("go-to-top-main");
+      this.button.classList.remove("go-to-top-jub");
+      this.button.classList.add("go-to-top-fb");
+    }
+    if (window.location.pathname.indexOf("jubiler") > -1) {
+      this.button.classList.remove("go-to-top-main");
+      this.button.classList.remove("go-to-top-fb");
+      this.button.classList.add("go-to-top-jub");
+    }
+    if (window.location.pathname === "/") {
+      this.button.classList.remove("go-to-top-fb");
+      this.button.classList.remove("go-to-top-jub");
+      this.button.classList.add("go-to-top-main");
+    }
   }
   componentDidUpdate() {
     if (window.location.pathname.indexOf("fotobudka") > -1) {

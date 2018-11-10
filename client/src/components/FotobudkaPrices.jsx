@@ -71,7 +71,7 @@ export default class FotobudkaPrices extends React.Component {
           <h2>Dodatkowe opcje</h2>
           <div className='fotobudka-additional'>
             <p>Dodatkowa godzina pracy fotobudki: <b>200zł</b></p>
-            <p>Dodatkowa kilometr: <b>1zł</b></p>
+            <p>Dodatkowy kilometr: <b>1zł</b></p>
             <p>Dodatkowe wydruki zdjęć: <b>1zł/szt</b></p>
             <p>Fotoalbum z wybranymi zdjęciami: <b>150zł</b></p>
             <p>Księga gości: <b>150zł</b></p>

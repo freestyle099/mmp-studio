@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, Redirect } from "react-router-dom";
 
 export default class FBNavigation extends React.Component {
   constructor(props) {
@@ -27,13 +27,28 @@ export default class FBNavigation extends React.Component {
       });
     }
   };
+  changeUrl() {
+    return <Redirect to="/fotobudka/" />;
+  }
+  goto = () => {
+    setTimeout(() => {
+      let fbContactElement = document.getElementById("contact-form");
+      fbContactElement.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }, 100);
+  };
   goToContact = e => {
-    e.preventDefault();
     if (window.location.pathname === "/fotobudka/") {
       this.fbContactElement.scrollIntoView({
         behavior: "smooth",
         block: "start"
       });
+    }
+    if (window.location.pathname !== "/fotobudka") {
+      this.changeUrl();
+      this.goto();
     }
   };
   goToTop = () => {
@@ -66,6 +81,7 @@ export default class FBNavigation extends React.Component {
               </li>
               <li>
                 <Link
+                  id="fb-offerLink"
                   className={!this.state.isFb ? "disabled" : ""}
                   onClick={this.goToOffer}
                   to="/fotobudka/"
@@ -84,7 +100,7 @@ export default class FBNavigation extends React.Component {
               </li>
               <li>
                 <Link
-                  className={!this.state.isFb ? "disabled" : ""}
+                  id="fb-contact"
                   to="/fotobudka/"
                   onClick={this.goToContact}
                 >
@@ -121,20 +137,37 @@ export default class FBNavigation extends React.Component {
   navImgPosition;
   fbMainLink;
   fbInfoLink;
+  fbOfferLink;
+  fbContactLink;
 
   scrollFunction = () => {
     if (window.pageYOffset < this.navImgPosition) {
       this.fbMainLink.classList.add("active-fb");
       this.fbInfoLink.classList.remove("active-fb");
-    }
-    if (
+      this.fbOfferLink.classList.remove("active-fb");
+      this.fbContactLink.classList.remove("active-fb");
+    } else if (
       window.pageYOffset > this.navImgPosition &&
       window.pageYOffset < this.fbOfferPosition
     ) {
       this.fbMainLink.classList.remove("active-fb");
       this.fbInfoLink.classList.add("active-fb");
+      this.fbOfferLink.classList.remove("active-fb");
+      this.fbContactLink.classList.remove("active-fb");
+    } else if (
+      window.pageYOffset > this.fbOfferPosition &&
+      window.pageYOffset < this.fbContactPosition
+    ) {
+      this.fbMainLink.classList.remove("active-fb");
+      this.fbInfoLink.classList.remove("active-fb");
+      this.fbOfferLink.classList.add("active-fb");
+      this.fbContactLink.classList.remove("active-fb");
+    } else {
+      this.fbMainLink.classList.remove("active-fb");
+      this.fbInfoLink.classList.remove("active-fb");
+      this.fbOfferLink.classList.remove("active-fb");
+      this.fbContactLink.classList.add("active-fb");
     }
-
 
     // Detect scroll direction
     let st = window.pageYOffset;
@@ -167,25 +200,27 @@ export default class FBNavigation extends React.Component {
     this.navImg = document.getElementById("navImg");
     this.fbMainLink = document.getElementById("fb-main");
     this.fbInfoLink = document.getElementById("fb-info");
-    this.fbMainLink.classList.add("active-fb");
+    this.fbOfferLink = document.getElementById("fb-offerLink");
+    this.fbContactLink = document.getElementById("fb-contact");
+
     if (this.navImg) {
       this.navImgPosition = this.navImg.offsetTop;
     }
     if (window.location.pathname === "/fotobudka/") {
+      this.fbMainLink.classList.add("active-fb");
+      this.fbInfoElement = document.getElementById("fotobudka-info");
+      this.fbOfferElement = document.getElementById("fb-offer");
+      this.fbContactElement = document.getElementById("contact-form");
+      this.fbInfoPosition = this.fbInfoElement.offsetTop;
+      this.fbOfferPosition = this.fbOfferElement.offsetTop;
+      this.fbContactPosition = this.fbContactElement.offsetTop;
+
       this.setState({
         isFb: true
       });
     }
   }
 
-  componentDidUpdate() {
-    this.fbInfoElement = document.getElementById("fotobudka-info");
-    this.fbOfferElement = document.getElementById("fb-offer");
-    this.fbContactElement = document.getElementById("contact-form");
-    this.fbInfoPosition = this.fbInfoElement.offsetTop;
-    this.fbOfferPosition = this.fbOfferElement.offsetTop;
-    this.fbContactPosition = this.fbContactElement.offsetTop;
-  }
   componentWillUnmount() {
     document.removeEventListener("scroll", this.scrollFunction);
   }

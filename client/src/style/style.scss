@@ -7,6 +7,7 @@ body {
   @extend .grey, .lighten-4;
   color: $font-color;
   font-family: $Meri-font;
+
   .container {
     width: 1100px;
   }
@@ -19,6 +20,14 @@ body {
   height: 100px;
   overflow: hidden;
 }
+.nav-container-fb {
+  position: absolute;
+  top: 0;
+  z-index: 1070;
+  width: 100vw;
+  overflow: hidden;
+  background-color: $white;
+}
 .navigation-container {
   height: 100vh;
 }
@@ -30,11 +39,12 @@ body {
   border-bottom: 4px solid $main-color;
 }
 .navigation-container-scroll {
-  height: 50px;
+  height: 75px;
   position: fixed;
   top: 0;
   background-color: $white;
-  border-bottom: 4px solid $main-color;
+  //border-bottom: 4px solid $main-color;
+  overflow: hidden;
 }
 .active-main {
   color: $main-color !important;
@@ -48,8 +58,10 @@ body {
 @keyframes entering {
   from {
     height: 0;
+    border-bottom: none;
   }
   to {
+    border-bottom: 4px solid $main-color;
     height: 75px;
   }
 }
@@ -76,6 +88,40 @@ body {
 .leaving {
   -webkit-animation: leaving 500ms forwards;
   animation: leaving 500ms forwards;
+}
+@keyframes entering-fb {
+  from {
+    height: 0;
+    border-bottom: none;
+  }
+  to {
+    border-bottom: 4px solid $fb-color;
+    height: 75px;
+  }
+}
+
+@keyframes leaving-fb {
+  0% {
+    height: 75px;
+    border-bottom: 4px solid $fb-color;
+  }
+  90% {
+    border-bottom: 1px solid $fb-color;
+  }
+  100% {
+    height: 0;
+    border: none;
+  }
+}
+
+.entering-fb {
+  -webkit-animation: entering-fb 200ms forwards;
+  animation: entering-fb 200ms forwards;
+}
+
+.leaving-fb {
+  -webkit-animation: leaving-fb 500ms forwards;
+  animation: leaving-fb 500ms forwards;
 }
 
 nav {
@@ -153,7 +199,8 @@ nav {
 }
 
 .fb-nav {
-  border-bottom: 3px solid $fb-color;
+  height: 75px;
+  border-bottom: 4px solid $fb-color;
   ul.fb {
     display: flex;
     justify-content: space-between;
@@ -325,6 +372,9 @@ input[type="submit"] {
 
 .fotobudka {
   border-top: 3px solid $fb-color;
+  &-gallery {
+    padding-top: 70px;
+  }
 }
 
 .jubiler {

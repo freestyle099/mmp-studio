@@ -122,17 +122,6 @@ export default class Navigation extends React.Component {
     );
   }
 
-  resize = () => {
-    if (this.aboutUs) {
-      this.scroll = this.aboutUs.offsetTop;
-    }
-    if (this.navImgElement) {
-      this.navImg = this.navImgElement.offsetTop;
-    }
-    if (this.contactElement) {
-      this.contact = this.contactElement.offsetTop;
-    }
-  };
   scrollFunction = () => {
     // Navigation active class
     if (window.location.pathname === "/") {
@@ -202,17 +191,12 @@ export default class Navigation extends React.Component {
       this.navImg = this.navImgElement.offsetTop;
     }
     if (this.contactElement) {
-      setTimeout(() => {
-        this.contact = this.contactElement.offsetTop;
-      }, 1000);
+      this.contact = this.contactElement.offsetTop;
     }
-
-    window.addEventListener("resize", this.resize);
     document.addEventListener("scroll", this.scrollFunction);
   }
 
   componentWillUnmount() {
-    window.removeEventListener("resize", this.resize);
     document.removeEventListener("scroll", this.scrollFunction);
   }
 }

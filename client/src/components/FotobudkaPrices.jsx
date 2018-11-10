@@ -16,7 +16,7 @@ export default class FotobudkaPrices extends React.Component {
                 <div>Opieka asystenta</div>
                 <div>Dojazd do 20km</div>
                 <div className="fotobudka-empty">X</div>
-                <div className="fotobudka-empty helper">X</div>
+                <div className="fotobudka-empty">X</div>
                 <div className="fotobudka-empty">X</div>
                 <div className="fotobudka-hour">1 godzina</div>
                 <div className="fotobudka-price">550zł</div>
@@ -31,7 +31,7 @@ export default class FotobudkaPrices extends React.Component {
                 <div>Opieka asystenta</div>
                 <div>Dojazd do 30km</div>
                 <div>Własny tekst na zdjęciach</div>
-                <div className="fotobudka-empty helper">X</div>
+                <div className="fotobudka-empty">X</div>
                 <div className="fotobudka-empty">X</div>
                 <div className="fotobudka-hour">2 godzina</div>
                 <div className="fotobudka-price">700zł</div>

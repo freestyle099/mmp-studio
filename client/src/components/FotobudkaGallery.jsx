@@ -48,7 +48,7 @@ export default class FotobudkaGallery extends React.Component {
   ];
   render() {
     return (
-      <div>
+      <div className='fotobudka-gallery'>
         <FBNavigation />
         <Lightbox images={this.images} />
       </div>

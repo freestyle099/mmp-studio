@@ -1,10 +1,13 @@
 @import "./variables";
 
+.slider-container{
+  padding: 120px 0 60px 0;
+}
 .my-slider-small {
   height: 500px;
   width: 100%;
   position: relative;
-  margin: 50px 0;
+
   img {
     //position: fixed;
     width: 100%;

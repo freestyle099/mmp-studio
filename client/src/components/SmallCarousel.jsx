@@ -18,7 +18,6 @@ export default class SmallCarousel extends React.Component {
             : this.state.slider + 1
       });
     }, this.state.time);
-
   };
 
   nextSlide = () => {
@@ -55,42 +54,45 @@ export default class SmallCarousel extends React.Component {
 
   render() {
     return (
-
-      <div className="my-slider-small z-depth-3">
-        <button onClick={this.prevSlide} className="arrows left">
-          <i className="fas fa-angle-left" />
-        </button>
-        <button onClick={this.nextSlide} className="arrows right">
-          <i className="fas fa-angle-right" />
-        </button>
-        {this.props.images.map((el, index) => {
-          return (
-            <img
-              className={
-                this.state.slider === index ? "active-slider slider" : "slider"
-              }
-              key={index}
-              src={el.url}
-            />
-          );
-        })}
-        <div className="circle-container">
+      <div className="slider-container">
+        <div className="my-slider-small z-depth-3">
+          <button onClick={this.prevSlide} className="arrows left">
+            <i className="fas fa-angle-left" />
+          </button>
+          <button onClick={this.nextSlide} className="arrows right">
+            <i className="fas fa-angle-right" />
+          </button>
           {this.props.images.map((el, index) => {
             return (
-              <button
+              <img
+                className={
+                  this.state.slider === index
+                    ? "active-slider slider"
+                    : "slider"
+                }
                 key={index}
-                onClick={this.setActiveSlide}
-                className="circle-empty"
-                data-slider={index}
-              >
-                {this.state.slider === index ? (
-                  <i className="fas fa-circle" />
-                ) : (
-                  <i className="far fa-circle" />
-                )}
-              </button>
+                src={el.url}
+              />
             );
           })}
+          <div className="circle-container">
+            {this.props.images.map((el, index) => {
+              return (
+                <button
+                  key={index}
+                  onClick={this.setActiveSlide}
+                  className="circle-empty"
+                  data-slider={index}
+                >
+                  {this.state.slider === index ? (
+                    <i className="fas fa-circle" />
+                  ) : (
+                    <i className="far fa-circle" />
+                  )}
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
     );

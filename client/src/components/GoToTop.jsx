@@ -4,7 +4,7 @@ export default class GoToTop extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      class: 'no-display'
+      class: "no-display"
     };
   }
 
@@ -16,15 +16,9 @@ export default class GoToTop extends React.Component {
     });
   };
   render() {
-    if(window.location.pathname.indexOf('fotobudka') > -1) {
-     this.button.classList.remove('go-to-top-main');
-    }
-    if(window.location.pathname === '/') {
-      this.button.classList.add('go-to-top-main');
-    }
     return (
       <div onClick={this.goToTop} className={this.state.class} id="goToTop">
-        <i className="fas fa-arrow-circle-up"></i>
+        <i className="fas fa-arrow-circle-up" />
       </div>
     );
   }
@@ -37,12 +31,28 @@ export default class GoToTop extends React.Component {
         this.button.classList.remove("go-to-top");
       }
     }
-  }
+  };
 
   componentDidMount() {
     this.button = document.getElementById("goToTop");
     window.addEventListener("scroll", this.detectScrollPosition);
-
+  }
+  componentDidUpdate() {
+    if (window.location.pathname.indexOf("fotobudka") > -1) {
+      this.button.classList.remove("go-to-top-main");
+      this.button.classList.remove("go-to-top-jub");
+      this.button.classList.add("go-to-top-fb");
+    }
+    if (window.location.pathname.indexOf("jubiler") > -1) {
+      this.button.classList.remove("go-to-top-main");
+      this.button.classList.remove("go-to-top-fb");
+      this.button.classList.add("go-to-top-jub");
+    }
+    if (window.location.pathname === "/") {
+      this.button.classList.remove("go-to-top-fb");
+      this.button.classList.remove("go-to-top-jub");
+      this.button.classList.add("go-to-top-main");
+    }
   }
   componentWillUnmount() {
     window.removeEventListener("scroll", this.detectScrollPosition);

@@ -729,9 +729,25 @@ textarea {
 }
 .go-to-top-main {
   background-color: #fff;
-  color: #01579b;
+  color: $main-color;
   &:hover {
-    background-color: #01579b;
+    background-color: $main-color;
+    color: $white;
+  }
+}
+.go-to-top-fb {
+  background-color: #fff;
+  color: $fb-color;
+  &:hover {
+    background-color: $fb-color;
+    color: $white;
+  }
+}
+.go-to-top-jub {
+  background-color: #fff;
+  color: $jub-color;
+  &:hover {
+    background-color: $jub-color;
     color: $white;
   }
 }

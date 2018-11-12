@@ -9,21 +9,6 @@ export default class FBNavigation extends React.Component {
     };
   }
 
-  goToInfo = e => {
-    e.preventDefault();
-    if (window.location.pathname === "/fotobudka/") {
-      this.fbInfoElement.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-    }
-  };
-  goToOffer = () => {
-    this.goto("fb-offer");
-  };
-  static changeUrl() {
-    return <Redirect to="/fotobudka/" />;
-  }
   goto = selector => {
     if (window.location.pathname === "/fotobudka/") {
       this.constructor.changeUrl();
@@ -38,6 +23,15 @@ export default class FBNavigation extends React.Component {
         clearInterval(checkExist);
       }
     }, 100);
+  };
+  static changeUrl() {
+    return <Redirect to="/fotobudka/" />;
+  }
+  goToInfo = () => {
+    this.goto("fotobudka-info");
+  };
+  goToOffer = () => {
+    this.goto("fb-offer");
   };
   goToContact = () => {
     this.goto("contact-form");
@@ -62,12 +56,7 @@ export default class FBNavigation extends React.Component {
                 </Link>
               </li>
               <li>
-                <Link
-                  id="fb-info"
-                  className={!this.state.isFb ? "disabled" : ""}
-                  onClick={this.goToInfo}
-                  to="/fotobudka/"
-                >
+                <Link id="fb-info" onClick={this.goToInfo} to="/fotobudka/">
                   Info
                 </Link>
               </li>

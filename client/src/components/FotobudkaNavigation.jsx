@@ -18,38 +18,29 @@ export default class FBNavigation extends React.Component {
       });
     }
   };
-  goToOffer = e => {
-    e.preventDefault();
-    if (window.location.pathname === "/fotobudka/") {
-      this.fbOfferElement.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-    }
+  goToOffer = () => {
+    this.goto("fb-offer");
   };
-  changeUrl() {
+  static changeUrl() {
     return <Redirect to="/fotobudka/" />;
   }
-  goto = () => {
-    setTimeout(() => {
-      let fbContactElement = document.getElementById("contact-form");
-      fbContactElement.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
+  goto = selector => {
+    if (window.location.pathname === "/fotobudka/") {
+      this.constructor.changeUrl();
+    }
+    let checkExist = setInterval(() => {
+      let element = document.getElementById(selector);
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+        clearInterval(checkExist);
+      }
     }, 100);
   };
-  goToContact = e => {
-    if (window.location.pathname === "/fotobudka/") {
-      this.fbContactElement.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-    }
-    if (window.location.pathname !== "/fotobudka") {
-      this.changeUrl();
-      this.goto();
-    }
+  goToContact = () => {
+    this.goto("contact-form");
   };
   goToTop = () => {
     document.body.scrollIntoView({
@@ -59,6 +50,7 @@ export default class FBNavigation extends React.Component {
   };
 
   render() {
+    this.fbContactElement = document.getElementById("contact-form");
     return (
       <div className="nav-container-fb">
         <nav className="fb-nav">
@@ -82,7 +74,6 @@ export default class FBNavigation extends React.Component {
               <li>
                 <Link
                   id="fb-offerLink"
-                  className={!this.state.isFb ? "disabled" : ""}
                   onClick={this.goToOffer}
                   to="/fotobudka/"
                 >

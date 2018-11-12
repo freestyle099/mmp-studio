@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, Redirect } from "react-router-dom";
 
 export default class Navigation extends React.Component {
   constructor(props) {
@@ -21,23 +21,29 @@ export default class Navigation extends React.Component {
   linkAboutUs;
   linkContact;
 
-  goToAbout = e => {
-    if (!this.state.isMain) {
-      e.preventDefault();
+  goto = selector => {
+    if (window.location.pathname === "/fotobudka/") {
+      this.constructor.changeUrl();
     }
-    this.aboutUs.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
+    let checkExist = setInterval(() => {
+      let element = document.getElementById(selector);
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+        clearInterval(checkExist);
+      }
+    }, 100);
+  };
+  static changeUrl() {
+    return <Redirect to="/fotobudka/" />;
+  }
+  goToAbout = () => {
+    this.goto("aboutUs");
   };
   goToContact = e => {
-    if (!this.state.isMain) {
-      e.preventDefault();
-    }
-    this.contactElement.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
+    this.goto("contact");
   };
   goToTop = () => {
     document.body.scrollIntoView({
@@ -64,9 +70,7 @@ export default class Navigation extends React.Component {
               <li>
                 <Link
                   to="/"
-                  className={
-                    !this.state.isMain ? "disabled link-left" : "link-left"
-                  }
+                  className="link-left"
                   onClick={this.goToAbout}
                   id="link-aboutUs"
                 >
@@ -75,12 +79,10 @@ export default class Navigation extends React.Component {
               </li>
               <li>
                 <Link
+                  className="link-left"
                   id="link-contact"
                   onClick={this.goToContact}
                   to="/"
-                  className={
-                    !this.state.isMain ? "disabled link-left" : "link-left"
-                  }
                 >
                   Kontakt
                 </Link>
@@ -113,7 +115,7 @@ export default class Navigation extends React.Component {
                 </NavLink>
               </li>
               <li>
-                <a href="https://mmpstudio.smugmug.com/">Strefa klienta</a>
+                <a href="https://mmpstudio.smugmug.com/Strefa-Klienta/Wesela">Strefa klienta</a>
               </li>
             </ul>
           </div>
@@ -126,13 +128,13 @@ export default class Navigation extends React.Component {
     // Navigation active class
     if (window.location.pathname === "/") {
       if (
-        window.pageYOffset > this.scroll - 100 &&
-        window.pageYOffset < this.contact - 100
+        window.pageYOffset > this.scroll - 200 &&
+        window.pageYOffset < this.contact - 200
       ) {
         this.main.classList.remove("active-main");
         this.linkAboutUs.classList.add("active-main");
         this.linkContact.classList.remove("active-main");
-      } else if (window.pageYOffset > this.contact - 100) {
+      } else if (window.pageYOffset > this.contact - 200) {
         this.main.classList.remove("active-main");
         this.linkAboutUs.classList.remove("active-main");
         this.linkContact.classList.add("active-main");

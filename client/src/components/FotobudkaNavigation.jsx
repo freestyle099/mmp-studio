@@ -10,7 +10,7 @@ export default class FBNavigation extends React.Component {
   }
 
   goto = selector => {
-    if (window.location.pathname === "/fotobudka/") {
+    if (window.location.pathname !== "/fotobudka/") {
       this.constructor.changeUrl();
     }
     let checkExist = setInterval(() => {

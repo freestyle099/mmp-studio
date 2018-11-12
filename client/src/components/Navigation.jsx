@@ -22,7 +22,7 @@ export default class Navigation extends React.Component {
   linkContact;
 
   goto = selector => {
-    if (window.location.pathname === "/fotobudka/") {
+    if (window.location.pathname !== "/") {
       this.constructor.changeUrl();
     }
     let checkExist = setInterval(() => {
@@ -115,7 +115,9 @@ export default class Navigation extends React.Component {
                 </NavLink>
               </li>
               <li>
-                <a href="https://mmpstudio.smugmug.com/Strefa-Klienta/Wesela">Strefa klienta</a>
+                <a href="https://mmpstudio.smugmug.com/Strefa-Klienta/Wesela">
+                  Strefa klienta
+                </a>
               </li>
             </ul>
           </div>

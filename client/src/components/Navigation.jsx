@@ -113,7 +113,7 @@ export default class Navigation extends React.Component {
                 </NavLink>
               </li>
               <li>
-                <a href="http://google.pl">Strefa klienta</a>
+                <a href="https://mmpstudio.smugmug.com/">Strefa klienta</a>
               </li>
             </ul>
           </div>

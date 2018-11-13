@@ -5,6 +5,7 @@ import JubilerNavigation from "./JubilerNavigation";
 import Carousel from "./Carousel";
 import NavigationImages from "./NavigationImages";
 import ContactForm from "./ContactForm";
+import SmallCarousel from "./SmallCarousel";
 
 export default class Jubiler extends React.Component {
   constructor(props) {
@@ -18,7 +19,9 @@ export default class Jubiler extends React.Component {
     return (
       <div>
         <JubilerNavigation />
-        <Carousel images={this.state.images} />
+        <div className="container">
+          <SmallCarousel images={this.state.images} />
+        </div>
         <NavigationImages />
         <div>
           <h2>Strona Główna</h2>
@@ -68,7 +71,12 @@ export default class Jubiler extends React.Component {
               </ul>
             </div>
           </div>
-          <ContactForm from='jubiler' active='input-bottom-jubiler' btn='btn-jub' class="jubiler" />
+          <ContactForm
+            from="jubiler"
+            active="input-bottom-jubiler"
+            btn="btn-jub"
+            class="jubiler"
+          />
         </div>
       </div>
     );

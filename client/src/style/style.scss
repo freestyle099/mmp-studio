@@ -129,12 +129,17 @@ nav {
   box-sizing: content-box;
   background-color: transparent;
 
+  ul.navigation.nav-jubiler {
+    display: flex;
+    justify-content: space-around;
+  }
   ul.navigation {
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     > li {
       display: flex;
       align-items: center;
@@ -181,6 +186,13 @@ nav {
   }
 }
 
+.jub-link:hover {
+  color: $jub-color !important;
+}
+.jub-logo {
+  width: 80% !important;
+  object-fit: contain;
+}
 .disabled {
   color: $bg-color !important;
   cursor: not-allowed;
@@ -213,7 +225,9 @@ nav {
 }
 
 .jubiler-nav {
+  height: 75px;
   border-bottom: 3px solid $jub-color;
+
 }
 
 .active-fb {

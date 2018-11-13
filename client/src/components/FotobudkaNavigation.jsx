@@ -96,7 +96,7 @@ export default class FBNavigation extends React.Component {
                 </NavLink>
               </li>
               <li>
-                <a href="http://google.pl">Strefa Klienta</a>
+                <a href="https://mmpstudio.smugmug.com/StrefaKlienta">Strefa Klienta</a>
               </li>
             </ul>
           </div>

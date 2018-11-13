@@ -76,27 +76,28 @@ export default class Jubiler extends React.Component {
               <h2>Kontakt</h2>
               <div className="flex-container">
                 <div>
-                  <p className="contact-header">Adres </p>
-                  <hr />
+                  {/*<p className="contact-header">Firma </p>*/}
                   <p>
-                    <i className="fas fa-map-marker-alt" />
-                    Pod Blachówką 2A
+                    {/*<i className="fas fa-building" />*/}
+                    Pracownia Jubilersko - Złotnicza
+                  </p>
+                  <p>Michał Fornalski</p>
+
+                  {/*<p className="contact-header">Adres </p>*/}
+                  <p>
+                    {/*<i className="fas fa-map-marker-alt" />*/}
+                    Al. 3-go Maja 31
                   </p>
 
-                  <p className="contact-header">Telefon </p>
-                  <hr />
+                  {/*<p className="contact-header">Telefon </p>*/}
                   <p>
-                    <i className="fas fa-phone" />
-                    1-800-1234-567
+                    {/*<i className="fas fa-phone" />*/}
+                    603 113 844
                   </p>
-
-                  <p className="contact-header">Telefon </p>
-                  <hr />
-                  <p>1-800-1234-567</p>
                 </div>
                 <div>
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2895.8180172217567!2d19.911225377951826!3d49.291323069819164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4715ed436a04e831%3A0x12d3bd68a79a6d48!2zUG9kIEJsYWNow7N3a8SFIDIsIDM0LTUwMCBLb8WbY2llbGlza28!5e0!3m2!1spl!2spl!4v1542125003532"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2602.0151584533983!2d19.95172831574134!3d49.29505597933268!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4715f2912185c1e7%3A0xf00a232c46719133!2saleja+3+Maja+31%2C+34-500+Zakopane!5e0!3m2!1spl!2spl!4v1542127829640"
                     allowFullScreen
                   />
                 </div>

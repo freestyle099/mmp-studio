@@ -74,18 +74,24 @@ export default class Jubiler extends React.Component {
           <div id="jub-contact">
             <div className="container">
               <h2>Kontakt</h2>
-              <div className='flex-container'>
+              <div className="flex-container">
                 <div>
-                  <p className='contact-header'>Adres </p>
-                  <hr/>
-                  <p>Pod Blachówką 2A</p>
+                  <p className="contact-header">Adres </p>
+                  <hr />
+                  <p>
+                    <i className="fas fa-map-marker-alt" />
+                    Pod Blachówką 2A
+                  </p>
 
-                  <p className='contact-header'>Telefon </p>
-                  <hr/>
-                  <p>1-800-1234-567</p>
+                  <p className="contact-header">Telefon </p>
+                  <hr />
+                  <p>
+                    <i className="fas fa-phone" />
+                    1-800-1234-567
+                  </p>
 
-                  <p className='contact-header'>Telefon </p>
-                  <hr/>
+                  <p className="contact-header">Telefon </p>
+                  <hr />
                   <p>1-800-1234-567</p>
                 </div>
                 <div>

@@ -49,7 +49,7 @@ export default class JubilerGallery extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='jub-gallery'>
         <JubilerNavigation />
         <Lightbox images={this.images}/>
       </div>

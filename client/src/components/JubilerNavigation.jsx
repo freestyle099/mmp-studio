@@ -43,7 +43,7 @@ export default class JubilerNavigation extends React.Component {
                   className="jub-link"
                   to="/jubiler"
                 >
-                  Strona Główna
+                  O nas
                 </Link>
               </li>
               <li>

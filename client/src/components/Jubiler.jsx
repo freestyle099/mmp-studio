@@ -24,7 +24,7 @@ export default class Jubiler extends React.Component {
         </div>
         <NavigationImages />
         <div id="main-page-jub">
-          <h2>Strona Główna</h2>
+          <h2>O nas</h2>
           <div className="container jub-info">
             <div>
               Zapraszamy do skorzystania z usług naszej pracowni Jubilersko

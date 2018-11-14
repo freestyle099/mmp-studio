@@ -38,33 +38,35 @@ export default class JubilerNavigation extends React.Component {
             <ul className="container navigation nav-jubiler">
               <li>
                 <Link
-                  id='jub-main-link'
+                  id="jub-main-link"
                   onClick={this.goToMain}
                   className="jub-link"
-                  to="/jubiler"
+                  to="/jubiler/"
                 >
                   O nas
                 </Link>
               </li>
               <li>
                 <Link
+                  id="jub-services-link"
                   onClick={this.goToServices}
                   className="jub-link"
-                  to="/jubiler"
+                  to="/jubiler/"
                 >
                   Usługi
                 </Link>
               </li>
               <li className="logo-container">
-                <Link className="brand-logo jub-logo" to="/jubiler">
+                <Link className="brand-logo jub-logo" to="/jubiler/">
                   <img src="logo_jubiler.png" alt="" />
                 </Link>
               </li>
               <li>
                 <Link
+                  id="jub-contact-link"
                   onClick={this.goToContact}
                   className="jub-link"
-                  to="/jubiler"
+                  to="/jubiler/"
                 >
                   Kontakt
                 </Link>
@@ -80,7 +82,73 @@ export default class JubilerNavigation extends React.Component {
       </div>
     );
   }
+
+  nav;
+  mainLink;
+  servicesLink;
+  contactLink;
+  aboutUsPosition;
+  servicesPosition;
+  contactPosition;
+
+  scrollFunction = () => {
+    if (window.location.pathname === "/jubiler/") {
+      if (window.pageYOffset < this.servicesPosition - 200) {
+        this.servicesLink.classList.remove("active-jub");
+        this.mainLink.classList.add("active-jub");
+        this.contactLink.classList.remove("active-jub");
+      } else if (
+        window.pageYOffset > this.servicesPosition - 200 &&
+        window.pageYOffset < this.contactPosition - 200
+      ) {
+        this.contactLink.classList.remove("active-jub");
+        this.servicesLink.classList.add("active-jub");
+        this.mainLink.classList.remove("active-jub");
+      } else if (window.pageYOffset > this.contactPosition - 200) {
+        this.contactLink.classList.add("active-jub");
+        this.mainLink.classList.remove("active-jub");
+        this.servicesLink.classList.remove("active-jub");
+      }
+    }
+
+    // Detect scroll direction
+    let st = window.pageYOffset;
+    if (st > this.lastScrollTop) {
+      if (this.nav.classList.contains("navigation-container-scroll")) {
+        this.nav.classList.remove("entering-jub");
+        this.nav.classList.add("leaving-jub");
+      }
+    } else {
+      this.nav.classList.remove("leaving-jub");
+      if (
+        window.pageYOffset > this.navImgPosition ||
+        window.pageYOffset > 700
+      ) {
+        this.nav.classList.add("navigation-container-scroll");
+        this.nav.classList.add("entering-jub");
+      } else {
+        if (this.nav.classList.contains("navigation-container-scroll")) {
+          this.nav.classList.remove("navigation-container-scroll");
+          this.nav.classList.remove("entering-jub");
+        }
+      }
+    }
+    this.lastScrollTop = st <= 0 ? 0 : st;
+  };
   componentDidMount() {
-    console.log("hi");
+    this.nav = document.querySelector(".nav-container-fb");
+    if (window.location.pathname === "/jubiler/") {
+      this.mainLink = document.getElementById("jub-main-link");
+      this.servicesLink = document.getElementById("jub-services-link");
+      this.contactLink = document.getElementById("jub-contact-link");
+      this.aboutUsPosition = document.getElementById("jub-aboutUs").offsetTop;
+      this.servicesPosition = document.getElementById("jub-services").offsetTop;
+      this.contactPosition = document.getElementById("jub-contact").offsetTop;
+    }
+
+    window.addEventListener("scroll", this.scrollFunction);
+  }
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.scrollFunction);
   }
 }

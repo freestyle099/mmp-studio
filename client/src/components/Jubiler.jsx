@@ -24,30 +24,32 @@ export default class Jubiler extends React.Component {
         </div>
         <NavigationImages />
         <div id="main-page-jub">
-          <h2>O nas</h2>
-          <div className="container jub-info">
-            <div>
-              Zapraszamy do skorzystania z usług naszej pracowni Jubilersko
-              Złotniczej którą prowadzimy od pokoleń w Zakopanem w ofercie
-              posiadamy ponad 200 wzorów ręcznie wykonanych obrączek i przy
-              wybraniu naszych usług Foto/Video oferujemy rabat na ręcznie
-              wykonane obrączki w wysokości -20%.
-              <p>
-                Jubiler to jeden z zawodów, który wymaga niebywałego poczucia
-                estetyki, znajomości trendów w projektowaniu biżuterii, przy
-                zachowaniu niepowtarzalnego, własnego stylu. Często używa się
-                zamiennie określenia złotnik. W praktyce złotnik jest
-                rzemieślnikiem, a jego praca polega na obróbce i wytwarzaniu
-                wyrobów z metali szlachetnych, natomiast jubiler zajmuje się
-                wyceną, sprzedażą bądź naprawą biżuterii. Jest to jednak umowne
-                rozróżnienie, ponieważ najcześciej jubiler jest także
-                złotnikiem. Niewątpliwie jubiler to zawód na wagę złota -
-                dosłownie i w przenośni. Niesmaowity zmysł estetyczny pozwala
-                dopasować projekt do wymagań każdego klienta z osobna.
-              </p>
-            </div>
-            <div>
-              <img src="jubiler.jpg" alt="" />
+          <div id='jub-aboutUs'>
+            <h2>O nas</h2>
+            <div className="container jub-info">
+              <div>
+                Zapraszamy do skorzystania z usług naszej pracowni Jubilersko
+                Złotniczej którą prowadzimy od pokoleń w Zakopanem w ofercie
+                posiadamy ponad 200 wzorów ręcznie wykonanych obrączek i przy
+                wybraniu naszych usług Foto/Video oferujemy rabat na ręcznie
+                wykonane obrączki w wysokości -20%.
+                <p>
+                  Jubiler to jeden z zawodów, który wymaga niebywałego poczucia
+                  estetyki, znajomości trendów w projektowaniu biżuterii, przy
+                  zachowaniu niepowtarzalnego, własnego stylu. Często używa się
+                  zamiennie określenia złotnik. W praktyce złotnik jest
+                  rzemieślnikiem, a jego praca polega na obróbce i wytwarzaniu
+                  wyrobów z metali szlachetnych, natomiast jubiler zajmuje się
+                  wyceną, sprzedażą bądź naprawą biżuterii. Jest to jednak
+                  umowne rozróżnienie, ponieważ najcześciej jubiler jest także
+                  złotnikiem. Niewątpliwie jubiler to zawód na wagę złota -
+                  dosłownie i w przenośni. Niesmaowity zmysł estetyczny pozwala
+                  dopasować projekt do wymagań każdego klienta z osobna.
+                </p>
+              </div>
+              <div>
+                <img src="jubiler.jpg" alt="" />
+              </div>
             </div>
           </div>
           <div id="jub-services" className="services">

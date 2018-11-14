@@ -14,7 +14,7 @@ export default class NavigationImages extends React.Component {
   };
   render() {
     return (
-      <div id='navImg' className={"nav-img-container " + this.state.class}>
+      <div id="navImg" className={"nav-img-container " + this.state.class}>
         <div className="container">
           <h2>Zajmujemy się jeszcze...</h2>
 
@@ -32,7 +32,7 @@ export default class NavigationImages extends React.Component {
               </Link>
             </div>
             <div className="valign-wrapper">
-              <Link onClick={this.goToTop} to="/jubiler">
+              <Link onClick={this.goToTop} to="/jubiler/">
                 <img src="logo_jubiler.png" alt="" />
                 <p>Obrączki ślubne i wyroby jubilerskie</p>
               </Link>

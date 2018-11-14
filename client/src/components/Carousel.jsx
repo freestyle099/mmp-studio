@@ -33,7 +33,6 @@ export default class Carousel extends React.Component {
     });
   };
   prevSlide = () => {
-    console.log(this.state.slider);
     clearInterval(this.id);
     this.play();
     this.setState({

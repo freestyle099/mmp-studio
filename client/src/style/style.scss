@@ -124,6 +124,41 @@ body {
   animation: leaving-fb 500ms forwards;
 }
 
+@keyframes entering-jub {
+  from {
+    height: 0;
+    border-bottom: none;
+  }
+  to {
+    border-bottom: 4px solid $jub-color;
+    height: 75px;
+  }
+}
+
+@keyframes leaving-jub {
+  0% {
+    height: 75px;
+    border-bottom: 4px solid $jub-color;
+  }
+  90% {
+    border-bottom: 1px solid $jub-color;
+  }
+  100% {
+    height: 0;
+    border: none;
+  }
+}
+
+.entering-jub {
+  -webkit-animation: entering-jub 200ms forwards;
+  animation: entering-jub 200ms forwards;
+}
+
+.leaving-jub {
+  -webkit-animation: leaving-jub 500ms forwards;
+  animation: leaving-jub 500ms forwards;
+}
+
 nav {
   box-shadow: none;
   box-sizing: content-box;

@@ -29,6 +29,12 @@ export default class JubilerNavigation extends React.Component {
   goToContact = () => {
     this.goto("jub-contact");
   };
+  goToTop = () => {
+    document.body.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    })
+  }
 
   render() {
     return (
@@ -57,7 +63,7 @@ export default class JubilerNavigation extends React.Component {
                 </Link>
               </li>
               <li className="logo-container">
-                <Link className="brand-logo jub-logo" to="/jubiler/">
+                <Link onClick={this.goToTop} className="brand-logo jub-logo" to="/jubiler/">
                   <img src="logo_jubiler.png" alt="" />
                 </Link>
               </li>

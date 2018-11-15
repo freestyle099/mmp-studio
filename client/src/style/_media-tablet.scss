@@ -1,0 +1,24 @@
+@import '~materialize-css/sass/materialize.scss';
+@import './variables';
+
+@media only screen and (max-width: 1150px) {
+  body {
+    .container {
+      width: 100vw;
+    }
+  }
+  .nav-container {
+    width: 100%;
+  }
+  nav {
+    background-color: transparent;
+    ul.navigation {
+      width: auto;
+      margin: 0 10px;
+    }
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+}

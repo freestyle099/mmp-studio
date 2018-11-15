@@ -1,0 +1,13 @@
+@import '../variables';
+
+footer {
+  height: 70px;
+  color: #9e9e9e;
+  background-color: $footer-bgc;
+  .container {
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

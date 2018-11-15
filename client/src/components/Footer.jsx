@@ -10,7 +10,7 @@ export default class Footer extends React.Component {
 
   render() {
     return (
-      <footer className="blue-grey darken-4">
+      <footer>
         <div className="container ">
           <div>
             Znajdź nas na facebooku:{' '}

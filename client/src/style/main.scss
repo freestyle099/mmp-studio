@@ -265,9 +265,6 @@ body {
     margin: 0;
   }
 }
-.fas {
-  text-shadow: none;
-}
 
 input[type='submit'] {
   color: $white;
@@ -456,61 +453,6 @@ input[type='submit'] {
       height: 621px;
       object-fit: contain;
     }
-  }
-}
-
-.no-display {
-  position: fixed;
-  bottom: -100px;
-  opacity: 0;
-  visibility: hidden;
-  //transition: 2s;
-}
-
-.go-to-top {
-  opacity: 1;
-  visibility: visible;
-  position: fixed;
-  bottom: 40px;
-  right: 40px;
-  height: 40px;
-  width: 40px;
-  font-size: 45px;
-  border-radius: 50%;
-  transition: 0.5s opacity;
-  i {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(-5%, -5%);
-  }
-  &:hover {
-    cursor: pointer;
-    transition: 0.25s;
-  }
-}
-.go-to-top-main {
-  background-color: #fff;
-  color: $main-color;
-  &:hover {
-    background-color: $main-color;
-    color: $white;
-  }
-}
-.go-to-top-fb {
-  background-color: #fff;
-  color: $fb-color;
-  &:hover {
-    background-color: $fb-color;
-    color: $white;
-  }
-}
-.go-to-top-jub {
-  background-color: #fff;
-  color: $jub-color;
-  &:hover {
-    background-color: $jub-color;
-    color: $white;
   }
 }
 

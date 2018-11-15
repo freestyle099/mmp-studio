@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default class GoToTop extends React.Component {
-  goToTop = e => {
+  goToTop = () => {
     document.body.scrollIntoView({
       block: 'start',
       behavior: 'smooth',
@@ -10,7 +10,7 @@ export default class GoToTop extends React.Component {
   };
   render() {
     return (
-      <div onClick={this.goToTop} className="no-display z-depth-3" id="goToTop">
+      <div onClick={this.goToTop} className="no-display shadow" id="goToTop">
         <i className="fas fa-arrow-circle-up" />
       </div>
     );

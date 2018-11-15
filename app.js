@@ -1,49 +1,49 @@
-const express = require("express");
-const mongoose = require("mongoose");
+const express = require('express');
+const mongoose = require('mongoose');
 const app = express();
-const bodyParser = require("body-parser");
-const keys = require("./config/keys");
-const nodemailer = require("nodemailer");
-const path = require("path");
+const bodyParser = require('body-parser');
+const keys = require('./config/keys');
+const nodemailer = require('nodemailer');
+const path = require('path');
 
 mongoose
-  .connect("mongodb://localhost/playground")
-  .then(() => console.log("Connected to mongoDB..."))
-  .catch(err => console.log(new Error("Colud not connect to mongoDB", err)));
+  .connect('mongodb://localhost/playground')
+  .then(() => console.log('Connected to mongoDB...'))
+  .catch(err => console.log(new Error('Colud not connect to mongoDB', err)));
 
 const imageSchema = new mongoose.Schema({
   url: String
 });
 
-const Image = mongoose.model("Images", imageSchema);
-const Jubiler = mongoose.model("Jubilers", imageSchema);
-const Fotobudka = mongoose.model("Fotobudkas", imageSchema);
+const Image = mongoose.model('Images', imageSchema);
+const Jubiler = mongoose.model('Jubilers', imageSchema);
+const Fotobudka = mongoose.model('Fotobudkas', imageSchema);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.get("/api/images", async (req, res) => {
+app.get('/api/images', async (req, res) => {
   const images = await Image.find();
   res.send(images);
 });
-app.get("/api/jubilers", async (req, res) => {
+app.get('/api/jubilers', async (req, res) => {
   const jubilers = await Jubiler.find();
   res.send(jubilers);
 });
-app.get("/api/fotobudkas", async (req, res) => {
+app.get('/api/fotobudkas', async (req, res) => {
   const fotobudkas = await Fotobudka.find();
   res.send(fotobudkas);
 });
-app.get("/api/images/:id", async (req, res) => {
+app.get('/api/images/:id', async (req, res) => {
   const images = await Image.find({ id: req.params.id });
   res.send(images);
 });
 
-app.post("/contact", (req, res) => {
+app.post('/contact', (req, res) => {
   console.log(req.body);
 
   let transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
+    host: 'smtp.gmail.com',
     port: 465,
     secure: true,
     auth: {
@@ -54,11 +54,11 @@ app.post("/contact", (req, res) => {
 
   let mailOptions = {
     from: `${req.body.firstName} ${req.body.surname} <${req.body.email}>`,
-    cc: "jozefrzadkosz09@gmail.com", // list of receivers
+    cc: 'jozefrzadkosz09@gmail.com', // list of receivers
     to: `${req.body.firstName} ${req.body.surname} <${req.body.email}>`,
     subject: `Wiadomość - ${req.body.from}`, // Subject line
-    text: "Hello world", // plain text body
-    html: "Imię: " + req.body.firstName + "\n" + "Nazwisko: " + req.body.surname
+    text: 'Hello world', // plain text body
+    html: 'Imię: ' + req.body.firstName + '\n' + 'Nazwisko: ' + req.body.surname
   };
 
   transporter.sendMail(mailOptions, function(err, info) {

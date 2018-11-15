@@ -1,11 +1,11 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default class NavigationImages extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      class: "nav-img-container"
+      class: 'nav-img-container',
     };
   }
 
@@ -14,7 +14,7 @@ export default class NavigationImages extends React.Component {
   };
   render() {
     return (
-      <div id="navImg" className={"nav-img-container " + this.state.class}>
+      <div id="navImg" className={'nav-img-container ' + this.state.class}>
         <div className="container">
           <h2>Zajmujemy się jeszcze...</h2>
 
@@ -43,14 +43,14 @@ export default class NavigationImages extends React.Component {
     );
   }
   componentDidMount() {
-    if (window.location.href.indexOf("fotobudka") > 1) {
+    if (window.location.href.indexOf('fotobudka') > 1) {
       this.setState({
-        class: "nav-img-container-fb"
+        class: 'nav-img-container-fb',
       });
     }
-    if (window.location.href.indexOf("jubiler") > 1) {
+    if (window.location.href.indexOf('jubiler') > 1) {
       this.setState({
-        class: "nav-img-container-jubiler"
+        class: 'nav-img-container-jubiler',
       });
     }
   }

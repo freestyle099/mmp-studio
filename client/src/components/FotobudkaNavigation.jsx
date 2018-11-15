@@ -1,24 +1,24 @@
-import React from "react";
-import { Link, NavLink, Redirect } from "react-router-dom";
+import React from 'react';
+import { Link, NavLink, Redirect } from 'react-router-dom';
 
 export default class FBNavigation extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isFb: false
+      isFb: false,
     };
   }
 
   goto = selector => {
-    if (window.location.pathname !== "/fotobudka/") {
+    if (window.location.pathname !== '/fotobudka/') {
       this.constructor.changeUrl();
     }
     let checkExist = setInterval(() => {
       let element = document.getElementById(selector);
       if (element) {
         element.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
+          behavior: 'smooth',
+          block: 'start',
         });
         clearInterval(checkExist);
       }
@@ -28,18 +28,18 @@ export default class FBNavigation extends React.Component {
     return <Redirect to="/fotobudka/" />;
   }
   goToInfo = () => {
-    this.goto("fotobudka-info");
+    this.goto('fotobudka-info');
   };
   goToOffer = () => {
-    this.goto("fb-offer");
+    this.goto('fb-offer');
   };
   goToContact = () => {
-    this.goto("contact-form");
+    this.goto('contact-form');
   };
   goToTop = () => {
     document.body.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
+      behavior: 'smooth',
+      block: 'start',
     });
   };
 
@@ -60,38 +60,22 @@ export default class FBNavigation extends React.Component {
                 </Link>
               </li>
               <li>
-                <Link
-                  id="fb-offerLink"
-                  onClick={this.goToOffer}
-                  to="/fotobudka/"
-                >
+                <Link id="fb-offerLink" onClick={this.goToOffer} to="/fotobudka/">
                   Oferta
                 </Link>
               </li>
               <li className="logo-container">
-                <Link
-                  onClick={this.goToTop}
-                  className="brand-logo"
-                  to="/fotobudka/"
-                >
+                <Link onClick={this.goToTop} className="brand-logo" to="/fotobudka/">
                   <img src="logo_fotobudka.png" alt="" />
                 </Link>
               </li>
               <li>
-                <Link
-                  id="fb-contact"
-                  to="/fotobudka/"
-                  onClick={this.goToContact}
-                >
+                <Link id="fb-contact" to="/fotobudka/" onClick={this.goToContact}>
                   Kontakt
                 </Link>
               </li>
               <li>
-                <NavLink
-                  exact
-                  activeClassName="active-fb"
-                  to="/fotobudka/galeria"
-                >
+                <NavLink exact activeClassName="active-fb" to="/fotobudka/galeria">
                   Galeria
                 </NavLink>
               </li>
@@ -116,33 +100,27 @@ export default class FBNavigation extends React.Component {
   fbContactLink;
 
   scrollFunction = () => {
-    if (window.location.pathname === "/fotobudka/") {
+    if (window.location.pathname === '/fotobudka/') {
       if (window.pageYOffset < this.navImgPosition - 200) {
-        this.fbMainLink.classList.add("active-fb");
-        this.fbInfoLink.classList.remove("active-fb");
-        this.fbOfferLink.classList.remove("active-fb");
-        this.fbContactLink.classList.remove("active-fb");
-      } else if (
-        window.pageYOffset > this.navImgPosition - 500 &&
-        window.pageYOffset < this.fbOfferPosition - 500
-      ) {
-        this.fbMainLink.classList.remove("active-fb");
-        this.fbInfoLink.classList.add("active-fb");
-        this.fbOfferLink.classList.remove("active-fb");
-        this.fbContactLink.classList.remove("active-fb");
-      } else if (
-        window.pageYOffset > this.fbOfferPosition - 500 &&
-        window.pageYOffset < this.fbContactPosition - 600
-      ) {
-        this.fbMainLink.classList.remove("active-fb");
-        this.fbInfoLink.classList.remove("active-fb");
-        this.fbOfferLink.classList.add("active-fb");
-        this.fbContactLink.classList.remove("active-fb");
+        this.fbMainLink.classList.add('active-fb');
+        this.fbInfoLink.classList.remove('active-fb');
+        this.fbOfferLink.classList.remove('active-fb');
+        this.fbContactLink.classList.remove('active-fb');
+      } else if (window.pageYOffset > this.navImgPosition - 500 && window.pageYOffset < this.fbOfferPosition - 500) {
+        this.fbMainLink.classList.remove('active-fb');
+        this.fbInfoLink.classList.add('active-fb');
+        this.fbOfferLink.classList.remove('active-fb');
+        this.fbContactLink.classList.remove('active-fb');
+      } else if (window.pageYOffset > this.fbOfferPosition - 500 && window.pageYOffset < this.fbContactPosition - 600) {
+        this.fbMainLink.classList.remove('active-fb');
+        this.fbInfoLink.classList.remove('active-fb');
+        this.fbOfferLink.classList.add('active-fb');
+        this.fbContactLink.classList.remove('active-fb');
       } else {
-        this.fbMainLink.classList.remove("active-fb");
-        this.fbInfoLink.classList.remove("active-fb");
-        this.fbOfferLink.classList.remove("active-fb");
-        this.fbContactLink.classList.add("active-fb");
+        this.fbMainLink.classList.remove('active-fb');
+        this.fbInfoLink.classList.remove('active-fb');
+        this.fbOfferLink.classList.remove('active-fb');
+        this.fbContactLink.classList.add('active-fb');
       }
     }
 
@@ -150,52 +128,47 @@ export default class FBNavigation extends React.Component {
     let st = window.pageYOffset;
 
     if (st > this.lastScrollTop) {
-      if (this.nav.classList.contains("navigation-container-scroll")) {
-        this.nav.classList.remove("entering-fb");
-        this.nav.classList.add("leaving-fb");
+      if (this.nav.classList.contains('navigation-container-scroll')) {
+        this.nav.classList.remove('entering-fb');
+        this.nav.classList.add('leaving-fb');
       }
     } else {
-      this.nav.classList.remove("leaving-fb");
-      if (
-        window.pageYOffset > this.navImgPosition ||
-        window.pageYOffset > 700
-      ) {
-        this.nav.classList.add("navigation-container-scroll");
-        this.nav.classList.add("entering-fb");
+      this.nav.classList.remove('leaving-fb');
+      if (window.pageYOffset > this.navImgPosition || window.pageYOffset > 700) {
+        this.nav.classList.add('navigation-container-scroll');
+        this.nav.classList.add('entering-fb');
       } else {
-        if (this.nav.classList.contains("navigation-container-scroll")) {
-          this.nav.classList.remove("navigation-container-scroll");
-          this.nav.classList.remove("entering-fb");
+        if (this.nav.classList.contains('navigation-container-scroll')) {
+          this.nav.classList.remove('navigation-container-scroll');
+          this.nav.classList.remove('entering-fb');
         }
       }
     }
     this.lastScrollTop = st <= 0 ? 0 : st;
   };
   componentDidMount() {
-    document.addEventListener("scroll", this.scrollFunction);
-    this.nav = document.querySelector(".nav-container-fb");
-    this.navImg = document.getElementById("navImg");
-    this.fbMainLink = document.getElementById("fb-main");
-    this.fbInfoLink = document.getElementById("fb-info");
-    this.fbOfferLink = document.getElementById("fb-offerLink");
-    this.fbContactLink = document.getElementById("fb-contact");
+    document.addEventListener('scroll', this.scrollFunction);
+    this.nav = document.querySelector('.nav-container-fb');
+    this.navImg = document.getElementById('navImg');
+    this.fbMainLink = document.getElementById('fb-main');
+    this.fbInfoLink = document.getElementById('fb-info');
+    this.fbOfferLink = document.getElementById('fb-offerLink');
+    this.fbContactLink = document.getElementById('fb-contact');
     if (this.navImg) {
       this.navImgPosition = this.navImg.offsetTop;
     }
-    if (window.location.pathname === "/fotobudka/") {
-      this.fbMainLink.classList.add("active-fb");
-      this.fbInfoPosition = document.getElementById("fotobudka-info").offsetTop;
-      this.fbOfferPosition = document.getElementById("fb-offer").offsetTop;
-      this.fbContactPosition = document.getElementById(
-        "contact-form"
-      ).offsetTop;
+    if (window.location.pathname === '/fotobudka/') {
+      this.fbMainLink.classList.add('active-fb');
+      this.fbInfoPosition = document.getElementById('fotobudka-info').offsetTop;
+      this.fbOfferPosition = document.getElementById('fb-offer').offsetTop;
+      this.fbContactPosition = document.getElementById('contact-form').offsetTop;
       this.setState({
-        isFb: true
+        isFb: true,
       });
     }
   }
 
   componentWillUnmount() {
-    document.removeEventListener("scroll", this.scrollFunction);
+    document.removeEventListener('scroll', this.scrollFunction);
   }
 }

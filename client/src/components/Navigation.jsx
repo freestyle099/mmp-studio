@@ -1,11 +1,11 @@
-import React from "react";
-import { Link, NavLink, Redirect } from "react-router-dom";
+import React from 'react';
+import { Link, NavLink, Redirect } from 'react-router-dom';
 
 export default class Navigation extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isMain: false
+      isMain: false,
     };
   }
 
@@ -22,15 +22,15 @@ export default class Navigation extends React.Component {
   linkContact;
 
   goto = selector => {
-    if (window.location.pathname !== "/") {
+    if (window.location.pathname !== '/') {
       this.constructor.changeUrl();
     }
     let checkExist = setInterval(() => {
       let element = document.getElementById(selector);
       if (element) {
         element.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
+          behavior: 'smooth',
+          block: 'start',
         });
         clearInterval(checkExist);
       }
@@ -40,50 +40,35 @@ export default class Navigation extends React.Component {
     return <Redirect to="/fotobudka/" />;
   }
   goToAbout = () => {
-    this.goto("aboutUs");
+    this.goto('aboutUs');
   };
   goToContact = e => {
-    this.goto("contact");
+    this.goto('contact');
   };
   goToTop = () => {
     document.body.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
+      behavior: 'smooth',
+      block: 'start',
     });
   };
   render() {
     return (
       <div className="nav-container">
         <nav className="main-nav">
-          <div className="nav-wrapper container">
-            <ul className="container navigation">
+          <div className="nav-wrapper row container">
+            <ul className="col s12 m6 l12 navigation">
               <li>
-                <Link
-                  className="link-left"
-                  to="/"
-                  onClick={this.goToTop}
-                  id="main"
-                >
+                <Link className="link-left" to="/" onClick={this.goToTop} id="main">
                   Strona Główna
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/"
-                  className="link-left"
-                  onClick={this.goToAbout}
-                  id="link-aboutUs"
-                >
+                <Link to="/" className="link-left" onClick={this.goToAbout} id="link-aboutUs">
                   O Nas
                 </Link>
               </li>
               <li>
-                <Link
-                  className="link-left"
-                  id="link-contact"
-                  onClick={this.goToContact}
-                  to="/"
-                >
+                <Link className="link-left" id="link-contact" onClick={this.goToContact} to="/">
                   Kontakt
                 </Link>
               </li>
@@ -95,29 +80,17 @@ export default class Navigation extends React.Component {
               </li>
 
               <li>
-                <NavLink
-                  onClick={this.goToTop}
-                  exact
-                  activeClassName="active-main-right"
-                  to="/galeria"
-                >
+                <NavLink onClick={this.goToTop} exact activeClassName="active-main-right" to="/galeria">
                   Galeria
                 </NavLink>
               </li>
               <li>
-                <NavLink
-                  onClick={this.goToTop}
-                  exact
-                  activeClassName="active-main-right"
-                  to="/wideo"
-                >
+                <NavLink onClick={this.goToTop} exact activeClassName="active-main-right" to="/wideo">
                   Wideo
                 </NavLink>
               </li>
               <li>
-                <a href="https://mmpstudio.smugmug.com/Strefa-Klienta">
-                  Strefa klienta
-                </a>
+                <a href="https://mmpstudio.smugmug.com/Strefa-Klienta">Strefa klienta</a>
               </li>
             </ul>
           </div>
@@ -128,22 +101,19 @@ export default class Navigation extends React.Component {
 
   scrollFunction = () => {
     // Navigation active class
-    if (window.location.pathname === "/") {
-      if (
-        window.pageYOffset > this.scroll - 200 &&
-        window.pageYOffset < this.contact - 200
-      ) {
-        this.main.classList.remove("active-main");
-        this.linkAboutUs.classList.add("active-main");
-        this.linkContact.classList.remove("active-main");
+    if (window.location.pathname === '/') {
+      if (window.pageYOffset > this.scroll - 200 && window.pageYOffset < this.contact - 200) {
+        this.main.classList.remove('active-main');
+        this.linkAboutUs.classList.add('active-main');
+        this.linkContact.classList.remove('active-main');
       } else if (window.pageYOffset > this.contact - 200) {
-        this.main.classList.remove("active-main");
-        this.linkAboutUs.classList.remove("active-main");
-        this.linkContact.classList.add("active-main");
+        this.main.classList.remove('active-main');
+        this.linkAboutUs.classList.remove('active-main');
+        this.linkContact.classList.add('active-main');
       } else {
-        this.main.classList.add("active-main");
-        this.linkAboutUs.classList.remove("active-main");
-        this.linkContact.classList.remove("active-main");
+        this.main.classList.add('active-main');
+        this.linkAboutUs.classList.remove('active-main');
+        this.linkContact.classList.remove('active-main');
       }
     }
 
@@ -151,19 +121,19 @@ export default class Navigation extends React.Component {
     let st = window.pageYOffset;
 
     if (st > this.lastScrollTop) {
-      if (this.nav.classList.contains("navigation-container-scroll")) {
-        this.nav.classList.remove("entering");
-        this.nav.classList.add("leaving");
+      if (this.nav.classList.contains('navigation-container-scroll')) {
+        this.nav.classList.remove('entering');
+        this.nav.classList.add('leaving');
       }
     } else {
-      this.nav.classList.remove("leaving");
+      this.nav.classList.remove('leaving');
       if (window.pageYOffset > this.navImg || window.pageYOffset > 800) {
-        this.nav.classList.add("navigation-container-scroll");
-        this.nav.classList.add("entering");
+        this.nav.classList.add('navigation-container-scroll');
+        this.nav.classList.add('entering');
       } else {
-        if (this.nav.classList.contains("navigation-container-scroll")) {
-          this.nav.classList.remove("navigation-container-scroll");
-          this.nav.classList.remove("entering");
+        if (this.nav.classList.contains('navigation-container-scroll')) {
+          this.nav.classList.remove('navigation-container-scroll');
+          this.nav.classList.remove('entering');
         }
       }
     }
@@ -171,21 +141,21 @@ export default class Navigation extends React.Component {
   };
 
   componentDidMount() {
-    this.aboutUs = document.getElementById("aboutUs");
-    this.navImgElement = document.getElementById("navImg");
-    this.main = document.getElementById("main");
-    this.linkAboutUs = document.getElementById("link-aboutUs");
-    this.linkContact = document.getElementById("link-contact");
-    this.nav = document.querySelector(".nav-container");
-    this.contactElement = document.getElementById("contact");
+    this.aboutUs = document.getElementById('aboutUs');
+    this.navImgElement = document.getElementById('navImg');
+    this.main = document.getElementById('main');
+    this.linkAboutUs = document.getElementById('link-aboutUs');
+    this.linkContact = document.getElementById('link-contact');
+    this.nav = document.querySelector('.nav-container');
+    this.contactElement = document.getElementById('contact');
 
-    if (window.location.pathname === "/") {
-      this.main.classList.add("active-main");
+    if (window.location.pathname === '/') {
+      this.main.classList.add('active-main');
       this.setState({
-        isMain: true
+        isMain: true,
       });
     } else {
-      this.nav.classList.add("navigation-other");
+      this.nav.classList.add('navigation-other');
     }
 
     if (this.aboutUs) {
@@ -197,10 +167,10 @@ export default class Navigation extends React.Component {
     if (this.contactElement) {
       this.contact = this.contactElement.offsetTop;
     }
-    document.addEventListener("scroll", this.scrollFunction);
+    document.addEventListener('scroll', this.scrollFunction);
   }
 
   componentWillUnmount() {
-    document.removeEventListener("scroll", this.scrollFunction);
+    document.removeEventListener('scroll', this.scrollFunction);
   }
 }

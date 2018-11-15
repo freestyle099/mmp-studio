@@ -30,5 +30,8 @@
   "devDependencies": {
     "mongoose": "^5.3.6",
     "prettier": "^1.14.3"
+  },
+  "prettier": {
+    "singleQuote": true
   }
 }

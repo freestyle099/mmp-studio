@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
 export default class FotobudkaPrices extends React.Component {
   render() {
     return (
-      <div id='fb-offer' className="fotobudka-prices">
+      <div id="fb-offer" className="fotobudka-prices">
         <div className="container">
           <h2>Oferta</h2>
           <div className="fotobudka-container">
@@ -69,13 +69,25 @@ export default class FotobudkaPrices extends React.Component {
             </div>
           </div>
           <h2>Dodatkowe opcje</h2>
-          <div className='fotobudka-additional'>
-            <p>Dodatkowa godzina pracy fotobudki: <b>200zł</b></p>
-            <p>Dodatkowy kilometr: <b>1zł</b></p>
-            <p>Dodatkowe wydruki zdjęć: <b>1zł/szt</b></p>
-            <p>Fotoalbum z wybranymi zdjęciami: <b>150zł</b></p>
-            <p>Księga gości: <b>150zł</b></p>
-            <p>Personalizacja tła: <b>150zł</b></p>
+          <div className="fotobudka-additional">
+            <p>
+              Dodatkowa godzina pracy fotobudki: <b>200zł</b>
+            </p>
+            <p>
+              Dodatkowy kilometr: <b>1zł</b>
+            </p>
+            <p>
+              Dodatkowe wydruki zdjęć: <b>1zł/szt</b>
+            </p>
+            <p>
+              Fotoalbum z wybranymi zdjęciami: <b>150zł</b>
+            </p>
+            <p>
+              Księga gości: <b>150zł</b>
+            </p>
+            <p>
+              Personalizacja tła: <b>150zł</b>
+            </p>
           </div>
         </div>
       </div>

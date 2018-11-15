@@ -1,11 +1,9 @@
-import React from "react";
-
+import React from 'react';
 
 export default class Contact extends React.Component {
-
   render() {
     return (
-      <div id='contact' className="contact">
+      <div id="contact" className="contact">
         <div className="container">
           <h2>Kontakt</h2>
 
@@ -25,9 +23,7 @@ export default class Contact extends React.Component {
               <p>+48 696 388 885</p>
             </div>
           </div>
-
         </div>
-
       </div>
     );
   }

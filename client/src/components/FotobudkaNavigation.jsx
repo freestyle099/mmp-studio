@@ -47,8 +47,8 @@ export default class FBNavigation extends React.Component {
     return (
       <div className="nav-container-fb">
         <nav className="fb-nav">
-          <div className="nav-wrapper container">
-            <ul className="container navigation fb">
+          <div className="container">
+            <ul className="navigation fb">
               <li>
                 <Link id="fb-main" onClick={this.goToTop} to="/fotobudka/">
                   Strona główna

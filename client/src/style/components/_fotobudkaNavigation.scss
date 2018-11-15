@@ -90,3 +90,44 @@ nav {
     }
   }
 }
+
+.active-fb {
+  color: $fb-color !important;
+  font-weight: bold;
+}
+
+@keyframes entering-fb {
+  from {
+    height: 0;
+    border-bottom: none;
+  }
+  to {
+    border-bottom: 4px solid $fb-color;
+    height: 75px;
+  }
+}
+
+@keyframes leaving-fb {
+  0% {
+    height: 75px;
+    border-bottom: 4px solid $fb-color;
+  }
+  90% {
+    border-bottom: 1px solid $fb-color;
+  }
+  100% {
+    height: 0;
+    border: none;
+  }
+}
+
+.entering-fb {
+  -webkit-animation: entering-fb 200ms forwards;
+  animation: entering-fb 200ms forwards;
+}
+
+.leaving-fb {
+  -webkit-animation: leaving-fb 500ms forwards;
+  animation: leaving-fb 500ms forwards;
+}
+

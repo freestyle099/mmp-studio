@@ -1,0 +1,30 @@
+@import '../variables';
+
+.accordion {
+  margin-top: -20px;
+  padding-bottom: 50px;
+  margin-bottom: 0;
+  list-style: none;
+  .header {
+    font-size: 26px;
+    cursor: pointer;
+    padding: 10px 0;
+    &:hover {
+      color: $main-color;
+      transition: 0.4s;
+    }
+  }
+  .body {
+    max-height: 0;
+    background-color: $white;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+  }
+  .acc-padding {
+    padding: 20px;
+  }
+  .active-accordion {
+    max-height: 150px;
+    transition: max-height 0.5s ease-in-out;
+  }
+}

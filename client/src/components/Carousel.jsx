@@ -22,7 +22,6 @@ export default class Carousel extends React.Component {
     this.play();
     this.setState({
       slider: this.state.slider >= this.props.images.length - 1 ? (this.state.slider = 0) : this.state.slider + 1,
-      timer: 3000,
     });
   };
   prevSlide = () => {
@@ -44,7 +43,7 @@ export default class Carousel extends React.Component {
 
   render() {
     return (
-      <div className="my-slider z-depth-3">
+      <div className="my-slider">
         <button onClick={this.prevSlide} className="arrows left">
           <i className="fas fa-angle-left" />
         </button>

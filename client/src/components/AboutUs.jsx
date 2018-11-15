@@ -7,9 +7,9 @@ export default class AboutUs extends React.Component {
       <section id="aboutUs" className="about-us">
         <div className="container">
           <h2>O nas</h2>
-          <div className="center-align">
+          <div className="about-us-container">
             <div>
-              <img className="img-aboutus" src="mya2.png" alt="" />
+              <img src="mya2.png" alt="" />
             </div>
             <div>
               Jesteśmy rodzinną firmą, w której wieloletnie doświadczenie i pasja łączy się z profesjonalnym podejściem do każdego zlecenia.

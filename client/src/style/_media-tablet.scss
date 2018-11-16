@@ -52,4 +52,11 @@
   .accordion {
     padding: 0 2% 30px 2%;
   }
+
+  // contactForm
+  .form {
+    > div {
+      width: 90%;
+    }
+  }
 }

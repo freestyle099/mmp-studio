@@ -5,6 +5,7 @@
 @import './_media-tablet.scss';
 
 // Components
+
 @import './components/aboutUs';
 @import './components/accordion';
 @import './components/contact';
@@ -16,5 +17,6 @@
 @import './components/goToTop';
 @import './components/jubiler';
 @import './components/jubilerNavigation';
-
+@import './components/lightbox';
+@import './components/navigation';
 @import './main.scss';

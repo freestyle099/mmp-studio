@@ -49,7 +49,7 @@ export default class Gallery extends React.Component {
 
   render() {
     return (
-      <div className="gallery">
+      <div>
         <Navigation />
         <Lightbox images={this.images} />
       </div>

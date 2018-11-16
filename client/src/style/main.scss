@@ -1,95 +1,6 @@
 @import '~bootstrap/scss/bootstrap.scss';
 @import './variables';
 
-.nav-container {
-  position: absolute;
-  top: 0;
-  z-index: 1070;
-  width: 100vw;
-  height: 100px;
-  overflow: hidden;
-}
-
-.navigation-container {
-  height: 100vh;
-}
-.navigation-other {
-  height: 100px;
-  position: absolute;
-  top: 0;
-  background-color: $white;
-  border-bottom: 4px solid $main-color;
-}
-.navigation-container-scroll {
-  height: 75px;
-  position: fixed;
-  top: 0;
-  background-color: $white;
-  overflow: hidden;
-}
-
-nav {
-  box-shadow: none;
-  box-sizing: content-box;
-  background-color: transparent !important;
-
-  ul.navigation.nav-jubiler {
-    display: flex;
-    justify-content: space-around;
-  }
-  ul.navigation {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    > li {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      width: auto;
-      position: relative;
-      &.logo-container {
-        width: 25%;
-        height: 100%;
-      }
-      .brand-logo {
-        width: 100%;
-        height: 100%;
-        &:hover {
-          background-color: transparent;
-        }
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: contain;
-        }
-      }
-    }
-    a {
-      font: {
-        family: $PTSans-font;
-        weight: bold;
-        size: 20px;
-      }
-      padding: 0;
-      transition: 0.2s;
-      text-align: center;
-      color: $white;
-      text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
-      &:hover {
-        background-color: transparent;
-        color: red;
-      }
-      &.link-left:hover {
-        color: $main-color;
-      }
-    }
-  }
-}
-
 body {
   color: $font-color;
   font-family: $Lato-font;
@@ -98,6 +9,9 @@ body {
     width: 1100px;
   }
 }
+
+
+
 
 #root {
   position: relative;
@@ -159,6 +73,9 @@ body {
 
 .main-nav {
   height: 100%;
+  .container {
+    height: 100%;
+  }
 }
 
 .active-jub {
@@ -277,97 +194,6 @@ input[type='submit'] {
     font: {
       weight: bold;
       size: 26px;
-    }
-  }
-}
-
-// Gallery lightbox
-.gallery {
-  padding: 90px 0;
-}
-.grid-gallery {
-  display: grid;
-  grid-gap: 5px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-template-rows: 250px;
-  grid-auto-flow: dense;
-}
-
-.imageGallery1 {
-  height: 100%;
-  width: 100%;
-  & a {
-    height: 100%;
-  }
-  & img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-}
-
-.vertical {
-  grid-row: span 2;
-}
-
-.lightbox-container {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 100vw;
-  height: 100vh;
-  transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.8);
-  z-index: 1090;
-  .lightbox {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    .lg-arrows {
-      position: absolute;
-      top: 50%;
-      width: 100px;
-      height: 200px;
-      transform: translateY(-50%);
-      background-color: transparent;
-      border: none;
-      color: $white;
-      font-size: 50px;
-      cursor: pointer;
-      &:focus {
-        box-shadow: 0 0 15px -5px $main-color;
-      }
-    }
-    .lg-left {
-      left: 5%;
-    }
-    .lg-right {
-      right: 5%;
-    }
-    .lg-close {
-      position: absolute;
-      right: 5%;
-      top: 0;
-      cursor: pointer;
-      width: 100px;
-      height: 100px;
-      background-color: transparent;
-      border: none;
-      color: $white;
-      font-size: 30px;
-      &:focus {
-        box-shadow: 0 0 15px -5px $main-color;
-      }
-    }
-    img {
-      position: fixed;
-      left: 50%;
-      top: 50%;
-      max-height: 90%;
-      max-width: 70%;
-      transform: translate(-50%, -50%);
-      object-fit: contain;
     }
   }
 }

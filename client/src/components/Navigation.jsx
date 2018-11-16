@@ -55,7 +55,7 @@ export default class Navigation extends React.Component {
     return (
       <div className="nav-container">
         <nav className="main-nav">
-          <div className="nav-wrapper container">
+          <div className="container">
             <ul className="navigation">
               <li>
                 <Link className="link-left" to="/" onClick={this.goToTop} id="main">

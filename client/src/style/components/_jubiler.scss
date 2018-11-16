@@ -1,5 +1,14 @@
 @import '../variables';
 
+.active-jub {
+  color: $jub-color !important;
+  font-weight: bold;
+}
+
+.jubiler {
+  border-top: 3px solid $jub-color;
+}
+
 .jub-info {
   margin-bottom: 50px;
   display: flex;

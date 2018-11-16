@@ -1,6 +1,5 @@
 @import '../variables';
 
-
 .nav-container-jub {
   position: absolute;
   top: 0;
@@ -17,7 +16,7 @@
     }
     ul.nav-jubiler {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
       a {
         text-decoration: none;
 

@@ -5,7 +5,7 @@
 @import './_media-tablet.scss';
 
 // Components
-
+@import './main.scss';
 @import './components/aboutUs';
 @import './components/accordion';
 @import './components/contact';
@@ -23,4 +23,4 @@
 @import './components/navigationImages';
 @import './components/recommend';
 @import './components/regulations';
-@import './main.scss';
+@import './components/video';

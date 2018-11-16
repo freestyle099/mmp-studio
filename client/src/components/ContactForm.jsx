@@ -251,30 +251,25 @@ export default class ContactForm extends React.Component {
           <form className="form" onSubmit={this.sendForm}>
             <input id="type" type="hidden" value={this.props.from} />
             <div>
-              <div>
-                <label htmlFor="first_name">Imię</label>
-                <input onChange={this.handleFirstName} id="firstName" type="text" className={this.props.active} />
+              <div className="form-group">
+                <input placeholder="Imię" onChange={this.handleFirstName} id="firstName" type="text" className={'form-control ' + this.props.active} />
               </div>
-              <div>
-                <label htmlFor="last_name">Nazwisko</label>
-                <input onChange={this.handleSurname} id="surname" type="text" className={this.props.active} />
+              <div className="form-group">
+                <input placeholder="Nazwisko" onChange={this.handleSurname} id="surname" type="text" className={'form-control ' + this.props.active} />
               </div>
-              <div>
-                <label htmlFor="last_name">E-mail</label>
-                <input onChange={this.handleEmail} id="email" type="email" className={this.props.active} />
+              <div className="form-group">
+                <input placeholder="E-mail" onChange={this.handleEmail} id="email" type="email" className={'form-control ' + this.props.active} />
               </div>
-              <div>
-                <label htmlFor="last_name">Telefon</label>
-                <input onChange={this.handlePhone} id="phone" type="number" className={this.props.active} />
+              <div className="form-group">
+                <input placeholder="Telefon" onChange={this.handlePhone} id="phone" type="number" className={'form-control ' + this.props.active} />
+              </div>
+
+              <div className="form-group">
+                <textarea placeholder="Treść wiadomości" id="message" onChange={this.handleMessage} className={'form-control ' + this.props.active} />
               </div>
 
               <div>
-                <label htmlFor="last_name">Treść wiadomości</label>
-                <textarea id="message" onChange={this.handleMessage} className={this.props.active} />
-              </div>
-
-              <div>
-                <button className={this.props.btn + ' btn waves-effect waves-light light-blue'} type="submit" name="action">
+                <button className={this.props.btn + ' btn btn-primary'} type="submit" name="action">
                   Wyślij
                 </button>
               </div>

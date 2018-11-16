@@ -76,3 +76,11 @@
   border-top: 4px solid $jub-color;
   padding-bottom: 50px;
 }
+
+.jub-link:hover {
+  color: $jub-color !important;
+}
+.jub-logo {
+  height: 80% !important;
+  object-fit: contain;
+}

@@ -16,58 +16,6 @@ body {
   overflow: hidden;
 }
 
-.active-main {
-  color: $main-color !important;
-  font-weight: bold;
-}
-.active-main-right {
-  color: red !important;
-  font-weight: bold;
-}
-
-@keyframes entering {
-  from {
-    height: 0;
-    border-bottom: none;
-  }
-  to {
-    border-bottom: 4px solid $main-color;
-    height: 75px;
-  }
-}
-
-@keyframes leaving {
-  0% {
-    height: 75px;
-    border-bottom: 4px solid $main-color;
-  }
-  90% {
-    border-bottom: 1px solid $main-color;
-  }
-  100% {
-    height: 0;
-    border: none;
-  }
-}
-
-.entering {
-  -webkit-animation: entering 200ms forwards;
-  animation: entering 200ms forwards;
-}
-
-.leaving {
-  -webkit-animation: leaving 500ms forwards;
-  animation: leaving 500ms forwards;
-}
-
-.jub-link:hover {
-  color: $jub-color !important;
-}
-.jub-logo {
-  height: 80% !important;
-  object-fit: contain;
-}
-
 .main-nav {
   height: 100%;
   .container {
@@ -79,56 +27,8 @@ body {
   color: $jub-color !important;
   font-weight: bold;
 }
-.right {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.image-logo {
-  width: 100px;
-  height: 50px;
-}
-
-.contact-header {
-  margin: 40px 0 0 0;
-  font: {
-    size: 26px;
-    weight: bold;
-  }
-  &:first-child {
-    margin: 0;
-  }
-}
-
-input[type='submit'] {
-  color: $white;
-  cursor: pointer;
-  &:focus {
-    outline: none;
-  }
-}
-
-.fotobudka {
-  border-top: 3px solid $fb-color;
-  &-gallery {
-    padding-top: 70px;
-  }
-}
 
 .jubiler {
-  border-top: 3px solid $jub-color;
-}
-
-.regulation {
-  margin: 120px auto 60px auto;
-  p {
-    padding: 10px 0;
-  }
-}
-
-
-
-.contact-jub {
   border-top: 3px solid $jub-color;
 }
 

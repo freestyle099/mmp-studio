@@ -1,24 +1,55 @@
 @import './variables';
 
 @media only screen and (max-width: 991px) and (min-width: 768px) {
-  body {
-    .container {
-      width: 100vw;
-    }
+  // main
+  .container {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
   }
-  .nav-container {
-    width: 100%;
-  }
-  nav {
+  .main-nav {
+    position: relative;
 
     ul.navigation {
-      width: auto;
-      margin: 0 10px;
+      padding: 0 2%;
+      a {
+        padding: 15px 0;
+        font-size: 18px;
+      }
     }
   }
 
   h2 {
-    margin: 0;
-    font-size: 20px;
+    padding: 50px 0;
+  }
+
+  // images navigation
+  .nav-img-container {
+    .navigation-images {
+      > div.valign-wrapper {
+        width: 32%;
+        font-size: 13px;
+      }
+    }
+  }
+
+  // aboutUs
+
+  .about-us {
+    .about-us-container {
+      > div {
+        padding: 0 20px;
+        img {
+          margin: 0;
+          width: 60%;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+
+  // accordion
+  .accordion {
+    padding: 0 2% 30px 2%;
   }
 }

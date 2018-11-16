@@ -2,7 +2,6 @@
 
 @import 'components/carousel';
 @import './_smallCarousel.scss';
-@import './_media-tablet.scss';
 
 // Components
 @import './main.scss';
@@ -24,3 +23,6 @@
 @import './components/recommend';
 @import './components/regulations';
 @import './components/video';
+
+// Media Queries
+@import './_media-tablet.scss';

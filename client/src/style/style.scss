@@ -1,5 +1,5 @@
 @import './_variables.scss';
-@import './main.scss';
+
 @import 'components/carousel';
 @import './_smallCarousel.scss';
 @import './_media-tablet.scss';
@@ -14,3 +14,7 @@
 @import './components/fotobudkaNavigation';
 @import './components/fotobudkaPrices';
 @import './components/goToTop';
+@import './components/jubiler';
+@import './components/jubilerNavigation';
+
+@import './main.scss';

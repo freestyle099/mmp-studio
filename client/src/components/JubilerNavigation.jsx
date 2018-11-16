@@ -38,10 +38,10 @@ export default class JubilerNavigation extends React.Component {
 
   render() {
     return (
-      <div className="nav-container-fb">
+      <div className="nav-container-jub">
         <nav className="jubiler-nav">
-          <div className="nav-wrapper container">
-            <ul className="container navigation nav-jubiler">
+          <div className="container">
+            <ul className="navigation nav-jubiler">
               <li>
                 <Link id="jub-main-link" onClick={this.goToMain} className="jub-link" to="/jubiler/">
                   O nas
@@ -121,7 +121,7 @@ export default class JubilerNavigation extends React.Component {
     this.lastScrollTop = st <= 0 ? 0 : st;
   };
   componentDidMount() {
-    this.nav = document.querySelector('.nav-container-fb');
+    this.nav = document.querySelector('.nav-container-jub');
     if (window.location.pathname === '/jubiler/') {
       this.mainLink = document.getElementById('jub-main-link');
       this.servicesLink = document.getElementById('jub-services-link');

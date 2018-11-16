@@ -63,24 +63,10 @@ export default class Jubiler extends React.Component {
               <h2>Kontakt</h2>
               <div className="flex-container">
                 <div>
-                  {/*<p className="contact-header">Firma </p>*/}
-                  <p>
-                    {/*<i className="fas fa-building" />*/}
-                    Pracownia Jubilersko - Złotnicza
-                  </p>
+                  <p>Pracownia Jubilersko - Złotnicza</p>
                   <p>Michał Fornalski</p>
-
-                  {/*<p className="contact-header">Adres </p>*/}
-                  <p>
-                    {/*<i className="fas fa-map-marker-alt" />*/}
-                    Al. 3-go Maja 31
-                  </p>
-
-                  {/*<p className="contact-header">Telefon </p>*/}
-                  <p>
-                    {/*<i className="fas fa-phone" />*/}
-                    603 113 844
-                  </p>
+                  <p>Al. 3-go Maja 31</p>
+                  <p>603 113 844</p>
                 </div>
                 <div>
                   <iframe

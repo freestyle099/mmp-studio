@@ -45,8 +45,8 @@ export default class SmallCarousel extends React.Component {
 
   render() {
     return (
-      <div className="slider-container">
-        <div className="my-slider-small z-depth-3">
+      <div className="slider-container ">
+        <div className="my-slider-small shadow">
           <button onClick={this.prevSlide} className="arrows left">
             <i className="fas fa-angle-left" />
           </button>

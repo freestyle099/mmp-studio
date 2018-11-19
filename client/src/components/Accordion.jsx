@@ -18,7 +18,7 @@ export default class Accordion extends React.Component {
           <div onClick={this.showTab} className="header">
             Wieloletnie doświadczenie
           </div>
-          <div className="body shadow-sm">
+          <div className="body shadow-sm active-accordion">
             <div className="acc-padding">
               Fotografią zajmujemy się od kilkunastu lat, szlifując fach i ciągle starając się rozwijać nasze umiejętności. W czasach, gdy fotografować może praktycznie każdy warto zaufać
               doświadczeniu.

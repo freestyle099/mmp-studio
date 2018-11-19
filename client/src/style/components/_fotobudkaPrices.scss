@@ -52,12 +52,7 @@
         &.fotobudka-empty {
           color: $fb-color;
           font-weight: bold;
-          &.helper {
-            height: 73px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-          }
+
         }
       }
     }

@@ -18,7 +18,8 @@
     width: 50%;
     .form-group {
       position: relative;
-      .form-control, label {
+      .form-control,
+      label {
         width: 100%;
       }
     }
@@ -66,9 +67,12 @@ textarea {
   border: none;
   color: $white;
   background-color: $main-color;
-
 }
 .btn-fb {
+  border: none;
   color: $white;
-  background-color: $fb-color !important;
+  background-color: $fb-color;
+  &:hover {
+    background-color: $fb-hover;
+  }
 }

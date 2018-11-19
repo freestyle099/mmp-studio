@@ -12,6 +12,7 @@
 
     ul.navigation {
       padding: 0 2%;
+      margin: 0;
       a {
         padding: 5px 0;
         font-size: 18px;
@@ -39,7 +40,6 @@
   .fotobudka-info {
     padding: 0 2%;
   }
-
 
   .fotobudka-prices {
     .fotobudka-container {
@@ -123,6 +123,45 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+    }
+  }
+
+  // recommendations
+  .recommend {
+    margin-top: 100px;
+  }
+  // regulations
+  .regulation {
+    margin: 100px 0 60px 0;
+    padding: 0 2%;
+  }
+
+  // Wideo
+  .video {
+    padding: 75px 0;
+    .frames {
+      iframe {
+        height: 400px;
+      }
+    }
+  }
+
+  // lightbox
+  .lightbox-container {
+    .lightbox {
+      .lg-left {
+        left: 0;
+      }
+      .lg-right {
+        right: 0;
+      }
+      .lg-close {
+        right: 0;
+      }
+      img {
+        max-height: 100%;
+        max-width: 80%;
+      }
     }
   }
 }

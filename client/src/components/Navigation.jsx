@@ -20,6 +20,8 @@ export default class Navigation extends React.Component {
   main;
   linkAboutUs;
   linkContact;
+  menu;
+  menuButton;
 
   goto = selector => {
     if (window.location.pathname !== '/') {
@@ -52,10 +54,8 @@ export default class Navigation extends React.Component {
     });
   };
   showMenu = () => {
-    let menu = document.querySelector('.main-aside');
-    let menuButton = document.querySelector('.menu-button');
-    menu.classList.toggle('show-menu');
-    menuButton.classList.toggle('menu-button-show');
+    this.menu.classList.toggle('show-menu');
+    this.menuButton.classList.toggle('menu-button-show');
   };
   render() {
     return (
@@ -166,6 +166,9 @@ export default class Navigation extends React.Component {
     this.nav = document.querySelector('.nav-container');
     this.contactElement = document.getElementById('contact');
 
+    this.menu = document.querySelector('.main-aside');
+    this.menuButton = document.querySelector('.menu-button');
+
     if (window.location.pathname === '/') {
       this.main.classList.add('active-main');
       this.setState({
@@ -185,6 +188,10 @@ export default class Navigation extends React.Component {
       this.contact = this.contactElement.offsetTop;
     }
     document.addEventListener('scroll', this.scrollFunction);
+
+    if(this.menuButton) {
+      console.log(this.menuButton);
+    }
   }
 
   componentWillUnmount() {

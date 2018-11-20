@@ -9,6 +9,10 @@
     display: none;
   }
 
+  .main-aside, .menu-button {
+    display: block;
+  }
+
   .menu-button {
     position: fixed;
     z-index: 1090;
@@ -16,14 +20,16 @@
     font-size: 50px;
     cursor: pointer;
     top: 0;
-    left: 0;
+    left: 10px;
     line-height: 0;
+    transition: 0.5s;
     i {
       height: 100%;
     }
   }
   .menu-button-show {
-    left: 100px;
+    transition: 0.5s;
+    left: 110px;
   }
 
   .main-aside {

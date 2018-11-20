@@ -6,6 +6,7 @@ export default class Navigation extends React.Component {
     super(props);
     this.state = {
       isMain: false,
+      phone: false,
     };
   }
 
@@ -189,10 +190,17 @@ export default class Navigation extends React.Component {
     }
     document.addEventListener('scroll', this.scrollFunction);
 
-    if(this.menuButton) {
-      console.log(this.menuButton);
-    }
+    window.addEventListener('resize', this.resize);
   }
+
+  resize = () => {
+    if (window.outerWidth < 768) {
+      this.setState({
+        phone: true,
+      });
+    }
+  };
+
 
   componentWillUnmount() {
     document.removeEventListener('scroll', this.scrollFunction);

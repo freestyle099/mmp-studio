@@ -53,7 +53,9 @@ export default class Navigation extends React.Component {
   };
   showMenu = () => {
     let menu = document.querySelector('.main-aside');
-    menu.style.width = 100 + 'px';
+    let menuButton = document.querySelector('.menu-button');
+    menu.classList.toggle('show-menu');
+    menuButton.classList.toggle('menu-button-show');
   };
   render() {
     return (

@@ -54,6 +54,16 @@ export default class Navigation extends React.Component {
   render() {
     return (
       <div className="nav-container">
+        <nav className='main-aside'>
+          <ul>
+            <li>
+              Siema
+            </li>
+            <li>
+              Siema
+            </li>
+          </ul>
+        </nav>
         <nav className="main-nav">
           <div className="container">
             <ul className="navigation">

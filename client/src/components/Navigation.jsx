@@ -51,60 +51,65 @@ export default class Navigation extends React.Component {
       block: 'start',
     });
   };
+  showMenu = () => {
+    let menu = document.querySelector('.main-aside');
+    menu.style.width = 100 + 'px';
+  };
   render() {
     return (
-      <div className="nav-container">
-        <nav className='main-aside'>
-          <ul>
-            <li>
-              Siema
-            </li>
-            <li>
-              Siema
-            </li>
+      <div>
+        <div className="menu-button" onClick={this.showMenu}>
+          <i className="fas fa-bars" />
+        </div>
+        <nav className="main-aside">
+          <ul className="menu-aside">
+            <li>Siema</li>
+            <li>Siema</li>
           </ul>
         </nav>
-        <nav className="main-nav">
-          <div className="container">
-            <ul className="navigation">
-              <li>
-                <Link className="link-left" to="/" onClick={this.goToTop} id="main">
-                  Strona Główna
-                </Link>
-              </li>
-              <li>
-                <Link to="/" className="link-left" onClick={this.goToAbout} id="link-aboutUs">
-                  O Nas
-                </Link>
-              </li>
-              <li>
-                <Link className="link-left" id="link-contact" onClick={this.goToContact} to="/">
-                  Kontakt
-                </Link>
-              </li>
+        <div className="nav-container">
+          <nav className="main-nav">
+            <div className="container">
+              <ul className="navigation">
+                <li>
+                  <Link className="link-left" to="/" onClick={this.goToTop} id="main">
+                    Strona Główna
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/" className="link-left" onClick={this.goToAbout} id="link-aboutUs">
+                    O Nas
+                  </Link>
+                </li>
+                <li>
+                  <Link className="link-left" id="link-contact" onClick={this.goToContact} to="/">
+                    Kontakt
+                  </Link>
+                </li>
 
-              <li className="logo-container">
-                <NavLink onClick={this.goToTop} className="brand-logo" to="/">
-                  <img src="./logo_studio.png" alt="" />
-                </NavLink>
-              </li>
+                <li className="logo-container">
+                  <NavLink onClick={this.goToTop} className="brand-logo" to="/">
+                    <img src="./logo_studio.png" alt="" />
+                  </NavLink>
+                </li>
 
-              <li>
-                <NavLink onClick={this.goToTop} exact activeClassName="active-main-right" to="/galeria">
-                  Galeria
-                </NavLink>
-              </li>
-              <li>
-                <NavLink onClick={this.goToTop} exact activeClassName="active-main-right" to="/wideo">
-                  Wideo
-                </NavLink>
-              </li>
-              <li>
-                <a href="https://mmpstudio.smugmug.com/Strefa-Klienta">Strefa klienta</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
+                <li>
+                  <NavLink onClick={this.goToTop} exact activeClassName="active-main-right" to="/galeria">
+                    Galeria
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink onClick={this.goToTop} exact activeClassName="active-main-right" to="/wideo">
+                    Wideo
+                  </NavLink>
+                </li>
+                <li>
+                  <a href="https://mmpstudio.smugmug.com/Strefa-Klienta">Strefa klienta</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
       </div>
     );
   }

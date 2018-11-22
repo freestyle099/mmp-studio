@@ -66,6 +66,10 @@ export default class Navigation extends React.Component {
         </div>
         <nav className="main-aside">
           <ul className="menu-aside">
+            <NavLink onClick={this.goToTop} className="brand-logo" to="/">
+              <img src="./logo_studio.png" alt="" />
+            </NavLink>
+
             <li>
               <Link className="link-left" to="/" onClick={this.goToTop} id="main">
                 Strona Główna

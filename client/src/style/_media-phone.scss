@@ -43,11 +43,17 @@
     z-index: 1080;
     transition: 0.5s;
     .menu-aside {
+      padding: 0;
+      margin: 0;
       list-style: none;
       position: absolute;
       top: 0;
       a {
         white-space: nowrap;
+      }
+      img {
+        width: 100%;
+        object-fit: contain;
       }
     }
   }

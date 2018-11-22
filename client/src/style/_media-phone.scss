@@ -9,27 +9,45 @@
     display: none;
   }
 
-  .main-aside, .menu-button {
+  .main-aside,
+  .menu-button {
     display: block;
   }
 
   .menu-button {
     position: fixed;
     z-index: 1090;
-    color: $main-color;
-    font-size: 50px;
+    color: $white;
+    font-size: 40px;
     cursor: pointer;
-    top: 0;
+    top: 5px;
     left: 10px;
     line-height: 0;
     transition: 0.5s;
     i {
+      text-shadow: 0px 1px 2px rgba(150, 150, 150, 0.99);
       height: 100%;
     }
   }
   .menu-button-show {
     transition: 0.5s;
     left: 210px;
+  }
+
+  .logo-phone {
+    position: relative;
+    width: 100%;
+    height: 75px;
+    a {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    img {
+      width: 50%;
+      object-fit: contain;
+    }
   }
 
   .main-aside {
@@ -40,24 +58,38 @@
     padding: 0;
     overflow: hidden;
     background-color: $white;
+    border-right: 0 solid $main-color;
     z-index: 1080;
     transition: 0.5s;
     .menu-aside {
+      width: 100%;
       padding: 0;
       margin: 0;
       list-style: none;
       position: absolute;
       top: 0;
-      a {
-        white-space: nowrap;
-      }
-      img {
-        width: 100%;
-        object-fit: contain;
+      li {
+        padding: 10px;
+        a {
+          cursor: pointer;
+          display: inline-block;
+          width: 100%;
+          color: $font-color;
+          font: {
+            size: 22px;
+            family: $PTSans-font;
+          }
+          white-space: nowrap;
+        }
+        img {
+          width: 100%;
+          object-fit: contain;
+        }
       }
     }
   }
   .show-menu {
+    border-right: 4px solid $main-color;
     width: 200px;
     transition: 0.5s;
   }

@@ -61,14 +61,16 @@ export default class Navigation extends React.Component {
   render() {
     return (
       <div>
+        <div className='logo-phone'>
+          <NavLink onClick={this.goToTop} className="brand-logo" to="/">
+            <img src="./logo_studio.png" alt="" />
+          </NavLink>
+        </div>
         <div className="menu-button" onClick={this.showMenu}>
           <i className="fas fa-bars" />
         </div>
         <nav className="main-aside">
           <ul className="menu-aside">
-            <NavLink onClick={this.goToTop} className="brand-logo" to="/">
-              <img src="./logo_studio.png" alt="" />
-            </NavLink>
 
             <li>
               <Link className="link-left" to="/" onClick={this.goToTop} id="main">
@@ -79,6 +81,24 @@ export default class Navigation extends React.Component {
               <Link to="/" className="link-left" onClick={this.goToAbout} id="link-aboutUs">
                 O Nas
               </Link>
+            </li>
+            <li>
+              <Link className="link-left" id="link-contact" onClick={this.goToContact} to="/">
+                Kontakt
+              </Link>
+            </li>
+            <li>
+              <NavLink onClick={this.goToTop} exact activeClassName="active-main" to="/galeria">
+                Galeria
+              </NavLink>
+            </li>
+            <li>
+              <NavLink onClick={this.goToTop} exact activeClassName="active-main" to="/wideo">
+                Wideo
+              </NavLink>
+            </li>
+            <li>
+              <a href="https://mmpstudio.smugmug.com/Strefa-Klienta">Strefa klienta</a>
             </li>
           </ul>
         </nav>

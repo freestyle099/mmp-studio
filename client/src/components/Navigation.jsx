@@ -66,8 +66,16 @@ export default class Navigation extends React.Component {
         </div>
         <nav className="main-aside">
           <ul className="menu-aside">
-            <li>Siema</li>
-            <li>Siema</li>
+            <li>
+              <Link className="link-left" to="/" onClick={this.goToTop} id="main">
+                Strona Główna
+              </Link>
+            </li>
+            <li>
+              <Link to="/" className="link-left" onClick={this.goToAbout} id="link-aboutUs">
+                O Nas
+              </Link>
+            </li>
           </ul>
         </nav>
         <div className="nav-container">
@@ -200,7 +208,6 @@ export default class Navigation extends React.Component {
       });
     }
   };
-
 
   componentWillUnmount() {
     document.removeEventListener('scroll', this.scrollFunction);

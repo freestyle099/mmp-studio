@@ -29,7 +29,7 @@
   }
   .menu-button-show {
     transition: 0.5s;
-    left: 110px;
+    left: 210px;
   }
 
   .main-aside {
@@ -43,12 +43,16 @@
     z-index: 1080;
     transition: 0.5s;
     .menu-aside {
+      list-style: none;
       position: absolute;
       top: 0;
+      a {
+        white-space: nowrap;
+      }
     }
   }
   .show-menu {
-    width: 100px;
+    width: 200px;
     transition: 0.5s;
   }
 }

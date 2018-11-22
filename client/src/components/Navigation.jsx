@@ -235,5 +235,6 @@ export default class Navigation extends React.Component {
 
   componentWillUnmount() {
     document.removeEventListener('scroll', this.scrollFunction);
+    window.removeEventListener('resize', this.resize)
   }
 }

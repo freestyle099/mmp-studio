@@ -2,7 +2,7 @@
 
 @media only screen and (max-width: 767px) {
   .container {
-    padding: 0;
+    padding: 0 1%;
     max-width: 100vw;
     h2 {
       padding: 30px;
@@ -111,9 +111,31 @@
       text-align: center;
     }
     .active-accordion {
-      max-height: 250px;
+      max-height: 350px;
     }
   }
+}
 
-
+@media only screen and (max-width: 550px) {
+  h2 {
+    font: {
+      size: 26px;
+    }
+  }
+  .nav-img-container {
+    .navigation-images {
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      > div.valign-wrapper {
+        width: 70%;
+        margin: 10px 0;
+        > a {
+          img {
+            width: 50%;
+          }
+        }
+      }
+    }
+  }
 }

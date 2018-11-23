@@ -6,7 +6,7 @@ export default class Navigation extends React.Component {
     super(props);
     this.state = {
       isMain: false,
-      phone: false,
+      detectResizeWidth: false,
     };
   }
 
@@ -19,8 +19,11 @@ export default class Navigation extends React.Component {
   contact;
   lastScrollTop = 0;
   main;
+  mainPhone;
   linkAboutUs;
+  linkAboutUsPhone;
   linkContact;
+  linkContactPhone;
   menu;
   menuButton;
 
@@ -61,7 +64,7 @@ export default class Navigation extends React.Component {
   render() {
     return (
       <div>
-        <div className='logo-phone'>
+        <div className="logo-phone">
           <NavLink onClick={this.goToTop} className="brand-logo" to="/">
             <img src="./logo_studio.png" alt="" />
           </NavLink>
@@ -71,19 +74,18 @@ export default class Navigation extends React.Component {
         </div>
         <nav className="main-aside">
           <ul className="menu-aside">
-
             <li>
-              <Link className="link-left" to="/" onClick={this.goToTop} id="main">
+              <Link className="link-left" to="/" onClick={this.goToTop} id="main-phone">
                 Strona Główna
               </Link>
             </li>
             <li>
-              <Link to="/" className="link-left" onClick={this.goToAbout} id="link-aboutUs">
+              <Link to="/" className="link-left" onClick={this.goToAbout} id="link-aboutUs-phone">
                 O Nas
               </Link>
             </li>
             <li>
-              <Link className="link-left" id="link-contact" onClick={this.goToContact} to="/">
+              <Link className="link-left" id="link-contact-phone" onClick={this.goToContact} to="/">
                 Kontakt
               </Link>
             </li>
@@ -166,6 +168,10 @@ export default class Navigation extends React.Component {
         this.linkContact.classList.remove('active-main');
       }
     }
+    console.log(this.detectResizeWidth);
+    if (this.detectResizeWidth) {
+      console.log('hello');
+    }
 
     // Detect scroll direction
     let st = window.pageYOffset;
@@ -226,15 +232,10 @@ export default class Navigation extends React.Component {
   }
 
   resize = () => {
-    if (window.outerWidth < 768) {
-      this.setState({
-        phone: true,
-      });
-    }
+    window.outerWidth < 768 ? (this.detectResizeWidth = true) : (this.detectResizeWidth = false);
   };
-
   componentWillUnmount() {
     document.removeEventListener('scroll', this.scrollFunction);
-    window.removeEventListener('resize', this.resize)
+    window.removeEventListener('resize', this.resize);
   }
 }

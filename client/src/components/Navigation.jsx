@@ -6,7 +6,7 @@ export default class Navigation extends React.Component {
     super(props);
     this.state = {
       isMain: false,
-      detectResizeWidth: false,
+      detectResizeWidth: null,
     };
   }
 
@@ -151,6 +151,18 @@ export default class Navigation extends React.Component {
     );
   }
 
+  resize = () => {
+    if (window.outerWidth < 768) {
+      this.setState({
+        detectResizeWidth: true,
+      });
+    } else {
+      this.setState({
+        detectResizeWidth: false,
+      });
+    }
+  };
+
   scrollFunction = () => {
     // Navigation active class
     if (window.location.pathname === '/') {
@@ -168,9 +180,21 @@ export default class Navigation extends React.Component {
         this.linkContact.classList.remove('active-main');
       }
     }
-    console.log(this.detectResizeWidth);
-    if (this.detectResizeWidth) {
-      console.log('hello');
+
+    if (this.state.detectResizeWidth) {
+      if (window.pageYOffset > this.scroll - 200 && window.pageYOffset < this.contact - 200) {
+        this.mainPhone.classList.remove('active-main');
+        this.linkAboutUsPhone.classList.add('active-main');
+        this.linkContactPhone.classList.remove('active-main');
+      } else if (window.pageYOffset > this.contact - 200) {
+        this.mainPhone.classList.remove('active-main');
+        this.linkAboutUsPhone.classList.remove('active-main');
+        this.linkContactPhone.classList.add('active-main');
+      } else {
+        this.mainPhone.classList.add('active-main');
+        this.linkAboutUsPhone.classList.remove('active-main');
+        this.linkContactPhone.classList.remove('active-main');
+      }
     }
 
     // Detect scroll direction
@@ -200,23 +224,27 @@ export default class Navigation extends React.Component {
     this.aboutUs = document.getElementById('aboutUs');
     this.navImgElement = document.getElementById('navImg');
     this.main = document.getElementById('main');
+    this.mainPhone = document.getElementById('main-phone');
     this.linkAboutUs = document.getElementById('link-aboutUs');
+    this.linkAboutUsPhone = document.getElementById('link-aboutUs-phone');
     this.linkContact = document.getElementById('link-contact');
+    this.linkContactPhone = document.getElementById('link-contact-phone');
     this.nav = document.querySelector('.nav-container');
     this.contactElement = document.getElementById('contact');
 
     this.menu = document.querySelector('.main-aside');
     this.menuButton = document.querySelector('.menu-button');
-
+    this.resize();
     if (window.location.pathname === '/') {
       this.main.classList.add('active-main');
+      this.mainPhone.classList.add('active-main');
       this.setState({
         isMain: true,
       });
     } else {
       this.nav.classList.add('navigation-other');
     }
-
+    // this.resize();
     if (this.aboutUs) {
       this.scroll = this.aboutUs.offsetTop;
     }
@@ -226,16 +254,12 @@ export default class Navigation extends React.Component {
     if (this.contactElement) {
       this.contact = this.contactElement.offsetTop;
     }
+    // window.addEventListener('resize', this.resize);
     document.addEventListener('scroll', this.scrollFunction);
-
-    window.addEventListener('resize', this.resize);
   }
 
-  resize = () => {
-    window.outerWidth < 768 ? (this.detectResizeWidth = true) : (this.detectResizeWidth = false);
-  };
   componentWillUnmount() {
     document.removeEventListener('scroll', this.scrollFunction);
-    window.removeEventListener('resize', this.resize);
+    // window.removeEventListener('resize', this.resize);
   }
 }

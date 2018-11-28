@@ -17,24 +17,26 @@ export default class Carousel extends React.Component {
     }, this.state.time);
   };
 
-  nextSlide = () => {
+  clearAndPlay = () => {
     clearInterval(this.id);
     this.play();
+  };
+
+  nextSlide = () => {
+    this.clearAndPlay();
     this.setState({
       slider: this.state.slider >= this.props.images.length - 1 ? (this.state.slider = 0) : this.state.slider + 1,
     });
   };
   prevSlide = () => {
-    clearInterval(this.id);
-    this.play();
+    this.clearAndPlay();
     this.setState({
       slider: this.state.slider <= 0 ? (this.state.slider = this.props.images.length - 1) : this.state.slider - 1,
     });
   };
 
   setActiveSlide = e => {
-    clearInterval(this.id);
-    this.play();
+    this.clearAndPlay();
     let slider = +e.currentTarget.dataset.slider;
     this.setState({
       slider: slider,

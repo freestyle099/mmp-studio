@@ -10,12 +10,14 @@ export default class Lightbox extends React.Component {
 
   startLightbox = e => {
     e.preventDefault();
-    let index = e.target.dataset.image;
-    this.setState({
-      openImage: index,
-    });
-    let lightbox = document.querySelector('.lightbox-container');
-    lightbox.style.display = 'block';
+    if (window.innerWidth > 768) {
+      let index = e.target.dataset.image;
+      this.setState({
+        openImage: index,
+      });
+      let lightbox = document.querySelector('.lightbox-container');
+      lightbox.style.display = 'block';
+    }
   };
 
   closeLightbox = e => {

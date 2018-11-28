@@ -31,6 +31,7 @@
   padding: 50px;
   &:focus {
     background-color: transparent;
+    outline: none;
   }
   &:hover {
     font-size: 50px;

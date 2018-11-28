@@ -114,6 +114,45 @@
       max-height: 350px;
     }
   }
+  // contactForm
+  .form {
+    > div {
+      width: 90%;
+    }
+  }
+  .error {
+    > div {
+      width: 90%;
+    }
+  }
+
+  footer {
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  // recommendations
+  .recommend {
+    margin-top: 0px;
+    img {
+      width: 50%;
+    }
+    h3 {
+      margin-bottom: 40px;
+      font: {
+        size: 20px;
+      }
+    }
+  }
+  // regulations
+  .regulation {
+    margin: 20px 0;
+    padding: 0 2%;
+  }
 }
 
 @media only screen and (max-width: 550px) {

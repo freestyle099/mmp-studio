@@ -100,7 +100,7 @@
   }
 
   .go-to-top {
-    bottom: 10px;
+    bottom: 100px;
     right: 10px;
   }
 
@@ -127,11 +127,14 @@
   }
 
   footer {
+    height: auto;
+    padding: 10px 0;
     .container {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      text-align: center;
     }
   }
 
@@ -207,13 +210,19 @@
       font-size: 26px;
       outline: none;
     }
+    &:hover {
+      font-size: 26px;
+      outline: none;
+    }
   }
   .circle-container {
     width: 100%;
     text-align: center;
     .circle-empty {
       font-size: 13px;
+      &:hover {
+        outline: none;
+      }
     }
   }
-
 }

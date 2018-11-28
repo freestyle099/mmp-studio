@@ -200,7 +200,10 @@ export default class ContactForm extends React.Component {
       document.getElementById('message').classList.add('input-bottom-validate');
     } else if (this.state.errors.length > 0) {
     } else {
+      // Alert after submiting the form
       alert('Wysłano');
+
+
       const obj = {
         from: this.state.from,
         firstName: this.state.firstName,

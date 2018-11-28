@@ -39,18 +39,19 @@
   }
 
   .logo-phone {
-    display: block;
+    display: flex;
+    justify-content: center;
     position: relative;
     width: 100%;
     height: 75px;
     a {
-      width: 100%;
+      width: 70%;
       height: 100%;
       display: flex;
       justify-content: center;
     }
     img {
-      width: 50%;
+      width: 80%;
       object-fit: contain;
     }
   }
@@ -85,6 +86,7 @@
             family: $PTSans-font;
           }
           white-space: nowrap;
+          text-decoration: none;
         }
         img {
           width: 100%;
@@ -129,6 +131,7 @@
   footer {
     height: auto;
     padding: 10px 0;
+    font-size: 10px;
     .container {
       display: flex;
       flex-direction: column;
@@ -162,8 +165,31 @@
   .grid-gallery {
     grid-template-rows: 300px;
   }
-}
 
+  .video {
+    padding: 0;
+    iframe {
+      width: 100%;
+      max-height: 350px;
+    }
+  }
+}
+@media only screen and (max-width: 650px) {
+  .video {
+    padding: 0;
+    iframe {
+      width: 100%;
+      max-height: 300px;
+    }
+    h2 {
+      padding: 20px 0;
+    }
+  }
+  footer {
+    font-size: 16px;
+
+  }
+}
 @media only screen and (max-width: 550px) {
   h2 {
     font: {
@@ -229,6 +255,59 @@
       &:hover {
         outline: none;
       }
+    }
+  }
+  .video {
+    padding: 0;
+    iframe {
+      width: 100%;
+      max-height: 250px;
+    }
+    h2 {
+      padding: 20px 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 460px) {
+  .video {
+    padding: 0;
+    iframe {
+      width: 100%;
+      max-height: 200px;
+    }
+    h2 {
+      padding: 20px 0;
+    }
+  }
+  footer {
+    font-size: 12px;
+  }
+}
+@media only screen and (max-width: 365px) {
+  .video {
+    padding: 0;
+    iframe {
+      width: 100%;
+      max-height: 170px;
+    }
+    h2 {
+      padding: 20px 0;
+    }
+  }
+  footer {
+    font-size: 10px;
+  }
+}
+@media only screen and (max-width: 310px) {
+  .video {
+    padding: 0;
+    iframe {
+      width: 100%;
+      max-height: 130px;
+    }
+    h2 {
+      padding: 20px 0;
     }
   }
 }

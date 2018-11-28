@@ -152,7 +152,7 @@ export default class Navigation extends React.Component {
   }
 
   resize = () => {
-    if (window.outerWidth < 768) {
+    if (window.innerWidth < 768) {
       this.setState({
         detectResizeWidth: true,
       });
@@ -179,21 +179,21 @@ export default class Navigation extends React.Component {
         this.linkAboutUs.classList.remove('active-main');
         this.linkContact.classList.remove('active-main');
       }
-    }
 
-    if (this.state.detectResizeWidth) {
-      if (window.pageYOffset > this.scroll - 200 && window.pageYOffset < this.contact - 200) {
-        this.mainPhone.classList.remove('active-main');
-        this.linkAboutUsPhone.classList.add('active-main');
-        this.linkContactPhone.classList.remove('active-main');
-      } else if (window.pageYOffset > this.contact - 200) {
-        this.mainPhone.classList.remove('active-main');
-        this.linkAboutUsPhone.classList.remove('active-main');
-        this.linkContactPhone.classList.add('active-main');
-      } else {
-        this.mainPhone.classList.add('active-main');
-        this.linkAboutUsPhone.classList.remove('active-main');
-        this.linkContactPhone.classList.remove('active-main');
+      if (this.state.detectResizeWidth) {
+        if (window.pageYOffset > this.scroll - 200 && window.pageYOffset < this.contact - 200) {
+          this.mainPhone.classList.remove('active-main');
+          this.linkAboutUsPhone.classList.add('active-main');
+          this.linkContactPhone.classList.remove('active-main');
+        } else if (window.pageYOffset > this.contact - 200) {
+          this.mainPhone.classList.remove('active-main');
+          this.linkAboutUsPhone.classList.remove('active-main');
+          this.linkContactPhone.classList.add('active-main');
+        } else {
+          this.mainPhone.classList.add('active-main');
+          this.linkAboutUsPhone.classList.remove('active-main');
+          this.linkContactPhone.classList.remove('active-main');
+        }
       }
     }
 
@@ -242,6 +242,8 @@ export default class Navigation extends React.Component {
         isMain: true,
       });
     } else {
+      this.main.classList.remove('active-main');
+      this.mainPhone.classList.remove('active-main');
       this.nav.classList.add('navigation-other');
     }
     // this.resize();

@@ -1,4 +1,5 @@
 import React from 'react';
+import swal from 'sweetalert2'
 
 export default class ContactForm extends React.Component {
   constructor(props) {
@@ -11,6 +12,7 @@ export default class ContactForm extends React.Component {
       message: '',
       from: '',
       errors: [],
+      show: false,
     };
   }
 
@@ -201,9 +203,15 @@ export default class ContactForm extends React.Component {
     } else if (this.state.errors.length > 0) {
     } else {
       // Alert after submiting the form
-      alert('Wysłano');
 
+      swal({
+        title: 'Sukces!',
+        text: 'Wiadomość e-mail została wysłana prawidłowo',
+        type: 'success',
+        confirmButtonText: 'Zamknij'
+      })
 
+      // Make an object and send it
       const obj = {
         from: this.state.from,
         firstName: this.state.firstName,

@@ -57,7 +57,7 @@ export default class Navigation extends React.Component {
       block: 'start',
     });
   };
-  showMenu = (e) => {
+  showMenu = e => {
     console.log(e.currentTarget);
     this.menu.classList.toggle('show-menu');
     this.menuButton.classList.toggle('menu-button-show');

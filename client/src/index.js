@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
+import MetaTags from 'react-meta-tags';
 
 import Regulations from './components/Regulations';
 import Contact from './components/Contact';
@@ -23,6 +24,9 @@ class App extends React.Component {
     return (
       <Router>
         <div>
+          <MetaTags>
+            <meta name="viewport" content="initial-scale=1, viewport-fit=cover" />
+          </MetaTags>
           <GoToTop />
           <Switch>
             <Route exact path="/" component={MMPStudio} />

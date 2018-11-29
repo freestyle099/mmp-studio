@@ -29,6 +29,10 @@ export default class MMPStudio extends React.Component {
       id: 5,
       url: 'photos/Marysia_Tomasz_2893.jpg',
     },
+    {
+      id: 6,
+      url: 'photos/_MG_3540-min.jpg',
+    },
   ];
 
   render() {

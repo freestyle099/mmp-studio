@@ -1,5 +1,5 @@
 import React from 'react';
-import swal from 'sweetalert2'
+import swal from 'sweetalert2';
 
 export default class ContactForm extends React.Component {
   constructor(props) {
@@ -208,8 +208,8 @@ export default class ContactForm extends React.Component {
         title: 'Sukces!',
         text: 'Wiadomość e-mail została wysłana prawidłowo',
         type: 'success',
-        confirmButtonText: 'Zamknij'
-      })
+        confirmButtonText: 'Zamknij',
+      });
 
       // Make an object and send it
       const obj = {

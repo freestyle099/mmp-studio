@@ -43,7 +43,7 @@ export default class Navigation extends React.Component {
     }, 100);
   };
   static changeUrl() {
-    return <Redirect to="/fotobudka/" />;
+    return <Redirect to="/" />;
   }
   goToAbout = () => {
     this.goto('aboutUs');
@@ -72,7 +72,7 @@ export default class Navigation extends React.Component {
         <div className="menu-button" onClick={this.showMenu}>
           <i className="fas fa-bars" />
         </div>
-        <nav className="main-aside">
+        <nav className="main-aside aside">
           <ul className="menu-aside">
             <li>
               <Link className="link-left" to="/" onClick={this.goToTop} id="main-phone">

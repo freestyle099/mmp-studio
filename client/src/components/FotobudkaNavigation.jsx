@@ -42,49 +42,95 @@ export default class FBNavigation extends React.Component {
       block: 'start',
     });
   };
+  showMenu = e => {
+    this.menu.classList.toggle('show-menu-fb');
+    this.menuButton.classList.toggle('menu-button-show');
+  };
 
   render() {
     return (
-      <div className="nav-container-fb">
-        <nav className="fb-nav">
-          <div className="container">
-            <ul className="navigation fb">
-              <li>
-                <Link id="fb-main" onClick={this.goToTop} to="/fotobudka/">
-                  Strona główna
-                </Link>
-              </li>
-              <li>
-                <Link id="fb-info" onClick={this.goToInfo} to="/fotobudka/">
-                  Info
-                </Link>
-              </li>
-              <li>
-                <Link id="fb-offerLink" onClick={this.goToOffer} to="/fotobudka/">
-                  Oferta
-                </Link>
-              </li>
-              <li className="logo-container">
-                <Link onClick={this.goToTop} className="brand-logo" to="/fotobudka/">
-                  <img src="logo_fotobudka.png" alt="" />
-                </Link>
-              </li>
-              <li>
-                <Link id="fb-contact" to="/fotobudka/" onClick={this.goToContact}>
-                  Kontakt
-                </Link>
-              </li>
-              <li>
-                <NavLink exact activeClassName="active-fb" to="/fotobudka/galeria">
-                  Galeria
-                </NavLink>
-              </li>
-              <li>
-                <a href="https://mmpstudio.smugmug.com/StrefaKlienta">Strefa Klienta</a>
-              </li>
-            </ul>
-          </div>
+      <div>
+        <div className="logo-phone">
+          <NavLink onClick={this.goToTop} className="brand-logo" to="/fotobudka/">
+            <img src="./logo_fotobudka.png" alt="" />
+          </NavLink>
+        </div>
+        <div className="menu-button" onClick={this.showMenu}>
+          <i className="fas fa-bars" />
+        </div>
+        <nav className="main-aside aside-fb">
+          <ul className="menu-aside">
+            <li>
+              <Link className="link-left" to="/" onClick={this.goToTop} id="main-phone">
+                Strona Główna
+              </Link>
+            </li>
+            <li>
+              <Link to="/" className="link-left" onClick={this.goToAbout} id="link-aboutUs-phone">
+                Info
+              </Link>
+            </li>
+            <li>
+              <Link className="link-left" id="link-contact-phone" onClick={this.goToContact} to="/">
+                Oferta
+              </Link>
+            </li>
+            <li>
+              <NavLink onClick={this.goToTop} exact activeClassName="active-main" to="/galeria">
+                Kontakt
+              </NavLink>
+            </li>
+            <li>
+              <NavLink onClick={this.goToTop} exact activeClassName="active-main" to="/wideo">
+                Galeria
+              </NavLink>
+            </li>
+            <li>
+              <a href="https://mmpstudio.smugmug.com/Strefa-Klienta">Strefa klienta</a>
+            </li>
+          </ul>
         </nav>
+        <div className="nav-container-fb">
+          <nav className="fb-nav">
+            <div className="container">
+              <ul className="navigation fb">
+                <li>
+                  <Link id="fb-main" onClick={this.goToTop} to="/fotobudka/">
+                    Strona główna
+                  </Link>
+                </li>
+                <li>
+                  <Link id="fb-info" onClick={this.goToInfo} to="/fotobudka/">
+                    Info
+                  </Link>
+                </li>
+                <li>
+                  <Link id="fb-offerLink" onClick={this.goToOffer} to="/fotobudka/">
+                    Oferta
+                  </Link>
+                </li>
+                <li className="logo-container">
+                  <Link onClick={this.goToTop} className="brand-logo" to="/fotobudka/">
+                    <img src="logo_fotobudka.png" alt="" />
+                  </Link>
+                </li>
+                <li>
+                  <Link id="fb-contact" to="/fotobudka/" onClick={this.goToContact}>
+                    Kontakt
+                  </Link>
+                </li>
+                <li>
+                  <NavLink exact activeClassName="active-fb" to="/fotobudka/galeria">
+                    Galeria
+                  </NavLink>
+                </li>
+                <li>
+                  <a href="https://mmpstudio.smugmug.com/StrefaKlienta">Strefa Klienta</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
       </div>
     );
   }
@@ -154,6 +200,9 @@ export default class FBNavigation extends React.Component {
     this.fbInfoLink = document.getElementById('fb-info');
     this.fbOfferLink = document.getElementById('fb-offerLink');
     this.fbContactLink = document.getElementById('fb-contact');
+    this.menu = document.querySelector('.main-aside');
+    this.menuButton = document.querySelector('.menu-button');
+
     if (this.navImg) {
       this.navImgPosition = this.navImg.offsetTop;
     }

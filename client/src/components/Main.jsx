@@ -11,27 +11,39 @@ export default class MMPStudio extends React.Component {
   images = [
     {
       id: 1,
-      url: 'photos/(1389).jpg',
+      url: 'photos/1.jpg',
     },
     {
       id: 2,
-      url: 'photos/Marysia_Tomasz_2871.jpg',
+      url: 'photos/2.jpg',
     },
     {
       id: 3,
-      url: 'photos/Wesele_Ewa_Krzysztof_1244.jpg',
+      url: 'photos/3.jpg',
     },
     {
       id: 4,
-      url: 'photos/Wesele_Ewa_Krzysztof_2016.jpg',
+      url: 'photos/4.jpg',
     },
     {
       id: 5,
-      url: 'photos/Marysia_Tomasz_2893.jpg',
+      url: 'photos/5.jpg',
     },
     {
       id: 6,
-      url: 'photos/_MG_3540-min.jpg',
+      url: 'photos/6.jpg',
+    },
+    {
+      id: 7,
+      url: 'photos/7.jpg',
+    },
+    {
+      id: 8,
+      url: 'photos/8.jpg',
+    },
+    {
+      id: 9,
+      url: 'photos/9.jpg',
     },
   ];
 

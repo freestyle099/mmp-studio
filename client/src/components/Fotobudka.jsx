@@ -8,19 +8,20 @@ import FotobudkaPrices from './FotobudkaPrices';
 import ContactForm from './ContactForm';
 
 export default class Fotobudka extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      images: [],
-    };
-  }
+  images = [
+    {
+      id: 1,
+      url: '1.jpg'
+    }
+  ]
 
   render() {
     return (
       <div>
-        <FBNavigation />
-        <div className="container">
-          <SmallCarousel images={this.state.images} />
+
+        <div className="con-fb">
+          <SmallCarousel images={this.images} />
+          <FBNavigation />
         </div>
         <NavigationImages />
         <FotobudkaInfo />
@@ -29,13 +30,5 @@ export default class Fotobudka extends React.Component {
       </div>
     );
   }
-  componentDidMount() {
-    fetch('/api/fotobudkas')
-      .then(resp => resp.json())
-      .then(data => {
-        this.setState({
-          images: data,
-        });
-      });
-  }
+
 }

@@ -8,6 +8,17 @@
       padding: 30px;
     }
   }
+  .navigation-container {
+    position: relative;
+    height: 300px;
+    .my-slider {
+      height: 100%;
+      img {
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
 
   .nav-container,
   .nav-container-fb {
@@ -323,18 +334,6 @@
     }
   }
 
-  .navigation-container {
-    position: relative;
-    height: 50vh;
-  }
-  .my-slider {
-    height: 100%;
-
-    img {
-      height: 50%;
-      object-fit: cover;
-    }
-  }
   .arrows {
     font-size: 20px;
     &:focus {

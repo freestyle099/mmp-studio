@@ -146,6 +146,21 @@
     }
   }
 
+  .fotobudka-prices {
+   .fotobudka-container {
+     display: flex;
+     flex-wrap: wrap;
+     > div.shadow-sm {
+       width: 49%;
+       margin: 5px 0;
+       .fotobudka-header {
+         background-color: $fb-color;
+         color: $white;
+       }
+     }
+   }
+  }
+
   .show-menu-fb {
     border-right: 4px solid $fb-color;
   }

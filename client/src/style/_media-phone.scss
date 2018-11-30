@@ -324,10 +324,11 @@
   }
 
   .navigation-container {
+    position: relative;
     height: 50vh;
   }
   .my-slider {
-    height: 50vh;
+    height: 100%;
 
     img {
       height: 50%;

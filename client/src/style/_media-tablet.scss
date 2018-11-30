@@ -1,5 +1,16 @@
 @import './variables';
 
+@media only screen and (max-width: 1199px) and (min-width: 992px) {
+  .fotobudka-body {
+    .helper {
+      height: 73px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
 @media only screen and (max-width: 991px) and (min-width: 768px) {
   // main
   .container {
@@ -157,6 +168,14 @@
         max-height: 100%;
         max-width: 80%;
       }
+    }
+  }
+}
+
+@media only screen and (max-width: 991px) and (min-width: 960px) {
+  .fotobudka-prices .fotobudka-container .fotobudka-body {
+    .helper-height {
+      height: 52px;
     }
   }
 }

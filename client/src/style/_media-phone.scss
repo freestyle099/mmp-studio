@@ -115,10 +115,33 @@
       top: 0;
       padding: 0;
       .my-slider-small {
-        height: 100%;
-        position: fixed;
+        height: 100vh;
+        position: absolute;
         top: 0;
-        z-index: -1;
+        .active-slider {
+          height: 100%;
+          position: fixed;
+          top: 0;
+          z-index: -1;
+        }
+      }
+    }
+  }
+  .fb-info-bgc {
+    background-color: $bgc;
+    .fotobudka-info {
+      margin: 0;
+
+      display: flex;
+      flex-direction: column-reverse;
+
+      > div {
+        padding-bottom: 20px;
+        text-align: center;
+        width: 100%;
+        img {
+          width: 70%;
+        }
       }
     }
   }

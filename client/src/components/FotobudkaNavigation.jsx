@@ -6,6 +6,7 @@ export default class FBNavigation extends React.Component {
     super(props);
     this.state = {
       isFb: false,
+      detectResizeWidth: null,
     };
   }
 
@@ -61,32 +62,32 @@ export default class FBNavigation extends React.Component {
         <nav className="main-aside aside-fb">
           <ul className="menu-aside">
             <li>
-              <Link className="link-left" to="/" onClick={this.goToTop} id="main-phone">
-                Strona Główna
+              <Link id="fb-main-phone" onClick={this.goToTop} to="/fotobudka/">
+                Strona główna
               </Link>
             </li>
             <li>
-              <Link to="/" className="link-left" onClick={this.goToAbout} id="link-aboutUs-phone">
+              <Link id="fb-info-phone" onClick={this.goToInfo} to="/fotobudka/">
                 Info
               </Link>
             </li>
             <li>
-              <Link className="link-left" id="link-contact-phone" onClick={this.goToContact} to="/">
+              <Link id="fb-offerLink-phone" onClick={this.goToOffer} to="/fotobudka/">
                 Oferta
               </Link>
             </li>
             <li>
-              <NavLink onClick={this.goToTop} exact activeClassName="active-main" to="/galeria">
+              <Link id="fb-contact-phone" to="/fotobudka/" onClick={this.goToContact}>
                 Kontakt
-              </NavLink>
+              </Link>
             </li>
             <li>
-              <NavLink onClick={this.goToTop} exact activeClassName="active-main" to="/wideo">
+              <NavLink exact activeClassName="active-fb" to="/fotobudka/galeria">
                 Galeria
               </NavLink>
             </li>
             <li>
-              <a href="https://mmpstudio.smugmug.com/Strefa-Klienta">Strefa klienta</a>
+              <a href="https://mmpstudio.smugmug.com/StrefaKlienta">Strefa Klienta</a>
             </li>
           </ul>
         </nav>
@@ -141,9 +142,25 @@ export default class FBNavigation extends React.Component {
   navImg;
   navImgPosition;
   fbMainLink;
+  fbMainLinkPhone;
   fbInfoLink;
+  fbInfoLinkPhone;
   fbOfferLink;
+  fbOfferLinkPhone;
   fbContactLink;
+  fbContactLinkPhone;
+
+  resize = () => {
+    if (window.innerWidth < 768) {
+      this.setState({
+        detectResizeWidth: true,
+      });
+    } else {
+      this.setState({
+        detectResizeWidth: false,
+      });
+    }
+  };
 
   scrollFunction = () => {
     if (window.location.pathname === '/fotobudka/') {
@@ -167,6 +184,28 @@ export default class FBNavigation extends React.Component {
         this.fbInfoLink.classList.remove('active-fb');
         this.fbOfferLink.classList.remove('active-fb');
         this.fbContactLink.classList.add('active-fb');
+      }
+
+      if (window.pageYOffset < this.navImgPosition - 200) {
+        this.fbMainLinkPhone.classList.add('active-fb');
+        this.fbInfoLinkPhone.classList.remove('active-fb');
+        this.fbOfferLinkPhone.classList.remove('active-fb');
+        this.fbContactLinkPhone.classList.remove('active-fb');
+      } else if (window.pageYOffset > this.navImgPosition - 500 && window.pageYOffset < this.fbOfferPosition - 500) {
+        this.fbMainLinkPhone.classList.remove('active-fb');
+        this.fbInfoLinkPhone.classList.add('active-fb');
+        this.fbOfferLinkPhone.classList.remove('active-fb');
+        this.fbContactLinkPhone.classList.remove('active-fb');
+      } else if (window.pageYOffset > this.fbOfferPosition - 500 && window.pageYOffset < this.fbContactPosition - 600) {
+        this.fbMainLinkPhone.classList.remove('active-fb');
+        this.fbInfoLinkPhone.classList.remove('active-fb');
+        this.fbOfferLinkPhone.classList.add('active-fb');
+        this.fbContactLinkPhone.classList.remove('active-fb');
+      } else {
+        this.fbMainLinkPhone.classList.remove('active-fb');
+        this.fbInfoLinkPhone.classList.remove('active-fb');
+        this.fbOfferLinkPhone.classList.remove('active-fb');
+        this.fbContactLinkPhone.classList.add('active-fb');
       }
     }
 
@@ -197,17 +236,23 @@ export default class FBNavigation extends React.Component {
     this.nav = document.querySelector('.nav-container-fb');
     this.navImg = document.getElementById('navImg');
     this.fbMainLink = document.getElementById('fb-main');
+    this.fbMainLinkPhone = document.getElementById('fb-main-phone');
     this.fbInfoLink = document.getElementById('fb-info');
+    this.fbInfoLinkPhone = document.getElementById('fb-info-phone');
     this.fbOfferLink = document.getElementById('fb-offerLink');
+    this.fbOfferLinkPhone = document.getElementById('fb-offerLink-phone');
     this.fbContactLink = document.getElementById('fb-contact');
+    this.fbContactLinkPhone = document.getElementById('fb-contact-phone');
     this.menu = document.querySelector('.main-aside');
     this.menuButton = document.querySelector('.menu-button');
+    this.resize();
 
     if (this.navImg) {
       this.navImgPosition = this.navImg.offsetTop;
     }
     if (window.location.pathname === '/fotobudka/') {
       this.fbMainLink.classList.add('active-fb');
+      this.fbMainLinkPhone.classList.add('active-fb');
       this.fbInfoPosition = document.getElementById('fotobudka-info').offsetTop;
       this.fbOfferPosition = document.getElementById('fb-offer').offsetTop;
       this.fbContactPosition = document.getElementById('contact-form').offsetTop;

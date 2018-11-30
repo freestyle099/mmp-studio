@@ -108,18 +108,18 @@
     position: relative;
     top: 0;
     padding: 0;
-    height: 100vh;
+    height: 400px;
 
     .slider-container {
       position: absolute;
       top: 0;
       padding: 0;
       .my-slider-small {
-        height: 100vh;
+        height: 400px;
         position: absolute;
         top: 0;
         .active-slider {
-          height: 100%;
+          height: 400px;
           position: fixed;
           top: 0;
           z-index: -1;
@@ -308,14 +308,14 @@
   }
   //fb-slider
   .con-fb {
-    height: 70vh;
+    height: 350px;
 
     .slider-container {
-      height: 70vh;
+      height: 350px;
       .my-slider-small {
-        height: 70vh;
+        height: 350px;
         .active-slider {
-          height: 70%;
+          height: 350px;
           object-fit: cover;
           //object-position: bottom;
         }

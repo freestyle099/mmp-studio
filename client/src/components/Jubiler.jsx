@@ -24,7 +24,7 @@ export default class Jubiler extends React.Component {
           <JubilerNavigation />
         </div>
         <NavigationImages />
-        <div id="main-page-jub">
+        <div className='jub-aboutus-phone' id="main-page-jub">
           <div id="jub-aboutUs">
             <h2>O nas</h2>
             <div className="container jub-info">

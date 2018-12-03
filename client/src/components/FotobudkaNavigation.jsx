@@ -169,12 +169,12 @@ export default class FBNavigation extends React.Component {
         this.fbInfoLink.classList.remove('active-fb');
         this.fbOfferLink.classList.remove('active-fb');
         this.fbContactLink.classList.remove('active-fb');
-      } else if (window.pageYOffset > this.navImgPosition - 500 && window.pageYOffset < this.fbOfferPosition - 500) {
+      } else if (window.pageYOffset > this.navImgPosition - 200 && window.pageYOffset < this.fbOfferPosition - 200) {
         this.fbMainLink.classList.remove('active-fb');
         this.fbInfoLink.classList.add('active-fb');
         this.fbOfferLink.classList.remove('active-fb');
         this.fbContactLink.classList.remove('active-fb');
-      } else if (window.pageYOffset > this.fbOfferPosition - 500 && window.pageYOffset < this.fbContactPosition - 600) {
+      } else if (window.pageYOffset > this.fbOfferPosition - 400 && window.pageYOffset < this.fbContactPosition - 400) {
         this.fbMainLink.classList.remove('active-fb');
         this.fbInfoLink.classList.remove('active-fb');
         this.fbOfferLink.classList.add('active-fb');
@@ -186,17 +186,17 @@ export default class FBNavigation extends React.Component {
         this.fbContactLink.classList.add('active-fb');
       }
 
-      if (window.pageYOffset < this.navImgPosition - 200) {
+      if (window.pageYOffset < this.navImgPosition) {
         this.fbMainLinkPhone.classList.add('active-fb');
         this.fbInfoLinkPhone.classList.remove('active-fb');
         this.fbOfferLinkPhone.classList.remove('active-fb');
         this.fbContactLinkPhone.classList.remove('active-fb');
-      } else if (window.pageYOffset > this.navImgPosition - 500 && window.pageYOffset < this.fbOfferPosition - 500) {
+      } else if (window.pageYOffset > this.navImgPosition && window.pageYOffset < this.fbOfferPosition) {
         this.fbMainLinkPhone.classList.remove('active-fb');
         this.fbInfoLinkPhone.classList.add('active-fb');
         this.fbOfferLinkPhone.classList.remove('active-fb');
         this.fbContactLinkPhone.classList.remove('active-fb');
-      } else if (window.pageYOffset > this.fbOfferPosition - 500 && window.pageYOffset < this.fbContactPosition - 600) {
+      } else if (window.pageYOffset > this.fbOfferPosition && window.pageYOffset < this.fbContactPosition) {
         this.fbMainLinkPhone.classList.remove('active-fb');
         this.fbInfoLinkPhone.classList.remove('active-fb');
         this.fbOfferLinkPhone.classList.add('active-fb');

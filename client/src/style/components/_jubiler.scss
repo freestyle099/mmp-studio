@@ -37,6 +37,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0;
     li {
       list-style: disc;
       padding: 5px;
@@ -86,9 +87,9 @@
   padding-bottom: 50px;
 }
 
-.jub-link:hover {
-  color: $jub-color !important;
-}
+//.jub-link:hover {
+//  color: $jub-color;
+//}
 .jub-logo {
   height: 80% !important;
   object-fit: contain;

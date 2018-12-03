@@ -126,28 +126,29 @@ export default class JubilerNavigation extends React.Component {
 
   scrollFunction = () => {
     if (window.location.pathname === '/jubiler/') {
-      if (window.pageYOffset < this.servicesPosition - 200) {
-        this.servicesLink.classList.remove('active-jub');
+      if (window.pageYOffset < this.servicesPosition - 300) {
         this.mainLink.classList.add('active-jub');
+        this.servicesLink.classList.remove('active-jub');
         this.contactLink.classList.remove('active-jub');
-      } else if (window.pageYOffset > this.servicesPosition - 200 && window.pageYOffset < this.contactPosition - 200) {
+      } else if (window.pageYOffset > this.servicesPosition - 400 && window.pageYOffset < this.contactPosition - 400) {
         this.contactLink.classList.remove('active-jub');
         this.servicesLink.classList.add('active-jub');
         this.mainLink.classList.remove('active-jub');
-      } else if (window.pageYOffset > this.contactPosition - 200) {
+      } else {
         this.contactLink.classList.add('active-jub');
         this.mainLink.classList.remove('active-jub');
         this.servicesLink.classList.remove('active-jub');
       }
-      if (window.pageYOffset < this.servicesPosition) {
+
+      if (window.pageYOffset < this.servicesPosition - 300) {
         this.servicesLinkPhone.classList.remove('active-jub');
         this.mainLinkPhone.classList.add('active-jub');
         this.contactLinkPhone.classList.remove('active-jub');
-      } else if (window.pageYOffset > this.servicesPosition && window.pageYOffset < this.contactPosition) {
+      } else if (window.pageYOffset > this.servicesPosition - 300 && window.pageYOffset < this.contactPosition - 300) {
         this.contactLinkPhone.classList.remove('active-jub');
         this.servicesLinkPhone.classList.add('active-jub');
         this.mainLinkPhone.classList.remove('active-jub');
-      } else if (window.pageYOffset > this.contactPosition) {
+      } else if (window.pageYOffset > this.contactPosition - 300) {
         this.contactLinkPhone.classList.add('active-jub');
         this.mainLinkPhone.classList.remove('active-jub');
         this.servicesLinkPhone.classList.remove('active-jub');
@@ -194,9 +195,9 @@ export default class JubilerNavigation extends React.Component {
       console.log(this.servicesPosition);
     }
 
-    window.addEventListener('scroll', this.scrollFunction);
+    document.addEventListener('scroll', this.scrollFunction);
   }
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.scrollFunction);
+    document.removeEventListener('scroll', this.scrollFunction);
   }
 }

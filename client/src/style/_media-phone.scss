@@ -178,6 +178,10 @@
     }
   }
 
+  .jub-aboutus-phone {
+    background-color: $bgc;
+  }
+
   .show-menu-fb {
     border-right: 4px solid $fb-color;
   }
@@ -277,8 +281,45 @@
       }
     }
   }
+  .services {
+    text-align: center;
+    ul {
+      padding: 0;
+    }
+  }
 }
 @media only screen and (max-width: 650px) {
+  .jub-info {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    > div {
+      margin-bottom: 20px;
+      text-align: center;
+      width: 100%;
+      img {
+        width: 70%;
+      }
+    }
+  }
+
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    > div {
+      width: 100% !important;
+      margin-bottom: 20px;
+      &:first-child {
+        height: auto;
+      }
+      &:nth-child(2) {
+        height: 250px;
+        width: 80% !important;
+      }
+    }
+  }
+
   .video {
     iframe {
       width: 100%;

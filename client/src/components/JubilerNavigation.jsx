@@ -69,7 +69,7 @@ export default class JubilerNavigation extends React.Component {
               </Link>
             </li>
             <li>
-              <NavLink exact activeClassName="active-jub" to="/jubiler/galeria">
+              <NavLink onClick={this.goToTop} exact activeClassName="active-jub" to="/jubiler/galeria">
                 Galeria
               </NavLink>
             </li>
@@ -101,7 +101,7 @@ export default class JubilerNavigation extends React.Component {
                   </Link>
                 </li>
                 <li>
-                  <NavLink className="jub-link" activeClassName="active-jub" to="/jubiler/galeria">
+                  <NavLink onClick={this.goToTop} className="jub-link" activeClassName="active-jub" to="/jubiler/galeria">
                     Galeria
                   </NavLink>
                 </li>

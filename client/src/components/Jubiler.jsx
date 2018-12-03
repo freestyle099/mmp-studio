@@ -8,23 +8,30 @@ import ContactForm from './ContactForm';
 import SmallCarousel from './SmallCarousel';
 
 export default class Jubiler extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      images: [],
-    };
-  }
+  images = [
+    {
+      id: 1,
+      url: '1.jpg',
+    },
+    {
+      id: 2,
+      url: '2.jpg',
+    },
+    {
+      id: 3,
+      url: '3.jpg',
+    },
+  ];
 
   render() {
     return (
       <div>
-
         <div className="con-jub">
-          <SmallCarousel images={this.state.images} />
+          <SmallCarousel images={this.images} />
           <JubilerNavigation />
         </div>
         <NavigationImages />
-        <div className='jub-aboutus-phone' id="main-page-jub">
+        <div className="jub-aboutus-phone" id="main-page-jub">
           <div id="jub-aboutUs">
             <h2>O nas</h2>
             <div className="container jub-info">
@@ -81,15 +88,5 @@ export default class Jubiler extends React.Component {
         </div>
       </div>
     );
-  }
-
-  componentDidMount() {
-    fetch('/api/jubilers')
-      .then(resp => resp.json())
-      .then(data =>
-        this.setState({
-          images: data,
-        }),
-      );
   }
 }

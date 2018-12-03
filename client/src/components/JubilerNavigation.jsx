@@ -2,6 +2,13 @@ import React from 'react';
 import { Link, NavLink, Redirect } from 'react-router-dom';
 
 export default class JubilerNavigation extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showMenu: false,
+    };
+  }
+
   goto = selector => {
     if (window.location.pathname !== '/jubiler') {
       this.constructor.changeUrl();
@@ -35,9 +42,29 @@ export default class JubilerNavigation extends React.Component {
       block: 'start',
     });
   };
+  click = e => {
+    if (!e.target.classList.contains('show-menu-jub')) {
+      this.setState({
+        showMenu: false,
+      });
+      document.removeEventListener('click', this.click);
+    }
+  };
   showMenu = e => {
-    this.menu.classList.toggle('show-menu-jub');
-    this.menuButton.classList.toggle('menu-button-show');
+    if (this.state.showMenu) {
+      document.removeEventListener('click', this.click);
+      this.setState({
+        showMenu: false,
+      });
+    } else {
+      document.addEventListener('click', this.click);
+      this.setState({
+        showMenu: true,
+      });
+    }
+
+    // this.menu.classList.toggle('show-menu-jub');
+    // this.menuButton.classList.toggle('menu-button-show');
   };
 
   render() {
@@ -48,10 +75,10 @@ export default class JubilerNavigation extends React.Component {
             <img src="./logo_jubiler.png" alt="" />
           </NavLink>
         </div>
-        <div className="menu-button" onClick={this.showMenu}>
+        <div className={this.state.showMenu ? 'menu-button menu-button-show' : 'menu-button'} onClick={this.showMenu}>
           <i className="fas fa-bars" />
         </div>
-        <nav className="main-aside aside-jub">
+        <nav className={this.state.showMenu ? 'main-aside aside-jub show-menu-jub' : 'main-aside aside-jub'}>
           <ul className="menu-aside">
             <li>
               <Link id="jub-main-link-phone" onClick={this.goToMain} className="jub-link" to="/jubiler/">
@@ -176,6 +203,7 @@ export default class JubilerNavigation extends React.Component {
     }
     this.lastScrollTop = st <= 0 ? 0 : st;
   };
+
   componentDidMount() {
     this.nav = document.querySelector('.nav-container-jub');
     this.menu = document.querySelector('.main-aside');
@@ -192,12 +220,11 @@ export default class JubilerNavigation extends React.Component {
       this.aboutUsPosition = document.getElementById('jub-aboutUs').offsetTop;
       this.servicesPosition = document.getElementById('jub-services').offsetTop;
       this.contactPosition = document.getElementById('jub-contact').offsetTop;
-      console.log(this.servicesPosition);
     }
-
     document.addEventListener('scroll', this.scrollFunction);
   }
   componentWillUnmount() {
+    document.removeEventListener('click', this.click);
     document.removeEventListener('scroll', this.scrollFunction);
   }
 }

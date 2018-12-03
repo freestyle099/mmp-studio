@@ -54,24 +54,24 @@ export default class JubilerNavigation extends React.Component {
         <nav className="main-aside aside-jub">
           <ul className="menu-aside">
             <li>
-              <Link id="jub-main-link" onClick={this.goToMain} className="jub-link" to="/jubiler/">
+              <Link id="jub-main-link-phone" onClick={this.goToMain} className="jub-link" to="/jubiler/">
                 O nas
               </Link>
             </li>
             <li>
-              <Link id="jub-services-link" onClick={this.goToServices} className="jub-link" to="/jubiler/">
+              <Link id="jub-services-link-phone" onClick={this.goToServices} className="jub-link" to="/jubiler/">
                 Usługi
               </Link>
             </li>
             <li>
-              <Link id="jub-contact-link" onClick={this.goToContact} className="jub-link" to="/jubiler/">
+              <Link id="jub-contact-link-phone" onClick={this.goToContact} className="jub-link" to="/jubiler/">
                 Kontakt
               </Link>
             </li>
             <li>
-              <Link className="jub-link" to="/jubiler/galeria">
+              <NavLink exact activeClassName="active-jub" to="/jubiler/galeria">
                 Galeria
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </nav>
@@ -101,9 +101,9 @@ export default class JubilerNavigation extends React.Component {
                   </Link>
                 </li>
                 <li>
-                  <Link className="jub-link" to="/jubiler/galeria">
+                  <NavLink className="jub-link" activeClassName="active-jub" to="/jubiler/galeria">
                     Galeria
-                  </Link>
+                  </NavLink>
                 </li>
               </ul>
             </div>
@@ -115,8 +115,11 @@ export default class JubilerNavigation extends React.Component {
 
   nav;
   mainLink;
+  mainLinkPhone;
   servicesLink;
+  servicesLinkPhone;
   contactLink;
+  contactLinkPhone;
   aboutUsPosition;
   servicesPosition;
   contactPosition;
@@ -135,6 +138,19 @@ export default class JubilerNavigation extends React.Component {
         this.contactLink.classList.add('active-jub');
         this.mainLink.classList.remove('active-jub');
         this.servicesLink.classList.remove('active-jub');
+      }
+      if (window.pageYOffset < this.servicesPosition) {
+        this.servicesLinkPhone.classList.remove('active-jub');
+        this.mainLinkPhone.classList.add('active-jub');
+        this.contactLinkPhone.classList.remove('active-jub');
+      } else if (window.pageYOffset > this.servicesPosition && window.pageYOffset < this.contactPosition) {
+        this.contactLinkPhone.classList.remove('active-jub');
+        this.servicesLinkPhone.classList.add('active-jub');
+        this.mainLinkPhone.classList.remove('active-jub');
+      } else if (window.pageYOffset > this.contactPosition) {
+        this.contactLinkPhone.classList.add('active-jub');
+        this.mainLinkPhone.classList.remove('active-jub');
+        this.servicesLinkPhone.classList.remove('active-jub');
       }
     }
 
@@ -163,13 +179,19 @@ export default class JubilerNavigation extends React.Component {
     this.nav = document.querySelector('.nav-container-jub');
     this.menu = document.querySelector('.main-aside');
     this.menuButton = document.querySelector('.menu-button');
+    this.mainLink = document.getElementById('jub-main-link');
+    this.mainLinkPhone = document.getElementById('jub-main-link-phone');
+    this.servicesLink = document.getElementById('jub-services-link');
+    this.servicesLinkPhone = document.getElementById('jub-services-link-phone');
+    this.contactLink = document.getElementById('jub-contact-link');
+    this.contactLinkPhone = document.getElementById('jub-contact-link-phone');
     if (window.location.pathname === '/jubiler/') {
-      this.mainLink = document.getElementById('jub-main-link');
-      this.servicesLink = document.getElementById('jub-services-link');
-      this.contactLink = document.getElementById('jub-contact-link');
+      this.mainLink.classList.add('active-jub');
+      this.mainLinkPhone.classList.add('active-jub');
       this.aboutUsPosition = document.getElementById('jub-aboutUs').offsetTop;
       this.servicesPosition = document.getElementById('jub-services').offsetTop;
       this.contactPosition = document.getElementById('jub-contact').offsetTop;
+      console.log(this.servicesPosition);
     }
 
     window.addEventListener('scroll', this.scrollFunction);

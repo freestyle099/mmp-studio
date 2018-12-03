@@ -6,7 +6,7 @@ export default class FBNavigation extends React.Component {
     super(props);
     this.state = {
       isFb: false,
-      detectResizeWidth: null,
+      // detectResizeWidth: null,
     };
   }
 
@@ -150,17 +150,17 @@ export default class FBNavigation extends React.Component {
   fbContactLink;
   fbContactLinkPhone;
 
-  resize = () => {
-    if (window.innerWidth < 768) {
-      this.setState({
-        detectResizeWidth: true,
-      });
-    } else {
-      this.setState({
-        detectResizeWidth: false,
-      });
-    }
-  };
+  // resize = () => {
+  //   if (window.innerWidth < 768) {
+  //     this.setState({
+  //       detectResizeWidth: true,
+  //     });
+  //   } else {
+  //     this.setState({
+  //       detectResizeWidth: false,
+  //     });
+  //   }
+  // };
 
   scrollFunction = () => {
     if (window.location.pathname === '/fotobudka/') {
@@ -245,7 +245,7 @@ export default class FBNavigation extends React.Component {
     this.fbContactLinkPhone = document.getElementById('fb-contact-phone');
     this.menu = document.querySelector('.main-aside');
     this.menuButton = document.querySelector('.menu-button');
-    this.resize();
+    // this.resize();
 
     if (this.navImg) {
       this.navImgPosition = this.navImg.offsetTop;

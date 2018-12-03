@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link, NavLink, Redirect } from 'react-router-dom';
 
 export default class JubilerNavigation extends React.Component {
   goto = selector => {
@@ -35,41 +35,80 @@ export default class JubilerNavigation extends React.Component {
       block: 'start',
     });
   };
+  showMenu = e => {
+    this.menu.classList.toggle('show-menu-fb');
+    this.menuButton.classList.toggle('menu-button-show');
+  };
 
   render() {
     return (
-      <div className="nav-container-jub">
-        <nav className="jubiler-nav">
-          <div className="container">
-            <ul className="navigation nav-jubiler">
-              <li>
-                <Link id="jub-main-link" onClick={this.goToMain} className="jub-link" to="/jubiler/">
-                  O nas
-                </Link>
-              </li>
-              <li>
-                <Link id="jub-services-link" onClick={this.goToServices} className="jub-link" to="/jubiler/">
-                  Usługi
-                </Link>
-              </li>
-              <li className="logo-container">
-                <Link onClick={this.goToTop} className="brand-logo jub-logo" to="/jubiler/">
-                  <img src="logo_jubiler.png" alt="" />
-                </Link>
-              </li>
-              <li>
-                <Link id="jub-contact-link" onClick={this.goToContact} className="jub-link" to="/jubiler/">
-                  Kontakt
-                </Link>
-              </li>
-              <li>
-                <Link className="jub-link" to="/jubiler/galeria">
-                  Galeria
-                </Link>
-              </li>
-            </ul>
-          </div>
+      <div>
+        <div className="logo-phone">
+          <NavLink onClick={this.goToTop} className="brand-logo" to="/jubiler/">
+            <img src="./logo_jubiler.png" alt="" />
+          </NavLink>
+        </div>
+        <div className="menu-button" onClick={this.showMenu}>
+          <i className="fas fa-bars" />
+        </div>
+        <nav className="main-aside aside-fb">
+          <ul className="menu-aside">
+            <li>
+              <Link id="jub-main-link" onClick={this.goToMain} className="jub-link" to="/jubiler/">
+                O nas
+              </Link>
+            </li>
+            <li>
+              <Link id="jub-services-link" onClick={this.goToServices} className="jub-link" to="/jubiler/">
+                Usługi
+              </Link>
+            </li>
+            <li>
+              <Link id="jub-contact-link" onClick={this.goToContact} className="jub-link" to="/jubiler/">
+                Kontakt
+              </Link>
+            </li>
+            <li>
+              <Link className="jub-link" to="/jubiler/galeria">
+                Galeria
+              </Link>
+            </li>
+          </ul>
         </nav>
+
+        <div className="nav-container-jub">
+          <nav className="jubiler-nav">
+            <div className="container">
+              <ul className="navigation nav-jubiler">
+                <li>
+                  <Link id="jub-main-link" onClick={this.goToMain} className="jub-link" to="/jubiler/">
+                    O nas
+                  </Link>
+                </li>
+                <li>
+                  <Link id="jub-services-link" onClick={this.goToServices} className="jub-link" to="/jubiler/">
+                    Usługi
+                  </Link>
+                </li>
+                <li className="logo-container">
+                  <Link onClick={this.goToTop} className="brand-logo jub-logo" to="/jubiler/">
+                    <img src="logo_jubiler.png" alt="" />
+                  </Link>
+                </li>
+                <li>
+                  <Link id="jub-contact-link" onClick={this.goToContact} className="jub-link" to="/jubiler/">
+                    Kontakt
+                  </Link>
+                </li>
+                <li>
+                  <Link className="jub-link" to="/jubiler/galeria">
+                    Galeria
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
       </div>
     );
   }
@@ -122,6 +161,8 @@ export default class JubilerNavigation extends React.Component {
   };
   componentDidMount() {
     this.nav = document.querySelector('.nav-container-jub');
+    this.menu = document.querySelector('.main-aside');
+    this.menuButton = document.querySelector('.menu-button');
     if (window.location.pathname === '/jubiler/') {
       this.mainLink = document.getElementById('jub-main-link');
       this.servicesLink = document.getElementById('jub-services-link');

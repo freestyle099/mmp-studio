@@ -6,6 +6,7 @@ import NavigationImages from './NavigationImages';
 import AboutUs from './AboutUs';
 import Contact from './Contact';
 import ContactForm from './ContactForm';
+import { Helmet } from 'react-helmet';
 
 export default class MMPStudio extends React.Component {
   images = [
@@ -50,6 +51,10 @@ export default class MMPStudio extends React.Component {
   render() {
     return (
       <div>
+        <Helmet>
+          <title>Michał Fornalski</title>
+          <meta name="description" content="Studio fotograficzne Michał Fornalski" />
+        </Helmet>
         <div className="navigation-container">
           <Navigation />
           <Carousel images={this.images} />

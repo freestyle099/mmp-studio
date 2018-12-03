@@ -18,9 +18,10 @@ export default class Jubiler extends React.Component {
   render() {
     return (
       <div>
-        <JubilerNavigation />
-        <div className="container">
+
+        <div className="con-jub">
           <SmallCarousel images={this.state.images} />
+          <JubilerNavigation />
         </div>
         <NavigationImages />
         <div id="main-page-jub">

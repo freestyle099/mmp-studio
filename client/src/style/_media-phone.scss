@@ -22,7 +22,7 @@
 
   .nav-container,
   .nav-container-fb,
-  .nav-container-jub{
+  .nav-container-jub {
     display: none;
   }
 
@@ -116,7 +116,12 @@
     border-right: 0 solid $fb-color;
     transition: 0.5s;
   }
-  .con-fb {
+  .aside-jub {
+    border-right: 0 solid $jub-color;
+    transition: 0.5s;
+  }
+  .con-fb,
+  .con-jub {
     position: relative;
     top: 0;
     padding: 0;
@@ -176,11 +181,15 @@
   .show-menu-fb {
     border-right: 4px solid $fb-color;
   }
+  .show-menu-jub {
+    border-right: 4px solid $jub-color;
+  }
   .show-menu {
     border-right: 4px solid $main-color;
   }
   .show-menu,
-  .show-menu-fb {
+  .show-menu-fb,
+  .show-menu-jub {
     width: 200px;
     transition: 0.5s;
   }
@@ -319,7 +328,8 @@
     }
   }
   //fb-slider
-  .con-fb {
+  .con-fb,
+  .con-jub {
     height: 350px;
 
     .slider-container {

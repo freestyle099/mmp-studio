@@ -36,7 +36,7 @@ export default class JubilerNavigation extends React.Component {
     });
   };
   showMenu = e => {
-    this.menu.classList.toggle('show-menu-fb');
+    this.menu.classList.toggle('show-menu-jub');
     this.menuButton.classList.toggle('menu-button-show');
   };
 
@@ -51,7 +51,7 @@ export default class JubilerNavigation extends React.Component {
         <div className="menu-button" onClick={this.showMenu}>
           <i className="fas fa-bars" />
         </div>
-        <nav className="main-aside aside-fb">
+        <nav className="main-aside aside-jub">
           <ul className="menu-aside">
             <li>
               <Link id="jub-main-link" onClick={this.goToMain} className="jub-link" to="/jubiler/">

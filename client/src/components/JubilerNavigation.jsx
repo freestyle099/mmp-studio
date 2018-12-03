@@ -62,9 +62,6 @@ export default class JubilerNavigation extends React.Component {
         showMenu: true,
       });
     }
-
-    // this.menu.classList.toggle('show-menu-jub');
-    // this.menuButton.classList.toggle('menu-button-show');
   };
 
   render() {

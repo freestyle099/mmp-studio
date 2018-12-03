@@ -6,7 +6,7 @@ export default class FBNavigation extends React.Component {
     super(props);
     this.state = {
       isFb: false,
-      // detectResizeWidth: null,
+      showMenu: false,
     };
   }
 
@@ -43,9 +43,26 @@ export default class FBNavigation extends React.Component {
       block: 'start',
     });
   };
+  click = e => {
+    if (!e.target.classList.contains('show-menu-jub')) {
+      this.setState({
+        showMenu: false,
+      });
+      document.removeEventListener('click', this.click);
+    }
+  };
   showMenu = e => {
-    this.menu.classList.toggle('show-menu-fb');
-    this.menuButton.classList.toggle('menu-button-show');
+    if (this.state.showMenu) {
+      document.removeEventListener('click', this.click);
+      this.setState({
+        showMenu: false,
+      });
+    } else {
+      document.addEventListener('click', this.click);
+      this.setState({
+        showMenu: true,
+      });
+    }
   };
 
   render() {
@@ -56,10 +73,10 @@ export default class FBNavigation extends React.Component {
             <img src="./logo_fotobudka.png" alt="" />
           </NavLink>
         </div>
-        <div className="menu-button" onClick={this.showMenu}>
+        <div className={this.state.showMenu ? 'menu-button menu-button-show' : 'menu-button'} onClick={this.showMenu}>
           <i className="fas fa-bars" />
         </div>
-        <nav className="main-aside aside-fb">
+        <nav className={this.state.showMenu ? 'main-aside aside-fb show-menu-fb' : 'main-aside aside-fb'}>
           <ul className="menu-aside">
             <li>
               <Link id="fb-main-phone" onClick={this.goToTop} to="/fotobudka/">
@@ -150,18 +167,6 @@ export default class FBNavigation extends React.Component {
   fbContactLink;
   fbContactLinkPhone;
 
-  // resize = () => {
-  //   if (window.innerWidth < 768) {
-  //     this.setState({
-  //       detectResizeWidth: true,
-  //     });
-  //   } else {
-  //     this.setState({
-  //       detectResizeWidth: false,
-  //     });
-  //   }
-  // };
-
   scrollFunction = () => {
     if (window.location.pathname === '/fotobudka/') {
       if (window.pageYOffset < this.navImgPosition - 200) {
@@ -174,7 +179,7 @@ export default class FBNavigation extends React.Component {
         this.fbInfoLink.classList.add('active-fb');
         this.fbOfferLink.classList.remove('active-fb');
         this.fbContactLink.classList.remove('active-fb');
-      } else if (window.pageYOffset > this.fbOfferPosition - 400 && window.pageYOffset < this.fbContactPosition - 400) {
+      } else if (window.pageYOffset > this.fbOfferPosition - 300 && window.pageYOffset < this.fbContactPosition - 300) {
         this.fbMainLink.classList.remove('active-fb');
         this.fbInfoLink.classList.remove('active-fb');
         this.fbOfferLink.classList.add('active-fb');
@@ -245,7 +250,6 @@ export default class FBNavigation extends React.Component {
     this.fbContactLinkPhone = document.getElementById('fb-contact-phone');
     this.menu = document.querySelector('.main-aside');
     this.menuButton = document.querySelector('.menu-button');
-    // this.resize();
 
     if (this.navImg) {
       this.navImgPosition = this.navImg.offsetTop;
@@ -263,6 +267,7 @@ export default class FBNavigation extends React.Component {
   }
 
   componentWillUnmount() {
+    document.removeEventListener('click', this.click);
     document.removeEventListener('scroll', this.scrollFunction);
   }
 }

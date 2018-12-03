@@ -6,7 +6,7 @@ export default class Navigation extends React.Component {
     super(props);
     this.state = {
       isMain: false,
-      detectResizeWidth: null,
+      showMenu: false,
     };
   }
 
@@ -57,9 +57,26 @@ export default class Navigation extends React.Component {
       block: 'start',
     });
   };
+  click = e => {
+    if (!e.target.classList.contains('show-menu')) {
+      this.setState({
+        showMenu: false,
+      });
+      document.removeEventListener('click', this.click);
+    }
+  };
   showMenu = e => {
-    this.menu.classList.toggle('show-menu');
-    this.menuButton.classList.toggle('menu-button-show');
+    if (this.state.showMenu) {
+      document.removeEventListener('click', this.click);
+      this.setState({
+        showMenu: false,
+      });
+    } else {
+      document.addEventListener('click', this.click);
+      this.setState({
+        showMenu: true,
+      });
+    }
   };
   render() {
     return (
@@ -69,10 +86,10 @@ export default class Navigation extends React.Component {
             <img src="./logo_studio.png" alt="" />
           </NavLink>
         </div>
-        <div className="menu-button" onClick={this.showMenu}>
+        <div className={this.state.showMenu ? 'menu-button menu-button-show' : 'menu-button'} onClick={this.showMenu}>
           <i className="fas fa-bars" />
         </div>
-        <nav className="main-aside aside">
+        <nav className={this.state.showMenu ? 'main-aside aside-jub show-menu' : 'main-aside aside'}>
           <ul className="menu-aside">
             <li>
               <Link className="link-left" to="/" onClick={this.goToTop} id="main-phone">
@@ -151,18 +168,6 @@ export default class Navigation extends React.Component {
     );
   }
 
-  resize = () => {
-    if (window.innerWidth < 768) {
-      this.setState({
-        detectResizeWidth: true,
-      });
-    } else {
-      this.setState({
-        detectResizeWidth: false,
-      });
-    }
-  };
-
   scrollFunction = () => {
     // Navigation active class
     if (window.location.pathname === '/') {
@@ -180,20 +185,18 @@ export default class Navigation extends React.Component {
         this.linkContact.classList.remove('active-main');
       }
 
-      if (this.state.detectResizeWidth) {
-        if (window.pageYOffset > this.scroll - 200 && window.pageYOffset < this.contact - 200) {
-          this.mainPhone.classList.remove('active-main');
-          this.linkAboutUsPhone.classList.add('active-main');
-          this.linkContactPhone.classList.remove('active-main');
-        } else if (window.pageYOffset > this.contact - 200) {
-          this.mainPhone.classList.remove('active-main');
-          this.linkAboutUsPhone.classList.remove('active-main');
-          this.linkContactPhone.classList.add('active-main');
-        } else {
-          this.mainPhone.classList.add('active-main');
-          this.linkAboutUsPhone.classList.remove('active-main');
-          this.linkContactPhone.classList.remove('active-main');
-        }
+      if (window.pageYOffset > this.scroll - 200 && window.pageYOffset < this.contact - 200) {
+        this.mainPhone.classList.remove('active-main');
+        this.linkAboutUsPhone.classList.add('active-main');
+        this.linkContactPhone.classList.remove('active-main');
+      } else if (window.pageYOffset > this.contact - 200) {
+        this.mainPhone.classList.remove('active-main');
+        this.linkAboutUsPhone.classList.remove('active-main');
+        this.linkContactPhone.classList.add('active-main');
+      } else {
+        this.mainPhone.classList.add('active-main');
+        this.linkAboutUsPhone.classList.remove('active-main');
+        this.linkContactPhone.classList.remove('active-main');
       }
     }
 
@@ -234,7 +237,7 @@ export default class Navigation extends React.Component {
 
     this.menu = document.querySelector('.main-aside');
     this.menuButton = document.querySelector('.menu-button');
-    this.resize();
+
     if (window.location.pathname === '/') {
       this.main.classList.add('active-main');
       this.mainPhone.classList.add('active-main');
@@ -256,12 +259,11 @@ export default class Navigation extends React.Component {
     if (this.contactElement) {
       this.contact = this.contactElement.offsetTop;
     }
-    // window.addEventListener('resize', this.resize);
     document.addEventListener('scroll', this.scrollFunction);
   }
 
   componentWillUnmount() {
     document.removeEventListener('scroll', this.scrollFunction);
-    // window.removeEventListener('resize', this.resize);
+    document.removeEventListener('click', this.click);
   }
 }

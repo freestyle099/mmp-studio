@@ -15,11 +15,12 @@ const path = require('path');
 // Production
 mongoose
   .connect(
-    `mongodb://${prod.database}:${prod.password}@mongo30.mydevil.net:27017/${prod.database}`
+    `mongodb://${prod.database}:${prod.password}@mongo30.mydevil.net:27017/${
+      prod.database
+    }`
   )
-  .then(() => console.log("Connected to mongoDB..."))
-  .catch(err => console.log(new Error("Colud not connect to mongoDB", err)));
-
+  .then(() => console.log('Connected to mongoDB...'))
+  .catch(err => console.log(new Error('Colud not connect to mongoDB', err)));
 
 const imageSchema = new mongoose.Schema({
   url: String
@@ -68,7 +69,9 @@ app.post('/contact', (req, res) => {
     to: `${req.body.firstName} ${req.body.surname} <${req.body.email}>`,
     subject: `Wiadomość - ${req.body.from}`, // Subject line
     text: 'Hello world', // plain text body
-    html: 'Imię: ' + req.body.firstName + '\n' + 'Nazwisko: ' + req.body.surname
+    html: `<h1>Dziękujemy za przesłanie wiadomości</h1>
+           <div>Imię: ${req.body.firstName}</div> 
+           <div>Nazwisko: + ${req.body.surname}</div>`
   };
 
   transporter.sendMail(mailOptions, function(err, info) {
@@ -81,10 +84,10 @@ app.post('/contact', (req, res) => {
 });
 
 // Production
-app.use(express.static("client/build"));
+app.use(express.static('client/build'));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });
 
 const PORT = process.env.PORT || 5000;

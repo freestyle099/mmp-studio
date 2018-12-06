@@ -3,13 +3,23 @@ const mongoose = require('mongoose');
 const app = express();
 const bodyParser = require('body-parser');
 const keys = require('./config/keys');
+const prod = require('./config/prod');
 const nodemailer = require('nodemailer');
 const path = require('path');
 
+// Development
+// mongoose
+//   .connect('mongodb://localhost/playground')
+//   .then(() => console.log('Connected to mongoDB...'))
+//   .catch(err => console.log(new Error('Colud not connect to mongoDB', err)));
+// Production
 mongoose
-  .connect('mongodb://localhost/playground')
-  .then(() => console.log('Connected to mongoDB...'))
-  .catch(err => console.log(new Error('Colud not connect to mongoDB', err)));
+  .connect(
+    `mongodb://${prod.database}:${prod.password}@mongo30.mydevil.net:27017/${prod.database}`
+  )
+  .then(() => console.log("Connected to mongoDB..."))
+  .catch(err => console.log(new Error("Colud not connect to mongoDB", err)));
+
 
 const imageSchema = new mongoose.Schema({
   url: String
@@ -47,14 +57,14 @@ app.post('/contact', (req, res) => {
     port: 465,
     secure: true,
     auth: {
-      user: keys.username,
-      pass: keys.password
+      user: prod.username,
+      pass: prod.password
     }
   });
 
   let mailOptions = {
     from: `${req.body.firstName} ${req.body.surname} <${req.body.email}>`,
-    cc: 'jozefrzadkosz09@gmail.com', // list of receivers
+    cc: prod.username, // list of receivers
     to: `${req.body.firstName} ${req.body.surname} <${req.body.email}>`,
     subject: `Wiadomość - ${req.body.from}`, // Subject line
     text: 'Hello world', // plain text body
@@ -71,11 +81,11 @@ app.post('/contact', (req, res) => {
 });
 
 // Production
-// app.use(express.static("client/build"));
-//
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-// });
+app.use(express.static("client/build"));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
 const PORT = process.env.PORT || 5000;
 

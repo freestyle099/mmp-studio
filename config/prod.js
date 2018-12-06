@@ -1,4 +1,5 @@
 module.exports = {
-  username: process.env.USER_NAME,
-  password: process.env.PASSWORD
+  username: process.env.MAIL,
+  password: process.env.PASSWORD,
+  database: process.env.MMP_DB,
 }

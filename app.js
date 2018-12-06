@@ -69,9 +69,16 @@ app.post('/contact', (req, res) => {
     to: `${req.body.firstName} ${req.body.surname} <${req.body.email}>`,
     subject: `Wiadomość - ${req.body.from}`, // Subject line
     text: 'Hello world', // plain text body
-    html: `<h1>Dziękujemy za przesłanie wiadomości</h1>
+    html: `<h3>Dziękujemy za przesłanie wiadomości</h3>
+           <h4>Jest to wiadomość automatyczna prosimy na nią nie odpowiadać</h4>
+           <h4>Odpowiemy na Państwa wiadomość tak szybko jak będzie to możliwe</h4>
+           <div style="color: #424242">
            <div>Imię: ${req.body.firstName}</div> 
-           <div>Nazwisko: + ${req.body.surname}</div>`
+           <div>Nazwisko: ${req.body.surname}</div>
+           <div>Adres E-mail: ${req.body.email}</div>
+           <div>Numer telefonu: ${req.body.phone}</div>
+           <div>Treść wiadomości: ${req.body.message}</div></div>
+`
   };
 
   transporter.sendMail(mailOptions, function(err, info) {

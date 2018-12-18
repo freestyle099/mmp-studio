@@ -91,6 +91,11 @@ export default class Lightbox extends React.Component {
 
   componentDidMount() {
     document.addEventListener('keydown', this.keyUp);
+
+    // TODO: Block contextMenu event
+    // document.addEventListener('contextmenu', (e) => {
+    //   e.preventDefault();
+    // })
   }
   componentWillUnmount() {
     document.removeEventListener('keydown', this.keyUp);

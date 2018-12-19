@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-d
 import MetaTags from 'react-meta-tags';
 
 import Regulations from './components/Regulations';
-import Contact from './components/Contact';
 import MMPStudio from './components/Main';
 import Gallery from './components/Gallery';
 import Fotobudka from './components/Fotobudka';
@@ -31,7 +30,6 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/" component={MMPStudio} />
             <Route exact path="/galeria" component={Gallery} />
-            <Route exact path="/kontakt" component={Contact} />
             <Route exact path="/fotobudka" component={Fotobudka} />
             <Route exact path="/jubiler" component={Jubiler} />
             <Route exact path="/regulamin" component={Regulations} />

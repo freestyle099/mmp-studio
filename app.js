@@ -1,8 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
-const bodyParser = require('body-parser');
+const Joi = require('joi');
 const keys = require('./config/keys');
+const bodyParser = require('body-parser');
 const prod = require('./config/prod');
 const nodemailer = require('nodemailer');
 const path = require('path');
@@ -12,12 +13,13 @@ const path = require('path');
 //   .connect('mongodb://localhost/playground')
 //   .then(() => console.log('Connected to mongoDB...'))
 //   .catch(err => console.log(new Error('Colud not connect to mongoDB', err)));
+
 // Production
 mongoose
   .connect(
-    `mongodb://${prod.database}:${prod.password}@mongo30.mydevil.net:27017/${
-      prod.database
-    }`
+    `mongodb://${prod.database}:${
+      prod.databasePassword
+      }@mongo30.mydevil.net:27017/${prod.database}`
   )
   .then(() => console.log('Connected to mongoDB...'))
   .catch(err => console.log(new Error('Colud not connect to mongoDB', err)));
@@ -45,16 +47,23 @@ app.get('/api/fotobudkas', async (req, res) => {
   const fotobudkas = await Fotobudka.find();
   res.send(fotobudkas);
 });
-app.get('/api/images/:id', async (req, res) => {
-  const images = await Image.find({ id: req.params.id });
-  res.send(images);
-});
 
 app.post('/contact', (req, res) => {
-  console.log(req.body);
+
+  const schema = {
+    from: Joi.string().required(),
+    firstName: Joi.string().min(3).required(),
+    surname: Joi.string().min(3).required(),
+    email: Joi.string().min(3).email().required(),
+    phone: Joi.string().min(3).max(10).required(),
+    message: Joi.string().min(10).required()
+  };
+
+  const result = Joi.validate(req.body, schema);
+  console.log(result);
 
   let transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
+    host: 'mail30.mydevil.net',
     port: 465,
     secure: true,
     auth: {

@@ -1,14 +1,15 @@
 ## MMP-studio
 
-Here begins a very nice looking page of photographs by Michał Fornalski Jr. 
+Here is a very nice looking page of photographs by Michał Fornalski Jr. 
 
-## Temporary domain name:
+## Domain name:
 
-https://freestyle09.usermd.net/
+https://mmpstudio.pl/
 
-The website is in the construction phase
+The application has been finished.
 
-## Technologies which will be used: 
+
+## Technologies used: 
 
 * JavaScript ES6 
 * React.js 

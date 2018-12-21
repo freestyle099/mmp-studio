@@ -113,17 +113,17 @@ export default class FBNavigation extends React.Component {
             <div className="container">
               <ul className="navigation fb">
                 <li>
-                  <Link id="fb-main" onClick={this.goToTop} to="/fotobudka/">
+                  <Link id="fb-main" onClick={this.goToTop} to="/fotobudka">
                     Strona główna
                   </Link>
                 </li>
                 <li>
-                  <Link id="fb-info" onClick={this.goToInfo} to="/fotobudka/">
+                  <Link id="fb-info" onClick={this.goToInfo} to="/fotobudka">
                     Info
                   </Link>
                 </li>
                 <li>
-                  <Link id="fb-offerLink" onClick={this.goToOffer} to="/fotobudka/">
+                  <Link id="fb-offerLink" onClick={this.goToOffer} to="/fotobudka">
                     Oferta
                   </Link>
                 </li>

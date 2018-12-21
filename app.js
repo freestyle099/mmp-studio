@@ -8,7 +8,7 @@ const prod = require('./config/prod');
 const nodemailer = require('nodemailer');
 const path = require('path');
 
-const isDev = 'Production';
+const isDev = 'Development';
 
 if(isDev === 'Development') {
 // Development

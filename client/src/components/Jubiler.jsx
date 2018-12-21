@@ -11,15 +11,15 @@ export default class Jubiler extends React.Component {
   images = [
     {
       id: 1,
-      url: '1.jpg',
+      url: process.env.PUBLIC_URL + '/jubiler/1.jpg',
     },
     {
       id: 2,
-      url: '2.jpg',
+      url: process.env.PUBLIC_URL + '/jubiler/2.jpg',
     },
     {
       id: 3,
-      url: '3.jpg',
+      url: process.env.PUBLIC_URL + '/jubiler/3.jpg',
     },
   ];
 
@@ -46,7 +46,7 @@ export default class Jubiler extends React.Component {
                 </p>
               </div>
               <div>
-                <img src="jubiler.jpg" alt="" />
+                <img src={process.env.PUBLIC_URL + '/jubiler.jpg'} alt="" />
               </div>
             </div>
           </div>

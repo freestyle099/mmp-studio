@@ -69,8 +69,8 @@ export default class FBNavigation extends React.Component {
     return (
       <div>
         <div className="logo-phone">
-          <NavLink onClick={this.goToTop} className="brand-logo" to="/fotobudka/">
-            <img src="./logo_fotobudka.png" alt="" />
+          <NavLink onClick={this.goToTop} className="brand-logo" to="/fotobudka">
+            <img src={process.env.PUBLIC_URL + '/logo_fotobudka.png'} alt="" />
           </NavLink>
         </div>
         <div className={this.state.showMenu ? 'menu-button menu-button-show' : 'menu-button'} onClick={this.showMenu}>
@@ -79,22 +79,22 @@ export default class FBNavigation extends React.Component {
         <nav className={this.state.showMenu ? 'main-aside aside-fb show-menu-fb' : 'main-aside aside-fb'}>
           <ul className="menu-aside">
             <li>
-              <Link id="fb-main-phone" onClick={this.goToTop} to="/fotobudka/">
+              <Link id="fb-main-phone" onClick={this.goToTop} to="/fotobudka">
                 Strona główna
               </Link>
             </li>
             <li>
-              <Link id="fb-info-phone" onClick={this.goToInfo} to="/fotobudka/">
+              <Link id="fb-info-phone" onClick={this.goToInfo} to="/fotobudka">
                 Info
               </Link>
             </li>
             <li>
-              <Link id="fb-offerLink-phone" onClick={this.goToOffer} to="/fotobudka/">
+              <Link id="fb-offerLink-phone" onClick={this.goToOffer} to="/fotobudka">
                 Oferta
               </Link>
             </li>
             <li>
-              <Link id="fb-contact-phone" to="/fotobudka/" onClick={this.goToContact}>
+              <Link id="fb-contact-phone" to="/fotobudka" onClick={this.goToContact}>
                 Kontakt
               </Link>
             </li>
@@ -104,7 +104,7 @@ export default class FBNavigation extends React.Component {
               </NavLink>
             </li>
             <li>
-              <a href="https://mmpstudio.smugmug.com/StrefaKlienta">Strefa Klienta</a>
+              <a href="https://strefaklienta.mmpstudio.pl/StrefaKlienta">Strefa Klienta</a>
             </li>
           </ul>
         </nav>
@@ -128,12 +128,12 @@ export default class FBNavigation extends React.Component {
                   </Link>
                 </li>
                 <li className="logo-container">
-                  <Link onClick={this.goToTop} className="brand-logo" to="/fotobudka/">
-                    <img src="logo_fotobudka.png" alt="" />
+                  <Link onClick={this.goToTop} className="brand-logo" to="/fotobudka">
+                    <img src={process.env.PUBLIC_URL + '/logo_fotobudka.png'} alt="" />
                   </Link>
                 </li>
                 <li>
-                  <Link id="fb-contact" to="/fotobudka/" onClick={this.goToContact}>
+                  <Link id="fb-contact" to="/fotobudka" onClick={this.goToContact}>
                     Kontakt
                   </Link>
                 </li>
@@ -143,7 +143,7 @@ export default class FBNavigation extends React.Component {
                   </NavLink>
                 </li>
                 <li>
-                  <a href="https://mmpstudio.smugmug.com/StrefaKlienta">Strefa Klienta</a>
+                  <a href="https://strefaklienta.mmpstudio.pl/StrefaKlienta">Strefa Klienta</a>
                 </li>
               </ul>
             </div>

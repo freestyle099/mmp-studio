@@ -9,7 +9,7 @@ export default class AboutUs extends React.Component {
           <h2>O nas</h2>
           <div className="about-us-container">
             <div>
-              <img src="mya2.png" alt="" />
+              <img src={process.env.PUBLIC_URL + '/mya2.png'} alt="" />
             </div>
             <div>
               Jesteśmy rodzinną firmą, w której wieloletnie doświadczenie i pasja łączy się z profesjonalnym podejściem do każdego zlecenia.

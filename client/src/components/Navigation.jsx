@@ -83,7 +83,7 @@ export default class Navigation extends React.Component {
       <div>
         <div className="logo-phone">
           <NavLink onClick={this.goToTop} className="brand-logo" to="/">
-            <img src="./logo_studio.png" alt="" />
+            <img src={process.env.PUBLIC_URL + '/logo_studio.png'} alt="" />
           </NavLink>
         </div>
         <div className={this.state.showMenu ? 'menu-button menu-button-show' : 'menu-button'} onClick={this.showMenu}>
@@ -117,7 +117,7 @@ export default class Navigation extends React.Component {
               </NavLink>
             </li>
             <li>
-              <a href="https://strefaklienta.mmpstudio.pl">Strefa klienta</a>
+              <a href="https://strefaklienta.mmpstudio.pl/">Strefa klienta</a>
             </li>
           </ul>
         </nav>
@@ -143,7 +143,7 @@ export default class Navigation extends React.Component {
 
                 <li className="logo-container">
                   <NavLink onClick={this.goToTop} className="brand-logo" to="/">
-                    <img src="./logo_studio.png" alt="" />
+                    <img src={process.env.PUBLIC_URL + '/logo_studio.png'} alt="" />
                   </NavLink>
                 </li>
 
@@ -158,7 +158,7 @@ export default class Navigation extends React.Component {
                   </NavLink>
                 </li>
                 <li>
-                  <a href="https://mmpstudio.smugmug.com/Strefa-Klienta">Strefa klienta</a>
+                  <a href="https://strefaklienta.mmpstudio.pl/">Strefa klienta</a>
                 </li>
               </ul>
             </div>

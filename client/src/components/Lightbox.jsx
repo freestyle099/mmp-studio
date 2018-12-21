@@ -41,6 +41,8 @@ export default class Lightbox extends React.Component {
     });
   };
 
+  url = 'https://mmpstudio.pl/';
+
   render() {
     return (
       <div className="gallery">

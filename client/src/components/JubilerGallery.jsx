@@ -23,7 +23,6 @@ export default class JubilerGallery extends React.Component {
     fetch('/api/jubilers')
       .then(resp => resp.json())
       .then(data => {
-        console.log(data);
         this.setState({
           images: data,
         });

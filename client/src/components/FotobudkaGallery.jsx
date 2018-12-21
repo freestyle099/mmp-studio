@@ -23,7 +23,7 @@ export default class FotobudkaGallery extends React.Component {
     fetch('/api/fotobudkas')
       .then(resp => resp.json())
       .then(data => {
-        console.log(data);
+
         this.setState({
           images: data,
         });

@@ -11,7 +11,7 @@ export default class Fotobudka extends React.Component {
   images = [
     {
       id: 1,
-      url: '1.jpg'
+      url: process.env.PUBLIC_URL + '/fotobudka/1.jpg'
     }
   ]
 

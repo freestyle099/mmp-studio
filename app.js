@@ -8,21 +8,37 @@ const prod = require('./config/prod');
 const nodemailer = require('nodemailer');
 const path = require('path');
 
-// Development
-// mongoose
-//   .connect('mongodb://localhost/playground')
-//   .then(() => console.log('Connected to mongoDB...'))
-//   .catch(err => console.log(new Error('Colud not connect to mongoDB', err)));
+const isDev = 'Production';
 
-// Production
-mongoose
-  .connect(
-    `mongodb://${prod.database}:${
-      prod.databasePassword
-      }@mongo30.mydevil.net:27017/${prod.database}`
-  )
-  .then(() => console.log('Connected to mongoDB...'))
-  .catch(err => console.log(new Error('Colud not connect to mongoDB', err)));
+if(isDev === 'Development') {
+// Development
+  mongoose
+    .connect(
+      `mongodb://${keys.database}:${
+        keys.databasePassword
+        }@mongo30.mydevil.net:27017/${keys.database}`
+    )
+    .then(() => console.log('Connected to mongoDB...'))
+    .catch(err => console.log(new Error('Colud not connect to mongoDB', err)));
+
+} else if(isDev === 'Production') {
+  // Production
+  mongoose
+    .connect(
+      `mongodb://${prod.database}:${
+        prod.databasePassword
+        }@mongo30.mydevil.net:27017/${prod.database}`
+    )
+    .then(() => console.log('Connected to mongoDB...'))
+    .catch(err => console.log(new Error('Colud not connect to mongoDB', err)));
+
+} else if(isDev === 'Local') {
+  // Localy Database
+  mongoose
+    .connect('mongodb://localhost/playground')
+    .then(() => console.log('Connected to mongoDB...'))
+    .catch(err => console.log(new Error('Colud not connect to mongoDB', err)));
+}
 
 const imageSchema = new mongoose.Schema({
   url: String
@@ -49,14 +65,25 @@ app.get('/api/fotobudkas', async (req, res) => {
 });
 
 app.post('/contact', (req, res) => {
-
   const schema = {
     from: Joi.string().required(),
-    firstName: Joi.string().min(3).required(),
-    surname: Joi.string().min(3).required(),
-    email: Joi.string().min(3).email().required(),
-    phone: Joi.string().min(3).max(10).required(),
-    message: Joi.string().min(10).required()
+    firstName: Joi.string()
+      .min(3)
+      .required(),
+    surname: Joi.string()
+      .min(3)
+      .required(),
+    email: Joi.string()
+      .min(3)
+      .email()
+      .required(),
+    phone: Joi.string()
+      .min(3)
+      .max(10)
+      .required(),
+    message: Joi.string()
+      .min(10)
+      .required()
   };
 
   const result = Joi.validate(req.body, schema);

@@ -23,7 +23,6 @@ export default class Gallery extends React.Component {
     fetch('/api/images')
       .then(resp => resp.json())
       .then(data => {
-        console.log(data);
         this.setState({
           images: data,
         });

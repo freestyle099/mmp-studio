@@ -7,14 +7,14 @@ export default class Recommend extends React.Component {
       <div>
         <Navigation />
         <div className="container recommend">
-          <img src="mlm.png" alt="" />
+          <img src={process.env.PUBLIC_URL + '/mlm.png'} alt="" />
           <h3>
             Obsługa Audio Wizualna:{' '}
             <a href="http://www.musiclightmagic.com/" target="_blank">
               Music Light Magic
             </a>
           </h3>
-          <img src="logo-cpr_0.png" alt="" />
+          <img src={process.env.PUBLIC_URL + '/logo-cpr_0.png'} alt="" />
           <h3>
             Willa & Karczma Cztery Pory Roku:{' '}
             <a href="http://www.czteryporyroku.pl/karczma/wesela/pakiety-weselne" target="_blank">

@@ -68,7 +68,7 @@ export default class JubilerNavigation extends React.Component {
     return (
       <div>
         <div className="logo-phone">
-          <NavLink onClick={this.goToTop} className="brand-logo" to="/jubiler">
+          <NavLink onClick={this.goToTop} className="brand-logo" to="/jubiler/">
             <img src={process.env.PUBLIC_URL + '/logo_jubiler.png'} alt="" />
           </NavLink>
         </div>
@@ -78,17 +78,17 @@ export default class JubilerNavigation extends React.Component {
         <nav className={this.state.showMenu ? 'main-aside aside-jub show-menu-jub' : 'main-aside aside-jub'}>
           <ul className="menu-aside">
             <li>
-              <Link id="jub-main-link-phone" onClick={this.goToMain} className="jub-link" to="/jubiler">
+              <Link id="jub-main-link-phone" onClick={this.goToMain} className="jub-link" to="/jubiler/">
                 O nas
               </Link>
             </li>
             <li>
-              <Link id="jub-services-link-phone" onClick={this.goToServices} className="jub-link" to="/jubiler">
+              <Link id="jub-services-link-phone" onClick={this.goToServices} className="jub-link" to="/jubiler/">
                 Usługi
               </Link>
             </li>
             <li>
-              <Link id="jub-contact-link-phone" onClick={this.goToContact} className="jub-link" to="/jubiler">
+              <Link id="jub-contact-link-phone" onClick={this.goToContact} className="jub-link" to="/jubiler/">
                 Kontakt
               </Link>
             </li>
@@ -105,22 +105,22 @@ export default class JubilerNavigation extends React.Component {
             <div className="container">
               <ul className="navigation nav-jubiler">
                 <li>
-                  <Link id="jub-main-link" onClick={this.goToMain} className="jub-link" to="/jubiler">
+                  <Link id="jub-main-link" onClick={this.goToMain} className="jub-link" to="/jubiler/">
                     O nas
                   </Link>
                 </li>
                 <li>
-                  <Link id="jub-services-link" onClick={this.goToServices} className="jub-link" to="/jubiler">
+                  <Link id="jub-services-link" onClick={this.goToServices} className="jub-link" to="/jubiler/">
                     Usługi
                   </Link>
                 </li>
                 <li className="logo-container">
-                  <Link onClick={this.goToTop} className="brand-logo jub-logo" to="/jubiler">
+                  <Link onClick={this.goToTop} className="brand-logo jub-logo" to="/jubiler/">
                     <img src={process.env.PUBLIC_URL + '/logo_jubiler.png'} alt="" />
                   </Link>
                 </li>
                 <li>
-                  <Link id="jub-contact-link" onClick={this.goToContact} className="jub-link" to="/jubiler">
+                  <Link id="jub-contact-link" onClick={this.goToContact} className="jub-link" to="/jubiler/">
                     Kontakt
                   </Link>
                 </li>

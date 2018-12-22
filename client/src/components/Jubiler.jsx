@@ -2,9 +2,7 @@
 
 import React from 'react';
 import JubilerNavigation from './JubilerNavigation';
-import Carousel from './Carousel';
 import NavigationImages from './NavigationImages';
-import ContactForm from './ContactForm';
 import SmallCarousel from './SmallCarousel';
 
 export default class Jubiler extends React.Component {

@@ -12,6 +12,86 @@
 }
 
 @media only screen and (max-width: 991px) and (min-width: 768px) {
+
+  @keyframes entering {
+    from {
+      height: 0;
+      border-bottom: none;
+    }
+    to {
+      border-bottom: 4px solid $main-color;
+      height: 50px;
+    }
+  }
+
+  @keyframes leaving {
+    0% {
+      height: 50px;
+      border-bottom: 4px solid $main-color;
+    }
+    90% {
+      border-bottom: 1px solid $main-color;
+    }
+    100% {
+      height: 0;
+      border: none;
+    }
+  }
+
+  .nav-container-scroll {
+    height: 50px;
+  }
+
+  @keyframes entering-fb {
+    from {
+      height: 0;
+      border-bottom: none;
+    }
+    to {
+      border-bottom: 4px solid $fb-color;
+      height: 50px;
+    }
+  }
+
+  @keyframes leaving-fb {
+    0% {
+      height: 50px;
+      border-bottom: 4px solid $fb-color;
+    }
+    90% {
+      border-bottom: 1px solid $fb-color;
+    }
+    100% {
+      height: 0;
+      border: none;
+    }
+  }
+
+  @keyframes entering-jub {
+    from {
+      height: 0;
+      border-bottom: none;
+    }
+    to {
+      border-bottom: 4px solid $jub-color;
+      height: 50px;
+    }
+  }
+
+  @keyframes leaving-jub {
+    0% {
+      height: 50px;
+      border-bottom: 4px solid $jub-color;
+    }
+    90% {
+      border-bottom: 1px solid $jub-color;
+    }
+    100% {
+      height: 0;
+      border: none;
+    }
+  }
+
   // main
   .container {
     margin: 0;

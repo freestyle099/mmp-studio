@@ -27,6 +27,7 @@ export default class GoToTop extends React.Component {
   };
 
   componentDidMount() {
+    console.log(window.location.pathname);
     this.button = document.getElementById('goToTop');
     window.addEventListener('scroll', this.detectScrollPosition);
     if (window.location.pathname.indexOf('fotobudka') > -1) {
@@ -39,7 +40,13 @@ export default class GoToTop extends React.Component {
       this.button.classList.remove('go-to-top-fb');
       this.button.classList.add('go-to-top-jub');
     }
-    if (window.location.pathname === '/') {
+    if (
+      window.location.pathname === '/' ||
+      window.location.pathname === '/galeria' ||
+      window.location.pathname === '/wideo' ||
+      window.location.pathname === '/polecamy' ||
+      window.location.pathname === '/regulamin'
+    ) {
       this.button.classList.remove('go-to-top-fb');
       this.button.classList.remove('go-to-top-jub');
       this.button.classList.add('go-to-top-main');

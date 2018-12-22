@@ -41,8 +41,6 @@ export default class Lightbox extends React.Component {
     });
   };
 
-  url = 'https://mmpstudio.pl/';
-
   render() {
     return (
       <div className="gallery">
@@ -51,9 +49,9 @@ export default class Lightbox extends React.Component {
           <div className="grid-gallery">
             {this.props.images.map(el => {
               return (
-                <div key={el.id} className={el.class ? el.class + ' imageGallery1' : 'imageGallery1'}>
-                  <a onClick={this.startLightbox} href={el.url} title="Caption for gallery item 1">
-                    <img src={el.url} data-image={el.id} alt="Gallery image 1" />
+                <div key={parseInt(el.id)} className={el.class ? el.class + ' imageGallery1' : 'imageGallery1'}>
+                  <a onClick={this.startLightbox} href={el.url} title={el.alt}>
+                    <img src={el.tb} data-image={parseInt(el.id)} alt={el.alt} />
                   </a>
                 </div>
               );

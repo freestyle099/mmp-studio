@@ -5,10 +5,12 @@
   top: 0;
   z-index: 1070;
   width: 100vw;
+  height: 75px;
   overflow: hidden;
   background-color: $white;
+  border-bottom: 4px solid $jub-color;
   .jubiler-nav {
-    height: 75px;
+    height: 100%;
     border-bottom: 4px solid $jub-color;
 
     .container {

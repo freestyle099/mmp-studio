@@ -1,6 +1,11 @@
 @import './variables';
 
 @media only screen and (max-width: 767px) {
+
+  .horizontal {
+    grid-column: span 1;
+  }
+
   .container {
     padding: 0 1%;
     max-width: 100vw;

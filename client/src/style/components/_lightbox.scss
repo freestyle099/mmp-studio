@@ -28,6 +28,9 @@
 .vertical {
   grid-row: span 2;
 }
+.horizontal {
+  grid-column: span 2;
+}
 
 .lightbox-container {
   display: none;

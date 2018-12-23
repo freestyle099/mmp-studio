@@ -27,7 +27,6 @@ export default class GoToTop extends React.Component {
   };
 
   componentDidMount() {
-    console.log(window.location.pathname);
     this.button = document.getElementById('goToTop');
     window.addEventListener('scroll', this.detectScrollPosition);
     if (window.location.pathname.indexOf('fotobudka') > -1) {

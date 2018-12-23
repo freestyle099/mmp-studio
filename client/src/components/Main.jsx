@@ -66,5 +66,4 @@ export default class MMPStudio extends React.Component {
       </div>
     );
   }
-
 }

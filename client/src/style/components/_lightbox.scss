@@ -12,6 +12,26 @@
   grid-auto-flow: dense;
 }
 
+.contextmenu {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  background-color: $white;
+  padding: 5px 10px;
+  border: 1px solid $border-color;
+  border-radius: 5px;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.2s opacity;
+  &-show {
+    visibility: visible;
+    opacity: 1;
+    transition: 0.2s opacity;
+    z-index: 1100;
+  }
+}
+
 .imageGallery1 {
   height: 100%;
   width: 100%;

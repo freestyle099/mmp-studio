@@ -8,6 +8,9 @@ export default class Lightbox extends React.Component {
     };
   }
 
+  menu;
+  gallery;
+
   startLightbox = e => {
     e.preventDefault();
     if (window.innerWidth > 768) {
@@ -73,6 +76,9 @@ export default class Lightbox extends React.Component {
             </div>
           </div>
         </div>
+
+        {/*Context Menu*/}
+        <div className="contextmenu">This photo is &copy; by MMPStudio.</div>
       </div>
     );
   }
@@ -88,16 +94,30 @@ export default class Lightbox extends React.Component {
       e.preventDefault();
     }
   };
+  showCopyright = e => {
+    e.preventDefault();
+    this.menu = document.querySelector('.contextmenu');
+    this.menu.classList.toggle('contextmenu-show');
+    this.menu.style.left = `${e.pageX}px`;
+    this.menu.style.top = `${e.clientY}px`;
+  };
+  closeCopyright = () => {
+    if (this.menu) {
+      if (this.menu.classList.contains('contextmenu-show')) {
+        this.menu.classList.remove('contextmenu-show');
+      }
+    }
+  };
 
   componentDidMount() {
+    this.gallery = document.querySelector('.grid-gallery');
     document.addEventListener('keydown', this.keyUp);
-
-    // TODO: Block contextMenu event
-    // document.addEventListener('contextmenu', (e) => {
-    //   e.preventDefault();
-    // })
+    document.addEventListener('click', this.closeCopyright);
+    this.gallery.addEventListener('contextmenu', this.showCopyright);
   }
   componentWillUnmount() {
     document.removeEventListener('keydown', this.keyUp);
+    document.removeEventListener('click', this.closeCopyright);
+    this.gallery.removeEventListener('contextmenu', this.showCopyright);
   }
 }

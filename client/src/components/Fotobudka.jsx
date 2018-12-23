@@ -12,6 +12,18 @@ export default class Fotobudka extends React.Component {
     {
       id: 1,
       url: process.env.PUBLIC_URL + '/fotobudka/1.jpg'
+    },
+    {
+      id: 2,
+      url: process.env.PUBLIC_URL + '/fotobudka/2.jpg'
+    },
+    {
+      id: 3,
+      url: process.env.PUBLIC_URL + '/fotobudka/3.jpg'
+    },
+    {
+      id: 4,
+      url: process.env.PUBLIC_URL + '/fotobudka/4.jpg'
     }
   ]
 

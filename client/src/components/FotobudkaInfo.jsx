@@ -22,7 +22,7 @@ export default class FotobudkaInfo extends React.Component {
               </p>
             </div>
             <div>
-              <img src={process.env.PUBLIC_URL + '/mFotobudka_0141-3.jpg'} alt="" />
+              <img src={process.env.PUBLIC_URL + '/fotobudka/10.jpg'} alt="" />
             </div>
           </div>
         </div>

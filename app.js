@@ -8,32 +8,25 @@ const prod = require('./config/prod');
 const nodemailer = require('nodemailer');
 const path = require('path');
 
-const isDev = 'Development';
-
-if(isDev === 'Development') {
-// Development
+if (process.env.NODE_ENV === 'development') {
   mongoose
     .connect(
       `mongodb://${keys.database}:${
         keys.databasePassword
-        }@mongo30.mydevil.net:27017/${keys.database}`
+      }@mongo30.mydevil.net:27017/${keys.database}`
     )
     .then(() => console.log('Connected to mongoDB...'))
     .catch(err => console.log(new Error('Colud not connect to mongoDB', err)));
-
-} else if(isDev === 'Production') {
-  // Production
+} else if (process.env.NODE_ENV === 'production') {
   mongoose
     .connect(
       `mongodb://${prod.database}:${
         prod.databasePassword
-        }@mongo30.mydevil.net:27017/${prod.database}`
+      }@mongo30.mydevil.net:27017/${prod.database}`
     )
     .then(() => console.log('Connected to mongoDB...'))
     .catch(err => console.log(new Error('Colud not connect to mongoDB', err)));
-
-} else if(isDev === 'Local') {
-  // Localy Database
+} else if (process.env.NODE_ENV === 'testing') {
   mongoose
     .connect('mongodb://localhost/playground')
     .then(() => console.log('Connected to mongoDB...'))
@@ -126,12 +119,12 @@ app.post('/contact', (req, res) => {
   });
 });
 
-// Production
-app.use(express.static('client/build'));
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-});
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+  });
+}
 
 const PORT = process.env.PORT || 5000;
 

@@ -1,0 +1,10 @@
+{
+  "mail": {
+    "username": "MMP_MAIL",
+    "password": "MMP_PASSWORD"
+  },
+  "database": {
+    "name": "MMP_DB",
+    "password": "PASSWORD"
+  }
+}

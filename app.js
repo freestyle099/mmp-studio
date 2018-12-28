@@ -8,24 +8,21 @@ const prod = require('./config/prod');
 const nodemailer = require('nodemailer');
 const path = require('path');
 
+const mongoConnection = mode => {
+  return mongoose
+    .connect(
+      `mongodb://${mode.database}:${
+        mode.databasePassword
+      }@mongo30.mydevil.net:27017/${mode.database}`
+    )
+    .then(() => console.log('Connected to mongoDB...'))
+    .catch(err => console.log(new Error('Colud not connect to mongoDB', err)));
+};
+
 if (process.env.NODE_ENV === 'development') {
-  mongoose
-    .connect(
-      `mongodb://${keys.database}:${
-        keys.databasePassword
-      }@mongo30.mydevil.net:27017/${keys.database}`
-    )
-    .then(() => console.log('Connected to mongoDB...'))
-    .catch(err => console.log(new Error('Colud not connect to mongoDB', err)));
+  mongoConnection(keys);
 } else if (process.env.NODE_ENV === 'production') {
-  mongoose
-    .connect(
-      `mongodb://${prod.database}:${
-        prod.databasePassword
-      }@mongo30.mydevil.net:27017/${prod.database}`
-    )
-    .then(() => console.log('Connected to mongoDB...'))
-    .catch(err => console.log(new Error('Colud not connect to mongoDB', err)));
+  mongoConnection(prod);
 } else if (process.env.NODE_ENV === 'testing') {
   mongoose
     .connect('mongodb://localhost/playground')
@@ -114,7 +111,6 @@ app.post('/contact', (req, res) => {
     if (err) {
       throw err;
     }
-
     console.log(info);
   });
 });

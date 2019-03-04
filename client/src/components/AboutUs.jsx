@@ -12,12 +12,11 @@ export default class AboutUs extends React.Component {
               <img src={process.env.PUBLIC_URL + '/mya2.png'} alt="" />
             </div>
             <div>
-              Jesteśmy rodzinną firmą, w której wieloletnie doświadczenie i pasja łączy się z profesjonalnym podejściem do każdego zlecenia.
-              <br />
-              Początki firmy sięgają 1997 roku od tego czasu nieustannie się rozwijamy. <br />W tym momencie na swoim koncie mamy Setki obsłużonych Wesel i Dziesiątki Imprez Okolicznościowych. <br />
-              Możemy poszczycić się coraz większym zainteresowaniem naszą ofertą, oraz bardzo wysoką jakością naszych usług.
-              <br />
-              Nazwe Firmy tworzą pierwsze litery naszych imion: Ojca i dwóch Synów (Michała, Michała i Patryka)
+              <p>Jesteśmy rodzinną firmą, w której wieloletnie doświadczenie i pasja łączy się z profesjonalnym podejściem do każdego zlecenia.</p>
+              <p>Początki firmy sięgają 1997 roku od tego czasu nieustannie się rozwijamy.</p>
+              <p>W tym momencie na swoim koncie mamy Setki obsłużonych Wesel i Dziesiątki Imprez Okolicznościowych. </p>
+              <p>Możemy poszczycić się coraz większym zainteresowaniem naszą ofertą, oraz bardzo wysoką jakością naszych usług.</p>
+              <p>Nazwe Firmy tworzą pierwsze litery naszych imion: Ojca i dwóch Synów (Michała, Michała i Patryka)</p>
             </div>
           </div>
           <h2>Dlaczego MMPStudio?</h2>

@@ -5,7 +5,7 @@ export default class FotobudkaInfo extends React.Component {
     return (
       <div id="fotobudka-info" className='fb-info-bgc'>
         <div className="container">
-          <h2>Czym jest Fotobudka?</h2>
+          <h1>Czym jest Fotobudka?</h1>
           <div className="fotobudka-info">
             <div>
               <p>

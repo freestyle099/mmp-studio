@@ -230,6 +230,7 @@ export default class ContactForm extends React.Component {
       })
         .then(resp => resp.json())
         .then(data => console.log(data));
+
       const form = document.querySelector('.form');
       const input = form.querySelectorAll('input:not([type=hidden]), textarea');
       for (let el of input) {

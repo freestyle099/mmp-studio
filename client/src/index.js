@@ -23,9 +23,6 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          <MetaTags>
-            <meta name="viewport" content="initial-scale=1, viewport-fit=cover" />
-          </MetaTags>
           <GoToTop />
           <Switch>
             <Route exact path="/" component={MMPStudio} />

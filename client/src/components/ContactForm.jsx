@@ -231,10 +231,10 @@ export default class ContactForm extends React.Component {
             isLoading: false,
           });
           Swal.fire({
-            title: 'Success!',
-            text: 'E-mail sent successfully',
+            title: 'Sukces!',
+            text: 'Wiadomość wysłana poprawnie',
             type: 'success',
-            confirmButtonText: 'Close',
+            confirmButtonText: 'Zamknij',
           });
         })
         .catch(() => {
@@ -243,9 +243,9 @@ export default class ContactForm extends React.Component {
           });
           Swal.fire({
             title: 'Ups...',
-            text: 'Email could not be sent',
+            text: 'Wiadomość nie została wysłana poprawnie',
             type: 'error',
-            confirmButtonText: 'Close',
+            confirmButtonText: 'Zamknij',
           });
         });
 
@@ -308,7 +308,7 @@ export default class ContactForm extends React.Component {
                 {this.state.isLoading && (
                   <div className="loading">
                     <div>
-                      <img src="Spinner-1s-200px-white.svg" alt="" />
+                      <img src="/Spinner-1s-200px-white.svg" alt="" />
                       <div>Wysyłanie wiadomości...</div>
                     </div>
                   </div>

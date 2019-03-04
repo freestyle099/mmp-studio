@@ -16,34 +16,33 @@ export default class Accordion extends React.Component {
       <ul className="accordion">
         <li>
           <div onClick={this.showTab} className="header">
-            Wieloletnie doświadczenie
+            <strong>Wieloletnie doświadczenie</strong>
           </div>
           <div className="body shadow-sm active-accordion">
             <div className="acc-padding">
-              Fotografią zajmujemy się od kilkunastu lat, szlifując fach i ciągle starając się rozwijać nasze umiejętności. W czasach, gdy fotografować może praktycznie każdy warto zaufać
-              doświadczeniu.
+              <strong>Fotografią</strong> zajmujemy się od kilkunastu lat, szlifując fach i ciągle starając się rozwijać nasze <strong>umiejętności</strong>. W czasach, gdy <strong>fotografować</strong> może praktycznie każdy warto zaufać <strong>doświadczeniu</strong>.
             </div>
           </div>
         </li>
         <li>
           <div onClick={this.showTab} className="header">
-            Dziesiątki obsłużonych imprez
+            <strong>Dziesiątki obsłużonych imprez</strong>
           </div>
           <div className="body shadow-sm">
             <div className="acc-padding">
-              Portfolio dostępne na naszej stronie WWW to ledwie kropla w morzu wszystkich zleceń które wykonaliśmy. Do tej pory obsłużyliśmy kilkaset różnych imprez okolicznościowych, plenerowych i
+              <strong>Portfolio</strong> dostępne na naszej stronie WWW to ledwie kropla w morzu wszystkich zleceń które wykonaliśmy. Do tej pory obsłużyliśmy kilkaset różnych imprez okolicznościowych, plenerowych i
               masowych. Z chęcią podzielimy się szczegółowym portfolio w trakcie kontaktu.
             </div>
           </div>
         </li>
         <li>
           <div onClick={this.showTab} className="header">
-            Najnowocześniejsze zaplecze sprzętowe
+            <strong>Najnowocześniejsze zaplecze sprzętowe</strong>
           </div>
           <div className="body shadow-sm">
             <div className="acc-padding">
-              W fotografii liczą się niestety nie tylko umiejętności. Nasze zaplecze sprzętowe budujemy od kilku lat, regularnie uzupełniając je o kolejne aparaty i obiektywy dostosowane do pracy w
-              przeróżnych sytuacjach. Przed przystąpieniem do pracy skrupulatnie badamy środowisko w którym wykonywane będą zdjęcia aby dobrać najlepiej do tego przystosowany sprzęt fotograficzny.
+              W <strong>fotografii</strong> liczą się niestety nie tylko umiejętności. Nasze zaplecze sprzętowe budujemy od kilku lat, regularnie uzupełniając je o kolejne <strong>aparaty</strong> i obiektywy dostosowane do pracy w
+              przeróżnych sytuacjach. Przed przystąpieniem do pracy skrupulatnie badamy środowisko w którym wykonywane będą zdjęcia aby dobrać najlepiej do tego przystosowany sprzęt <strong>fotograficzny</strong>.
             </div>
           </div>
         </li>
@@ -54,7 +53,7 @@ export default class Accordion extends React.Component {
           <div className="body shadow-sm">
             <div className="acc-padding">
               Każdy Klient jest dla nas szczególny a do każdego zlecenia staramy się podchodzić indywidualnie. Staramy się pracować dyskretnie i z pełnym zaangażowaniem, tak aby Państwa wyjątkowa
-              chwila została uwieczniona jako niezwykła pamiątka. Każdą ofertę szczegółowo rozpatrujemy, kierując się tak Państwa wytycznymi jak i wspierając się naszym doświadczeniem. Zapraszamy do
+              chwila została uwieczniona jako niezwykła <strong>pamiątka</strong>. Każdą ofertę szczegółowo rozpatrujemy, kierując się tak Państwa wytycznymi jak i wspierając się naszym doświadczeniem. Zapraszamy do
               kontaktu!
             </div>
           </div>

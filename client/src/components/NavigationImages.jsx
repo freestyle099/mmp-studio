@@ -22,19 +22,19 @@ export default class NavigationImages extends React.Component {
             <div className="valign-wrapper">
               <Link onClick={this.goToTop} to="/">
                 <img src={process.env.PUBLIC_URL + '/logo_studio.png'} alt="" />
-                <p>Fotografia ślubna i okolicznościowa</p>
+                <h3>Fotografia ślubna i okolicznościowa</h3>
               </Link>
             </div>
             <div className="valign-wrapper">
               <Link onClick={this.goToTop} to="/fotobudka/">
                 <img src={process.env.PUBLIC_URL + '/logo_fotobudka.png'} />
-                <p>Klasyczna fotobudka w nowoczesnym stylu</p>
+                <h3>Klasyczna fotobudka w nowoczesnym stylu</h3>
               </Link>
             </div>
             <div className="valign-wrapper">
               <Link onClick={this.goToTop} to="/jubiler/">
                 <img src={process.env.PUBLIC_URL + '/logo_jubiler.png'} alt="" />
-                <p>Obrączki ślubne i wyroby jubilerskie</p>
+                <h3>Obrączki ślubne i wyroby jubilerskie</h3>
               </Link>
             </div>
           </div>

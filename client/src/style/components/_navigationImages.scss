@@ -1,6 +1,5 @@
 @import '../variables';
 
-
 .nav-img-container {
   background-color: $white;
   border-top: 4px solid $main-color;
@@ -50,8 +49,13 @@
           width: 70%;
           object-fit: contain;
         }
-        p {
+        h3 {
+          font-size: 16px;
           margin: 0;
+          font: {
+            weight: 300;
+            family: $Lato-font;
+          }
         }
       }
     }

@@ -14,7 +14,7 @@ export default class NavigationImages extends React.Component {
   };
   render() {
     return (
-      <div id="navImg" className={'nav-img-container ' + this.state.class}>
+      <section id="navImg" className={'nav-img-container ' + this.state.class}>
         <div className="container">
           <h2>Zajmujemy się jeszcze...</h2>
 
@@ -39,7 +39,7 @@ export default class NavigationImages extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     );
   }
   componentDidMount() {

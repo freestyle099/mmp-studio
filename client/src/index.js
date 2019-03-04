@@ -13,7 +13,6 @@ import JubilerGallery from './components/JubilerGallery';
 import Recommend from './components/Recommend';
 import Footer from './components/Footer';
 
-
 import './style/style.scss';
 import Video from './components/Video';
 import GoToTop from './components/GoToTop';
@@ -24,9 +23,6 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          <MetaTags>
-            <meta name="viewport" content="initial-scale=1, viewport-fit=cover" />
-          </MetaTags>
           <GoToTop />
           <Switch>
             <Route exact path="/" component={MMPStudio} />

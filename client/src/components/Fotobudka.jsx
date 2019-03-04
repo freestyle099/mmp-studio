@@ -34,7 +34,7 @@ export default class Fotobudka extends React.Component {
       <div>
         <Helmet>
           <title>MMPStudio Fotobudka - Magiczne urządzenie na Twoją imprezę!</title>
-          <meta name="description" content="Szukasz profesjonalnego urządzenia do robienia zdjęć na weselach ? Fotobudka to urządzenie właśnie na Twoje wesele! To magiczne urządzenie rozkręci każdą imprezę i pozwoli Twoim gościom zapamiętać je na długo! Każde selfie drukowane jest w parę sekund!" />
+          <meta name="description" content="Szukasz profesjonalnego urządzenia do robienia zdjęć na weselach ? Na stronie mmpstudio.pl znajdziesz urządzenie właśnie na Twoje wesele! To magiczne urządzenie rozkręci każdą imprezę i pozwoli Twoim gościom zapamiętać je na długo! Każde selfie drukowane jest w parę sekund!" />
         </Helmet>
         <div className="con-fb">
           <SmallCarousel images={this.images} />

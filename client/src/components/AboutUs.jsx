@@ -13,7 +13,8 @@ export default class AboutUs extends React.Component {
             </div>
             <div>
               <p>
-                Jesteśmy rodzinną firmą, w której wieloletnie <strong>doświadczenie</strong> i <strong>pasja</strong> łączy się z <strong>profesjonalnym</strong> podejściem do każdego zlecenia.
+                Jesteśmy rodzinną firmą zajmującą się <strong>fotografią</strong>, w której wieloletnie <strong>doświadczenie</strong> i <strong>pasja</strong> łączy się z{' '}
+                <strong>profesjonalnym</strong> podejściem do każdego zlecenia.
               </p>
               <p>Początki firmy sięgają 1997 roku od tego czasu nieustannie się rozwijamy.</p>
               <p>

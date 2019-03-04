@@ -7,10 +7,18 @@ const path = require('path');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use('/api', api);
+app.use('/contact', contact);
 
 const mongoose = require('mongoose');
 const prod = require('./config/prod');
 const keys = require('./config/keys');
+
+// Development
+// mongoose
+//   .connect('mongodb://localhost/playground')
+//   .then(() => console.log('Connected to mongoDB...'))
+//   .catch(err => console.log(new Error('Colud not connect to mongoDB', err)));
 
 const mongoConnection = mode => {
   return mongoose
@@ -24,9 +32,6 @@ const mongoConnection = mode => {
 };
 
 mongoConnection(keys);
-
-app.use('/api', api);
-app.use('/contact', contact);
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));

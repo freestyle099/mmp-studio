@@ -26,6 +26,9 @@ export default class Gallery extends React.Component {
         this.setState({
           images: data,
         });
+      })
+      .catch(err => {
+        console.log(err);
       });
   }
 }

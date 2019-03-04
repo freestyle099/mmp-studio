@@ -13,6 +13,7 @@ import JubilerGallery from './components/JubilerGallery';
 import Recommend from './components/Recommend';
 import Footer from './components/Footer';
 
+
 import './style/style.scss';
 import Video from './components/Video';
 import GoToTop from './components/GoToTop';

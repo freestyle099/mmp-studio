@@ -28,7 +28,7 @@ export default class Fotobudka extends React.Component {
       url: process.env.PUBLIC_URL + '/fotobudka/7.jpg',
     },
   ];
-
+ 
   render() {
     return (
       <div>

@@ -12,9 +12,13 @@ export default class FotobudkaPrices extends React.Component {
               <div className="fotobudka-body">
                 <div>Duży wybór gadżetów!</div>
                 <div>Zdjęcia bez limitu</div>
-                <div>Galeria on-line</div>
+                <div>
+                  <strong>Galeria on-line</strong>
+                </div>
                 <div>Opieka asystenta</div>
-                <div>Dojazd do 20km</div>
+                <div>
+                  <strong>Dojazd</strong> do 20km
+                </div>
                 <div className="fotobudka-empty helper helper-height">X</div>
                 <div className="fotobudka-empty helper">X</div>
                 <div className="fotobudka-empty">X</div>
@@ -71,7 +75,7 @@ export default class FotobudkaPrices extends React.Component {
           <h2>Dodatkowe opcje</h2>
           <div className="fotobudka-additional">
             <p>
-              Dodatkowa godzina pracy fotobudki: <b>200zł</b>
+              Dodatkowa godzina pracy <strong>fotobudki</strong>: <b>200zł</b>
             </p>
             <p>
               Dodatkowy kilometr: <b>1zł</b>
@@ -80,7 +84,7 @@ export default class FotobudkaPrices extends React.Component {
               Dodatkowe wydruki zdjęć: <b>1zł/szt</b>
             </p>
             <p>
-              Fotoalbum z wybranymi zdjęciami: <b>150zł</b>
+              <strong>Fotoalbum</strong> z wybranymi zdjęciami: <b>150zł</b>
             </p>
             <p>
               Księga gości: <b>150zł</b>

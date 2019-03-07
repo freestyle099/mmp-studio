@@ -1,5 +1,6 @@
 import React from 'react';
 import Navigation from './Navigation';
+import { Helmet } from 'react-helmet';
 
 export default class Video extends React.Component {
   vimeo = 'https://player.vimeo.com/video/';
@@ -76,6 +77,11 @@ export default class Video extends React.Component {
   render() {
     return (
       <div className="video">
+        <Helmet>    
+          <title>MMPStudio - Galeria Wideo</title>
+          <meta name="description" content="Zobacz filmy zrealizowane na weselach, studniówkach itp. Nasze filmy są profesjonalnie zmontowane i perfekcyjnie uchwyciły każdą chwilę, aby każdy mógł przeżyć je na nowo. " />
+          <meta name="keywords" content="fotograf, zakopane," />
+        </Helmet>
         <Navigation />
         <h2>Wideo</h2>
         <div className="container">

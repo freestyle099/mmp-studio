@@ -16,7 +16,7 @@ export default class JubilerGallery extends React.Component {
       <div className="jub-gallery">
       <Helmet>
           <title>Profesjonalne wyroby jubilerskie w Zakopanem - Michał Fornalski</title>
-          <meta name="description" content="Szukasz biżuterii swoich marzeń? Zajmujemy się wyrobem biżuterii złotej, srebrnej, różnego typu obrączki, wisiorki, naszyjniki itp. Potrzebujesz biżuterii m.in. na wesela, na zaręczyny czy na własną wymarzoną okazję? Na naszej stronie znajdziesz biżuterię skomponowaną właśnie dla Ciebie!" />
+          <meta name="description" content="Jubiler Michał Fornalski, ul. Aleje 3-go Maja 31, Zakopane. Zapraszamy do obejrzenia galerii zdjęć własnoręcznych wyrobów jubilerskich. Biżuteria, obrączki, naszyjniki na każdą okazję!" />
           <meta name="keywords" content="" />
         </Helmet>
         <JubilerNavigation />

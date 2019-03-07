@@ -4,6 +4,7 @@ import React from 'react';
 import JubilerNavigation from './JubilerNavigation';
 import NavigationImages from './NavigationImages';
 import SmallCarousel from './SmallCarousel';
+import { Helmet } from 'react-helmet';
 
 export default class Jubiler extends React.Component {
   images = [
@@ -24,6 +25,11 @@ export default class Jubiler extends React.Component {
   render() {
     return (
       <div>
+        <Helmet>
+          <title>Profesjonalny jubiler w Zakopanem - Biżuteria na każdą okazję!</title>
+          <meta name="description" content="Szukasz biżuterii swoich marzeń? Zajmujemy się wyrobem biżuterii złotej, srebrnej, różnego typu obrączki, wisiorki, naszyjniki itp. Potrzebujesz biżuterii m.in. na wesela, na zaręczyny czy na własną wymarzoną okazję? Na naszej stronie znajdziesz biżuterię skomponowaną właśnie dla Ciebie!" />
+          <meta name="keywords" content="" />
+        </Helmet>
         <div className="con-jub">
           <SmallCarousel images={this.images} />
           <JubilerNavigation />

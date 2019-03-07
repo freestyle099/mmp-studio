@@ -54,6 +54,7 @@ export default class MMPStudio extends React.Component {
         <Helmet>
           <title>MMPStudio - Profesjonalny fotograf w Zakopanem</title>
           <meta name="description" content="Studio fotograficzne Michał Fornalski" />
+          <meta name="keywords" content="fotograf, zakopane," />
         </Helmet>
         <div className="navigation-container">
           <Navigation />

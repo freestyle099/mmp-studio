@@ -1,6 +1,7 @@
 import React from 'react';
 import JubilerNavigation from './JubilerNavigation';
 import Lightbox from './Lightbox';
+import { Helmet } from 'react-helmet';
 
 export default class JubilerGallery extends React.Component {
   constructor(props) {
@@ -13,6 +14,14 @@ export default class JubilerGallery extends React.Component {
   render() {
     return (
       <div className="jub-gallery">
+        <Helmet>
+          <title>Profesjonalne wyroby jubilerskie w Zakopanem - Michał Fornalski</title>
+          <meta
+            name="description"
+            content="Jubiler Michał Fornalski, ul. Aleje 3-go Maja 31, Zakopane. Zapraszamy do obejrzenia galerii zdjęć własnoręcznych wyrobów jubilerskich. Biżuteria, obrączki, naszyjniki na każdą okazję!"
+          />
+          <meta name="keywords" content="" />
+        </Helmet>
         <JubilerNavigation />
         {this.state.images && <Lightbox images={this.state.images} />}
       </div>

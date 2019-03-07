@@ -2,16 +2,16 @@
 
 // Gallery lightbox
 .gallery {
-  padding: 90px 0;
+  padding: 140px 0 90px 0;
 }
 .grid-gallery {
   display: grid;
-  grid-gap: 5px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 2px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   grid-template-rows: 250px;
+  grid-auto-rows: 250px;
   grid-auto-flow: dense;
 }
-
 .contextmenu {
   position: fixed;
   display: block;
@@ -66,6 +66,9 @@
     position: relative;
     height: 100%;
     width: 100%;
+    .loading {
+      background-color: transparent;
+    }
     .lg-arrows {
       position: absolute;
       top: 50%;

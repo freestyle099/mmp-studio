@@ -20,7 +20,7 @@ router.post('/', (req, res) => {
       .required(),
     phone: Joi.string()
       .min(3)
-      .max(10)
+      .max(20)
       .required(),
     message: Joi.string()
       .min(10)
@@ -31,18 +31,18 @@ router.post('/', (req, res) => {
   console.log(result);
 
   let transporter = nodemailer.createTransport({
-    host: 'mail30.mydevil.net',
+    host: 'smtp.gmail.com',
     port: 465,
     secure: true,
     auth: {
-      user: prod.username,
-      pass: prod.password
+      user: keys.username,
+      pass: keys.password
     }
   });
 
   let mailOptions = {
     from: `${req.body.firstName} ${req.body.surname} <${req.body.email}>`,
-    cc: prod.username, // list of receivers
+    cc: keys.username, // list of receivers
     to: `${req.body.firstName} ${req.body.surname} <${req.body.email}>`,
     subject: `Wiadomość - ${req.body.from}`, // Subject line
     text: 'Hello world', // plain text body
@@ -62,7 +62,7 @@ router.post('/', (req, res) => {
     if (err) {
       throw err;
     }
-    console.log(info);
+    res.send(result);
   });
 });
 

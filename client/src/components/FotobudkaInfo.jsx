@@ -5,20 +5,20 @@ export default class FotobudkaInfo extends React.Component {
     return (
       <div id="fotobudka-info" className='fb-info-bgc'>
         <div className="container">
-          <h2>Czym jest Fotobudka?</h2>
+          <h1>Czym jest Fotobudka?</h1>
           <div className="fotobudka-info">
             <div>
               <p>
-                Fotobudka to magiczne urządzenie z wbudowanym aparatem fotograficznym wysokiej klasy, który umożliwia szybkie i spontaniczne wykonywanie zdjęć bez udziału fotografa. To świetny sposób
-                na integrację i rozhulanie zabawy!
+                <strong>Fotobudka</strong> to magiczne <strong>urządzenie</strong> z wbudowanym <strong>aparatem</strong> <strong>fotograficznym</strong> wysokiej klasy, który umożliwia szybkie i spontaniczne wykonywanie <strong>zdjęć</strong> bez udziału <strong>fotografa</strong>. To świetny sposób
+                na integrację i rozhulanie <strong>zabawy</strong>!
               </p>
               <p>
-                Dostarczymy na miejsce gotowe do pracy urządzenie i asystenta, który pomoże Twoim gościom samodzielnie korzystać z fotobudki. Zapewniamy niezliczoną ilość gadżetów dla gości: okulary,
-                kapelusze, peruki, tabliczki czy opaski. Możesz również zamówić specjalne tło do zdjęć – tylko na Twoją imprezę.
+                Dostarczymy na miejsce gotowe do pracy urządzenie i <strong>asystenta</strong>, który pomoże Twoim gościom <strong>samodzielnie</strong> korzystać z <strong>fotobudki</strong>. Zapewniamy niezliczoną ilość <strong>gadżetów</strong> dla gości: <strong>okulary</strong>,
+                <strong>kapelusze</strong>, <strong>perułki</strong>, <strong>tabliczki</strong> czy <strong>opaski</strong>. Możesz również zamówić specjalne tło do zdjęć – tylko na <strong>Twoją imprezę</strong>.
               </p>
               <p className="pt-2">
-                Fotobudka daje pełną wolność w pozowaniu, ze względu na to, że nie ma fotografa, stoisz swobodnie, jak przed lustrem i widzisz każdą swoją minę w ekranie monitora, przez co masz wpływ
-                na swoją kreację :) To naprawdę takie proste! Wspólna zabawa ośmiela najbardziej wstydliwych i świetnie integruje.
+                <strong>Fotobudka</strong> daje pełną wolność w pozowaniu, ze względu na to, że nie ma <strong>fotografa</strong>, stoisz swobodnie, jak przed lustrem i widzisz każdą swoją minę w ekranie <strong>monitora</strong>, przez co masz wpływ
+                na swoją kreację :) To naprawdę takie proste! <strong>Wspólna zabawa</strong> ośmiela najbardziej wstydliwych i świetnie integruje.
               </p>
             </div>
             <div>

@@ -4,18 +4,20 @@ export default class Lightbox extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      openImage: 1,
+      openImage: false,
+      isLoading: false,
     };
   }
 
   menu;
   gallery;
 
-  startLightbox = e => {
+  startLightbox = async e => {
     e.preventDefault();
     if (window.innerWidth > 768) {
-      let index = e.target.dataset.image;
-      this.setState({
+      let index = parseInt(e.target.dataset.image);
+      await this.setState({
+        isLoading: true,
         openImage: index,
       });
       let lightbox = document.querySelector('.lightbox-container');
@@ -26,21 +28,25 @@ export default class Lightbox extends React.Component {
   closeLightbox = e => {
     if (e.target.classList.contains('lightbox')) {
       e.target.parentElement.style.display = 'none';
+      this.setState({ isLoading: false, openImage: 0 });
     }
     if (e.target.classList.contains('lg-close') || e.target.classList.contains('fa-times')) {
       document.querySelector('.lightbox-container').style.display = 'none';
+      this.setState({ isLoading: false, openImage: 0 });
     }
   };
 
   prevImage = () => {
     this.setState({
-      openImage: +this.state.openImage <= 0 ? (this.state.openImage = this.props.images.length - 1) : +this.state.openImage - 1,
+      isLoading: true,
+      openImage: this.state.openImage <= 1 ? this.props.images.length : this.state.openImage - 1,
     });
   };
 
   nextImage = () => {
     this.setState({
-      openImage: +this.state.openImage >= +this.props.images.length - 1 ? (this.state.openImage = 0) : +this.state.openImage + 1,
+      isLoading: true,
+      openImage: this.state.openImage >= this.props.images.length ? 1 : this.state.openImage + 1,
     });
   };
 
@@ -48,12 +54,11 @@ export default class Lightbox extends React.Component {
     return (
       <div className="gallery">
         <div className="container">
-          <h2>Galeria</h2>
           <div className="grid-gallery">
             {this.props.images.map(el => {
               return (
                 <div key={parseInt(el.id)} className={el.class ? el.class + ' imageGallery1' : 'imageGallery1'}>
-                  <a onClick={this.startLightbox} href={el.url} title={el.alt}>
+                  <a onClick={this.startLightbox} data-image={parseInt(el.id)} href={el.url} title={el.alt}>
                     <img src={el.tb} data-image={parseInt(el.id)} alt={el.alt} />
                   </a>
                 </div>
@@ -71,14 +76,19 @@ export default class Lightbox extends React.Component {
                 <button onClick={this.nextImage} className="lg-arrows lg-right">
                   <i className="fas fa-caret-right" />
                 </button>
-                <img src={this.props.images[this.state.openImage].url} alt="" />
+                {this.state.isLoading && (
+                  <div className="loading">
+                    <img src={process.env.PUBLIC_URL + '/Spinner-1s-200px-white.svg'} alt="" />
+                  </div>
+                )}
+                {this.state.openImage && <img onLoad={() => this.setState({ isLoading: false })} src={this.props.images[this.state.openImage - 1].url} alt="" />}
               </div>
             </div>
           </div>
         </div>
 
         {/*Context Menu*/}
-        <div className="contextmenu">This photo is &copy; by MMPStudio.</div>
+        <div className="contextmenu">This photo is &copy; by Józef Rzadkosz.</div>
       </div>
     );
   }

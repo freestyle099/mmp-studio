@@ -14,6 +14,12 @@ const mongoose = require('mongoose');
 const prod = require('./config/prod');
 const keys = require('./config/keys');
 
+// Development
+// mongoose
+//   .connect('mongodb://localhost/playground')
+//   .then(() => console.log('Connected to mongoDB...'))
+//   .catch(err => console.log(new Error('Colud not connect to mongoDB', err)));
+
 const mongoConnection = mode => {
   return mongoose
     .connect(
@@ -25,16 +31,7 @@ const mongoConnection = mode => {
     .catch(err => console.log(new Error('Colud not connect to mongoDB', err)));
 };
 
-if (process.env.NODE_ENV === 'development') {
-  mongoConnection(keys);
-} else if (process.env.NODE_ENV === 'production') {
-  mongoConnection(prod);
-} else if (process.env.NODE_ENV === 'testing') {
-  mongoose
-    .connect('mongodb://localhost/playground')
-    .then(() => console.log('Connected to mongoDB...'))
-    .catch(err => console.log(new Error('Colud not connect to mongoDB', err)));
-}
+mongoConnection(keys);
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));

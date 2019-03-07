@@ -80,7 +80,7 @@ export default class Navigation extends React.Component {
   };
   render() {
     return (
-      <div>
+      <React.Fragment>
         <div className="logo-phone">
           <NavLink onClick={this.goToTop} className="brand-logo" to="/">
             <img src={process.env.PUBLIC_URL + '/logo_studio.png'} alt="" />
@@ -164,7 +164,7 @@ export default class Navigation extends React.Component {
             </div>
           </nav>
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 

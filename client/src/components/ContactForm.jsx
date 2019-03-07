@@ -1,5 +1,5 @@
 import React from 'react';
-import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 
 export default class ContactForm extends React.Component {
   constructor(props) {
@@ -11,8 +11,8 @@ export default class ContactForm extends React.Component {
       phone: '',
       message: '',
       from: '',
-      errors: [],
-      show: false,
+      errors: null,
+      isLoading: false,
     };
   }
 
@@ -21,7 +21,7 @@ export default class ContactForm extends React.Component {
   errSurname = 'Pole Nazwisko nie może być puste i musi być dłuższe niż 3 znaki';
   errEmail = 'Pole E-mail nie może być puste';
   errEmailCorrect = 'Adres e-mail musi być poprawny';
-  errPhone = 'Numer telefonu musi zawierać 9 cyfr';
+  errPhone = 'Numer telefonu musi zawierać od 9 cyfr do 20 cyfr';
   errMessage = 'Pole Treść wiadomości nie może być puste i musi być dłuższe niż 10 znaków';
 
   handleFirstName = e => {
@@ -120,7 +120,7 @@ export default class ContactForm extends React.Component {
   handlePhone = e => {
     const phone = e.target.value;
     // Validation
-    if (phone.length !== 9) {
+    if (phone.length < 9 || phone.length > 20) {
       if (this.errors.indexOf(this.errPhone) < 0) {
         this.errors.push(this.errPhone);
       }
@@ -202,24 +202,20 @@ export default class ContactForm extends React.Component {
       document.getElementById('message').classList.add('input-bottom-validate');
     } else if (this.state.errors.length > 0) {
     } else {
-      // Alert after submiting the form
-
-      swal({
-        title: 'Sukces!',
-        text: 'Wiadomość e-mail została wysłana prawidłowo',
-        type: 'success',
-        confirmButtonText: 'Zamknij',
+      this.setState({
+        isLoading: true,
       });
 
       // Make an object and send it
       const obj = {
-        from: this.state.from,
+        from: this.props.from,
         firstName: this.state.firstName,
         surname: this.state.surname,
         email: this.state.email,
         phone: this.state.phone,
         message: this.state.message,
       };
+
       fetch('/contact', {
         method: 'POST',
         headers: {
@@ -229,7 +225,29 @@ export default class ContactForm extends React.Component {
         body: JSON.stringify(obj),
       })
         .then(resp => resp.json())
-        .then(data => console.log(data));
+        .then(() => {
+          // Alert after submiting the form
+          this.setState({
+            isLoading: false,
+          });
+          Swal.fire({
+            title: 'Sukces!',
+            text: 'Wiadomość wysłana poprawnie',
+            type: 'success',
+            confirmButtonText: 'Zamknij',
+          });
+        })
+        .catch(() => {
+          this.setState({
+            isLoading: false,
+          });
+          Swal.fire({
+            title: 'Ups...',
+            text: 'Wiadomość nie została wysłana poprawnie',
+            type: 'error',
+            confirmButtonText: 'Zamknij',
+          });
+        });
 
       const form = document.querySelector('.form');
       const input = form.querySelectorAll('input:not([type=hidden]), textarea');
@@ -237,14 +255,13 @@ export default class ContactForm extends React.Component {
         el.value = '';
       }
       this.setState({
-        firstName: (this.state.firstName = ''),
-        surname: (this.state.surname = ''),
-        email: (this.state.email = ''),
-        phone: (this.state.phone = ''),
-        message: (this.state.message = ''),
+        firstName: '',
+        surname: '',
+        email: '',
+        phone: '',
+        message: '',
       });
     }
-
     this.setState({
       errors: this.errors,
     });
@@ -255,11 +272,15 @@ export default class ContactForm extends React.Component {
       <div id="contact-form" className={this.props.class + ' contact-form'}>
         <div className="container">
           <h2>Formularz kontaktowy</h2>
-          <div className="error">
-            {this.state.errors.map((el, index) => (
-              <div key={index}>{el}</div>
-            ))}
-          </div>
+
+          {this.state.errors && (
+            <div className="error">
+              {this.state.errors.map((el, index) => (
+                <div key={index}>{el}</div>
+              ))}
+            </div>
+          )}
+
           <form className="form" onSubmit={this.sendForm}>
             <input id="type" type="hidden" value={this.props.from} />
             <div>
@@ -284,6 +305,14 @@ export default class ContactForm extends React.Component {
                 <button className={this.props.btn + ' btn btn-primary'} type="submit" name="action">
                   Wyślij
                 </button>
+                {this.state.isLoading && (
+                  <div className="loading">
+                    <div>
+                      <img src="/Spinner-1s-200px-white.svg" alt="" />
+                      <div>Wysyłanie wiadomości...</div>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </form>

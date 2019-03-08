@@ -1,10 +1,14 @@
 import React from 'react';
 import Navigation from './Navigation';
+import { Helmet } from 'react-helmet';
 
 export default class Regulations extends React.Component {
   render() {
     return (
       <div>
+        <Helmet>
+          <meta name="robots" content="noindex, nofollow" />
+        </Helmet>
         <Navigation />
         <div className="container regulation">
           <p>

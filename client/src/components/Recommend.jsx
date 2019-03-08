@@ -1,10 +1,14 @@
 import React from 'react';
 import Navigation from './Navigation';
+import { Helmet } from 'react-helmet';
 
 export default class Recommend extends React.Component {
   render() {
     return (
       <div>
+        <Helmet>
+          <meta name="robots" content="noindex, follow" />
+        </Helmet>
         <Navigation />
         <div className="container recommend">
           <img src={process.env.PUBLIC_URL + '/mlm.png'} alt="" />

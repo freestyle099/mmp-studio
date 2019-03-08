@@ -58,7 +58,7 @@ export default class Lightbox extends React.Component {
             {this.props.images.map(el => {
               return (
                 <div key={parseInt(el.id)} className={el.class ? el.class + ' imageGallery1' : 'imageGallery1'}>
-                  <a onClick={this.startLightbox} data-image={parseInt(el.id)} href={el.url} title={el.alt}>
+                  <a onClick={this.startLightbox} data-image={parseInt(el.id)} href={el.url}>
                     <img src={el.tb} data-image={parseInt(el.id)} alt={el.alt} />
                   </a>
                 </div>

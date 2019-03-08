@@ -12,39 +12,48 @@ export default class MMPStudio extends React.Component {
   images = [
     {
       id: 1,
-      url: process.env.PUBLIC_URL + '/photos/1.jpg',
+      url: process.env.PUBLIC_URL + '/photos/plener-tatry.jpg',
+      alt: 'plener tatry',
     },
     {
       id: 2,
-      url: process.env.PUBLIC_URL + '/photos/2.jpg',
+      url: process.env.PUBLIC_URL + '/photos/wesele.jpg',
+      alt: 'wesele',
     },
     {
       id: 3,
-      url: process.env.PUBLIC_URL + '/photos/3.jpg',
+      url: process.env.PUBLIC_URL + '/photos/weselny-plener-w-tatrach.jpg',
+      alt: 'weselny plener w tatrach',
     },
     {
       id: 4,
-      url: process.env.PUBLIC_URL + '/photos/4.jpg',
+      url: process.env.PUBLIC_URL + '/photos/plener-tatry-zachodnie.jpg',
+      alt: 'plener tatry zachodnie',
     },
     {
       id: 5,
-      url: process.env.PUBLIC_URL + '/photos/5.jpg',
+      url: process.env.PUBLIC_URL + '/photos/morskie-oko.jpg',
+      alt: 'morskie oko',
     },
     {
       id: 6,
-      url: process.env.PUBLIC_URL + '/photos/6.jpg',
+      url: process.env.PUBLIC_URL + '/photos/plener-na-slowacji.jpg',
+      alt: 'plener na słowacji',
     },
     {
       id: 7,
-      url: process.env.PUBLIC_URL + '/photos/7.jpg',
+      url: process.env.PUBLIC_URL + '/photos/obraczki.jpg',
+      alt: 'obrączki',
     },
     {
       id: 8,
-      url: process.env.PUBLIC_URL + '/photos/8.jpg',
+      url: process.env.PUBLIC_URL + '/photos/wesele-widok-z-gubalowki.jpg',
+      alt: 'wesele widok z gubałówki',
     },
     {
       id: 9,
-      url: process.env.PUBLIC_URL + '/photos/9.jpg',
+      url: process.env.PUBLIC_URL + '/photos/plener-na-polanie-w-zakopanem.jpg',
+      alt: 'plener na polanie w zakopanem',
     },
   ];
 

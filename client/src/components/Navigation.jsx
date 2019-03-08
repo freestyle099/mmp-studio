@@ -83,7 +83,7 @@ export default class Navigation extends React.Component {
       <React.Fragment>
         <div className="logo-phone">
           <NavLink onClick={this.goToTop} className="brand-logo" to="/">
-            <img src={process.env.PUBLIC_URL + '/logo_studio.png'} alt="" />
+            <img src={process.env.PUBLIC_URL + '/mmpstudio-fotograf-zakopane.png'} alt="mmpstudio fotograf zakopane" />
           </NavLink>
         </div>
         <div className={this.state.showMenu ? 'menu-button menu-button-show' : 'menu-button'} onClick={this.showMenu}>
@@ -143,7 +143,7 @@ export default class Navigation extends React.Component {
 
                 <li className="logo-container">
                   <NavLink onClick={this.goToTop} className="brand-logo" to="/">
-                    <img src={process.env.PUBLIC_URL + '/logo_studio.png'} alt="" />
+                    <img src={process.env.PUBLIC_URL + '/mmpstudio-fotograf-zakopane.png'} alt="mmpstudio fotograf zakopane" />
                   </NavLink>
                 </li>
 

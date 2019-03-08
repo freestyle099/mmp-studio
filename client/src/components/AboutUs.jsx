@@ -9,7 +9,7 @@ export default class AboutUs extends React.Component {
           <h2>O nas</h2>
           <div className="about-us-container">
             <div>
-              <img src={process.env.PUBLIC_URL + '/mya2.png'} alt="" />
+              <img src={process.env.PUBLIC_URL + '/mmpstudio-michal-michal-patryk.png'} alt="mmpstudio - michal michal patryk" />
             </div>
             <div>
               <p>
@@ -18,7 +18,7 @@ export default class AboutUs extends React.Component {
               </p>
               <p>Początki firmy sięgają 1997 roku od tego czasu nieustannie się rozwijamy.</p>
               <p>
-                W tym momencie na swoim koncie mamy <strong>setki</strong> obsłużonych <strong>Wesel</strong> i Dziesiątki <strong>Imprez</strong> Okolicznościowych.{' '}
+                W tym momencie na swoim koncie mamy setki obsłużonych <strong>Wesel</strong> i Dziesiątki <strong>Imprez</strong> Okolicznościowych.{' '}
               </p>
               <p>
                 Możemy poszczycić się coraz większym zainteresowaniem naszą ofertą, oraz bardzo wysoką jakością naszych <strong>usług</strong>.

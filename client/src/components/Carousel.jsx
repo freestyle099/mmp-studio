@@ -45,7 +45,7 @@ export default class Carousel extends React.Component {
 
   render() {
     return (
-      <div className="my-slider">
+      <header className="my-slider">
         <button onClick={this.prevSlide} className="arrows left">
           <i className="fas fa-angle-left" />
         </button>
@@ -53,7 +53,7 @@ export default class Carousel extends React.Component {
           <i className="fas fa-angle-right" />
         </button>
         {this.props.images.map((el, index) => {
-          return <img className={this.state.slider === index ? 'active-slider slider' : 'slider'} key={index} src={el.url} />;
+          return <img className={this.state.slider === index ? 'active-slider slider' : 'slider'} key={index} src={el.url} alt={el.alt} />;
         })}
         <div className="circle-container">
           {this.props.images.map((el, index) => {
@@ -64,7 +64,7 @@ export default class Carousel extends React.Component {
             );
           })}
         </div>
-      </div>
+      </header>
     );
   }
   componentDidMount() {

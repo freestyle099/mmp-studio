@@ -13,8 +13,8 @@ export default class FotobudkaInfo extends React.Component {
                 spontaniczne wykonywanie <strong>zdjęć</strong> bez udziału <strong>fotografa</strong>. To świetny sposób na integrację i rozhulanie <strong>zabawy</strong>!
               </p>
               <p>
-                Dostarczymy na miejsce gotowe do pracy urządzenie i <strong>asystenta</strong>, który pomoże Twoim gościom <strong>samodzielnie</strong> korzystać z <strong>fotobudki</strong>.
-                Zapewniamy niezliczoną ilość <strong>gadżetów</strong> dla gości: <strong>okulary</strong>,<strong>kapelusze</strong>, <strong>perułki</strong>, <strong>tabliczki</strong> czy{' '}
+                Dostarczymy na miejsce gotowe do pracy urządzenie i asystenta, który pomoże Twoim gościom samodzielnie korzystać z <strong>fotobudki</strong>. Zapewniamy niezliczoną ilość
+                <strong>gadżetów</strong> dla gości: <strong>okulary</strong>,<strong>kapelusze</strong>, <strong>perułki</strong>, <strong>tabliczki</strong> czy
                 <strong>opaski</strong>. Możesz również zamówić specjalne tło do zdjęć – tylko na <strong>Twoją imprezę</strong>.
               </p>
               <p className="pt-2">

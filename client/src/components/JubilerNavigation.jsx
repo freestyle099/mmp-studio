@@ -69,7 +69,7 @@ export default class JubilerNavigation extends React.Component {
       <div>
         <div className="logo-phone">
           <NavLink onClick={this.goToTop} className="brand-logo" to="/jubiler/">
-            <img src={process.env.PUBLIC_URL + '/logo_jubiler.png'} alt="" />
+            <img src={process.env.PUBLIC_URL + '/jubiler-zakopane.png'} alt="" />
           </NavLink>
         </div>
         <div className={this.state.showMenu ? 'menu-button menu-button-show' : 'menu-button'} onClick={this.showMenu}>
@@ -116,7 +116,7 @@ export default class JubilerNavigation extends React.Component {
                 </li>
                 <li className="logo-container">
                   <Link onClick={this.goToTop} className="brand-logo jub-logo" to="/jubiler/">
-                    <img src={process.env.PUBLIC_URL + '/logo_jubiler.png'} alt="" />
+                    <img src={process.env.PUBLIC_URL + '/jubiler-zakopane.png'} alt="" />
                   </Link>
                 </li>
                 <li>

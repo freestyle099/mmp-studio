@@ -10,15 +10,18 @@ export default class Jubiler extends React.Component {
   images = [
     {
       id: 1,
-      url: process.env.PUBLIC_URL + '/jubiler/1.jpg',
+      url: process.env.PUBLIC_URL + '/jubiler/pierscionki-zareczynowe.jpg',
+      alt: 'pierscionki zareczynowe',
     },
     {
       id: 2,
-      url: process.env.PUBLIC_URL + '/jubiler/2.jpg',
+      url: process.env.PUBLIC_URL + '/jubiler/obraczki-pierscionki.jpg',
+      alt: 'obraczki pierscionki',
     },
     {
       id: 3,
-      url: process.env.PUBLIC_URL + '/jubiler/3.jpg',
+      url: process.env.PUBLIC_URL + '/jubiler/jubiler-obraczki-zakopane.jpg',
+      alt: 'jubiler obraczki zakopane',
     },
   ];
 
@@ -43,16 +46,15 @@ export default class Jubiler extends React.Component {
             <h2>O nas</h2>
             <div className="container jub-info">
               <div>
-                Zapraszamy do skorzystania z usług naszej <strong>pracowni</strong> Jubilersko Złotniczej którą prowadzimy od pokoleń w <strong>Zakopanem</strong> w ofercie posiadamy ponad 200 wzorów{' '}
-                <strong>ręcznie</strong> wykonanych <strong>obrączek</strong> i przy wybraniu naszych usług Foto/Video oferujemy <strong>rabat</strong> na ręcznie wykonane <strong>obrączki</strong> w
-                wysokości -20%.
+                Zapraszamy do skorzystania z usług naszej <strong>pracowni Jubilersko Złotniczej</strong> którą prowadzimy od pokoleń w <strong>Zakopanem</strong> w ofercie posiadamy ponad 200 wzorów{' '}
+                <strong>ręcznie wykonanych obrączek</strong> i przy wybraniu naszych usług Foto/Video oferujemy <strong>rabat</strong> na ręcznie wykonane <strong>obrączki</strong> w wysokości{' '}
+                <strong>-20%</strong>.
                 <p>
-                  <strong>Jubiler</strong> to jeden z zawodów, który wymaga niebywałego poczucia <strong>estetyki</strong>, znajomości trendów w <strong>projektowaniu</strong>{' '}
-                  <strong>biżuterii</strong>, przy zachowaniu niepowtarzalnego, własnego stylu. Często używa się zamiennie określenia <strong>złotnik</strong>. W praktyce złotnik jest rzemieślnikiem,
-                  a jego praca polega na obróbce i wytwarzaniu <strong>wyrobów</strong> z <strong>metali szlachetnych</strong>, natomiast jubiler zajmuje się wyceną, <strong>sprzedażą</strong> bądź{' '}
-                  <strong>naprawą</strong> <strong>biżuterii</strong>. Jest to jednak umowne rozróżnienie, ponieważ najcześciej <strong>jubiler</strong> jest także <strong>złotnikiem</strong>.
-                  Niewątpliwie jubiler to zawód na wagę <strong>złota</strong> - dosłownie i w przenośni. Niesmaowity zmysł estetyczny pozwala dopasować projekt do wymagań każdego{' '}
-                  <strong>klienta</strong> z osobna.
+                  <strong>Jubiler</strong> to jeden z zawodów, który wymaga niebywałego <strong>poczucia estetyki</strong>, znajomości trendów w <strong>projektowaniu biżuterii</strong>, przy
+                  zachowaniu niepowtarzalnego, własnego stylu. Często używa się zamiennie określenia <strong>złotnik</strong>. W praktyce złotnik jest rzemieślnikiem, a jego praca polega na obróbce i
+                  wytwarzaniu <strong>wyrobów</strong> z <strong>metali szlachetnych</strong>, natomiast <strong>jubiler</strong> zajmuje się wyceną, <strong>sprzedażą</strong> bądź{' '}
+                  <strong>naprawą biżuterii</strong>. Jest to jednak umowne rozróżnienie, ponieważ najcześciej <strong>jubiler</strong> jest także <strong>złotnikiem</strong>. Niewątpliwie jubiler to
+                  zawód <strong>na wagę złota</strong> - dosłownie i w przenośni. Niesmaowity zmysł estetyczny pozwala dopasować projekt do wymagań każdego klienta z osobna.
                 </p>
               </div>
               <div>
@@ -84,9 +86,11 @@ export default class Jubiler extends React.Component {
                   <strong>Sprzedaż biżuterii</strong>.
                 </li>
                 <li>
-                  Skup złomu <strong>złota</strong>, <strong>srebra</strong> i <strong>kamieni szlachetnych</strong>.
+                  <strong>Skup złomu złota</strong>, <strong>srebra</strong> i <strong>kamieni szlachetnych</strong>.
                 </li>
-                <li>Porady fachowe.</li>
+                <li>
+                  <strong>Porady fachowe</strong>.
+                </li>
               </ul>
             </div>
           </div>

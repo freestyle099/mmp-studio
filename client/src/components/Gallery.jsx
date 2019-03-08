@@ -16,8 +16,10 @@ export default class Gallery extends React.Component {
       <div>
         <Helmet>
           <title>Profesjonalny fotograf w Zakopanem - Portfolio</title>
-          <meta name="description" content="Przedstawiam Państwu własne portfolio ze zdjęć zrobionych na różnych plenerach, weselach, komuniach, chrzcinach i różnego typu imprezach. Szukasz fotografa z pasją i zaangażowaniem? Wejdź na naszą stronę i mmpstudio.pl/galeria i zobacz naszą ofertę!" />
-          <meta name="keywords" content="fotograf, zakopane," />
+          <meta
+            name="description"
+            content="Przedstawiam Państwu własne portfolio ze zdjęć zrobionych na różnych plenerach, weselach, komuniach, chrzcinach i różnego typu imprezach. Szukasz fotografa z pasją i zaangażowaniem? Wejdź na naszą stronę i mmpstudio.pl/galeria i zobacz naszą ofertę!"
+          />
         </Helmet>
         <Navigation />
         {this.state.images && <Lightbox images={this.state.images} />}

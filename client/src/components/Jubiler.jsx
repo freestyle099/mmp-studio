@@ -31,7 +31,6 @@ export default class Jubiler extends React.Component {
             name="description"
             content="Szukasz biżuterii swoich marzeń? Zajmujemy się wyrobem biżuterii złotej, srebrnej, różnego typu obrączki, wisiorki, naszyjniki itp. Potrzebujesz biżuterii m.in. na wesela, na zaręczyny czy na własną wymarzoną okazję? Na naszej stronie znajdziesz biżuterię skomponowaną właśnie dla Ciebie!"
           />
-          <meta name="keywords" content="" />
         </Helmet>
         <div className="con-jub">
           <SmallCarousel images={this.images} />
@@ -43,13 +42,16 @@ export default class Jubiler extends React.Component {
             <h2>O nas</h2>
             <div className="container jub-info">
               <div>
-                Zapraszamy do skorzystania z usług naszej <strong>pracowni</strong> Jubilersko Złotniczej którą prowadzimy od pokoleń w <strong>Zakopanem</strong> w ofercie posiadamy ponad 200 wzorów <strong>ręcznie</strong> wykonanych <strong>obrączek</strong> i przy
-                wybraniu naszych usług Foto/Video oferujemy <strong>rabat</strong> na ręcznie wykonane <strong>obrączki</strong> w wysokości -20%.
+                Zapraszamy do skorzystania z usług naszej <strong>pracowni</strong> Jubilersko Złotniczej którą prowadzimy od pokoleń w <strong>Zakopanem</strong> w ofercie posiadamy ponad 200 wzorów{' '}
+                <strong>ręcznie</strong> wykonanych <strong>obrączek</strong> i przy wybraniu naszych usług Foto/Video oferujemy <strong>rabat</strong> na ręcznie wykonane <strong>obrączki</strong> w
+                wysokości -20%.
                 <p>
-                  <strong>Jubiler</strong> to jeden z zawodów, który wymaga niebywałego poczucia <strong>estetyki</strong>, znajomości trendów w <strong>projektowaniu</strong> <strong>biżuterii</strong>, przy zachowaniu niepowtarzalnego, własnego stylu. Często używa
-                  się zamiennie określenia <strong>złotnik</strong>. W praktyce złotnik jest rzemieślnikiem, a jego praca polega na obróbce i wytwarzaniu <strong>wyrobów</strong> z <strong>metali szlachetnych</strong>, natomiast jubiler zajmuje się
-                  wyceną, <strong>sprzedażą</strong> bądź <strong>naprawą</strong> <strong>biżuterii</strong>. Jest to jednak umowne rozróżnienie, ponieważ najcześciej <strong>jubiler</strong> jest także <strong>złotnikiem</strong>. Niewątpliwie jubiler to zawód na wagę <strong>złota</strong> -
-                  dosłownie i w przenośni. Niesmaowity zmysł estetyczny pozwala dopasować projekt do wymagań każdego <strong>klienta</strong> z osobna.
+                  <strong>Jubiler</strong> to jeden z zawodów, który wymaga niebywałego poczucia <strong>estetyki</strong>, znajomości trendów w <strong>projektowaniu</strong>{' '}
+                  <strong>biżuterii</strong>, przy zachowaniu niepowtarzalnego, własnego stylu. Często używa się zamiennie określenia <strong>złotnik</strong>. W praktyce złotnik jest rzemieślnikiem,
+                  a jego praca polega na obróbce i wytwarzaniu <strong>wyrobów</strong> z <strong>metali szlachetnych</strong>, natomiast jubiler zajmuje się wyceną, <strong>sprzedażą</strong> bądź{' '}
+                  <strong>naprawą</strong> <strong>biżuterii</strong>. Jest to jednak umowne rozróżnienie, ponieważ najcześciej <strong>jubiler</strong> jest także <strong>złotnikiem</strong>.
+                  Niewątpliwie jubiler to zawód na wagę <strong>złota</strong> - dosłownie i w przenośni. Niesmaowity zmysł estetyczny pozwala dopasować projekt do wymagań każdego{' '}
+                  <strong>klienta</strong> z osobna.
                 </p>
               </div>
               <div>
@@ -62,13 +64,27 @@ export default class Jubiler extends React.Component {
               <h2>Usługi</h2>
               <ul>
                 <h3>Pracownia Złotnicza poleca swoje usługi w zakresie:</h3>
-                <li><strong>Wykonywanie biżuterii złotej</strong> z materiałów własnych i powierzonych.</li>
-                <li><strong>Zmniejszanie i powiększanie pierścionków, obrączek</strong>.</li>
-                <li><strong>Naprawa starej i współczesnej biżuterii złotej, srebrnej</strong>.</li>
-                <li><strong>Naprawa kopert zegarkowych i bransolet</strong>.</li>
-                <li><strong>Przewlekanie korali i pereł</strong> itp.</li>
-                <li><strong>Sprzedaż biżuterii</strong>.</li>
-                <li>Skup złomu <strong>złota</strong>, <strong>srebra</strong> i <strong>kamieni szlachetnych</strong>.</li>
+                <li>
+                  <strong>Wykonywanie biżuterii złotej</strong> z materiałów własnych i powierzonych.
+                </li>
+                <li>
+                  <strong>Zmniejszanie i powiększanie pierścionków, obrączek</strong>.
+                </li>
+                <li>
+                  <strong>Naprawa starej i współczesnej biżuterii złotej, srebrnej</strong>.
+                </li>
+                <li>
+                  <strong>Naprawa kopert zegarkowych i bransolet</strong>.
+                </li>
+                <li>
+                  <strong>Przewlekanie korali i pereł</strong> itp.
+                </li>
+                <li>
+                  <strong>Sprzedaż biżuterii</strong>.
+                </li>
+                <li>
+                  Skup złomu <strong>złota</strong>, <strong>srebra</strong> i <strong>kamieni szlachetnych</strong>.
+                </li>
                 <li>Porady fachowe.</li>
               </ul>
             </div>
@@ -78,9 +94,15 @@ export default class Jubiler extends React.Component {
               <h2>Kontakt</h2>
               <div className="flex-container">
                 <div>
-                  <p><strong>Pracownia Jubilersko - Złotnicza</strong></p>
-                  <p><strong>Michał Fornalski</strong></p>
-                  <p><strong>Al. 3-go Maja 31</strong></p>
+                  <p>
+                    <strong>Pracownia Jubilersko - Złotnicza</strong>
+                  </p>
+                  <p>
+                    <strong>Michał Fornalski</strong>
+                  </p>
+                  <p>
+                    <strong>Al. 3-go Maja 31</strong>
+                  </p>
                   <p>603 113 844</p>
                 </div>
                 <div>

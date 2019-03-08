@@ -77,10 +77,12 @@ export default class Video extends React.Component {
   render() {
     return (
       <div className="video">
-        <Helmet>    
+        <Helmet>
           <title>MMPStudio - Galeria Wideo</title>
-          <meta name="description" content="Zobacz filmy zrealizowane na weselach, studniówkach itp. Nasze filmy są profesjonalnie zmontowane i perfekcyjnie uchwyciły każdą chwilę, aby każdy mógł przeżyć je na nowo. " />
-          <meta name="keywords" content="fotograf, zakopane," />
+          <meta
+            name="description"
+            content="Zobacz filmy zrealizowane na weselach, studniówkach itp. Nasze filmy są profesjonalnie zmontowane i perfekcyjnie uchwyciły każdą chwilę, aby każdy mógł przeżyć je na nowo. "
+          />
         </Helmet>
         <Navigation />
         <h2>Wideo</h2>

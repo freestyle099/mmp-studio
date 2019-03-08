@@ -53,8 +53,10 @@ export default class MMPStudio extends React.Component {
       <div>
         <Helmet>
           <title>MMPStudio - Profesjonalny fotograf w Zakopanem</title>
-          <meta name="description" content="Szukasz fotografa na własną imprezę? MMPStudio to firma stworzona właśnie dla Ciebie! Oferujemy profesjonalne robienie zdjęć na weselach, komuniach, chrzcinach i różnego typu imprezach. Fotografią zajmujemy się już kilka lat. Doświadczenie i pełne zaangażowanie to nasze atuty! Sprawdź naszą ofertę!" />
-          <meta name="keywords" content="fotograf, zakopane" />
+          <meta
+            name="description"
+            content="Szukasz fotografa na własną imprezę? MMPStudio to firma stworzona właśnie dla Ciebie! Oferujemy profesjonalne robienie zdjęć na weselach, komuniach, chrzcinach i różnego typu imprezach. Fotografią zajmujemy się już kilka lat. Doświadczenie i pełne zaangażowanie to nasze atuty! Sprawdź naszą ofertę!"
+          />
         </Helmet>
         <div className="navigation-container">
           <Navigation />

@@ -13,19 +13,23 @@ export default class Fotobudka extends React.Component {
   images = [
     {
       id: 1,
-      url: process.env.PUBLIC_URL + '/fotobudka/3.jpg',
+      url: process.env.PUBLIC_URL + '/fotobudka/fotobudka-zakopane.jpg',
+      alt: 'fotobudka zakopane',
     },
     {
       id: 2,
-      url: process.env.PUBLIC_URL + '/fotobudka/2.jpg',
+      url: process.env.PUBLIC_URL + '/fotobudka/profesjonalna-fotobudka-w-zakopanem.jpg',
+      alt: 'profesjonalna fotobudka w zakopanem',
     },
     {
       id: 3,
-      url: process.env.PUBLIC_URL + '/fotobudka/1.jpg',
+      url: process.env.PUBLIC_URL + '/fotobudka/fotobudka-rozkreci-impreze.jpg',
+      alt: 'fotobudka-rozkreci-impreze',
     },
     {
       id: 4,
-      url: process.env.PUBLIC_URL + '/fotobudka/7.jpg',
+      url: process.env.PUBLIC_URL + '/fotobudka/czym-jest-fotobudka.jpg',
+      alt: 'czym jest fotobudka?',
     },
   ];
 

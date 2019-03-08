@@ -3,7 +3,7 @@ import React from 'react';
 export default class FotobudkaPrices extends React.Component {
   render() {
     return (
-      <div id="fb-offer" className="fotobudka-prices">
+      <section id="fb-offer" className="fotobudka-prices">
         <div className="container">
           <h2>Oferta</h2>
           <div className="fotobudka-container">
@@ -12,13 +12,9 @@ export default class FotobudkaPrices extends React.Component {
               <div className="fotobudka-body">
                 <div>Duży wybór gadżetów!</div>
                 <div>Zdjęcia bez limitu</div>
-                <div>
-                  <strong>Galeria on-line</strong>
-                </div>
+                <div>Galeria on-line</div>
                 <div>Opieka asystenta</div>
-                <div>
-                  <strong>Dojazd</strong> do 20km
-                </div>
+                <div>Dojazd do 20km</div>
                 <div className="fotobudka-empty helper helper-height">X</div>
                 <div className="fotobudka-empty helper">X</div>
                 <div className="fotobudka-empty">X</div>
@@ -94,7 +90,7 @@ export default class FotobudkaPrices extends React.Component {
             </p>
           </div>
         </div>
-      </div>
+      </section>
     );
   }
 }

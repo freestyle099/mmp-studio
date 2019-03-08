@@ -70,7 +70,7 @@ export default class FBNavigation extends React.Component {
       <div>
         <div className="logo-phone">
           <NavLink onClick={this.goToTop} className="brand-logo" to="/fotobudka/">
-            <img src={process.env.PUBLIC_URL + '/logo_fotobudka.png'} alt="" />
+            <img src={process.env.PUBLIC_URL + '/fotobudka-zakopane.png'} alt="" />
           </NavLink>
         </div>
         <div className={this.state.showMenu ? 'menu-button menu-button-show' : 'menu-button'} onClick={this.showMenu}>
@@ -129,7 +129,7 @@ export default class FBNavigation extends React.Component {
                 </li>
                 <li className="logo-container">
                   <Link onClick={this.goToTop} className="brand-logo" to="/fotobudka/">
-                    <img src={process.env.PUBLIC_URL + '/logo_fotobudka.png'} alt="" />
+                    <img src={process.env.PUBLIC_URL + '/fotobudka-zakopane.png'} alt="fotobudka zakopane" />
                   </Link>
                 </li>
                 <li>

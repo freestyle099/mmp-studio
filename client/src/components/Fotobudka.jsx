@@ -42,7 +42,6 @@ export default class Fotobudka extends React.Component {
             name="description"
             content="Szukasz profesjonalnego urządzenia do robienia zdjęć na weselach ? Na stronie mmpstudio.pl znajdziesz fotobudkę właśnie na Twoje wesele! To fotobudka rozkręci Twoją imprezę i pozwoli gościom zapamiętać ją na długo! Każde selfie drukowane jest w parę sekund!"
           />
-          <meta name="robots" content="index, nofollow" />
         </Helmet>
         <div className="con-fb">
           <SmallCarousel images={this.images} />

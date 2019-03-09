@@ -21,7 +21,6 @@ export default class FotobudkaGallery extends React.Component {
             name="description"
             content="Zapraszamy do obejrzenia galerii zdjęć z magicznego urządzenia jakim jest Fotobudka. Wejdź na stronę i zobacz zdjęcia z fotobudki, może na następnej imprezie będzie właśnie u Ciebie?"
           />
-          <meta name="robots" content="index, nofollow" />
         </Helmet>
         <FBNavigation />
         {this.state.images && <Lightbox images={this.state.images} />}

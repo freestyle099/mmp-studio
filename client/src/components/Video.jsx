@@ -83,7 +83,6 @@ export default class Video extends React.Component {
             name="description"
             content="Zobacz filmy zrealizowane na weselach, studniówkach itp. Nasze filmy są profesjonalnie zmontowane i perfekcyjnie uchwyciły każdą chwilę, aby każdy mógł przeżyć je na nowo. "
           />
-          <meta name="robots" content="index, nofollow" />
         </Helmet>
         <Navigation />
         <h2>Wideo</h2>

@@ -34,7 +34,6 @@ export default class Jubiler extends React.Component {
             name="description"
             content="Szukasz biżuterii swoich marzeń? Zajmujemy się wyrobem biżuterii złotej, srebrnej, różnego typu obrączki, wisiorki, naszyjniki itp. Potrzebujesz biżuterii m.in. na wesela, na zaręczyny czy na własną wymarzoną okazję? Na naszej stronie znajdziesz biżuterię skomponowaną właśnie dla Ciebie!"
           />
-          <meta name="robots" content="index, nofollow" />
         </Helmet>
         <div className="con-jub">
           <SmallCarousel images={this.images} />

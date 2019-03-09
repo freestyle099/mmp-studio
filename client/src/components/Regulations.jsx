@@ -13,7 +13,7 @@ export default class Regulations extends React.Component {
         <div className="container regulation">
           <p>
             Niniejszy Regulamin został przygotowany w oparciu o przepisy prawa obowiązujące na terytorium Rzeczpospolitej Polskiej i określa zasady strony firmowej MMPstudio, MMPfotobudka oraz
-            MMPjubiler funkcjonujących pod domenami http://www.mmpstudio.pl, http://www.fotobudka.mmpstudio.pl oraz http://www.jubiler.mmpstudio.pl.
+            MMPjubiler funkcjonujących pod domenami https://www.mmpstudio.pl, https://www.mmpstudio.pl/fotobudka oraz https://www.mmpstudio.pl/jubiler .
           </p>
           <p>Regulamin określa obowiązki i zakres odpowiedzialności jako podmiotu zarządzającego i prowadzącego stronę.</p>
           <p>1. Administratorem strony jest MMPstudio Michał Fornalski zarejestrowana w Kościelisku przy ul. Pod Blachówką 2, Kościelisko 34-511, NIP: PL736-170-53-69, REGON: 123106370.</p>
@@ -53,3 +53,7 @@ export default class Regulations extends React.Component {
     );
   }
 }
+
+// v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC1QzmFZC7aSxtVV797t5KufUJpO/l25/PR2WiwS+WCQOYlWJirzGHHI0E2wDRc+ovlhW0JomMVH/6y41PW0eF1aA2Ukm6sLwn7Orm/MPfa4mebcu4RmrKWH6GINvjyLzieoBsoFk8K3RKYLP8r04b8Y1elQTlhrATYX15cAHKxSwIDAQAB;
+
+// v=spf1 mx a include:mail30.mydevil.net -all

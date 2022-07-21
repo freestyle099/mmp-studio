@@ -10,6 +10,7 @@
         >
           <nuxt-link
             class="nav__link"
+            exact
             :to="item.url"
           >
             {{ item.name }}

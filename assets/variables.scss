@@ -1,0 +1,96 @@
+// Custom variables
+$button-inner-shadow: rgba(0, 0, 0, 0.16);
+$cubic-bezier: cubic-bezier(0, -0.2, 0.3, 1);
+$cover-color: rgba(0, 0, 0, 0.5);
+
+@import '~vuetify/src/styles/settings/_variables';
+@import '~vuetify/src/styles/elements/_typography.sass';
+@import 'mixins';
+@import 'utilities';
+
+$headings: (
+  'h1': (
+    'size': 1.5rem,
+    'line-height': 1.34,
+    'weight': 900,
+  ),
+  'h2': (
+    'size': 1.25rem,
+    'line-height': 1.4,
+    'weight': 900,
+  ),
+  'h3': (
+    'size': 1rem,
+    'line-height': 1.5,
+    'weight': 900,
+    'letter-spacing': initial,
+  ),
+  'h4': (
+    'size': 1.25rem,
+    'line-height': 1.2,
+    'weight': 900,
+    'letter-spacing': initial,
+  ),
+  'h5': (
+    'size': 1.125rem,
+    'line-height': 1.12,
+    'weight': 900,
+    'letter-spacing': initial,
+  ),
+  'button': (
+    'size': 1rem,
+    'weight': 900,
+    'text-transform': unset,
+    'letter-spacing': initial,
+  ),
+  'body-1': (
+    'letter-spacing': initial,
+  ),
+  'body-2': (
+    'letter-spacing': initial,
+  ),
+);
+
+$body-font-family: 'Lato', sans-serif;
+$heading-font-family: 'Lato', sans-serif;
+
+// Breakpoints
+$xl-only: map-get($display-breakpoints, 'xl-only');
+$lg-and-up: map-get($display-breakpoints, 'lg-and-up');
+$md-only: map-get($display-breakpoints, 'md-only');
+$md-and-up: map-get($display-breakpoints, 'md-and-up');
+$sm-only: map-get($display-breakpoints, 'sm-only');
+$sm-larger: 'only screen and (min-width: 47.5em)';
+$sm-and-up: map-get($display-breakpoints, 'sm-and-up');
+$xs-only: map-get($display-breakpoints, 'xs-only');
+
+.v-application {
+  @media #{$md-and-up} {
+    h1.text-h1 {
+      font-size: 2.5rem !important;
+    }
+    h1.text-md-h2,
+    h2.text-h2,
+    h3.text-h2 {
+      font-size: 2rem !important;
+    }
+    h2.text-md-h3,
+    h3.text-h3,
+    div.text-h3,
+    p.text-h3 {
+      font-size: 1.5rem !important;
+    }
+    h2.text-md-h4,
+    h3.text-md-h4,
+    h4.text-md-h4 {
+      font-size: 1.25rem !important;
+    }
+    h2.text-md-h5,
+    h3.text-md-h5 {
+      font-size: 1.125rem !important;
+    }
+    h3.text-md-body-1 {
+      font-size: 1rem !important;
+    }
+  }
+}

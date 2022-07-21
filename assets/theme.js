@@ -1,0 +1,16 @@
+export default {
+  primary: '#40c4ff',
+  secondary: '#4F7483',
+  'header-color': '#001E2B',
+  body: '#585E62',
+  background: '#F6F7FA',
+  blue: '#5298E0',
+  red: '#EB6062',
+  'yellow-color': '#F7D141',
+  white: '#ffffff',
+  border: '#E6ECF4',
+  'icon-color': '#2C64AE',
+  green: '#9CC959',
+  ocean: '#6BE1C5',
+  gray: '#ACB7DB',
+};

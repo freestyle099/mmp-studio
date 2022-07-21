@@ -1,23 +1,10 @@
 <template>
   <nav class="nav">
-    <div
-      v-if="navItems.filter((el) => el.active && el.subMenu).length"
-      class="nav__submenu px-10"
-    >
-      <ul>
-        <li
-          v-for="item in navItems.filter((el) => el.active && el.subMenu)"
-          :key="item.id"
-        >
-          <nuxt-link :to="item.url">{{ item.name }}</nuxt-link>
-        </li>
-      </ul>
-    </div>
     <div class="nav__menu d-flex justify-space-between align-center px-10">
       <mmp-logo />
       <ul class="nav__list">
         <li
-          v-for="item in navItems.filter((el) => el.active && !el.subMenu)"
+          v-for="item in navItems.filter((el) => el.active)"
           :key="item.id"
           class="nav__item text-body-1 font-weight-bold"
         >

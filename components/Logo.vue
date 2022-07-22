@@ -1,7 +1,10 @@
 <template>
-  <nuxt-link to="/">
+  <nuxt-link
+    class="logo d-flex"
+    to="/"
+  >
     <img
-      class="logo"
+      class="logo__image"
       src="/logo.png"
       alt=""
     />
@@ -16,7 +19,10 @@ export default {
 
 <style scoped lang="scss">
 .logo {
-  width: 200px;
-  object-fit: contain;
+  &__image {
+    width: 200px;
+    height: 50px;
+    object-fit: contain;
+  }
 }
 </style>

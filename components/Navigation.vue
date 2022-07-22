@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-15">
+  <div class="nav__wrapper pt-15">
     <nav
       class="nav d-flex justify-space-between align-center white px-6"
       :class="{
@@ -109,6 +109,9 @@ export default {
   width: 100%;
   z-index: 2;
   transition: 0.2s $cubic-bezier;
+  &__wrapper :deep(.v-navigation-drawer) {
+    height: calc(100 * var(--vh)) !important;
+  }
   &--active {
     transform: translateY(-100%);
   }

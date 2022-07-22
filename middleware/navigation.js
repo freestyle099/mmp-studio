@@ -6,9 +6,9 @@ export default {
         { id: 2, name: 'O nas', url: '/o-nas', active: true },
         { id: 3, name: 'Kontakt', url: '/kontakt', active: true },
         { id: 4, name: 'Galeria', url: '/galeria', active: true },
-        { id: 3, name: 'Wideo', url: '/wideo', active: true },
+        { id: 5, name: 'Wideo', url: '/wideo', active: true },
         // TODO: # and external urls
-        { id: 3, name: 'Strefa Klienta', url: '/', active: true },
+        { id: 6, name: 'Strefa Klienta', url: '/', active: true },
       ],
       socialItems: [
         {

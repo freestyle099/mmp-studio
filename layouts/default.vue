@@ -3,18 +3,21 @@
     <mmp-desktop-navigation v-show="$vuetify.breakpoint.mdAndUp" />
     <mmp-navigation v-show="!$vuetify.breakpoint.mdAndUp" />
     <nuxt-child></nuxt-child>
+    <mmp-footer />
     <mmp-go-to-top />
   </v-app>
 </template>
 
 <script>
 import MmpDesktopNavigation from '~/components/DesktopNavigation';
+import MmpFooter from '~/components/Footer';
 import MmpGoToTop from '~/components/GoToTop';
 import MmpNavigation from '~/components/Navigation';
 
 export default {
   name: 'MmpDefault',
   components: {
+    MmpFooter,
     MmpDesktopNavigation,
     MmpNavigation,
     MmpGoToTop,

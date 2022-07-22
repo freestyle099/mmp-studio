@@ -1,42 +1,36 @@
 <template>
   <v-main>
-    <v-container>
-      <h1>MMP Studio</h1>
-      <img
-        class="temp"
-        v-for="image in homePage.carousel"
-        :key="image.id"
-        :src="image.responsiveImage.src"
-        :alt="image.responsiveImage.alt"
-        :srcset="image.responsiveImage.webpSrcSet"
-      />
-      <h2>{{ homePage.aboutUsTitle }}</h2>
-      <div v-html="sanitizeText(homePage.aboutUsDescription)" />
-      <h2>{{ homePage.whyUs }}</h2>
-      <ul>
-        <li
-          v-for="item in allAboutItems"
-          :key="item.id"
-        >
-          <h3>{{ item.title }}</h3>
-          <div v-html="sanitizeText(item.description)" />
-        </li>
-      </ul>
-      <h2>{{ homePage.contact }}</h2>
-      <div v-html="sanitizeText(homePage.contactDescription)" />
-      <h2>{{ homePage.form }}</h2>
-    </v-container>
+    <mmp-carousel :items="homePage.carousel" />
+    <mmp-about-us
+      :title="homePage.aboutUsTitle"
+      :image="homePage.aboutUsImage"
+      :description="homePage.aboutUsDescription"
+    />
+    <mmp-why-us
+      :title="homePage.whyUs"
+      :items="allAboutItems"
+    />
+    <mmp-contact
+      :title="homePage.contact"
+      :description="homePage.contactDescription"
+    />
+    <mmp-form :title="homePage.form" />
   </v-main>
 </template>
 
 <script>
+import MmpAboutUs from '@/components/AboutUs';
+import MmpCarousel from '@/components/Carousel';
+import MmpContact from '@/components/Contact';
+import MmpForm from '@/components/Form';
+import MmpWhyUs from '@/components/WhyUs';
 import { request } from '~/datocms';
 import sanitizeText from '~/mixins/sanitizeText';
 import { HOME_QUERY } from '~/query/graphql';
 
 export default {
   name: 'MmpHome',
-  components: {},
+  components: { MmpForm, MmpContact, MmpWhyUs, MmpAboutUs, MmpCarousel },
   mixins: [sanitizeText],
   asyncData() {
     return new Promise((resolve, reject) => {
@@ -49,6 +43,16 @@ export default {
   },
   data() {
     return {
+      homePage: {
+        aboutUsTitle: '',
+        aboutUsImage: {},
+        aboutUsDescription: '',
+        whyUs: '',
+        contact: '',
+        contactDescription: '',
+        form: '',
+      },
+      allAboutItems: [],
       title: '',
       description: '',
     };

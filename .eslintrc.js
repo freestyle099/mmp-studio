@@ -18,6 +18,7 @@ module.exports = {
     'no-param-reassign': 'off',
     'no-unused-selector': 'off',
     'vue/multi-word-component-names': 'off',
+    'vue/no-v-text-v-html-on-component': 'off',
     'no-console':
       process.env.NODE_ENV === 'production'
         ? ['error', { allow: ['warn', 'error', 'info'] }]
@@ -38,4 +39,4 @@ module.exports = {
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
   },
-}
+};

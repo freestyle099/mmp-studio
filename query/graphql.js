@@ -3,7 +3,7 @@ query Home {
   homePage {
     carousel {
       id
-      responsiveImage {
+      responsiveImage(imgixParams: {auto: compress, w: "1600"}) {
         src
         alt
         webpSrcSet
@@ -11,6 +11,13 @@ query Home {
     }
     aboutUsTitle
     aboutUsDescription(markdown: true)
+    aboutUsImage {
+      responsiveImage(imgixParams: {auto: compress, w: "1600"}) {
+        src
+        alt
+        webpSrcSet
+      }
+    }
     whyUs
     contact
     contactDescription(markdown: true)
@@ -30,7 +37,7 @@ query Gallery {
     title
     images {
       id
-      responsiveImage{
+      responsiveImage(imgixParams: {auto: compress, w: "1600"}) {
         alt
         src
         webpSrcSet

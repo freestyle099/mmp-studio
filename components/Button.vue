@@ -33,7 +33,6 @@ export default {
 
 <style scoped lang="scss">
 .btn {
-  box-shadow: inset 0 -4px $button-inner-shadow !important;
   padding-bottom: 4px !important;
   min-height: 3rem;
   height: auto !important;

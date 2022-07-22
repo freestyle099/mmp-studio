@@ -4,9 +4,11 @@ $cubic-bezier: cubic-bezier(0, -0.2, 0.3, 1);
 $cover-color: rgba(0, 0, 0, 0.5);
 
 @import '~vuetify/src/styles/settings/_variables';
-@import '~vuetify/src/styles/elements/_typography.sass';
 @import 'mixins';
 @import 'utilities';
+
+$heading-font-family: 'Cinzel', serif;
+$body-font-family: 'Lato', sans-serif;
 
 $headings: (
   'h1': (
@@ -50,9 +52,6 @@ $headings: (
     'letter-spacing': initial,
   ),
 );
-
-$body-font-family: 'Lato', sans-serif;
-$heading-font-family: 'Lato', sans-serif;
 
 // Breakpoints
 $xl-only: map-get($display-breakpoints, 'xl-only');

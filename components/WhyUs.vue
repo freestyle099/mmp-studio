@@ -1,5 +1,5 @@
 <template>
-  <section class="why-us py-10">
+  <section class="why-us py-10 py-md-16">
     <v-container class="why-us__container">
       <h2 class="text-h2 text-center">{{ title }}</h2>
       <v-expansion-panels>

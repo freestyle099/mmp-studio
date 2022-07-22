@@ -1,6 +1,6 @@
 <template>
   <section
-    class="py-10"
+    class="py-10 py-md-16"
     id="kontakt"
   >
     <v-container>

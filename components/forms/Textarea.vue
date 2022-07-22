@@ -12,7 +12,7 @@
         :for="name"
         >{{ label }}
         <span
-          class="primary--text"
+          class="red--text"
           v-if="rules.includes('required')"
           >*</span
         >
@@ -87,8 +87,8 @@ export default {
   gap: 0.5rem;
   &__label,
   &__error {
-    font-size: clamp(0.875rem, 3vw, 1rem);
     font-weight: 700;
+    color: var(--v-body-base);
   }
   &__field {
     resize: none;

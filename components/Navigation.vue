@@ -46,7 +46,8 @@
             :key="item.id"
             class="nav__item mx-4 font-weight-bold"
             active-class="nav__item--active"
-            :to="item.url"
+            :to="item.to"
+            :href="item.href"
             :ripple="false"
           >
             <span>{{ item.name }}</span>

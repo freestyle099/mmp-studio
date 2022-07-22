@@ -51,6 +51,44 @@ export default {
   data() {
     return {
       currentImage: null,
+      title: 'Profesjonalny fotograf w Zakopanem - Portfolio',
+      description:
+        'Przedstawiam Państwu własne portfolio ze zdjęć zrobionych na różnych plenerach, weselach, komuniach, chrzcinach i różnego typu imprezach. Szukasz fotografa z pasją i zaangażowaniem? Wejdź na naszą stronę i mmpstudio.pl/galeria i zobacz naszą ofertę!',
+    };
+  },
+  head() {
+    return {
+      title: this.title,
+      meta: [
+        {
+          title: this.title,
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: this.title,
+        },
+        {
+          hid: 'apple-mobile-web-app-title',
+          name: 'apple-mobile-web-app-title',
+          content: this.title,
+        },
+        {
+          hid: 'og:site_name',
+          name: 'og:site_name',
+          content: this.title,
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.description,
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: this.description,
+        },
+      ],
     };
   },
   computed: {

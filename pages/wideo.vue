@@ -1,7 +1,7 @@
 <template>
-  <section class="video">
+  <section class="video background py-10 py-md-16">
     <v-container>
-      <h1>{{ videoPage.title }}</h1>
+      <h1 class="text-h1 mb-10">{{ videoPage.title }}</h1>
       <div class="video__videos">
         <iframe
           class="video__video"
@@ -30,6 +30,48 @@ export default {
         .then((data) => resolve(data))
         .catch((err) => reject(err));
     });
+  },
+  data() {
+    return {
+      title: 'MMPStudio - Galeria Wideo',
+      description:
+        'Zobacz filmy zrealizowane na weselach, studniówkach itp. Nasze filmy są profesjonalnie zmontowane i perfekcyjnie uchwyciły każdą chwilę, aby każdy mógł przeżyć je na nowo. ',
+    };
+  },
+  head() {
+    return {
+      title: this.title,
+      meta: [
+        {
+          title: this.title,
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: this.title,
+        },
+        {
+          hid: 'apple-mobile-web-app-title',
+          name: 'apple-mobile-web-app-title',
+          content: this.title,
+        },
+        {
+          hid: 'og:site_name',
+          name: 'og:site_name',
+          content: this.title,
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.description,
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: this.description,
+        },
+      ],
+    };
   },
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <section class="contact background py-10">
+  <section class="contact background py-10 py-md-16">
     <v-container class="contact__container">
       <h2 class="text-h2 text-center">{{ title }}</h2>
       <div

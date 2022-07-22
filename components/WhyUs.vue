@@ -8,7 +8,9 @@
           :key="item.id"
         >
           <v-expansion-panel-header>
-            <span class="text-h3 header-color--text text-left pr-2">
+            <span
+              class="text-body-1 font-weight-bold header-color--text text-left pr-2"
+            >
               {{ item.title }}
             </span>
           </v-expansion-panel-header>

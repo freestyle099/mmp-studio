@@ -11,10 +11,19 @@
           <nuxt-link
             class="nav__link"
             exact
-            :to="item.url"
+            v-if="item.to"
+            :to="item.to"
           >
             {{ item.name }}
           </nuxt-link>
+          <a
+            class="nav__link"
+            v-else
+            :href="item.href"
+            target="_blank"
+          >
+            {{ item.name }}
+          </a>
         </li>
       </ul>
     </div>

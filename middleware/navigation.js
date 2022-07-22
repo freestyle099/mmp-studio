@@ -2,13 +2,17 @@ export default {
   data() {
     return {
       navItems: [
-        { id: 1, name: 'Strona główna', url: '/', active: true },
-        { id: 2, name: 'O nas', url: '/o-nas', active: true },
-        { id: 3, name: 'Kontakt', url: '/kontakt', active: true },
-        { id: 4, name: 'Galeria', url: '/galeria', active: true },
-        { id: 5, name: 'Wideo', url: '/wideo', active: true },
-        // TODO: # and external urls
-        { id: 6, name: 'Strefa Klienta', url: '/', active: true },
+        { id: 1, name: 'Strona główna', to: '/', active: true },
+        { id: 2, name: 'O nas', to: '/#o-nas', active: true },
+        { id: 3, name: 'Kontakt', to: '/#kontakt', active: true },
+        { id: 4, name: 'Galeria', to: '/galeria', active: true },
+        { id: 5, name: 'Wideo', to: '/wideo', active: true },
+        {
+          id: 6,
+          name: 'Strefa Klienta',
+          href: 'https://strefaklienta.mmpstudio.pl/',
+          active: true,
+        },
       ],
       socialItems: [
         {

@@ -21,6 +21,7 @@
     "sanitize-html": "^2.7.1",
     "vee-validate": "^3.4.14",
     "vue": "^2.7.8",
+    "vue-cool-lightbox": "^2.7.5",
     "vuetify": "^2.6.7"
   },
   "devDependencies": {

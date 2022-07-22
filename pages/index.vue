@@ -3,6 +3,7 @@
     <mmp-carousel :items="homePage.carousel" />
     <mmp-about-us
       :title="homePage.aboutUsTitle"
+      :subtitle="homePage.aboutUsSubtitle"
       :image="homePage.aboutUsImage"
       :description="homePage.aboutUsDescription"
     />
@@ -45,6 +46,7 @@ export default {
     return {
       homePage: {
         aboutUsTitle: '',
+        aboutUsSubtitle: '',
         aboutUsImage: {},
         aboutUsDescription: '',
         whyUs: '',
@@ -53,8 +55,9 @@ export default {
         form: '',
       },
       allAboutItems: [],
-      title: '',
-      description: '',
+      title: 'MMPStudio - Profesjonalny fotograf w Zakopanem',
+      description:
+        'Szukasz fotografa na własną imprezę? Oferujemy profesjonalne robienie zdjęć na weselach, komuniach, chrzcinach i różnego typu imprezach. Fotografią zajmujemy się już kilka lat. Doświadczenie i pełne zaangażowanie to nasze atuty! Sprawdź naszą ofertę!',
     };
   },
   head() {

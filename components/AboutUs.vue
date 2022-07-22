@@ -1,14 +1,25 @@
 <template>
-  <section class="about background py-10 py-md-16">
+  <section
+    class="about background py-10 py-md-16"
+    id="o-nas"
+  >
     <v-container class="about__container">
-      <h2 class="text-h2 text-center">{{ title }}</h2>
+      <div>
+        <h1 class="text-h1 text-center">{{ title }}</h1>
+        <h2 class="text-h3 primary--text text-center">
+          {{ subtitle }}
+        </h2>
+      </div>
       <img
         class="about__image"
         :src="headerImage.src"
         :alt="headerImage.alt"
         :srcset="headerImage.webpSrcSet"
       />
-      <div v-html="sanitizeText(description)" />
+      <div
+        class="text-center"
+        v-html="sanitizeText(description)"
+      />
     </v-container>
   </section>
 </template>
@@ -21,6 +32,10 @@ export default {
   mixins: [sanitizeText],
   props: {
     title: {
+      type: String,
+      required: true,
+    },
+    subtitle: {
       type: String,
       required: true,
     },

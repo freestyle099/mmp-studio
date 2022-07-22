@@ -1,8 +1,11 @@
 <template>
   <section class="contact background py-10">
-    <v-container>
-      <h2>{{ title }}</h2>
-      <div v-html="sanitizeText(description)" />
+    <v-container class="contact__container">
+      <h2 class="text-h2 text-center">{{ title }}</h2>
+      <div
+        class="text-center"
+        v-html="sanitizeText(description)"
+      />
     </v-container>
   </section>
 </template>
@@ -26,4 +29,11 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+.contact {
+  &__container {
+    display: grid;
+    gap: 2.5rem;
+  }
+}
+</style>

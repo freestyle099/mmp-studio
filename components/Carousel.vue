@@ -43,7 +43,7 @@ export default {
 <style scoped lang="scss">
 .carousel {
   :deep(.v-image) {
-    height: clamp(300px, 40vw, 100vh) !important;
+    height: clamp(300px, 50vw, calc(90 * var(--vh))) !important;
   }
   &__image {
     width: 100%;

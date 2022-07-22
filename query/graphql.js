@@ -10,6 +10,7 @@ query Home {
       }
     }
     aboutUsTitle
+    aboutUsSubtitle
     aboutUsDescription(markdown: true)
     aboutUsImage {
       responsiveImage(imgixParams: {auto: compress, w: "1600"}) {
@@ -57,4 +58,31 @@ query Video {
     url
   }
 }
+`;
+
+export const REGULATIONS_QUERY = `
+query Regulations {
+  regulation {
+    description(markdown: true)
+  }
+}
+`;
+
+export const RECOMMEND_QUERY = `
+query Recommend {
+  allRecommends {
+    id
+    image {
+      responsiveImage(imgixParams: {auto: compress, w: "1600"}) {
+        src
+        alt
+        webpSrcSet
+      }
+    }
+    title
+    urlTitle
+    url
+  }
+}
+
 `;

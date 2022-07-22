@@ -16,7 +16,7 @@ export default {
       ],
       socialItems: [
         {
-          id: 1,
+          id: 2,
           name: 'facebook',
           url: 'https://www.facebook.com/mmpzakopane',
         },

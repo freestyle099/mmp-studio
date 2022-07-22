@@ -3,7 +3,7 @@ query Home {
   homePage {
     carousel {
       id
-      responsiveImage(imgixParams: {auto: compress, w: "1600"}) {
+      responsiveImage(imgixParams: {auto: enhance, w: "2000"}) {
         src
         alt
         webpSrcSet
@@ -38,7 +38,7 @@ query Gallery {
     title
     images {
       id
-      responsiveImage(imgixParams: {auto: compress, w: "1600"}) {
+      responsiveImage(imgixParams: {auto: enhance, w: "2000"}) {
         alt
         src
         webpSrcSet

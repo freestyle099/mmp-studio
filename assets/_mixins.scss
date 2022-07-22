@@ -1,0 +1,8 @@
+@mixin generateButtonVariant($class, $bg-color, $color) {
+  &--#{$class} {
+    &:hover {
+      background-color: var(--v-#{$bg-color}-base) !important;
+      color: var(--v-#{$color}-base) !important;
+    }
+  }
+}

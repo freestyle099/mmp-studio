@@ -1,0 +1,39 @@
+@font-face {
+  font-family: 'Lato';
+  src: url('~assets/fonts/Lato-Regular.woff2') format('woff2'),
+    url('~assets/fonts/Lato-Regular.woff') format('woff'),
+    url('~assets/fonts/Lato-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('~assets/fonts/Lato-Bold.woff2') format('woff2'),
+    url('~assets/fonts/Lato-Bold.woff') format('woff'),
+    url('~assets/fonts/Lato-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cinzel';
+  src: url('~assets/fonts/Cinzel-Regular.woff2') format('woff2'),
+    url('~assets/fonts/Cinzel-Regular.woff') format('woff'),
+    url('~assets/fonts/Cinzel-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cinzel';
+  src: url('~assets/fonts/Cinzel-Bold.woff2') format('woff2'),
+    url('~assets/fonts/Cinzel-Bold.woff') format('woff'),
+    url('~assets/fonts/Cinzel-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}

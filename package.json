@@ -1,39 +1,53 @@
 {
-  "name": "mmp-studio",
+  "name": "mmpstudio",
   "version": "1.0.0",
-  "description": "Here begins a very nice looking page of photographs by Michał Fornalski Jr.",
-  "main": "app.js",
+  "private": true,
   "scripts": {
-    "start": "node app.js",
-    "server": "nodemon app.js",
-    "client": "npm run start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
+    "lint": "yarn lint:js",
+    "test": "jest"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/freestyle09/mmp-studio.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/freestyle09/mmp-studio/issues"
-  },
-  "homepage": "https://github.com/freestyle09/mmp-studio#readme",
   "dependencies": {
-    "body-parser": "^1.18.3",
-    "concurrently": "^4.0.1",
-    "config": "^3.0.1",
-    "express": "^4.16.4",
-    "joi": "^14.3.0",
-    "node": "^8.12.0",
-    "nodemailer": "^4.6.8"
+    "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/svg-sprite": "^0.5.2",
+    "core-js": "^3.15.1",
+    "graphql": "^16.5.0",
+    "graphql-request": "^4.3.0",
+    "nuxt": "^2.15.7",
+    "sanitize-html": "^2.7.1",
+    "vee-validate": "^3.4.14",
+    "vue": "^2.7.8",
+    "vue-cool-lightbox": "^2.7.5",
+    "vuetify": "^2.6.7"
   },
   "devDependencies": {
-    "mongoose": "^5.3.6",
-    "prettier": "^1.14.3"
-  },
-  "prettier": {
-    "singleQuote": true
+    "@babel/eslint-parser": "^7.14.7",
+    "@nuxtjs/eslint-config": "^8.0.0",
+    "@nuxtjs/eslint-module": "^3.0.2",
+    "@nuxtjs/vuetify": "^1.12.1",
+    "@vue/cli-plugin-eslint": "^4.5.19",
+    "@vue/eslint-config-prettier": "^7.0.0",
+    "@vue/test-utils": "^1.2.1",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^27.0.5",
+    "eslint": "^7.29.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-nuxt": "^2.0.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-vue": "^9.2.0",
+    "eslint-plugin-vue-scoped-css": "^2.2.0",
+    "jest": "^27.0.5",
+    "lru-cache": "^7.13.1",
+    "minify-css-string": "^1.0.0",
+    "prettier": "^2.3.2",
+    "sass": "^1.53.0",
+    "sass-loader": "^10.3.1",
+    "vue-jest": "^3.0.4"
   }
 }

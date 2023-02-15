@@ -43,7 +43,8 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     baseURL:
-      process.env.NODE_ENV === 'production'
+      process.env.NODE_ENV === 'production' ||
+      process.env.NODE_ENV === 'staging'
         ? 'https://api.mmpstudio.pl'
         : 'http://localhost:8000',
   },

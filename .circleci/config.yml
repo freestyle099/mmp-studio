@@ -1,0 +1,138 @@
+version: 2
+
+jobs:
+  production:
+    docker:
+      - image: cimg/node:16.18.0
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - yarn-v1-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install dependencies
+          command: yarn --frozen-lockfile --cache-folder ~/.cache/yarn
+      - save_cache:
+          key: yarn-v1-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+      - run:
+          name: Run linter
+          command: yarn lint
+      - run:
+          name: Run build
+          command: yarn build
+      - run:
+          name: Save build folder
+          command: tar -czvf build.tar.gz .nuxt package.json yarn.lock datocms.js .env.production
+      - run:
+          name: Add the server to known hosts
+          command: ssh-keyscan -H $SSH_HOST >> ~/.ssh/known_hosts
+      - run:
+          name: Copy files to the server
+          command: scp -r -i ~/.ssh/id_rsa build.tar.gz $SSH_USER@$SSH_HOST:domains/$PROJECT_NAME/public_nodejs
+      - run:
+          name: Deploy over SSH
+          command: |
+            ssh $SSH_USER@$SSH_HOST << EOF
+            cd domains/$PROJECT_NAME/public_nodejs
+            tar -xzvf build.tar.gz
+            rm -rf build.tar.gz public tmp app.js
+            yarn
+            echo 'require("@nuxt/cli").run(["start"]);' >> app.js
+            devil www restart $PROJECT_NAME
+            EOF
+
+  development:
+    docker:
+      - image: cimg/node:16.18.0
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - yarn-v1-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install dependencies
+          command: yarn --frozen-lockfile --cache-folder ~/.cache/yarn
+      - save_cache:
+          key: yarn-v1-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+      - run:
+          name: Run linter
+          command: yarn lint
+      - run:
+          name: Run build
+          command: yarn build:dev
+      - run:
+          name: Save build folder
+          command: tar -czvf build.tar.gz .nuxt package.json yarn.lock datocms.js .env.staging
+      - run:
+          name: Add the server to known hosts
+          command: ssh-keyscan -H $SSH_HOST >> ~/.ssh/known_hosts
+      - run:
+          name: Copy files to the server
+          command: scp -r -i ~/.ssh/id_rsa build.tar.gz  $SSH_USER@$SSH_HOST:domains/$DEV_PROJECT_NAME/public_nodejs
+      - run:
+          name: Deploy over SSH
+          command: |
+            ssh $SSH_USER@$SSH_HOST << EOF
+            cd domains/$DEV_PROJECT_NAME/public_nodejs
+            tar -xzvf build.tar.gz
+            rm -rf build.tar.gz public tmp app.js
+            yarn
+            echo 'require("@nuxt/cli").run(["start"]);' >> app.js
+            devil www restart $DEV_PROJECT_NAME
+            EOF
+  webserver:
+    docker:
+      - image: cimg/node:16.18.0
+    steps:
+      - checkout
+      - run:
+          name: Add the server to known hosts
+          command: ssh-keyscan -H $SSH_HOST >> ~/.ssh/known_hosts
+      - run:
+          name: Build archive
+          command: |
+            cd webserver
+            tar -czvf webserver.tar.gz app.js package.json yarn.lock routes templates
+      - run:
+          name: Copy files to the server
+          command: |
+            cd webserver
+            scp -r -i ~/.ssh/id_rsa webserver.tar.gz $SSH_USER@$SSH_HOST:domains/$API_PROJECT_NAME/public_nodejs
+      - run:
+          name: Deploy API over SSH
+          command: |
+            ssh $SSH_USER@$SSH_HOST << EOF
+            cd domains/$API_PROJECT_NAME/public_nodejs
+            tar -xzvf webserver.tar.gz
+            rm -rf webserver.tar.gz public tmp
+            if ! grep -q 'export MMPSTUDIO_SENDGRID' ~/.bash_profile; then echo 'export MMPSTUDIO_SENDGRID=$SENDGRID_TOKEN' >> ~/.bash_profile
+            fi
+            yarn
+            devil www restart $API_PROJECT_NAME
+            EOF
+workflows:
+  version: 2
+  ci:
+    jobs:
+      - production:
+          filters:
+            branches:
+              only:
+                - main
+                - master
+      - development:
+          filters:
+            branches:
+              only:
+                - dev
+      - webserver:
+          filters:
+            branches:
+              only:
+                - main
+                - master
+                - dev

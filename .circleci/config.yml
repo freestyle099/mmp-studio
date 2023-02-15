@@ -24,7 +24,7 @@ jobs:
           command: yarn build
       - run:
           name: Save build folder
-          command: tar -czvf build.tar.gz .nuxt package.json yarn.lock datocms.js .env.production
+          command: tar -czvf build.tar.gz .nuxt package.json yarn.lock datocms.js .env.production static
       - run:
           name: Add the server to known hosts
           command: ssh-keyscan -H $SSH_HOST >> ~/.ssh/known_hosts
@@ -66,7 +66,7 @@ jobs:
           command: yarn build:dev
       - run:
           name: Save build folder
-          command: tar -czvf build.tar.gz .nuxt package.json yarn.lock datocms.js .env.staging
+          command: tar -czvf build.tar.gz .nuxt package.json yarn.lock datocms.js .env.staging static
       - run:
           name: Add the server to known hosts
           command: ssh-keyscan -H $SSH_HOST >> ~/.ssh/known_hosts

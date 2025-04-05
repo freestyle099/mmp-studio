@@ -23,8 +23,8 @@
         >
       </div>
       <div class="footer__copyright">
-        Copyright &copy; {{ new Date().getFullYear() }} by MMPStudio | All
-        rights reserved.
+        <p>Fotograf MMPStudio - Fotografia Biznesowa | Produktywna | Fotograf Ślubny | Sesje Zdjęciowe Zakopane</p>
+        <p>Copyright &copy; {{ new Date().getFullYear() }} by MMPStudio | All rights reserved.</p>
       </div>
     </v-container>
   </footer>

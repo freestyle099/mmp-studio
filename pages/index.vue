@@ -27,6 +27,7 @@ import MmpForm from '@/components/Form';
 import MmpWhyUs from '@/components/WhyUs';
 import { request } from '~/datocms';
 import sanitizeText from '~/mixins/sanitizeText';
+import seoMixin from '~/mixins/seo.mixin';
 import { HOME_QUERY } from '~/query/graphql';
 
 export default {
@@ -62,6 +63,7 @@ export default {
   },
   head() {
     return {
+      ...seoMixin,
       title: this.title,
       meta: [
         {
